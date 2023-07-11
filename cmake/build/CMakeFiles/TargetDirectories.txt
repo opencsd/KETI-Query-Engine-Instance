@@ -1,0 +1,5 @@
+/root/workspace/DB-Connector-Instance/db_connector_instance/cmake/build/CMakeFiles/ss_grpc_proto.dir
+/root/workspace/DB-Connector-Instance/db_connector_instance/cmake/build/CMakeFiles/db_connector_instance.dir
+/root/workspace/DB-Connector-Instance/db_connector_instance/cmake/build/CMakeFiles/storage_engine_instance.dir
+/root/workspace/DB-Connector-Instance/db_connector_instance/cmake/build/CMakeFiles/edit_cache.dir
+/root/workspace/DB-Connector-Instance/db_connector_instance/cmake/build/CMakeFiles/rebuild_cache.dir
