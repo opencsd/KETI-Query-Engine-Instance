@@ -30,7 +30,6 @@ std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngine
         return "DB Open Error";
         }
         printf("[K-ODBC] K-OpenSource DB Connected!\n[K-ODBC] Using DBMS : \n");
-        // printf("[K-ODBC] Using DBMS : \n");
         system("mysql --version");
         // printf("\n");
         printf("[K-ODBC] DSN : %s\n", szDSN);

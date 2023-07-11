@@ -217,7 +217,7 @@ static int CloseDatabase( SQLHENV hEnv, SQLHDBC hDbc )
     return 1;
 }
 
-
+//Create Result Body
 static void WriteHeaderNormal(SQLHSTMT hStmt, SQLCHAR **szSepLine, std::string &res)
 {
     SQLINTEGER nCol = 0;

@@ -23,7 +23,7 @@ DB_Connector_Instance::DB_Connector_Instance(utility::string_t url):m_listener(u
 }
 DB_Connector_Instance::~DB_Connector_Instance()
 {
-    //dtor
+    /*dtor*/
 }
 
 void DB_Connector_Instance::handle_error(pplx::task<void>& t)
