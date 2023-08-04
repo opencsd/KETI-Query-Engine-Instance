@@ -24,6 +24,7 @@ namespace StorageEngineInstance {
 static const char* InterfaceContainer_method_names[] = {
   "/StorageEngineInstance.InterfaceContainer/SetSnippet",
   "/StorageEngineInstance.InterfaceContainer/Run",
+  "/StorageEngineInstance.InterfaceContainer/SetSnippetAndRun",
 };
 
 std::unique_ptr< InterfaceContainer::Stub> InterfaceContainer::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -35,6 +36,7 @@ std::unique_ptr< InterfaceContainer::Stub> InterfaceContainer::NewStub(const std
 InterfaceContainer::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
   : channel_(channel), rpcmethod_SetSnippet_(InterfaceContainer_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
   , rpcmethod_Run_(InterfaceContainer_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SetSnippetAndRun_(InterfaceContainer_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::CLIENT_STREAMING, channel)
   {}
 
 ::grpc::ClientReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>* InterfaceContainer::Stub::SetSnippetRaw(::grpc::ClientContext* context) {
@@ -76,6 +78,22 @@ void InterfaceContainer::Stub::async::Run(::grpc::ClientContext* context, const 
   return result;
 }
 
+::grpc::ClientWriter< ::StorageEngineInstance::SnippetRequest>* InterfaceContainer::Stub::SetSnippetAndRunRaw(::grpc::ClientContext* context, ::StorageEngineInstance::Result* response) {
+  return ::grpc::internal::ClientWriterFactory< ::StorageEngineInstance::SnippetRequest>::Create(channel_.get(), rpcmethod_SetSnippetAndRun_, context, response);
+}
+
+void InterfaceContainer::Stub::async::SetSnippetAndRun(::grpc::ClientContext* context, ::StorageEngineInstance::Result* response, ::grpc::ClientWriteReactor< ::StorageEngineInstance::SnippetRequest>* reactor) {
+  ::grpc::internal::ClientCallbackWriterFactory< ::StorageEngineInstance::SnippetRequest>::Create(stub_->channel_.get(), stub_->rpcmethod_SetSnippetAndRun_, context, response, reactor);
+}
+
+::grpc::ClientAsyncWriter< ::StorageEngineInstance::SnippetRequest>* InterfaceContainer::Stub::AsyncSetSnippetAndRunRaw(::grpc::ClientContext* context, ::StorageEngineInstance::Result* response, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncWriterFactory< ::StorageEngineInstance::SnippetRequest>::Create(channel_.get(), cq, rpcmethod_SetSnippetAndRun_, context, response, true, tag);
+}
+
+::grpc::ClientAsyncWriter< ::StorageEngineInstance::SnippetRequest>* InterfaceContainer::Stub::PrepareAsyncSetSnippetAndRunRaw(::grpc::ClientContext* context, ::StorageEngineInstance::Result* response, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncWriterFactory< ::StorageEngineInstance::SnippetRequest>::Create(channel_.get(), cq, rpcmethod_SetSnippetAndRun_, context, response, false, nullptr);
+}
+
 InterfaceContainer::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       InterfaceContainer_method_names[0],
@@ -97,6 +115,16 @@ InterfaceContainer::Service::Service() {
              ::StorageEngineInstance::Result* resp) {
                return service->Run(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      InterfaceContainer_method_names[2],
+      ::grpc::internal::RpcMethod::CLIENT_STREAMING,
+      new ::grpc::internal::ClientStreamingHandler< InterfaceContainer::Service, ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>(
+          [](InterfaceContainer::Service* service,
+             ::grpc::ServerContext* ctx,
+             ::grpc::ServerReader<::StorageEngineInstance::SnippetRequest>* reader,
+             ::StorageEngineInstance::Result* resp) {
+               return service->SetSnippetAndRun(ctx, reader, resp);
+             }, this)));
 }
 
 InterfaceContainer::Service::~Service() {
@@ -111,6 +139,13 @@ InterfaceContainer::Service::~Service() {
 ::grpc::Status InterfaceContainer::Service::Run(::grpc::ServerContext* context, const ::StorageEngineInstance::Request* request, ::StorageEngineInstance::Result* response) {
   (void) context;
   (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status InterfaceContainer::Service::SetSnippetAndRun(::grpc::ServerContext* context, ::grpc::ServerReader< ::StorageEngineInstance::SnippetRequest>* reader, ::StorageEngineInstance::Result* response) {
+  (void) context;
+  (void) reader;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }

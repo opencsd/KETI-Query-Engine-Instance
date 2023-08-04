@@ -51,10 +51,18 @@ std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngine
         auto snippet_list = Gen_Snippet(parsed_query);
         
         Send_Snippets(storageEngineInterface,*snippet_list,query_id);
-
         res = Get_Query_Result(storageEngineInterface,query_id);
+        // res = Send_Snippets_And_Get_Query_Result(storageEngineInterface, *snippet_list, query_id);
     }
     return res;
+}
+
+std::string Plan_Executer::Send_Snippets_And_Get_Query_Result(Storage_Engine_Interface &storageEngineInterface, std::list<SnippetRequest> &snippet_list, int query_id){
+    std::lock_guard<std::mutex> lock(gRPC_mutex);
+
+    std::string query_result = storageEngineInterface.SendSnippetAndRun(snippet_list, query_id);
+    
+    return query_result;
 }
 
 void Plan_Executer::Send_Snippets(Storage_Engine_Interface &storageEngineInterface,std::list<SnippetRequest> &snippet_list, int query_id){
@@ -74,6 +82,7 @@ std::string Plan_Executer::Get_Query_Result(Storage_Engine_Interface &storageEng
     // std::lock_guard<std::mutex> lock(mutex);
     return storageEngineInterface.Run(query_id);
 }
+
 int Plan_Executer::Set_Query_ID(){
     std::lock_guard<std::mutex> lock(mutex);
     return Query_ID++;
@@ -102,10 +111,6 @@ std::unique_ptr<std::list<SnippetRequest>> Plan_Executer::Gen_Snippet(Parsed_Que
         load_snippet(*ret,"tpch02-10");
         load_snippet(*ret,"tpch02-11");
         load_snippet(*ret,"tpch02-12");
-        load_snippet(*ret,"tpch02-13");
-        load_snippet(*ret,"tpch02-14");
-        load_snippet(*ret,"tpch02-15");
-        load_snippet(*ret,"tpch02-16");
     } else if (query_str == "TPC-H_03"){ //TPC-H Query 3
         load_snippet(*ret,"tpch03-0");
         load_snippet(*ret,"tpch03-1");
@@ -117,7 +122,6 @@ std::unique_ptr<std::list<SnippetRequest>> Plan_Executer::Gen_Snippet(Parsed_Que
         load_snippet(*ret,"tpch04-0");
         load_snippet(*ret,"tpch04-1");
         load_snippet(*ret,"tpch04-2");
-        load_snippet(*ret,"tpch04-3");
     } else if(query_str == "TPC-H_05"){ //TPC-H Query 5
         load_snippet(*ret,"tpch05-0");
         load_snippet(*ret,"tpch05-1");
@@ -199,16 +203,10 @@ std::unique_ptr<std::list<SnippetRequest>> Plan_Executer::Gen_Snippet(Parsed_Que
         load_snippet(*ret,"tpch11-5");
         load_snippet(*ret,"tpch11-6");
         load_snippet(*ret,"tpch11-7");
-        load_snippet(*ret,"tpch11-8");
-        load_snippet(*ret,"tpch11-9");
-        load_snippet(*ret,"tpch11-10");
-        load_snippet(*ret,"tpch11-11");
-        load_snippet(*ret,"tpch11-12");
     } else if(query_str == "TPC-H_12"){ //TPC-H Query 12
         load_snippet(*ret,"tpch12-0");
         load_snippet(*ret,"tpch12-1");
         load_snippet(*ret,"tpch12-2");
-        load_snippet(*ret,"tpch12-3");
     } else if(query_str == "TPC-H_13"){ //TPC-H Query 13
         load_snippet(*ret,"tpch13-0");
         load_snippet(*ret,"tpch13-1");
@@ -232,14 +230,11 @@ std::unique_ptr<std::list<SnippetRequest>> Plan_Executer::Gen_Snippet(Parsed_Que
         load_snippet(*ret,"tpch16-2");
         load_snippet(*ret,"tpch16-3");
         load_snippet(*ret,"tpch16-4");
-        load_snippet(*ret,"tpch16-5");
     } else if(query_str == "TPC-H_17"){ //TPC-H Query 17
         load_snippet(*ret,"tpch17-0");
         load_snippet(*ret,"tpch17-1");
         load_snippet(*ret,"tpch17-2");
         load_snippet(*ret,"tpch17-3");
-        load_snippet(*ret,"tpch17-4");
-        load_snippet(*ret,"tpch17-5");
     } else if(query_str == "TPC-H_18"){ //TPC-H Query 18
         load_snippet(*ret,"tpch18-0");
         load_snippet(*ret,"tpch18-1");
@@ -256,6 +251,12 @@ std::unique_ptr<std::list<SnippetRequest>> Plan_Executer::Gen_Snippet(Parsed_Que
         load_snippet(*ret,"tpch19-2");
         load_snippet(*ret,"tpch19-3");
         load_snippet(*ret,"tpch19-4");
+        load_snippet(*ret,"tpch19-5");
+        load_snippet(*ret,"tpch19-6");
+        load_snippet(*ret,"tpch19-7");
+        load_snippet(*ret,"tpch19-8");
+        load_snippet(*ret,"tpch19-9");
+        load_snippet(*ret,"tpch19-10");
     } else if(query_str == "TPC-H_20"){ //TPC-H Query 20
         load_snippet(*ret,"tpch20-0");
         load_snippet(*ret,"tpch20-1");
@@ -277,8 +278,6 @@ std::unique_ptr<std::list<SnippetRequest>> Plan_Executer::Gen_Snippet(Parsed_Que
         load_snippet(*ret,"tpch21-7");
         load_snippet(*ret,"tpch21-8");
         load_snippet(*ret,"tpch21-9");
-        load_snippet(*ret,"tpch21-10");
-        load_snippet(*ret,"tpch21-11");
     } else if(query_str == "TPC-H_22"){ //TPC-H Query 22
         load_snippet(*ret,"tpch22-0");
         load_snippet(*ret,"tpch22-1");
@@ -286,10 +285,12 @@ std::unique_ptr<std::list<SnippetRequest>> Plan_Executer::Gen_Snippet(Parsed_Que
         load_snippet(*ret,"tpch22-3");
         load_snippet(*ret,"tpch22-4");
         load_snippet(*ret,"tpch22-5");
-    } else if (query_str == "test_index_scan1"){ // Index Scan Test Snippet
-        load_snippet(*ret,"test_index_scan1");
-    } else if (query_str == "test_index_scan2"){ // Index Scan Test Snippet
-        load_snippet(*ret,"test_index_scan2");
+        load_snippet(*ret,"tpch22-6");
+        load_snippet(*ret,"tpch22-7");
+        load_snippet(*ret,"tpch22-8");
+        load_snippet(*ret,"tpch22-9");
+        load_snippet(*ret,"tpch22-10");
+        load_snippet(*ret,"tpch22-11");
     } else if (query_str == "test_lineitem"){ 
         load_snippet(*ret,"test_lineitem");
     } else if (query_str == "test_customer"){ 
@@ -306,10 +307,8 @@ std::unique_ptr<std::list<SnippetRequest>> Plan_Executer::Gen_Snippet(Parsed_Que
         load_snippet(*ret,"test_region");
     } else if (query_str == "test_supplier"){ 
         load_snippet(*ret,"test_supplier");
-    } else if (query_str == "lineitem_full_scan"){ 
-        load_snippet(*ret,"lineitem_full_scan");
-    } else if (query_str == "lineitem_index_scan"){ 
-        load_snippet(*ret,"lineitem_index_scan");
+    } else if (query_str == "test_tpch08-0"){ 
+        load_snippet(*ret,"test_tpch08-0");
     }
 	
     return ret;

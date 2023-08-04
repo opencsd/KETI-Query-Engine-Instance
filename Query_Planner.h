@@ -578,6 +578,9 @@ ORDER  BY cntrycode;");
         }else if(parsed_query.Get_Ori_Query() == "test_nation"){
             parsed_query.Set_Parsed_Query("");
           parsed_query.Set_Query_Type_As_PushdownQuery();
+        }else if(parsed_query.Get_Ori_Query() == "test_tpch08-0"){
+            parsed_query.Set_Parsed_Query("");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         }else { //Other Query
             parsed_query.Set_Parsed_Query(parsed_query.Get_Ori_Query().c_str());
         }

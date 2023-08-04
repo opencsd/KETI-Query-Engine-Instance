@@ -101,28 +101,24 @@ PROTOBUF_NAMESPACE_CLOSE
 namespace StorageEngineInstance {
 
 enum SnippetRequest_SnippetType : int {
-  SnippetRequest_SnippetType_SCAN_SNIPPET = 0,
+  SnippetRequest_SnippetType_CSD_SCAN_SNIPPET = 0,
   SnippetRequest_SnippetType_AGGREGATION_SNIPPET = 1,
-  SnippetRequest_SnippetType_INNER_JOIN_SNIPPET = 2,
-  SnippetRequest_SnippetType_LEFT_OUTER_JOIN_SNIPPET = 3,
-  SnippetRequest_SnippetType_RIGHT_OUTER_JOIN_SNIPPET = 4,
-  SnippetRequest_SnippetType_FULL_OUTER_JOIN_SNIPPET = 5,
-  SnippetRequest_SnippetType_DEPENDENCY_SEMI_JOIN_SNIPPET = 6,
-  SnippetRequest_SnippetType_DEPENDENCY_ANIT_JOIN_SNIPPET = 7,
-  SnippetRequest_SnippetType_NON_DEPENDENCY_SEMI_JOIN_SNIPPET = 8,
-  SnippetRequest_SnippetType_NON_DEPENDENCY_ANIT_JOIN_SNIPPET = 9,
-  SnippetRequest_SnippetType_DEPENDENCY_SUBQUERY_SNIPPET = 10,
-  SnippetRequest_SnippetType_NON_DEPENDENCY_SUBQUERY_SNIPPET = 11,
-  SnippetRequest_SnippetType_FILTER_SNIPPET = 12,
-  SnippetRequest_SnippetType_UNION_SNIPPET = 13,
-  SnippetRequest_SnippetType_UNION_ALL_SNIPPET = 14,
-  SnippetRequest_SnippetType_INDEX_SCAN_SNIPPET = 16,
+  SnippetRequest_SnippetType_STORAGE_FILTER_SNIPPET = 2,
+  SnippetRequest_SnippetType_INNER_JOIN_SNIPPET = 3,
+  SnippetRequest_SnippetType_LEFT_OUTER_JOIN_SNIPPET = 4,
+  SnippetRequest_SnippetType_RIGHT_OUTER_JOIN_SNIPPET = 5,
+  SnippetRequest_SnippetType_CROSS_JOIN_SNIPPET = 6,
+  SnippetRequest_SnippetType_UNION_SNIPPET = 7,
+  SnippetRequest_SnippetType_IN_SNIPPET = 8,
+  SnippetRequest_SnippetType_DEPENDENCY_INNER_JOIN_SNIPPET = 9,
+  SnippetRequest_SnippetType_DEPENDENCY_EXIST_SNIPPET = 10,
+  SnippetRequest_SnippetType_DEPENDENCY_IN_SNIPPET = 11,
   SnippetRequest_SnippetType_SnippetRequest_SnippetType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SnippetRequest_SnippetType_SnippetRequest_SnippetType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SnippetRequest_SnippetType_IsValid(int value);
-constexpr SnippetRequest_SnippetType SnippetRequest_SnippetType_SnippetType_MIN = SnippetRequest_SnippetType_SCAN_SNIPPET;
-constexpr SnippetRequest_SnippetType SnippetRequest_SnippetType_SnippetType_MAX = SnippetRequest_SnippetType_INDEX_SCAN_SNIPPET;
+constexpr SnippetRequest_SnippetType SnippetRequest_SnippetType_SnippetType_MIN = SnippetRequest_SnippetType_CSD_SCAN_SNIPPET;
+constexpr SnippetRequest_SnippetType SnippetRequest_SnippetType_SnippetType_MAX = SnippetRequest_SnippetType_DEPENDENCY_IN_SNIPPET;
 constexpr int SnippetRequest_SnippetType_SnippetType_ARRAYSIZE = SnippetRequest_SnippetType_SnippetType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SnippetRequest_SnippetType_descriptor();
@@ -186,9 +182,10 @@ enum Snippet_Projection_SelectType : int {
   Snippet_Projection_SelectType_AVG = 2,
   Snippet_Projection_SelectType_COUNT = 3,
   Snippet_Projection_SelectType_COUNTSTAR = 4,
-  Snippet_Projection_SelectType_TOP = 5,
-  Snippet_Projection_SelectType_MIN = 6,
-  Snippet_Projection_SelectType_MAX = 7,
+  Snippet_Projection_SelectType_COUNTDISTINCT = 5,
+  Snippet_Projection_SelectType_TOP = 6,
+  Snippet_Projection_SelectType_MIN = 7,
+  Snippet_Projection_SelectType_MAX = 8,
   Snippet_Projection_SelectType_Snippet_Projection_SelectType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   Snippet_Projection_SelectType_Snippet_Projection_SelectType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
@@ -393,38 +390,30 @@ class SnippetRequest final :
   // nested types ----------------------------------------------------
 
   typedef SnippetRequest_SnippetType SnippetType;
-  static constexpr SnippetType SCAN_SNIPPET =
-    SnippetRequest_SnippetType_SCAN_SNIPPET;
+  static constexpr SnippetType CSD_SCAN_SNIPPET =
+    SnippetRequest_SnippetType_CSD_SCAN_SNIPPET;
   static constexpr SnippetType AGGREGATION_SNIPPET =
     SnippetRequest_SnippetType_AGGREGATION_SNIPPET;
+  static constexpr SnippetType STORAGE_FILTER_SNIPPET =
+    SnippetRequest_SnippetType_STORAGE_FILTER_SNIPPET;
   static constexpr SnippetType INNER_JOIN_SNIPPET =
     SnippetRequest_SnippetType_INNER_JOIN_SNIPPET;
   static constexpr SnippetType LEFT_OUTER_JOIN_SNIPPET =
     SnippetRequest_SnippetType_LEFT_OUTER_JOIN_SNIPPET;
   static constexpr SnippetType RIGHT_OUTER_JOIN_SNIPPET =
     SnippetRequest_SnippetType_RIGHT_OUTER_JOIN_SNIPPET;
-  static constexpr SnippetType FULL_OUTER_JOIN_SNIPPET =
-    SnippetRequest_SnippetType_FULL_OUTER_JOIN_SNIPPET;
-  static constexpr SnippetType DEPENDENCY_SEMI_JOIN_SNIPPET =
-    SnippetRequest_SnippetType_DEPENDENCY_SEMI_JOIN_SNIPPET;
-  static constexpr SnippetType DEPENDENCY_ANIT_JOIN_SNIPPET =
-    SnippetRequest_SnippetType_DEPENDENCY_ANIT_JOIN_SNIPPET;
-  static constexpr SnippetType NON_DEPENDENCY_SEMI_JOIN_SNIPPET =
-    SnippetRequest_SnippetType_NON_DEPENDENCY_SEMI_JOIN_SNIPPET;
-  static constexpr SnippetType NON_DEPENDENCY_ANIT_JOIN_SNIPPET =
-    SnippetRequest_SnippetType_NON_DEPENDENCY_ANIT_JOIN_SNIPPET;
-  static constexpr SnippetType DEPENDENCY_SUBQUERY_SNIPPET =
-    SnippetRequest_SnippetType_DEPENDENCY_SUBQUERY_SNIPPET;
-  static constexpr SnippetType NON_DEPENDENCY_SUBQUERY_SNIPPET =
-    SnippetRequest_SnippetType_NON_DEPENDENCY_SUBQUERY_SNIPPET;
-  static constexpr SnippetType FILTER_SNIPPET =
-    SnippetRequest_SnippetType_FILTER_SNIPPET;
+  static constexpr SnippetType CROSS_JOIN_SNIPPET =
+    SnippetRequest_SnippetType_CROSS_JOIN_SNIPPET;
   static constexpr SnippetType UNION_SNIPPET =
     SnippetRequest_SnippetType_UNION_SNIPPET;
-  static constexpr SnippetType UNION_ALL_SNIPPET =
-    SnippetRequest_SnippetType_UNION_ALL_SNIPPET;
-  static constexpr SnippetType INDEX_SCAN_SNIPPET =
-    SnippetRequest_SnippetType_INDEX_SCAN_SNIPPET;
+  static constexpr SnippetType IN_SNIPPET =
+    SnippetRequest_SnippetType_IN_SNIPPET;
+  static constexpr SnippetType DEPENDENCY_INNER_JOIN_SNIPPET =
+    SnippetRequest_SnippetType_DEPENDENCY_INNER_JOIN_SNIPPET;
+  static constexpr SnippetType DEPENDENCY_EXIST_SNIPPET =
+    SnippetRequest_SnippetType_DEPENDENCY_EXIST_SNIPPET;
+  static constexpr SnippetType DEPENDENCY_IN_SNIPPET =
+    SnippetRequest_SnippetType_DEPENDENCY_IN_SNIPPET;
   static inline bool SnippetType_IsValid(int value) {
     return SnippetRequest_SnippetType_IsValid(value);
   }
@@ -1078,6 +1067,8 @@ class Snippet_Projection final :
     Snippet_Projection_SelectType_COUNT;
   static constexpr SelectType COUNTSTAR =
     Snippet_Projection_SelectType_COUNTSTAR;
+  static constexpr SelectType COUNTDISTINCT =
+    Snippet_Projection_SelectType_COUNTDISTINCT;
   static constexpr SelectType TOP =
     Snippet_Projection_SelectType_TOP;
   static constexpr SelectType MIN =

@@ -307,83 +307,83 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_snippet_5fsample_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\024snippet_sample.proto\022\025StorageEngineIns"
-  "tance\"\331\004\n\016SnippetRequest\022\?\n\004type\030\001 \001(\01621"
+  "tance\"\307\003\n\016SnippetRequest\022\?\n\004type\030\001 \001(\01621"
   ".StorageEngineInstance.SnippetRequest.Sn"
   "ippetType\022/\n\007snippet\030\002 \001(\0132\036.StorageEngi"
-  "neInstance.Snippet\"\324\003\n\013SnippetType\022\020\n\014SC"
-  "AN_SNIPPET\020\000\022\027\n\023AGGREGATION_SNIPPET\020\001\022\026\n"
-  "\022INNER_JOIN_SNIPPET\020\002\022\033\n\027LEFT_OUTER_JOIN"
-  "_SNIPPET\020\003\022\034\n\030RIGHT_OUTER_JOIN_SNIPPET\020\004"
-  "\022\033\n\027FULL_OUTER_JOIN_SNIPPET\020\005\022 \n\034DEPENDE"
-  "NCY_SEMI_JOIN_SNIPPET\020\006\022 \n\034DEPENDENCY_AN"
-  "IT_JOIN_SNIPPET\020\007\022$\n NON_DEPENDENCY_SEMI"
-  "_JOIN_SNIPPET\020\010\022$\n NON_DEPENDENCY_ANIT_J"
-  "OIN_SNIPPET\020\t\022\037\n\033DEPENDENCY_SUBQUERY_SNI"
-  "PPET\020\n\022#\n\037NON_DEPENDENCY_SUBQUERY_SNIPPE"
-  "T\020\013\022\022\n\016FILTER_SNIPPET\020\014\022\021\n\rUNION_SNIPPET"
-  "\020\r\022\025\n\021UNION_ALL_SNIPPET\020\016\022\026\n\022INDEX_SCAN_"
-  "SNIPPET\020\020\"\257\017\n\007Snippet\022\020\n\010query_ID\030\001 \001(\005\022"
-  "\017\n\007work_ID\030\002 \001(\005\022\022\n\ntable_name\030\003 \003(\t\022\021\n\t"
-  "table_col\030\004 \003(\t\022;\n\014table_filter\030\005 \003(\0132%."
-  "StorageEngineInstance.Snippet.Filter\022=\n\n"
-  "dependency\030\006 \001(\0132).StorageEngineInstance"
-  ".Snippet.Dependency\022\024\n\014table_offset\030\007 \003("
-  "\005\022\024\n\014table_offlen\030\010 \003(\005\022\026\n\016table_datatyp"
-  "e\030\t \003(\005\022\023\n\013table_alias\030\n \001(\t\022\024\n\014column_a"
-  "lias\030\013 \003(\t\022D\n\021column_projection\030\014 \003(\0132)."
-  "StorageEngineInstance.Snippet.Projection"
-  "\022\030\n\020column_filtering\030\r \003(\t\022\020\n\010group_by\030\016"
-  " \003(\t\0226\n\010order_by\030\017 \001(\0132$.StorageEngineIn"
-  "stance.Snippet.Order\0223\n\005limit\030\020 \001(\0132$.St"
-  "orageEngineInstance.Snippet.Limit\022\016\n\006pk_"
-  "num\030\021 \001(\005\032\204\005\n\006Filter\022=\n\002LV\030\001 \001(\01321.Stora"
-  "geEngineInstance.Snippet.Filter.FilterVa"
-  "lue\022@\n\010Operator\030\002 \001(\0162..StorageEngineIns"
-  "tance.Snippet.Filter.OperType\022=\n\002RV\030\003 \001("
+  "neInstance.Snippet\"\302\002\n\013SnippetType\022\024\n\020CS"
+  "D_SCAN_SNIPPET\020\000\022\027\n\023AGGREGATION_SNIPPET\020"
+  "\001\022\032\n\026STORAGE_FILTER_SNIPPET\020\002\022\026\n\022INNER_J"
+  "OIN_SNIPPET\020\003\022\033\n\027LEFT_OUTER_JOIN_SNIPPET"
+  "\020\004\022\034\n\030RIGHT_OUTER_JOIN_SNIPPET\020\005\022\026\n\022CROS"
+  "S_JOIN_SNIPPET\020\006\022\021\n\rUNION_SNIPPET\020\007\022\016\n\nI"
+  "N_SNIPPET\020\010\022!\n\035DEPENDENCY_INNER_JOIN_SNI"
+  "PPET\020\t\022\034\n\030DEPENDENCY_EXIST_SNIPPET\020\n\022\031\n\025"
+  "DEPENDENCY_IN_SNIPPET\020\013\"\302\017\n\007Snippet\022\020\n\010q"
+  "uery_ID\030\001 \001(\005\022\017\n\007work_ID\030\002 \001(\005\022\022\n\ntable_"
+  "name\030\003 \003(\t\022\021\n\ttable_col\030\004 \003(\t\022;\n\014table_f"
+  "ilter\030\005 \003(\0132%.StorageEngineInstance.Snip"
+  "pet.Filter\022=\n\ndependency\030\006 \001(\0132).Storage"
+  "EngineInstance.Snippet.Dependency\022\024\n\014tab"
+  "le_offset\030\007 \003(\005\022\024\n\014table_offlen\030\010 \003(\005\022\026\n"
+  "\016table_datatype\030\t \003(\005\022\023\n\013table_alias\030\n \001"
+  "(\t\022\024\n\014column_alias\030\013 \003(\t\022D\n\021column_proje"
+  "ction\030\014 \003(\0132).StorageEngineInstance.Snip"
+  "pet.Projection\022\030\n\020column_filtering\030\r \003(\t"
+  "\022\020\n\010group_by\030\016 \003(\t\0226\n\010order_by\030\017 \001(\0132$.S"
+  "torageEngineInstance.Snippet.Order\0223\n\005li"
+  "mit\030\020 \001(\0132$.StorageEngineInstance.Snippe"
+  "t.Limit\022\016\n\006pk_num\030\021 \001(\005\032\204\005\n\006Filter\022=\n\002LV"
+  "\030\001 \001(\01321.StorageEngineInstance.Snippet.F"
+  "ilter.FilterValue\022@\n\010Operator\030\002 \001(\0162..St"
+  "orageEngineInstance.Snippet.Filter.OperT"
+  "ype\022=\n\002RV\030\003 \001(\01321.StorageEngineInstance."
+  "Snippet.Filter.FilterValue\022@\n\005EXTRA\030\004 \003("
   "\01321.StorageEngineInstance.Snippet.Filter"
-  ".FilterValue\022@\n\005EXTRA\030\004 \003(\01321.StorageEng"
-  "ineInstance.Snippet.Filter.FilterValue\032T"
-  "\n\013FilterValue\0226\n\004type\030\001 \003(\0162(.StorageEng"
-  "ineInstance.Snippet.ValueType\022\r\n\005value\030\002"
-  " \003(\t\"\241\002\n\010OperType\022\020\n\014KETI_DEFAULT\020\000\022\013\n\007K"
-  "ETI_GE\020\001\022\013\n\007KETI_LE\020\002\022\013\n\007KETI_GT\020\003\022\013\n\007KE"
-  "TI_LT\020\004\022\013\n\007KETI_ET\020\005\022\013\n\007KETI_NE\020\006\022\r\n\tKET"
-  "I_LIKE\020\007\022\020\n\014KETI_BETWEEN\020\010\022\013\n\007KETI_IN\020\t\022"
-  "\013\n\007KETI_IS\020\n\022\016\n\nKETI_ISNOT\020\013\022\014\n\010KETI_NOT"
-  "\020\014\022\014\n\010KETI_AND\020\r\022\013\n\007KETI_OR\020\016\022\025\n\021KETI_BR"
-  "ACKET_OPEN\020\017\022\026\n\022KETI_BRACKET_CLOSE\020\020\022\022\n\016"
-  "KETI_SUBSTRING\020\021\032\211\002\n\nProjection\022I\n\013selec"
-  "t_type\030\001 \001(\01624.StorageEngineInstance.Sni"
-  "ppet.Projection.SelectType\022\r\n\005value\030\002 \003("
-  "\t\022<\n\nvalue_type\030\003 \003(\0162(.StorageEngineIns"
-  "tance.Snippet.ValueType\"c\n\nSelectType\022\016\n"
-  "\nCOLUMNNAME\020\000\022\007\n\003SUM\020\001\022\007\n\003AVG\020\002\022\t\n\005COUNT"
-  "\020\003\022\r\n\tCOUNTSTAR\020\004\022\007\n\003TOP\020\005\022\007\n\003MIN\020\006\022\007\n\003M"
-  "AX\020\007\032\211\001\n\005Order\022F\n\tascending\030\001 \003(\01623.Stor"
-  "ageEngineInstance.Snippet.Order.OrderDir"
-  "ection\022\023\n\013column_name\030\002 \003(\t\"#\n\016OrderDire"
-  "ction\022\007\n\003ASC\020\000\022\010\n\004DESC\020\001\032\230\001\n\nDependency\022"
-  "H\n\025dependency_projection\030\001 \003(\0132).Storage"
-  "EngineInstance.Snippet.Projection\022@\n\021dep"
-  "endency_filter\030\002 \003(\0132%.StorageEngineInst"
-  "ance.Snippet.Filter\032\'\n\005Limit\022\016\n\006offset\030\001"
-  " \001(\005\022\016\n\006length\030\002 \001(\005\"\234\001\n\tValueType\022\010\n\004IN"
-  "T8\020\000\022\t\n\005INT16\020\001\022\t\n\005INT32\020\002\022\t\n\005INT64\020\003\022\013\n"
-  "\007FLOAT32\020\004\022\013\n\007FLOAT64\020\005\022\013\n\007NUMERIC\020\006\022\010\n\004"
-  "DATE\020\007\022\r\n\tTIMESTAMP\020\010\022\n\n\006STRING\020\t\022\n\n\006COL"
-  "UMN\020\n\022\014\n\010OPERATOR\020\013\"@\n\007Request\022\020\n\010query_"
-  "id\030\001 \001(\005\022\017\n\007work_id\030\002 \001(\005\022\022\n\ntable_name\030"
-  "\003 \001(\t\"\027\n\006Result\022\r\n\005value\030\001 \001(\t2\266\001\n\022Inter"
-  "faceContainer\022X\n\nSetSnippet\022%.StorageEng"
-  "ineInstance.SnippetRequest\032\035.StorageEngi"
-  "neInstance.Result\"\000(\0010\001\022F\n\003Run\022\036.Storage"
-  "EngineInstance.Request\032\035.StorageEngineIn"
-  "stance.Result\"\000B6\n\026io.grpc.snippet_sampl"
-  "eB\024snippet_sample_ProtoP\001\242\002\003SSPb\006proto3"
+  ".FilterValue\032T\n\013FilterValue\0226\n\004type\030\001 \003("
+  "\0162(.StorageEngineInstance.Snippet.ValueT"
+  "ype\022\r\n\005value\030\002 \003(\t\"\241\002\n\010OperType\022\020\n\014KETI_"
+  "DEFAULT\020\000\022\013\n\007KETI_GE\020\001\022\013\n\007KETI_LE\020\002\022\013\n\007K"
+  "ETI_GT\020\003\022\013\n\007KETI_LT\020\004\022\013\n\007KETI_ET\020\005\022\013\n\007KE"
+  "TI_NE\020\006\022\r\n\tKETI_LIKE\020\007\022\020\n\014KETI_BETWEEN\020\010"
+  "\022\013\n\007KETI_IN\020\t\022\013\n\007KETI_IS\020\n\022\016\n\nKETI_ISNOT"
+  "\020\013\022\014\n\010KETI_NOT\020\014\022\014\n\010KETI_AND\020\r\022\013\n\007KETI_O"
+  "R\020\016\022\025\n\021KETI_BRACKET_OPEN\020\017\022\026\n\022KETI_BRACK"
+  "ET_CLOSE\020\020\022\022\n\016KETI_SUBSTRING\020\021\032\234\002\n\nProje"
+  "ction\022I\n\013select_type\030\001 \001(\01624.StorageEngi"
+  "neInstance.Snippet.Projection.SelectType"
+  "\022\r\n\005value\030\002 \003(\t\022<\n\nvalue_type\030\003 \003(\0162(.St"
+  "orageEngineInstance.Snippet.ValueType\"v\n"
+  "\nSelectType\022\016\n\nCOLUMNNAME\020\000\022\007\n\003SUM\020\001\022\007\n\003"
+  "AVG\020\002\022\t\n\005COUNT\020\003\022\r\n\tCOUNTSTAR\020\004\022\021\n\rCOUNT"
+  "DISTINCT\020\005\022\007\n\003TOP\020\006\022\007\n\003MIN\020\007\022\007\n\003MAX\020\010\032\211\001"
+  "\n\005Order\022F\n\tascending\030\001 \003(\01623.StorageEngi"
+  "neInstance.Snippet.Order.OrderDirection\022"
+  "\023\n\013column_name\030\002 \003(\t\"#\n\016OrderDirection\022\007"
+  "\n\003ASC\020\000\022\010\n\004DESC\020\001\032\230\001\n\nDependency\022H\n\025depe"
+  "ndency_projection\030\001 \003(\0132).StorageEngineI"
+  "nstance.Snippet.Projection\022@\n\021dependency"
+  "_filter\030\002 \003(\0132%.StorageEngineInstance.Sn"
+  "ippet.Filter\032\'\n\005Limit\022\016\n\006offset\030\001 \001(\005\022\016\n"
+  "\006length\030\002 \001(\005\"\234\001\n\tValueType\022\010\n\004INT8\020\000\022\t\n"
+  "\005INT16\020\001\022\t\n\005INT32\020\002\022\t\n\005INT64\020\003\022\013\n\007FLOAT3"
+  "2\020\004\022\013\n\007FLOAT64\020\005\022\013\n\007NUMERIC\020\006\022\010\n\004DATE\020\007\022"
+  "\r\n\tTIMESTAMP\020\010\022\n\n\006STRING\020\t\022\n\n\006COLUMN\020\n\022\014"
+  "\n\010OPERATOR\020\013\"@\n\007Request\022\020\n\010query_id\030\001 \001("
+  "\005\022\017\n\007work_id\030\002 \001(\005\022\022\n\ntable_name\030\003 \001(\t\"\027"
+  "\n\006Result\022\r\n\005value\030\001 \001(\t2\224\002\n\022InterfaceCon"
+  "tainer\022X\n\nSetSnippet\022%.StorageEngineInst"
+  "ance.SnippetRequest\032\035.StorageEngineInsta"
+  "nce.Result\"\000(\0010\001\022F\n\003Run\022\036.StorageEngineI"
+  "nstance.Request\032\035.StorageEngineInstance."
+  "Result\"\000\022\\\n\020SetSnippetAndRun\022%.StorageEn"
+  "gineInstance.SnippetRequest\032\035.StorageEng"
+  "ineInstance.Result\"\000(\001B6\n\026io.grpc.snippe"
+  "t_sampleB\024snippet_sample_ProtoP\001\242\002\003SSPb\006"
+  "proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_snippet_5fsample_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_snippet_5fsample_2eproto = {
-  false, false, 2959, descriptor_table_protodef_snippet_5fsample_2eproto, "snippet_sample.proto", 
+  false, false, 2926, descriptor_table_protodef_snippet_5fsample_2eproto, "snippet_sample.proto", 
   &descriptor_table_snippet_5fsample_2eproto_once, nullptr, 0, 10,
   schemas, file_default_instances, TableStruct_snippet_5fsample_2eproto::offsets,
   file_level_metadata_snippet_5fsample_2eproto, file_level_enum_descriptors_snippet_5fsample_2eproto, file_level_service_descriptors_snippet_5fsample_2eproto,
@@ -413,10 +413,6 @@ bool SnippetRequest_SnippetType_IsValid(int value) {
     case 9:
     case 10:
     case 11:
-    case 12:
-    case 13:
-    case 14:
-    case 16:
       return true;
     default:
       return false;
@@ -424,22 +420,18 @@ bool SnippetRequest_SnippetType_IsValid(int value) {
 }
 
 #if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-constexpr SnippetRequest_SnippetType SnippetRequest::SCAN_SNIPPET;
+constexpr SnippetRequest_SnippetType SnippetRequest::CSD_SCAN_SNIPPET;
 constexpr SnippetRequest_SnippetType SnippetRequest::AGGREGATION_SNIPPET;
+constexpr SnippetRequest_SnippetType SnippetRequest::STORAGE_FILTER_SNIPPET;
 constexpr SnippetRequest_SnippetType SnippetRequest::INNER_JOIN_SNIPPET;
 constexpr SnippetRequest_SnippetType SnippetRequest::LEFT_OUTER_JOIN_SNIPPET;
 constexpr SnippetRequest_SnippetType SnippetRequest::RIGHT_OUTER_JOIN_SNIPPET;
-constexpr SnippetRequest_SnippetType SnippetRequest::FULL_OUTER_JOIN_SNIPPET;
-constexpr SnippetRequest_SnippetType SnippetRequest::DEPENDENCY_SEMI_JOIN_SNIPPET;
-constexpr SnippetRequest_SnippetType SnippetRequest::DEPENDENCY_ANIT_JOIN_SNIPPET;
-constexpr SnippetRequest_SnippetType SnippetRequest::NON_DEPENDENCY_SEMI_JOIN_SNIPPET;
-constexpr SnippetRequest_SnippetType SnippetRequest::NON_DEPENDENCY_ANIT_JOIN_SNIPPET;
-constexpr SnippetRequest_SnippetType SnippetRequest::DEPENDENCY_SUBQUERY_SNIPPET;
-constexpr SnippetRequest_SnippetType SnippetRequest::NON_DEPENDENCY_SUBQUERY_SNIPPET;
-constexpr SnippetRequest_SnippetType SnippetRequest::FILTER_SNIPPET;
+constexpr SnippetRequest_SnippetType SnippetRequest::CROSS_JOIN_SNIPPET;
 constexpr SnippetRequest_SnippetType SnippetRequest::UNION_SNIPPET;
-constexpr SnippetRequest_SnippetType SnippetRequest::UNION_ALL_SNIPPET;
-constexpr SnippetRequest_SnippetType SnippetRequest::INDEX_SCAN_SNIPPET;
+constexpr SnippetRequest_SnippetType SnippetRequest::IN_SNIPPET;
+constexpr SnippetRequest_SnippetType SnippetRequest::DEPENDENCY_INNER_JOIN_SNIPPET;
+constexpr SnippetRequest_SnippetType SnippetRequest::DEPENDENCY_EXIST_SNIPPET;
+constexpr SnippetRequest_SnippetType SnippetRequest::DEPENDENCY_IN_SNIPPET;
 constexpr SnippetRequest_SnippetType SnippetRequest::SnippetType_MIN;
 constexpr SnippetRequest_SnippetType SnippetRequest::SnippetType_MAX;
 constexpr int SnippetRequest::SnippetType_ARRAYSIZE;
@@ -511,6 +503,7 @@ bool Snippet_Projection_SelectType_IsValid(int value) {
     case 5:
     case 6:
     case 7:
+    case 8:
       return true;
     default:
       return false;
@@ -523,6 +516,7 @@ constexpr Snippet_Projection_SelectType Snippet_Projection::SUM;
 constexpr Snippet_Projection_SelectType Snippet_Projection::AVG;
 constexpr Snippet_Projection_SelectType Snippet_Projection::COUNT;
 constexpr Snippet_Projection_SelectType Snippet_Projection::COUNTSTAR;
+constexpr Snippet_Projection_SelectType Snippet_Projection::COUNTDISTINCT;
 constexpr Snippet_Projection_SelectType Snippet_Projection::TOP;
 constexpr Snippet_Projection_SelectType Snippet_Projection::MIN;
 constexpr Snippet_Projection_SelectType Snippet_Projection::MAX;
