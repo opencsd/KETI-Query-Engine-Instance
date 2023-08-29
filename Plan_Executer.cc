@@ -34,7 +34,7 @@ std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngine
         // printf("\n");
         printf("[K-ODBC] DSN : %s\n", szDSN);
         printf("[K-ODBC] User ID : root\n");
-        printf("[K-ODBC] Using DataBase : tpch_small\n\n");
+        printf("[K-ODBC] Using DataBase : tpch_1m_no_index\n\n");
         printf("[K-ODBC] Input Query : \n");
 
         //Execute SQL
