@@ -44,31 +44,29 @@ void DB_Connector_Instance::handle_error(pplx::task<void>& t)
 //
 void DB_Connector_Instance::handle_get(http_request message)
 {
-    clock_t start, end;
-    double time;
+    struct timespec  begin, end;
 
-    start = clock();
-
+    clock_gettime(CLOCK_MONOTONIC, &begin);
+    
     auto body_json = message.extract_string();
     std::string json = utility::conversions::to_utf8string(body_json.get());
+    KETILOG::DEBUGLOG("DB Connector Instance", json);
     
     Document document;
     document.Parse(json.c_str());
     
     Parsed_Query parsed_query(document["query"].GetString());
     
-    KETILOG::DEBUGLOG("DB Connector Instance","\t------------:: STEP 1 ::------------");
     KETILOG::DEBUGLOG("DB Connector Instance","Recv Query");
     query_planner_.Parse(meta_data_manager_,parsed_query);
     std::string rep = plan_executer_.Execute_Query(storageEngineInterface_,parsed_query) + "\n";
     
-    message.reply(status_codes::OK,rep);
+    clock_gettime(CLOCK_MONOTONIC, &end);
+    double time = (double)(end.tv_sec - begin.tv_sec) + (double)(end.tv_nsec - begin.tv_nsec)/1000000000;
 
-    end = clock();
-    time = (double)(end-start)/CLOCKS_PER_SEC;
+    message.reply(status_codes::OK,rep /*+ "End Query time : " + std::to_string(time) + "s"*/);
     
-    KETILOG::DEBUGLOG("DB Connector Instance","End Query time :" + std::to_string(time));
-
+    KETILOG::DEBUGLOG("DB Connector Instance","End Query time : " + std::to_string(time) + "s");
     return;
 
 };
@@ -98,7 +96,7 @@ void DB_Connector_Instance::handle_post(http_request message)
     clock_gettime(CLOCK_MONOTONIC, &end);
     double time = (double)(end.tv_sec - begin.tv_sec) + (double)(end.tv_nsec - begin.tv_nsec)/1000000000;
 
-    message.reply(status_codes::OK,/*rep + */"End Query time : " + std::to_string(time) + "s");
+    message.reply(status_codes::OK,rep + "End Query time : " + std::to_string(time) + "s");
     
     KETILOG::DEBUGLOG("DB Connector Instance","End Query time : " + std::to_string(time) + "s");
     return;
