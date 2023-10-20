@@ -17,4 +17,6 @@ private:
     std::unique_ptr<std::list<SnippetRequest>> Gen_Snippet(Parsed_Query &parsed_query);
     void Send_Snippets(Storage_Engine_Interface &storageEngineInterface,std::list<SnippetRequest> &snippet_list, int query_id);
     std::string Get_Query_Result(Storage_Engine_Interface &storageEngineInterface,int query_id);
+    std::string Send_Snippets_And_Get_Query_Result(Storage_Engine_Interface &storageEngineInterface,std::list<SnippetRequest> &snippet_list, int query_id);
+
 };

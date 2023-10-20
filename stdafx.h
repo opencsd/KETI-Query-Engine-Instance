@@ -22,10 +22,15 @@
 #include "cpprest/http_listener.h"
 #include "cpprest/uri.h"
 #include "cpprest/asyncrt_utils.h"
-#include "cpprest/json.h"
 #include "cpprest/filestream.h"
 #include "cpprest/containerstream.h"
 #include "cpprest/producerconsumerstream.h"
+
+// #include "jsoncpp/json/json.h"
+// #include "jsoncpp/json/autolink.h"
+// #include "jsoncpp/json/config.h"
+// #include "jsoncpp/json/features.h"
+// #include "jsoncpp/json/forwards.h"
 
 #pragma warning ( push )
 #pragma warning ( disable : 4457 )

@@ -7,6 +7,7 @@
 using grpc::Channel;
 using grpc::ClientContext;
 using grpc::Status;
+using grpc::ClientWriter;
 using StorageEngineInstance::InterfaceContainer;
 using StorageEngineInstance::Snippet;
 using StorageEngineInstance::SnippetRequest;
@@ -38,6 +39,30 @@ class Storage_Engine_Interface {
 				KETILOG::FATALLOG(LOGTAG,status.error_code() + ": " + status.error_message());
 				KETILOG::FATALLOG(LOGTAG,"RPC failed");
 			}
+		}
+
+		std::string SendSnippetAndRun(std::list<SnippetRequest> &snippet_list, int queryid){
+			Result result;
+			ClientContext context;
+			std::unique_ptr<ClientWriter<SnippetRequest>> writer(stub_->SetSnippetAndRun(&context, &result));
+
+			std::list<SnippetRequest>::iterator iter = snippet_list.begin();
+			for(;iter != snippet_list.end();iter++){
+				//set query id
+				iter->mutable_snippet()->set_query_id(queryid);
+				writer->Write(*iter);
+				KETILOG::DEBUGLOG("Storage Engine Interface","Send Snippet (WorkID : " + std::to_string((*iter).snippet().work_id()) + ") to Storage Engine Instance");
+			}
+			
+			writer->WritesDone();
+			Status status = stream->Finish();
+			
+			if (!status.ok()) {
+				KETILOG::FATALLOG(LOGTAG,status.error_code() + ": " + status.error_message());
+				KETILOG::FATALLOG(LOGTAG,"RPC failed");
+			}
+
+			return result.value();
 		}
 
 		std::string Run(int queryid) {

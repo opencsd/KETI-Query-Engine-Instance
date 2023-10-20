@@ -10,26 +10,23 @@ package StorageEngineInstance;
 service InterfaceContainer {
   rpc SetSnippet (stream SnippetRequest) returns (stream Result) {}
   rpc Run (Request) returns (Result) {}
+  rpc SetSnippetAndRun (stream SnippetRequest) returns (Result) {}
 }
 
 message SnippetRequest {
   enum SnippetType {
-    SCAN_SNIPPET = 0;
+    CSD_SCAN_SNIPPET = 0;
     AGGREGATION_SNIPPET = 1;
-    INNER_JOIN_SNIPPET = 2;
-    LEFT_OUTER_JOIN_SNIPPET = 3;
-    RIGHT_OUTER_JOIN_SNIPPET = 4;
-    FULL_OUTER_JOIN_SNIPPET = 5;
-    DEPENDENCY_SEMI_JOIN_SNIPPET = 6;
-    DEPENDENCY_ANIT_JOIN_SNIPPET = 7;
-    NON_DEPENDENCY_SEMI_JOIN_SNIPPET = 8;
-    NON_DEPENDENCY_ANIT_JOIN_SNIPPET = 9;
-    DEPENDENCY_SUBQUERY_SNIPPET = 10;
-    NON_DEPENDENCY_SUBQUERY_SNIPPET = 11;
-    FILTER_SNIPPET = 12 ;
-    UNION_SNIPPET = 13;
-    UNION_ALL_SNIPPET = 14;
-    INDEX_SCAN_SNIPPET = 16;
+    STORAGE_FILTER_SNIPPET = 2;
+    INNER_JOIN_SNIPPET = 3;
+    LEFT_OUTER_JOIN_SNIPPET = 4;
+    RIGHT_OUTER_JOIN_SNIPPET = 5;
+    CROSS_JOIN_SNIPPET = 6;
+    UNION_SNIPPET = 7;
+    IN_SNIPPET = 8;
+    DEPENDENCY_INNER_JOIN_SNIPPET = 9;
+    DEPENDENCY_EXIST_SNIPPET = 10;
+    DEPENDENCY_IN_SNIPPET = 11;
   }
   SnippetType type = 1;
   Snippet snippet = 2;
@@ -78,7 +75,6 @@ message Snippet {
     FilterValue LV = 1;
     OperType Operator = 2;
     FilterValue RV = 3;
-    repeated FilterValue EXTRA = 4;
   }
   message Projection {
     enum SelectType{
@@ -87,9 +83,10 @@ message Snippet {
       AVG = 2;
       COUNT = 3;
       COUNTSTAR = 4;
-      TOP = 5;
-      MIN = 6;
-      MAX = 7;
+      COUNTDISTINCT = 5;
+      TOP = 6;
+      MIN = 7;
+      MAX = 8;
     }
     SelectType select_type = 1;
     repeated string value = 2;
@@ -128,6 +125,7 @@ message Snippet {
   Order order_by = 15;
   Limit limit = 16;
   int32 pk_num = 17;
+  repeated Filter having = 18;
 }
 
 message Request{

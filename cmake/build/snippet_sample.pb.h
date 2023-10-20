@@ -101,28 +101,24 @@ PROTOBUF_NAMESPACE_CLOSE
 namespace StorageEngineInstance {
 
 enum SnippetRequest_SnippetType : int {
-  SnippetRequest_SnippetType_SCAN_SNIPPET = 0,
+  SnippetRequest_SnippetType_CSD_SCAN_SNIPPET = 0,
   SnippetRequest_SnippetType_AGGREGATION_SNIPPET = 1,
-  SnippetRequest_SnippetType_INNER_JOIN_SNIPPET = 2,
-  SnippetRequest_SnippetType_LEFT_OUTER_JOIN_SNIPPET = 3,
-  SnippetRequest_SnippetType_RIGHT_OUTER_JOIN_SNIPPET = 4,
-  SnippetRequest_SnippetType_FULL_OUTER_JOIN_SNIPPET = 5,
-  SnippetRequest_SnippetType_DEPENDENCY_SEMI_JOIN_SNIPPET = 6,
-  SnippetRequest_SnippetType_DEPENDENCY_ANIT_JOIN_SNIPPET = 7,
-  SnippetRequest_SnippetType_NON_DEPENDENCY_SEMI_JOIN_SNIPPET = 8,
-  SnippetRequest_SnippetType_NON_DEPENDENCY_ANIT_JOIN_SNIPPET = 9,
-  SnippetRequest_SnippetType_DEPENDENCY_SUBQUERY_SNIPPET = 10,
-  SnippetRequest_SnippetType_NON_DEPENDENCY_SUBQUERY_SNIPPET = 11,
-  SnippetRequest_SnippetType_FILTER_SNIPPET = 12,
-  SnippetRequest_SnippetType_UNION_SNIPPET = 13,
-  SnippetRequest_SnippetType_UNION_ALL_SNIPPET = 14,
-  SnippetRequest_SnippetType_INDEX_SCAN_SNIPPET = 16,
+  SnippetRequest_SnippetType_STORAGE_FILTER_SNIPPET = 2,
+  SnippetRequest_SnippetType_INNER_JOIN_SNIPPET = 3,
+  SnippetRequest_SnippetType_LEFT_OUTER_JOIN_SNIPPET = 4,
+  SnippetRequest_SnippetType_RIGHT_OUTER_JOIN_SNIPPET = 5,
+  SnippetRequest_SnippetType_CROSS_JOIN_SNIPPET = 6,
+  SnippetRequest_SnippetType_UNION_SNIPPET = 7,
+  SnippetRequest_SnippetType_IN_SNIPPET = 8,
+  SnippetRequest_SnippetType_DEPENDENCY_INNER_JOIN_SNIPPET = 9,
+  SnippetRequest_SnippetType_DEPENDENCY_EXIST_SNIPPET = 10,
+  SnippetRequest_SnippetType_DEPENDENCY_IN_SNIPPET = 11,
   SnippetRequest_SnippetType_SnippetRequest_SnippetType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SnippetRequest_SnippetType_SnippetRequest_SnippetType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SnippetRequest_SnippetType_IsValid(int value);
-constexpr SnippetRequest_SnippetType SnippetRequest_SnippetType_SnippetType_MIN = SnippetRequest_SnippetType_SCAN_SNIPPET;
-constexpr SnippetRequest_SnippetType SnippetRequest_SnippetType_SnippetType_MAX = SnippetRequest_SnippetType_INDEX_SCAN_SNIPPET;
+constexpr SnippetRequest_SnippetType SnippetRequest_SnippetType_SnippetType_MIN = SnippetRequest_SnippetType_CSD_SCAN_SNIPPET;
+constexpr SnippetRequest_SnippetType SnippetRequest_SnippetType_SnippetType_MAX = SnippetRequest_SnippetType_DEPENDENCY_IN_SNIPPET;
 constexpr int SnippetRequest_SnippetType_SnippetType_ARRAYSIZE = SnippetRequest_SnippetType_SnippetType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SnippetRequest_SnippetType_descriptor();
@@ -186,9 +182,10 @@ enum Snippet_Projection_SelectType : int {
   Snippet_Projection_SelectType_AVG = 2,
   Snippet_Projection_SelectType_COUNT = 3,
   Snippet_Projection_SelectType_COUNTSTAR = 4,
-  Snippet_Projection_SelectType_TOP = 5,
-  Snippet_Projection_SelectType_MIN = 6,
-  Snippet_Projection_SelectType_MAX = 7,
+  Snippet_Projection_SelectType_COUNTDISTINCT = 5,
+  Snippet_Projection_SelectType_TOP = 6,
+  Snippet_Projection_SelectType_MIN = 7,
+  Snippet_Projection_SelectType_MAX = 8,
   Snippet_Projection_SelectType_Snippet_Projection_SelectType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   Snippet_Projection_SelectType_Snippet_Projection_SelectType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
@@ -393,38 +390,30 @@ class SnippetRequest final :
   // nested types ----------------------------------------------------
 
   typedef SnippetRequest_SnippetType SnippetType;
-  static constexpr SnippetType SCAN_SNIPPET =
-    SnippetRequest_SnippetType_SCAN_SNIPPET;
+  static constexpr SnippetType CSD_SCAN_SNIPPET =
+    SnippetRequest_SnippetType_CSD_SCAN_SNIPPET;
   static constexpr SnippetType AGGREGATION_SNIPPET =
     SnippetRequest_SnippetType_AGGREGATION_SNIPPET;
+  static constexpr SnippetType STORAGE_FILTER_SNIPPET =
+    SnippetRequest_SnippetType_STORAGE_FILTER_SNIPPET;
   static constexpr SnippetType INNER_JOIN_SNIPPET =
     SnippetRequest_SnippetType_INNER_JOIN_SNIPPET;
   static constexpr SnippetType LEFT_OUTER_JOIN_SNIPPET =
     SnippetRequest_SnippetType_LEFT_OUTER_JOIN_SNIPPET;
   static constexpr SnippetType RIGHT_OUTER_JOIN_SNIPPET =
     SnippetRequest_SnippetType_RIGHT_OUTER_JOIN_SNIPPET;
-  static constexpr SnippetType FULL_OUTER_JOIN_SNIPPET =
-    SnippetRequest_SnippetType_FULL_OUTER_JOIN_SNIPPET;
-  static constexpr SnippetType DEPENDENCY_SEMI_JOIN_SNIPPET =
-    SnippetRequest_SnippetType_DEPENDENCY_SEMI_JOIN_SNIPPET;
-  static constexpr SnippetType DEPENDENCY_ANIT_JOIN_SNIPPET =
-    SnippetRequest_SnippetType_DEPENDENCY_ANIT_JOIN_SNIPPET;
-  static constexpr SnippetType NON_DEPENDENCY_SEMI_JOIN_SNIPPET =
-    SnippetRequest_SnippetType_NON_DEPENDENCY_SEMI_JOIN_SNIPPET;
-  static constexpr SnippetType NON_DEPENDENCY_ANIT_JOIN_SNIPPET =
-    SnippetRequest_SnippetType_NON_DEPENDENCY_ANIT_JOIN_SNIPPET;
-  static constexpr SnippetType DEPENDENCY_SUBQUERY_SNIPPET =
-    SnippetRequest_SnippetType_DEPENDENCY_SUBQUERY_SNIPPET;
-  static constexpr SnippetType NON_DEPENDENCY_SUBQUERY_SNIPPET =
-    SnippetRequest_SnippetType_NON_DEPENDENCY_SUBQUERY_SNIPPET;
-  static constexpr SnippetType FILTER_SNIPPET =
-    SnippetRequest_SnippetType_FILTER_SNIPPET;
+  static constexpr SnippetType CROSS_JOIN_SNIPPET =
+    SnippetRequest_SnippetType_CROSS_JOIN_SNIPPET;
   static constexpr SnippetType UNION_SNIPPET =
     SnippetRequest_SnippetType_UNION_SNIPPET;
-  static constexpr SnippetType UNION_ALL_SNIPPET =
-    SnippetRequest_SnippetType_UNION_ALL_SNIPPET;
-  static constexpr SnippetType INDEX_SCAN_SNIPPET =
-    SnippetRequest_SnippetType_INDEX_SCAN_SNIPPET;
+  static constexpr SnippetType IN_SNIPPET =
+    SnippetRequest_SnippetType_IN_SNIPPET;
+  static constexpr SnippetType DEPENDENCY_INNER_JOIN_SNIPPET =
+    SnippetRequest_SnippetType_DEPENDENCY_INNER_JOIN_SNIPPET;
+  static constexpr SnippetType DEPENDENCY_EXIST_SNIPPET =
+    SnippetRequest_SnippetType_DEPENDENCY_EXIST_SNIPPET;
+  static constexpr SnippetType DEPENDENCY_IN_SNIPPET =
+    SnippetRequest_SnippetType_DEPENDENCY_IN_SNIPPET;
   static inline bool SnippetType_IsValid(int value) {
     return SnippetRequest_SnippetType_IsValid(value);
   }
@@ -864,29 +853,10 @@ class Snippet_Filter final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kEXTRAFieldNumber = 4,
     kLVFieldNumber = 1,
     kRVFieldNumber = 3,
     kOperatorFieldNumber = 2,
   };
-  // repeated .StorageEngineInstance.Snippet.Filter.FilterValue EXTRA = 4;
-  int extra_size() const;
-  private:
-  int _internal_extra_size() const;
-  public:
-  void clear_extra();
-  ::StorageEngineInstance::Snippet_Filter_FilterValue* mutable_extra(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Snippet_Filter_FilterValue >*
-      mutable_extra();
-  private:
-  const ::StorageEngineInstance::Snippet_Filter_FilterValue& _internal_extra(int index) const;
-  ::StorageEngineInstance::Snippet_Filter_FilterValue* _internal_add_extra();
-  public:
-  const ::StorageEngineInstance::Snippet_Filter_FilterValue& extra(int index) const;
-  ::StorageEngineInstance::Snippet_Filter_FilterValue* add_extra();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Snippet_Filter_FilterValue >&
-      extra() const;
-
   // .StorageEngineInstance.Snippet.Filter.FilterValue LV = 1;
   bool has_lv() const;
   private:
@@ -939,7 +909,6 @@ class Snippet_Filter final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Snippet_Filter_FilterValue > extra_;
   ::StorageEngineInstance::Snippet_Filter_FilterValue* lv_;
   ::StorageEngineInstance::Snippet_Filter_FilterValue* rv_;
   int operator__;
@@ -1078,6 +1047,8 @@ class Snippet_Projection final :
     Snippet_Projection_SelectType_COUNT;
   static constexpr SelectType COUNTSTAR =
     Snippet_Projection_SelectType_COUNTSTAR;
+  static constexpr SelectType COUNTDISTINCT =
+    Snippet_Projection_SelectType_COUNTDISTINCT;
   static constexpr SelectType TOP =
     Snippet_Projection_SelectType_TOP;
   static constexpr SelectType MIN =
@@ -1913,6 +1884,7 @@ class Snippet final :
     kColumnProjectionFieldNumber = 12,
     kColumnFilteringFieldNumber = 13,
     kGroupByFieldNumber = 14,
+    kHavingFieldNumber = 18,
     kTableAliasFieldNumber = 10,
     kDependencyFieldNumber = 6,
     kOrderByFieldNumber = 15,
@@ -2143,6 +2115,24 @@ class Snippet final :
   std::string* _internal_add_group_by();
   public:
 
+  // repeated .StorageEngineInstance.Snippet.Filter having = 18;
+  int having_size() const;
+  private:
+  int _internal_having_size() const;
+  public:
+  void clear_having();
+  ::StorageEngineInstance::Snippet_Filter* mutable_having(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Snippet_Filter >*
+      mutable_having();
+  private:
+  const ::StorageEngineInstance::Snippet_Filter& _internal_having(int index) const;
+  ::StorageEngineInstance::Snippet_Filter* _internal_add_having();
+  public:
+  const ::StorageEngineInstance::Snippet_Filter& having(int index) const;
+  ::StorageEngineInstance::Snippet_Filter* add_having();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Snippet_Filter >&
+      having() const;
+
   // string table_alias = 10;
   void clear_table_alias();
   const std::string& table_alias() const;
@@ -2258,6 +2248,7 @@ class Snippet final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Snippet_Projection > column_projection_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> column_filtering_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> group_by_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Snippet_Filter > having_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_alias_;
   ::StorageEngineInstance::Snippet_Dependency* dependency_;
   ::StorageEngineInstance::Snippet_Order* order_by_;
@@ -3037,46 +3028,6 @@ inline void Snippet_Filter::set_allocated_rv(::StorageEngineInstance::Snippet_Fi
   }
   rv_ = rv;
   // @@protoc_insertion_point(field_set_allocated:StorageEngineInstance.Snippet.Filter.RV)
-}
-
-// repeated .StorageEngineInstance.Snippet.Filter.FilterValue EXTRA = 4;
-inline int Snippet_Filter::_internal_extra_size() const {
-  return extra_.size();
-}
-inline int Snippet_Filter::extra_size() const {
-  return _internal_extra_size();
-}
-inline void Snippet_Filter::clear_extra() {
-  extra_.Clear();
-}
-inline ::StorageEngineInstance::Snippet_Filter_FilterValue* Snippet_Filter::mutable_extra(int index) {
-  // @@protoc_insertion_point(field_mutable:StorageEngineInstance.Snippet.Filter.EXTRA)
-  return extra_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Snippet_Filter_FilterValue >*
-Snippet_Filter::mutable_extra() {
-  // @@protoc_insertion_point(field_mutable_list:StorageEngineInstance.Snippet.Filter.EXTRA)
-  return &extra_;
-}
-inline const ::StorageEngineInstance::Snippet_Filter_FilterValue& Snippet_Filter::_internal_extra(int index) const {
-  return extra_.Get(index);
-}
-inline const ::StorageEngineInstance::Snippet_Filter_FilterValue& Snippet_Filter::extra(int index) const {
-  // @@protoc_insertion_point(field_get:StorageEngineInstance.Snippet.Filter.EXTRA)
-  return _internal_extra(index);
-}
-inline ::StorageEngineInstance::Snippet_Filter_FilterValue* Snippet_Filter::_internal_add_extra() {
-  return extra_.Add();
-}
-inline ::StorageEngineInstance::Snippet_Filter_FilterValue* Snippet_Filter::add_extra() {
-  ::StorageEngineInstance::Snippet_Filter_FilterValue* _add = _internal_add_extra();
-  // @@protoc_insertion_point(field_add:StorageEngineInstance.Snippet.Filter.EXTRA)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Snippet_Filter_FilterValue >&
-Snippet_Filter::extra() const {
-  // @@protoc_insertion_point(field_list:StorageEngineInstance.Snippet.Filter.EXTRA)
-  return extra_;
 }
 
 // -------------------------------------------------------------------
@@ -4450,6 +4401,46 @@ inline void Snippet::_internal_set_pk_num(int32_t value) {
 inline void Snippet::set_pk_num(int32_t value) {
   _internal_set_pk_num(value);
   // @@protoc_insertion_point(field_set:StorageEngineInstance.Snippet.pk_num)
+}
+
+// repeated .StorageEngineInstance.Snippet.Filter having = 18;
+inline int Snippet::_internal_having_size() const {
+  return having_.size();
+}
+inline int Snippet::having_size() const {
+  return _internal_having_size();
+}
+inline void Snippet::clear_having() {
+  having_.Clear();
+}
+inline ::StorageEngineInstance::Snippet_Filter* Snippet::mutable_having(int index) {
+  // @@protoc_insertion_point(field_mutable:StorageEngineInstance.Snippet.having)
+  return having_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Snippet_Filter >*
+Snippet::mutable_having() {
+  // @@protoc_insertion_point(field_mutable_list:StorageEngineInstance.Snippet.having)
+  return &having_;
+}
+inline const ::StorageEngineInstance::Snippet_Filter& Snippet::_internal_having(int index) const {
+  return having_.Get(index);
+}
+inline const ::StorageEngineInstance::Snippet_Filter& Snippet::having(int index) const {
+  // @@protoc_insertion_point(field_get:StorageEngineInstance.Snippet.having)
+  return _internal_having(index);
+}
+inline ::StorageEngineInstance::Snippet_Filter* Snippet::_internal_add_having() {
+  return having_.Add();
+}
+inline ::StorageEngineInstance::Snippet_Filter* Snippet::add_having() {
+  ::StorageEngineInstance::Snippet_Filter* _add = _internal_add_having();
+  // @@protoc_insertion_point(field_add:StorageEngineInstance.Snippet.having)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Snippet_Filter >&
+Snippet::having() const {
+  // @@protoc_insertion_point(field_list:StorageEngineInstance.Snippet.having)
+  return having_;
 }
 
 // -------------------------------------------------------------------
