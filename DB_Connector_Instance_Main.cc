@@ -40,7 +40,7 @@ int main(int argc, char** argv){
     }
 
     utility::string_t port = U("40100");
-    utility::string_t address = U("http://10.0.4.81:");
+    utility::string_t address = U("http://10.0.4.80:");
     address.append(port);
 
     on_initialize(address);

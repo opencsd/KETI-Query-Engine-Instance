@@ -47,8 +47,7 @@ struct Snippet_Filter_FilterValueDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Snippet_Filter_FilterValueDefaultTypeInternal _Snippet_Filter_FilterValue_default_instance_;
 constexpr Snippet_Filter::Snippet_Filter(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : extra_()
-  , lv_(nullptr)
+  : lv_(nullptr)
   , rv_(nullptr)
   , operator__(0)
 {}
@@ -132,6 +131,7 @@ constexpr Snippet::Snippet(
   , column_projection_()
   , column_filtering_()
   , group_by_()
+  , having_()
   , table_alias_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , dependency_(nullptr)
   , order_by_(nullptr)
@@ -205,7 +205,6 @@ const uint32_t TableStruct_snippet_5fsample_2eproto::offsets[] PROTOBUF_SECTION_
   PROTOBUF_FIELD_OFFSET(::StorageEngineInstance::Snippet_Filter, lv_),
   PROTOBUF_FIELD_OFFSET(::StorageEngineInstance::Snippet_Filter, operator__),
   PROTOBUF_FIELD_OFFSET(::StorageEngineInstance::Snippet_Filter, rv_),
-  PROTOBUF_FIELD_OFFSET(::StorageEngineInstance::Snippet_Filter, extra_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::StorageEngineInstance::Snippet_Projection, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -262,6 +261,7 @@ const uint32_t TableStruct_snippet_5fsample_2eproto::offsets[] PROTOBUF_SECTION_
   PROTOBUF_FIELD_OFFSET(::StorageEngineInstance::Snippet, order_by_),
   PROTOBUF_FIELD_OFFSET(::StorageEngineInstance::Snippet, limit_),
   PROTOBUF_FIELD_OFFSET(::StorageEngineInstance::Snippet, pk_num_),
+  PROTOBUF_FIELD_OFFSET(::StorageEngineInstance::Snippet, having_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::StorageEngineInstance::Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -283,11 +283,11 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 0, -1, -1, sizeof(::StorageEngineInstance::SnippetRequest)},
   { 8, -1, -1, sizeof(::StorageEngineInstance::Snippet_Filter_FilterValue)},
   { 16, -1, -1, sizeof(::StorageEngineInstance::Snippet_Filter)},
-  { 26, -1, -1, sizeof(::StorageEngineInstance::Snippet_Projection)},
-  { 35, -1, -1, sizeof(::StorageEngineInstance::Snippet_Order)},
-  { 43, -1, -1, sizeof(::StorageEngineInstance::Snippet_Dependency)},
-  { 51, -1, -1, sizeof(::StorageEngineInstance::Snippet_Limit)},
-  { 59, -1, -1, sizeof(::StorageEngineInstance::Snippet)},
+  { 25, -1, -1, sizeof(::StorageEngineInstance::Snippet_Projection)},
+  { 34, -1, -1, sizeof(::StorageEngineInstance::Snippet_Order)},
+  { 42, -1, -1, sizeof(::StorageEngineInstance::Snippet_Dependency)},
+  { 50, -1, -1, sizeof(::StorageEngineInstance::Snippet_Limit)},
+  { 58, -1, -1, sizeof(::StorageEngineInstance::Snippet)},
   { 82, -1, -1, sizeof(::StorageEngineInstance::Request)},
   { 91, -1, -1, sizeof(::StorageEngineInstance::Result)},
 };
@@ -318,7 +318,7 @@ const char descriptor_table_protodef_snippet_5fsample_2eproto[] PROTOBUF_SECTION
   "S_JOIN_SNIPPET\020\006\022\021\n\rUNION_SNIPPET\020\007\022\016\n\nI"
   "N_SNIPPET\020\010\022!\n\035DEPENDENCY_INNER_JOIN_SNI"
   "PPET\020\t\022\034\n\030DEPENDENCY_EXIST_SNIPPET\020\n\022\031\n\025"
-  "DEPENDENCY_IN_SNIPPET\020\013\"\302\017\n\007Snippet\022\020\n\010q"
+  "DEPENDENCY_IN_SNIPPET\020\013\"\267\017\n\007Snippet\022\020\n\010q"
   "uery_ID\030\001 \001(\005\022\017\n\007work_ID\030\002 \001(\005\022\022\n\ntable_"
   "name\030\003 \003(\t\022\021\n\ttable_col\030\004 \003(\t\022;\n\014table_f"
   "ilter\030\005 \003(\0132%.StorageEngineInstance.Snip"
@@ -332,58 +332,57 @@ const char descriptor_table_protodef_snippet_5fsample_2eproto[] PROTOBUF_SECTION
   "\022\020\n\010group_by\030\016 \003(\t\0226\n\010order_by\030\017 \001(\0132$.S"
   "torageEngineInstance.Snippet.Order\0223\n\005li"
   "mit\030\020 \001(\0132$.StorageEngineInstance.Snippe"
-  "t.Limit\022\016\n\006pk_num\030\021 \001(\005\032\204\005\n\006Filter\022=\n\002LV"
-  "\030\001 \001(\01321.StorageEngineInstance.Snippet.F"
-  "ilter.FilterValue\022@\n\010Operator\030\002 \001(\0162..St"
-  "orageEngineInstance.Snippet.Filter.OperT"
-  "ype\022=\n\002RV\030\003 \001(\01321.StorageEngineInstance."
-  "Snippet.Filter.FilterValue\022@\n\005EXTRA\030\004 \003("
-  "\01321.StorageEngineInstance.Snippet.Filter"
-  ".FilterValue\032T\n\013FilterValue\0226\n\004type\030\001 \003("
-  "\0162(.StorageEngineInstance.Snippet.ValueT"
-  "ype\022\r\n\005value\030\002 \003(\t\"\241\002\n\010OperType\022\020\n\014KETI_"
-  "DEFAULT\020\000\022\013\n\007KETI_GE\020\001\022\013\n\007KETI_LE\020\002\022\013\n\007K"
-  "ETI_GT\020\003\022\013\n\007KETI_LT\020\004\022\013\n\007KETI_ET\020\005\022\013\n\007KE"
-  "TI_NE\020\006\022\r\n\tKETI_LIKE\020\007\022\020\n\014KETI_BETWEEN\020\010"
-  "\022\013\n\007KETI_IN\020\t\022\013\n\007KETI_IS\020\n\022\016\n\nKETI_ISNOT"
-  "\020\013\022\014\n\010KETI_NOT\020\014\022\014\n\010KETI_AND\020\r\022\013\n\007KETI_O"
-  "R\020\016\022\025\n\021KETI_BRACKET_OPEN\020\017\022\026\n\022KETI_BRACK"
-  "ET_CLOSE\020\020\022\022\n\016KETI_SUBSTRING\020\021\032\234\002\n\nProje"
-  "ction\022I\n\013select_type\030\001 \001(\01624.StorageEngi"
-  "neInstance.Snippet.Projection.SelectType"
-  "\022\r\n\005value\030\002 \003(\t\022<\n\nvalue_type\030\003 \003(\0162(.St"
-  "orageEngineInstance.Snippet.ValueType\"v\n"
-  "\nSelectType\022\016\n\nCOLUMNNAME\020\000\022\007\n\003SUM\020\001\022\007\n\003"
-  "AVG\020\002\022\t\n\005COUNT\020\003\022\r\n\tCOUNTSTAR\020\004\022\021\n\rCOUNT"
-  "DISTINCT\020\005\022\007\n\003TOP\020\006\022\007\n\003MIN\020\007\022\007\n\003MAX\020\010\032\211\001"
-  "\n\005Order\022F\n\tascending\030\001 \003(\01623.StorageEngi"
-  "neInstance.Snippet.Order.OrderDirection\022"
-  "\023\n\013column_name\030\002 \003(\t\"#\n\016OrderDirection\022\007"
-  "\n\003ASC\020\000\022\010\n\004DESC\020\001\032\230\001\n\nDependency\022H\n\025depe"
-  "ndency_projection\030\001 \003(\0132).StorageEngineI"
-  "nstance.Snippet.Projection\022@\n\021dependency"
-  "_filter\030\002 \003(\0132%.StorageEngineInstance.Sn"
-  "ippet.Filter\032\'\n\005Limit\022\016\n\006offset\030\001 \001(\005\022\016\n"
-  "\006length\030\002 \001(\005\"\234\001\n\tValueType\022\010\n\004INT8\020\000\022\t\n"
-  "\005INT16\020\001\022\t\n\005INT32\020\002\022\t\n\005INT64\020\003\022\013\n\007FLOAT3"
-  "2\020\004\022\013\n\007FLOAT64\020\005\022\013\n\007NUMERIC\020\006\022\010\n\004DATE\020\007\022"
-  "\r\n\tTIMESTAMP\020\010\022\n\n\006STRING\020\t\022\n\n\006COLUMN\020\n\022\014"
-  "\n\010OPERATOR\020\013\"@\n\007Request\022\020\n\010query_id\030\001 \001("
-  "\005\022\017\n\007work_id\030\002 \001(\005\022\022\n\ntable_name\030\003 \001(\t\"\027"
-  "\n\006Result\022\r\n\005value\030\001 \001(\t2\224\002\n\022InterfaceCon"
-  "tainer\022X\n\nSetSnippet\022%.StorageEngineInst"
-  "ance.SnippetRequest\032\035.StorageEngineInsta"
-  "nce.Result\"\000(\0010\001\022F\n\003Run\022\036.StorageEngineI"
-  "nstance.Request\032\035.StorageEngineInstance."
-  "Result\"\000\022\\\n\020SetSnippetAndRun\022%.StorageEn"
-  "gineInstance.SnippetRequest\032\035.StorageEng"
-  "ineInstance.Result\"\000(\001B6\n\026io.grpc.snippe"
-  "t_sampleB\024snippet_sample_ProtoP\001\242\002\003SSPb\006"
-  "proto3"
+  "t.Limit\022\016\n\006pk_num\030\021 \001(\005\0225\n\006having\030\022 \003(\0132"
+  "%.StorageEngineInstance.Snippet.Filter\032\302"
+  "\004\n\006Filter\022=\n\002LV\030\001 \001(\01321.StorageEngineIns"
+  "tance.Snippet.Filter.FilterValue\022@\n\010Oper"
+  "ator\030\002 \001(\0162..StorageEngineInstance.Snipp"
+  "et.Filter.OperType\022=\n\002RV\030\003 \001(\01321.Storage"
+  "EngineInstance.Snippet.Filter.FilterValu"
+  "e\032T\n\013FilterValue\0226\n\004type\030\001 \003(\0162(.Storage"
+  "EngineInstance.Snippet.ValueType\022\r\n\005valu"
+  "e\030\002 \003(\t\"\241\002\n\010OperType\022\020\n\014KETI_DEFAULT\020\000\022\013"
+  "\n\007KETI_GE\020\001\022\013\n\007KETI_LE\020\002\022\013\n\007KETI_GT\020\003\022\013\n"
+  "\007KETI_LT\020\004\022\013\n\007KETI_ET\020\005\022\013\n\007KETI_NE\020\006\022\r\n\t"
+  "KETI_LIKE\020\007\022\020\n\014KETI_BETWEEN\020\010\022\013\n\007KETI_IN"
+  "\020\t\022\013\n\007KETI_IS\020\n\022\016\n\nKETI_ISNOT\020\013\022\014\n\010KETI_"
+  "NOT\020\014\022\014\n\010KETI_AND\020\r\022\013\n\007KETI_OR\020\016\022\025\n\021KETI"
+  "_BRACKET_OPEN\020\017\022\026\n\022KETI_BRACKET_CLOSE\020\020\022"
+  "\022\n\016KETI_SUBSTRING\020\021\032\234\002\n\nProjection\022I\n\013se"
+  "lect_type\030\001 \001(\01624.StorageEngineInstance."
+  "Snippet.Projection.SelectType\022\r\n\005value\030\002"
+  " \003(\t\022<\n\nvalue_type\030\003 \003(\0162(.StorageEngine"
+  "Instance.Snippet.ValueType\"v\n\nSelectType"
+  "\022\016\n\nCOLUMNNAME\020\000\022\007\n\003SUM\020\001\022\007\n\003AVG\020\002\022\t\n\005CO"
+  "UNT\020\003\022\r\n\tCOUNTSTAR\020\004\022\021\n\rCOUNTDISTINCT\020\005\022"
+  "\007\n\003TOP\020\006\022\007\n\003MIN\020\007\022\007\n\003MAX\020\010\032\211\001\n\005Order\022F\n\t"
+  "ascending\030\001 \003(\01623.StorageEngineInstance."
+  "Snippet.Order.OrderDirection\022\023\n\013column_n"
+  "ame\030\002 \003(\t\"#\n\016OrderDirection\022\007\n\003ASC\020\000\022\010\n\004"
+  "DESC\020\001\032\230\001\n\nDependency\022H\n\025dependency_proj"
+  "ection\030\001 \003(\0132).StorageEngineInstance.Sni"
+  "ppet.Projection\022@\n\021dependency_filter\030\002 \003"
+  "(\0132%.StorageEngineInstance.Snippet.Filte"
+  "r\032\'\n\005Limit\022\016\n\006offset\030\001 \001(\005\022\016\n\006length\030\002 \001"
+  "(\005\"\234\001\n\tValueType\022\010\n\004INT8\020\000\022\t\n\005INT16\020\001\022\t\n"
+  "\005INT32\020\002\022\t\n\005INT64\020\003\022\013\n\007FLOAT32\020\004\022\013\n\007FLOA"
+  "T64\020\005\022\013\n\007NUMERIC\020\006\022\010\n\004DATE\020\007\022\r\n\tTIMESTAM"
+  "P\020\010\022\n\n\006STRING\020\t\022\n\n\006COLUMN\020\n\022\014\n\010OPERATOR\020"
+  "\013\"@\n\007Request\022\020\n\010query_id\030\001 \001(\005\022\017\n\007work_i"
+  "d\030\002 \001(\005\022\022\n\ntable_name\030\003 \001(\t\"\027\n\006Result\022\r\n"
+  "\005value\030\001 \001(\t2\224\002\n\022InterfaceContainer\022X\n\nS"
+  "etSnippet\022%.StorageEngineInstance.Snippe"
+  "tRequest\032\035.StorageEngineInstance.Result\""
+  "\000(\0010\001\022F\n\003Run\022\036.StorageEngineInstance.Req"
+  "uest\032\035.StorageEngineInstance.Result\"\000\022\\\n"
+  "\020SetSnippetAndRun\022%.StorageEngineInstanc"
+  "e.SnippetRequest\032\035.StorageEngineInstance"
+  ".Result\"\000(\001B6\n\026io.grpc.snippet_sampleB\024s"
+  "nippet_sample_ProtoP\001\242\002\003SSPb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_snippet_5fsample_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_snippet_5fsample_2eproto = {
-  false, false, 2926, descriptor_table_protodef_snippet_5fsample_2eproto, "snippet_sample.proto", 
+  false, false, 2915, descriptor_table_protodef_snippet_5fsample_2eproto, "snippet_sample.proto", 
   &descriptor_table_snippet_5fsample_2eproto_once, nullptr, 0, 10,
   schemas, file_default_instances, TableStruct_snippet_5fsample_2eproto::offsets,
   file_level_metadata_snippet_5fsample_2eproto, file_level_enum_descriptors_snippet_5fsample_2eproto, file_level_service_descriptors_snippet_5fsample_2eproto,
@@ -1069,8 +1068,7 @@ Snippet_Filter::_Internal::rv(const Snippet_Filter* msg) {
 }
 Snippet_Filter::Snippet_Filter(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  extra_(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
@@ -1078,8 +1076,7 @@ Snippet_Filter::Snippet_Filter(::PROTOBUF_NAMESPACE_ID::Arena* arena,
   // @@protoc_insertion_point(arena_constructor:StorageEngineInstance.Snippet.Filter)
 }
 Snippet_Filter::Snippet_Filter(const Snippet_Filter& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      extra_(from.extra_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_lv()) {
     lv_ = new ::StorageEngineInstance::Snippet_Filter_FilterValue(*from.lv_);
@@ -1131,7 +1128,6 @@ void Snippet_Filter::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  extra_.Clear();
   if (GetArenaForAllocation() == nullptr && lv_ != nullptr) {
     delete lv_;
   }
@@ -1172,19 +1168,6 @@ const char* Snippet_Filter::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_rv(), ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // repeated .StorageEngineInstance.Snippet.Filter.FilterValue EXTRA = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_extra(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -1240,14 +1223,6 @@ uint8_t* Snippet_Filter::_InternalSerialize(
         3, _Internal::rv(this), target, stream);
   }
 
-  // repeated .StorageEngineInstance.Snippet.Filter.FilterValue EXTRA = 4;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_extra_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(4, this->_internal_extra(i), target, stream);
-  }
-
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1263,13 +1238,6 @@ size_t Snippet_Filter::ByteSizeLong() const {
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
-
-  // repeated .StorageEngineInstance.Snippet.Filter.FilterValue EXTRA = 4;
-  total_size += 1UL * this->_internal_extra_size();
-  for (const auto& msg : this->extra_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
 
   // .StorageEngineInstance.Snippet.Filter.FilterValue LV = 1;
   if (this->_internal_has_lv()) {
@@ -1313,7 +1281,6 @@ void Snippet_Filter::MergeFrom(const Snippet_Filter& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  extra_.MergeFrom(from.extra_);
   if (from._internal_has_lv()) {
     _internal_mutable_lv()->::StorageEngineInstance::Snippet_Filter_FilterValue::MergeFrom(from._internal_lv());
   }
@@ -1340,7 +1307,6 @@ bool Snippet_Filter::IsInitialized() const {
 void Snippet_Filter::InternalSwap(Snippet_Filter* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  extra_.InternalSwap(&other->extra_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Snippet_Filter, operator__)
       + sizeof(Snippet_Filter::operator__)
@@ -2315,7 +2281,8 @@ Snippet::Snippet(::PROTOBUF_NAMESPACE_ID::Arena* arena,
   column_alias_(arena),
   column_projection_(arena),
   column_filtering_(arena),
-  group_by_(arena) {
+  group_by_(arena),
+  having_(arena) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
@@ -2333,7 +2300,8 @@ Snippet::Snippet(const Snippet& from)
       column_alias_(from.column_alias_),
       column_projection_(from.column_projection_),
       column_filtering_(from.column_filtering_),
-      group_by_(from.group_by_) {
+      group_by_(from.group_by_),
+      having_(from.having_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   table_alias_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -2416,6 +2384,7 @@ void Snippet::Clear() {
   column_projection_.Clear();
   column_filtering_.Clear();
   group_by_.Clear();
+  having_.Clear();
   table_alias_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && dependency_ != nullptr) {
     delete dependency_;
@@ -2633,6 +2602,19 @@ const char* Snippet::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
         } else
           goto handle_unusual;
         continue;
+      // repeated .StorageEngineInstance.Snippet.Filter having = 18;
+      case 18:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 146)) {
+          ptr -= 2;
+          do {
+            ptr += 2;
+            ptr = ctx->ParseMessage(_internal_add_having(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<146>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -2807,6 +2789,14 @@ uint8_t* Snippet::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(17, this->_internal_pk_num(), target);
   }
 
+  // repeated .StorageEngineInstance.Snippet.Filter having = 18;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_having_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(18, this->_internal_having(i), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2922,6 +2912,13 @@ size_t Snippet::ByteSizeLong() const {
       group_by_.Get(i));
   }
 
+  // repeated .StorageEngineInstance.Snippet.Filter having = 18;
+  total_size += 2UL * this->_internal_having_size();
+  for (const auto& msg : this->having_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
   // string table_alias = 10;
   if (!this->_internal_table_alias().empty()) {
     total_size += 1 +
@@ -2999,6 +2996,7 @@ void Snippet::MergeFrom(const Snippet& from) {
   column_projection_.MergeFrom(from.column_projection_);
   column_filtering_.MergeFrom(from.column_filtering_);
   group_by_.MergeFrom(from.group_by_);
+  having_.MergeFrom(from.having_);
   if (!from._internal_table_alias().empty()) {
     _internal_set_table_alias(from._internal_table_alias());
   }
@@ -3049,6 +3047,7 @@ void Snippet::InternalSwap(Snippet* other) {
   column_projection_.InternalSwap(&other->column_projection_);
   column_filtering_.InternalSwap(&other->column_filtering_);
   group_by_.InternalSwap(&other->group_by_);
+  having_.InternalSwap(&other->having_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &table_alias_, lhs_arena,

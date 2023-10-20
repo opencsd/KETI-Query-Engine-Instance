@@ -75,7 +75,6 @@ message Snippet {
     FilterValue LV = 1;
     OperType Operator = 2;
     FilterValue RV = 3;
-    repeated FilterValue EXTRA = 4;
   }
   message Projection {
     enum SelectType{
@@ -126,6 +125,7 @@ message Snippet {
   Order order_by = 15;
   Limit limit = 16;
   int32 pk_num = 17;
+  repeated Filter having = 18;
 }
 
 message Request{
