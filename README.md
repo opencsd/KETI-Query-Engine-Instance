@@ -8,9 +8,9 @@ KETI-DB-Connector-Instance analyzes queries and generates snippets to pushdown q
 
 ## Contents
 -------------
-[1. Requirement](#requirement)
+[1. Requirement](#1.-Requirement)
 
-[2. How To Install](#How-To-Install)
+[2. How To Install](#2.-How-To-Build)
 
 [3. Modules](#modules)
 
@@ -30,9 +30,8 @@ KETI-DB-Connector-Instance analyzes queries and generates snippets to pushdown q
 
 >   ODBC
 
-## 2. How To Install
--------------
-# How To Build
+
+## 2. How To Build
 1. Install gcc-11 & g++-11
 ```bash
 add-apt-repository ppa:ubuntu-toolchain-r/test
