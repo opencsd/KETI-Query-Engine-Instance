@@ -1,7 +1,7 @@
 ## Introduction of KETI-OpenCSD KETI-DB-Connector-Instance
 -------------
 
-KETI-DB-Connector-Instance analyzes queries and generates snippets to pushdown queries to Storage Engine Instance.
+KETI-DB-Connector-Instance analyzes queries and generates snippets to pushdown queries to CSD.
 
 <img src=https://github.com/opencsd/KETI-DB-Connector-Instance/assets/100827738/395c5822-4b8a-4f79-b461-71eea4ff2658 width="50%" height="50%">
 
