@@ -15,7 +15,7 @@ Developed by KETI
 
 [4. Governance](#governance)
 
-## Requirement
+## 1. Requirement
 -------------
 >   gcc-11
 
@@ -29,7 +29,7 @@ Developed by KETI
 
 >   ODBC
 
-## How To Install
+## 2. How To Install
 -------------
 # How To Build
 1. Install gcc-11 & g++-11
@@ -88,6 +88,11 @@ cd KETI-DB-Connector-Instance/cmake/build/
 ```bash
 cmake ../..
 make -j
+```
+
+8. Run DB-Connector-Instance
+```bash
+./db_connector_instance
 ```
 
 ## gRPC Protobuf
