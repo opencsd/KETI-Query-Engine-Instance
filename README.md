@@ -1,7 +1,7 @@
-## Introduction of KETI-OpenCSD Query-Process-Container
+## Introduction of KETI-OpenCSD KETI-DB-Connector-Instance
 -------------
 
-Query-Process-Container for KETI-OpenCSD Platform
+KETI-DB-Connector-Instance for KETI-OpenCSD Platform
 
 Developed by KETI
 
@@ -78,10 +78,10 @@ make -j
 make install
 ```
 
-6. Clone KETI-Query-Process-Container
+6. Clone KETI-DB-Connector-Instance
 ```bash
-git clone https://github.com/opencsd/KETI-Query-Process-Container.git
-cd KETI-Query-Process-Container/gRPC-sample/cmake/build/
+git clone https://github.com/opencsd/KETI-DB-Connector-Instance.git
+cd KETI-DB-Connector-Instance/cmake/build/
 ```
 
 7. Build
@@ -153,8 +153,3 @@ message Snippet {
 ## Governance
 -------------
 This work was supported by Institute of Information & communications Technology Planning & Evaluation (IITP) grant funded by the Korea government(MSIT) (No.2021-0-00862, Development of DBMS storage engine technology to minimize massive data movement)
-
-## Others
--------------
-Due to the structure change, in the first half of the year, we worked on local repositories and private github.
-> https://github.com/KETI-OpenCSD/Query-Process-Container
