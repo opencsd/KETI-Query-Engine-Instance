@@ -3,7 +3,7 @@
 
 KETI-DB-Connector-Instance analyzes queries and generates snippets to pushdown queries to CSD.
 
-<img src=https://github.com/opencsd/KETI-DB-Connector-Instance/assets/100827738/da19554a-5ace-457a-bdbb-2f553872db49 width="75%" height="75%">
+<img src=https://github.com/opencsd/KETI-DB-Connector-Instance/assets/100827738/da19554a-5ace-457a-bdbb-2f553872db49 width="85%" height="85%">
 
 
 ## Contents
