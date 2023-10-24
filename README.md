@@ -90,7 +90,7 @@ cmake ../..
 make -j
 ```
 
-8. Run DB-Connector-Instance
+8. Run 
 ```bash
 ./db_connector_instance
 ```
