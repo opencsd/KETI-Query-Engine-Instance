@@ -56,8 +56,8 @@ target_link_libraries(ss_grpc_proto
   ${_GRPC_GRPCPP}
   ${_PROTOBUF_LIBPROTOBUF})
 
-# DB_Connector_Instance
-add_executable(db_connector_instance "DB_Connector_Instance_Main.cc" "Storage_Engine_Interface.h" "Plan_Executer.cc" "Plan_Executer.h" "Query_Planner.h" "Meta_Data_Manager.h" "Parsed_Query.h" "DB_Connector_Instance.cpp" "DB_Connector_Instance.h" "stdafx.h" "kodbc.h" "keti_log.h")
+# Query_Engine_Instance
+add_executable(query_enginge_instance "DB_Connector_Instance_Main.cc" "Storage_Engine_Interface.h" "Plan_Executer.cc" "Plan_Executer.h" "Query_Planner.h" "Meta_Data_Manager.h" "Parsed_Query.h" "DB_Connector_Instance.cpp" "DB_Connector_Instance.h" "stdafx.h" "kodbc.h" "keti_log.h")
 
 set(Casablanca_LIBRARIES "-lboost_system -lcrypto -lssl -lcpprest")
 set(KODBC_LLIBRARIES "-lodbc")
@@ -69,7 +69,7 @@ if (UNIX)
 	set(LINKING_LIBRARIES ${LINKING_LIBRARIES} Threads::Threads)
 endif (UNIX)
 
-target_link_libraries(db_connector_instance
+target_link_libraries(query_enginge_instance
   ss_grpc_proto
   ${LINKING_LIBRARIES}
   ${_REFLECTION}

@@ -1,2 +1,0 @@
-/usr/bin/ar qc libss_grpc_proto.a CMakeFiles/ss_grpc_proto.dir/snippet_sample.grpc.pb.cc.o CMakeFiles/ss_grpc_proto.dir/snippet_sample.pb.cc.o
-/usr/bin/ranlib libss_grpc_proto.a
