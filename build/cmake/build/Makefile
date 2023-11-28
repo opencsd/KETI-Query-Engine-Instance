@@ -60,7 +60,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /root/workspace/Query-Engine-Instance/query_engine_instance
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/workspace/Query-Engine-Instance/query_engine_instance/script/cmake/build
+CMAKE_BINARY_DIR = /root/workspace/Query-Engine-Instance/query_engine_instance/build/cmake/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/Query-Engine-Instance/query_engine_instance/script/cmake/build/CMakeFiles /root/workspace/Query-Engine-Instance/query_engine_instance/script/cmake/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/Query-Engine-Instance/query_engine_instance/build/cmake/build/CMakeFiles /root/workspace/Query-Engine-Instance/query_engine_instance/build/cmake/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/Query-Engine-Instance/query_engine_instance/script/cmake/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/Query-Engine-Instance/query_engine_instance/build/cmake/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -130,102 +130,89 @@ ss_grpc_proto/fast:
 .PHONY : ss_grpc_proto/fast
 
 #=============================================================================
-# Target rules for targets named query_enginge_instance
+# Target rules for targets named query_engine_instance
 
 # Build rule for target.
-query_enginge_instance: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 query_enginge_instance
-.PHONY : query_enginge_instance
+query_engine_instance: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 query_engine_instance
+.PHONY : query_engine_instance
 
 # fast build rule for target.
-query_enginge_instance/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_enginge_instance.dir/build.make CMakeFiles/query_enginge_instance.dir/build
-.PHONY : query_enginge_instance/fast
+query_engine_instance/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/build
+.PHONY : query_engine_instance/fast
 
-#=============================================================================
-# Target rules for targets named storage_engine_instance
-
-# Build rule for target.
-storage_engine_instance: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 storage_engine_instance
-.PHONY : storage_engine_instance
-
-# fast build rule for target.
-storage_engine_instance/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/storage_engine_instance.dir/build.make CMakeFiles/storage_engine_instance.dir/build
-.PHONY : storage_engine_instance/fast
-
-DB_Connector_Instance.o: DB_Connector_Instance.cpp.o
-.PHONY : DB_Connector_Instance.o
+db_connector_instance.o: db_connector_instance.cpp.o
+.PHONY : db_connector_instance.o
 
 # target to build an object file
-DB_Connector_Instance.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_enginge_instance.dir/build.make CMakeFiles/query_enginge_instance.dir/DB_Connector_Instance.cpp.o
-.PHONY : DB_Connector_Instance.cpp.o
+db_connector_instance.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o
+.PHONY : db_connector_instance.cpp.o
 
-DB_Connector_Instance.i: DB_Connector_Instance.cpp.i
-.PHONY : DB_Connector_Instance.i
+db_connector_instance.i: db_connector_instance.cpp.i
+.PHONY : db_connector_instance.i
 
 # target to preprocess a source file
-DB_Connector_Instance.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_enginge_instance.dir/build.make CMakeFiles/query_enginge_instance.dir/DB_Connector_Instance.cpp.i
-.PHONY : DB_Connector_Instance.cpp.i
+db_connector_instance.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.i
+.PHONY : db_connector_instance.cpp.i
 
-DB_Connector_Instance.s: DB_Connector_Instance.cpp.s
-.PHONY : DB_Connector_Instance.s
+db_connector_instance.s: db_connector_instance.cpp.s
+.PHONY : db_connector_instance.s
 
 # target to generate assembly for a file
-DB_Connector_Instance.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_enginge_instance.dir/build.make CMakeFiles/query_enginge_instance.dir/DB_Connector_Instance.cpp.s
-.PHONY : DB_Connector_Instance.cpp.s
+db_connector_instance.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.s
+.PHONY : db_connector_instance.cpp.s
 
-DB_Connector_Instance_Main.o: DB_Connector_Instance_Main.cc.o
-.PHONY : DB_Connector_Instance_Main.o
+main.o: main.cc.o
+.PHONY : main.o
 
 # target to build an object file
-DB_Connector_Instance_Main.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_enginge_instance.dir/build.make CMakeFiles/query_enginge_instance.dir/DB_Connector_Instance_Main.cc.o
-.PHONY : DB_Connector_Instance_Main.cc.o
+main.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/main.cc.o
+.PHONY : main.cc.o
 
-DB_Connector_Instance_Main.i: DB_Connector_Instance_Main.cc.i
-.PHONY : DB_Connector_Instance_Main.i
+main.i: main.cc.i
+.PHONY : main.i
 
 # target to preprocess a source file
-DB_Connector_Instance_Main.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_enginge_instance.dir/build.make CMakeFiles/query_enginge_instance.dir/DB_Connector_Instance_Main.cc.i
-.PHONY : DB_Connector_Instance_Main.cc.i
+main.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/main.cc.i
+.PHONY : main.cc.i
 
-DB_Connector_Instance_Main.s: DB_Connector_Instance_Main.cc.s
-.PHONY : DB_Connector_Instance_Main.s
+main.s: main.cc.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-DB_Connector_Instance_Main.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_enginge_instance.dir/build.make CMakeFiles/query_enginge_instance.dir/DB_Connector_Instance_Main.cc.s
-.PHONY : DB_Connector_Instance_Main.cc.s
+main.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/main.cc.s
+.PHONY : main.cc.s
 
-Plan_Executer.o: Plan_Executer.cc.o
-.PHONY : Plan_Executer.o
+plan_executor.o: plan_executor.cc.o
+.PHONY : plan_executor.o
 
 # target to build an object file
-Plan_Executer.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_enginge_instance.dir/build.make CMakeFiles/query_enginge_instance.dir/Plan_Executer.cc.o
-.PHONY : Plan_Executer.cc.o
+plan_executor.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/plan_executor.cc.o
+.PHONY : plan_executor.cc.o
 
-Plan_Executer.i: Plan_Executer.cc.i
-.PHONY : Plan_Executer.i
+plan_executor.i: plan_executor.cc.i
+.PHONY : plan_executor.i
 
 # target to preprocess a source file
-Plan_Executer.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_enginge_instance.dir/build.make CMakeFiles/query_enginge_instance.dir/Plan_Executer.cc.i
-.PHONY : Plan_Executer.cc.i
+plan_executor.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/plan_executor.cc.i
+.PHONY : plan_executor.cc.i
 
-Plan_Executer.s: Plan_Executer.cc.s
-.PHONY : Plan_Executer.s
+plan_executor.s: plan_executor.cc.s
+.PHONY : plan_executor.s
 
 # target to generate assembly for a file
-Plan_Executer.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_enginge_instance.dir/build.make CMakeFiles/query_enginge_instance.dir/Plan_Executer.cc.s
-.PHONY : Plan_Executer.cc.s
+plan_executor.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/plan_executor.cc.s
+.PHONY : plan_executor.cc.s
 
 snippet_sample.grpc.pb.o: snippet_sample.grpc.pb.cc.o
 .PHONY : snippet_sample.grpc.pb.o
@@ -275,30 +262,6 @@ snippet_sample.pb.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ss_grpc_proto.dir/build.make CMakeFiles/ss_grpc_proto.dir/snippet_sample.pb.cc.s
 .PHONY : snippet_sample.pb.cc.s
 
-storage_engine_instance.o: storage_engine_instance.cc.o
-.PHONY : storage_engine_instance.o
-
-# target to build an object file
-storage_engine_instance.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/storage_engine_instance.dir/build.make CMakeFiles/storage_engine_instance.dir/storage_engine_instance.cc.o
-.PHONY : storage_engine_instance.cc.o
-
-storage_engine_instance.i: storage_engine_instance.cc.i
-.PHONY : storage_engine_instance.i
-
-# target to preprocess a source file
-storage_engine_instance.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/storage_engine_instance.dir/build.make CMakeFiles/storage_engine_instance.dir/storage_engine_instance.cc.i
-.PHONY : storage_engine_instance.cc.i
-
-storage_engine_instance.s: storage_engine_instance.cc.s
-.PHONY : storage_engine_instance.s
-
-# target to generate assembly for a file
-storage_engine_instance.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/storage_engine_instance.dir/build.make CMakeFiles/storage_engine_instance.dir/storage_engine_instance.cc.s
-.PHONY : storage_engine_instance.cc.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -307,27 +270,23 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... query_enginge_instance"
+	@echo "... query_engine_instance"
 	@echo "... ss_grpc_proto"
-	@echo "... storage_engine_instance"
-	@echo "... DB_Connector_Instance.o"
-	@echo "... DB_Connector_Instance.i"
-	@echo "... DB_Connector_Instance.s"
-	@echo "... DB_Connector_Instance_Main.o"
-	@echo "... DB_Connector_Instance_Main.i"
-	@echo "... DB_Connector_Instance_Main.s"
-	@echo "... Plan_Executer.o"
-	@echo "... Plan_Executer.i"
-	@echo "... Plan_Executer.s"
+	@echo "... db_connector_instance.o"
+	@echo "... db_connector_instance.i"
+	@echo "... db_connector_instance.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... plan_executor.o"
+	@echo "... plan_executor.i"
+	@echo "... plan_executor.s"
 	@echo "... snippet_sample.grpc.pb.o"
 	@echo "... snippet_sample.grpc.pb.i"
 	@echo "... snippet_sample.grpc.pb.s"
 	@echo "... snippet_sample.pb.o"
 	@echo "... snippet_sample.pb.i"
 	@echo "... snippet_sample.pb.s"
-	@echo "... storage_engine_instance.o"
-	@echo "... storage_engine_instance.i"
-	@echo "... storage_engine_instance.s"
 .PHONY : help
 
 

@@ -2556,20 +2556,40 @@ class Result final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kValueFieldNumber = 1,
+    kQueryResultFieldNumber = 1,
+    kScannedRowCountFieldNumber = 2,
+    kFilteredRowCountFieldNumber = 3,
   };
-  // string value = 1;
-  void clear_value();
-  const std::string& value() const;
+  // string query_result = 1;
+  void clear_query_result();
+  const std::string& query_result() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_value(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_value();
-  PROTOBUF_NODISCARD std::string* release_value();
-  void set_allocated_value(std::string* value);
+  void set_query_result(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_query_result();
+  PROTOBUF_NODISCARD std::string* release_query_result();
+  void set_allocated_query_result(std::string* query_result);
   private:
-  const std::string& _internal_value() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_value(const std::string& value);
-  std::string* _internal_mutable_value();
+  const std::string& _internal_query_result() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_query_result(const std::string& value);
+  std::string* _internal_mutable_query_result();
+  public:
+
+  // int32 scanned_row_count = 2;
+  void clear_scanned_row_count();
+  int32_t scanned_row_count() const;
+  void set_scanned_row_count(int32_t value);
+  private:
+  int32_t _internal_scanned_row_count() const;
+  void _internal_set_scanned_row_count(int32_t value);
+  public:
+
+  // int32 filtered_row_count = 3;
+  void clear_filtered_row_count();
+  int32_t filtered_row_count() const;
+  void set_filtered_row_count(int32_t value);
+  private:
+  int32_t _internal_filtered_row_count() const;
+  void _internal_set_filtered_row_count(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:StorageEngineInstance.Result)
@@ -2579,7 +2599,9 @@ class Result final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr value_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr query_result_;
+  int32_t scanned_row_count_;
+  int32_t filtered_row_count_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_snippet_5fsample_2eproto;
 };
@@ -4542,55 +4564,95 @@ inline void Request::set_allocated_table_name(std::string* table_name) {
 
 // Result
 
-// string value = 1;
-inline void Result::clear_value() {
-  value_.ClearToEmpty();
+// string query_result = 1;
+inline void Result::clear_query_result() {
+  query_result_.ClearToEmpty();
 }
-inline const std::string& Result::value() const {
-  // @@protoc_insertion_point(field_get:StorageEngineInstance.Result.value)
-  return _internal_value();
+inline const std::string& Result::query_result() const {
+  // @@protoc_insertion_point(field_get:StorageEngineInstance.Result.query_result)
+  return _internal_query_result();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void Result::set_value(ArgT0&& arg0, ArgT... args) {
+void Result::set_query_result(ArgT0&& arg0, ArgT... args) {
  
- value_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:StorageEngineInstance.Result.value)
+ query_result_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:StorageEngineInstance.Result.query_result)
 }
-inline std::string* Result::mutable_value() {
-  std::string* _s = _internal_mutable_value();
-  // @@protoc_insertion_point(field_mutable:StorageEngineInstance.Result.value)
+inline std::string* Result::mutable_query_result() {
+  std::string* _s = _internal_mutable_query_result();
+  // @@protoc_insertion_point(field_mutable:StorageEngineInstance.Result.query_result)
   return _s;
 }
-inline const std::string& Result::_internal_value() const {
-  return value_.Get();
+inline const std::string& Result::_internal_query_result() const {
+  return query_result_.Get();
 }
-inline void Result::_internal_set_value(const std::string& value) {
+inline void Result::_internal_set_query_result(const std::string& value) {
   
-  value_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+  query_result_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline std::string* Result::_internal_mutable_value() {
+inline std::string* Result::_internal_mutable_query_result() {
   
-  return value_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+  return query_result_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline std::string* Result::release_value() {
-  // @@protoc_insertion_point(field_release:StorageEngineInstance.Result.value)
-  return value_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+inline std::string* Result::release_query_result() {
+  // @@protoc_insertion_point(field_release:StorageEngineInstance.Result.query_result)
+  return query_result_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
-inline void Result::set_allocated_value(std::string* value) {
-  if (value != nullptr) {
+inline void Result::set_allocated_query_result(std::string* query_result) {
+  if (query_result != nullptr) {
     
   } else {
     
   }
-  value_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value,
+  query_result_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), query_result,
       GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (value_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    value_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  if (query_result_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    query_result_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:StorageEngineInstance.Result.value)
+  // @@protoc_insertion_point(field_set_allocated:StorageEngineInstance.Result.query_result)
+}
+
+// int32 scanned_row_count = 2;
+inline void Result::clear_scanned_row_count() {
+  scanned_row_count_ = 0;
+}
+inline int32_t Result::_internal_scanned_row_count() const {
+  return scanned_row_count_;
+}
+inline int32_t Result::scanned_row_count() const {
+  // @@protoc_insertion_point(field_get:StorageEngineInstance.Result.scanned_row_count)
+  return _internal_scanned_row_count();
+}
+inline void Result::_internal_set_scanned_row_count(int32_t value) {
+  
+  scanned_row_count_ = value;
+}
+inline void Result::set_scanned_row_count(int32_t value) {
+  _internal_set_scanned_row_count(value);
+  // @@protoc_insertion_point(field_set:StorageEngineInstance.Result.scanned_row_count)
+}
+
+// int32 filtered_row_count = 3;
+inline void Result::clear_filtered_row_count() {
+  filtered_row_count_ = 0;
+}
+inline int32_t Result::_internal_filtered_row_count() const {
+  return filtered_row_count_;
+}
+inline int32_t Result::filtered_row_count() const {
+  // @@protoc_insertion_point(field_get:StorageEngineInstance.Result.filtered_row_count)
+  return _internal_filtered_row_count();
+}
+inline void Result::_internal_set_filtered_row_count(int32_t value) {
+  
+  filtered_row_count_ = value;
+}
+inline void Result::set_filtered_row_count(int32_t value) {
+  _internal_set_filtered_row_count(value);
+  // @@protoc_insertion_point(field_set:StorageEngineInstance.Result.filtered_row_count)
 }
 
 #ifdef __GNUC__

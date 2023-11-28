@@ -57,15 +57,14 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /root/workspace/Query-Engine-Instance/query_engine_instance
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/workspace/Query-Engine-Instance/query_engine_instance/script/cmake/build
+CMAKE_BINARY_DIR = /root/workspace/Query-Engine-Instance/query_engine_instance/build/cmake/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
 all: CMakeFiles/ss_grpc_proto.dir/all
-all: CMakeFiles/query_enginge_instance.dir/all
-all: CMakeFiles/storage_engine_instance.dir/all
+all: CMakeFiles/query_engine_instance.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -74,8 +73,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/ss_grpc_proto.dir/clean
-clean: CMakeFiles/query_enginge_instance.dir/clean
-clean: CMakeFiles/storage_engine_instance.dir/clean
+clean: CMakeFiles/query_engine_instance.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -85,14 +83,14 @@ clean: CMakeFiles/storage_engine_instance.dir/clean
 CMakeFiles/ss_grpc_proto.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ss_grpc_proto.dir/build.make CMakeFiles/ss_grpc_proto.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ss_grpc_proto.dir/build.make CMakeFiles/ss_grpc_proto.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/workspace/Query-Engine-Instance/query_engine_instance/script/cmake/build/CMakeFiles --progress-num=5,6,7,8 "Built target ss_grpc_proto"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/workspace/Query-Engine-Instance/query_engine_instance/build/cmake/build/CMakeFiles --progress-num=5,6,7,8 "Built target ss_grpc_proto"
 .PHONY : CMakeFiles/ss_grpc_proto.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ss_grpc_proto.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/Query-Engine-Instance/query_engine_instance/script/cmake/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/Query-Engine-Instance/query_engine_instance/build/cmake/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ss_grpc_proto.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/Query-Engine-Instance/query_engine_instance/script/cmake/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/Query-Engine-Instance/query_engine_instance/build/cmake/build/CMakeFiles 0
 .PHONY : CMakeFiles/ss_grpc_proto.dir/rule
 
 # Convenience name for target.
@@ -105,56 +103,30 @@ CMakeFiles/ss_grpc_proto.dir/clean:
 .PHONY : CMakeFiles/ss_grpc_proto.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/query_enginge_instance.dir
+# Target rules for target CMakeFiles/query_engine_instance.dir
 
 # All Build rule for target.
-CMakeFiles/query_enginge_instance.dir/all: CMakeFiles/ss_grpc_proto.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_enginge_instance.dir/build.make CMakeFiles/query_enginge_instance.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_enginge_instance.dir/build.make CMakeFiles/query_enginge_instance.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/workspace/Query-Engine-Instance/query_engine_instance/script/cmake/build/CMakeFiles --progress-num=1,2,3,4 "Built target query_enginge_instance"
-.PHONY : CMakeFiles/query_enginge_instance.dir/all
+CMakeFiles/query_engine_instance.dir/all: CMakeFiles/ss_grpc_proto.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/workspace/Query-Engine-Instance/query_engine_instance/build/cmake/build/CMakeFiles --progress-num=1,2,3,4 "Built target query_engine_instance"
+.PHONY : CMakeFiles/query_engine_instance.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/query_enginge_instance.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/Query-Engine-Instance/query_engine_instance/script/cmake/build/CMakeFiles 8
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/query_enginge_instance.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/Query-Engine-Instance/query_engine_instance/script/cmake/build/CMakeFiles 0
-.PHONY : CMakeFiles/query_enginge_instance.dir/rule
+CMakeFiles/query_engine_instance.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/Query-Engine-Instance/query_engine_instance/build/cmake/build/CMakeFiles 8
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/query_engine_instance.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/Query-Engine-Instance/query_engine_instance/build/cmake/build/CMakeFiles 0
+.PHONY : CMakeFiles/query_engine_instance.dir/rule
 
 # Convenience name for target.
-query_enginge_instance: CMakeFiles/query_enginge_instance.dir/rule
-.PHONY : query_enginge_instance
+query_engine_instance: CMakeFiles/query_engine_instance.dir/rule
+.PHONY : query_engine_instance
 
 # clean rule for target.
-CMakeFiles/query_enginge_instance.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_enginge_instance.dir/build.make CMakeFiles/query_enginge_instance.dir/clean
-.PHONY : CMakeFiles/query_enginge_instance.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/storage_engine_instance.dir
-
-# All Build rule for target.
-CMakeFiles/storage_engine_instance.dir/all: CMakeFiles/ss_grpc_proto.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/storage_engine_instance.dir/build.make CMakeFiles/storage_engine_instance.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/storage_engine_instance.dir/build.make CMakeFiles/storage_engine_instance.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/workspace/Query-Engine-Instance/query_engine_instance/script/cmake/build/CMakeFiles --progress-num=9,10 "Built target storage_engine_instance"
-.PHONY : CMakeFiles/storage_engine_instance.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/storage_engine_instance.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/Query-Engine-Instance/query_engine_instance/script/cmake/build/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/storage_engine_instance.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/Query-Engine-Instance/query_engine_instance/script/cmake/build/CMakeFiles 0
-.PHONY : CMakeFiles/storage_engine_instance.dir/rule
-
-# Convenience name for target.
-storage_engine_instance: CMakeFiles/storage_engine_instance.dir/rule
-.PHONY : storage_engine_instance
-
-# clean rule for target.
-CMakeFiles/storage_engine_instance.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/storage_engine_instance.dir/build.make CMakeFiles/storage_engine_instance.dir/clean
-.PHONY : CMakeFiles/storage_engine_instance.dir/clean
+CMakeFiles/query_engine_instance.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/clean
+.PHONY : CMakeFiles/query_engine_instance.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

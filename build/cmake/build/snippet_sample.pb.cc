@@ -164,7 +164,9 @@ struct RequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RequestDefaultTypeInternal _Request_default_instance_;
 constexpr Result::Result(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : value_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+  : query_result_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , scanned_row_count_(0)
+  , filtered_row_count_(0){}
 struct ResultDefaultTypeInternal {
   constexpr ResultDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -277,7 +279,9 @@ const uint32_t TableStruct_snippet_5fsample_2eproto::offsets[] PROTOBUF_SECTION_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::StorageEngineInstance::Result, value_),
+  PROTOBUF_FIELD_OFFSET(::StorageEngineInstance::Result, query_result_),
+  PROTOBUF_FIELD_OFFSET(::StorageEngineInstance::Result, scanned_row_count_),
+  PROTOBUF_FIELD_OFFSET(::StorageEngineInstance::Result, filtered_row_count_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::StorageEngineInstance::SnippetRequest)},
@@ -369,20 +373,22 @@ const char descriptor_table_protodef_snippet_5fsample_2eproto[] PROTOBUF_SECTION
   "T64\020\005\022\013\n\007NUMERIC\020\006\022\010\n\004DATE\020\007\022\r\n\tTIMESTAM"
   "P\020\010\022\n\n\006STRING\020\t\022\n\n\006COLUMN\020\n\022\014\n\010OPERATOR\020"
   "\013\"@\n\007Request\022\020\n\010query_id\030\001 \001(\005\022\017\n\007work_i"
-  "d\030\002 \001(\005\022\022\n\ntable_name\030\003 \001(\t\"\027\n\006Result\022\r\n"
-  "\005value\030\001 \001(\t2\224\002\n\022InterfaceContainer\022X\n\nS"
-  "etSnippet\022%.StorageEngineInstance.Snippe"
-  "tRequest\032\035.StorageEngineInstance.Result\""
-  "\000(\0010\001\022F\n\003Run\022\036.StorageEngineInstance.Req"
-  "uest\032\035.StorageEngineInstance.Result\"\000\022\\\n"
-  "\020SetSnippetAndRun\022%.StorageEngineInstanc"
-  "e.SnippetRequest\032\035.StorageEngineInstance"
-  ".Result\"\000(\001B6\n\026io.grpc.snippet_sampleB\024s"
-  "nippet_sample_ProtoP\001\242\002\003SSPb\006proto3"
+  "d\030\002 \001(\005\022\022\n\ntable_name\030\003 \001(\t\"U\n\006Result\022\024\n"
+  "\014query_result\030\001 \001(\t\022\031\n\021scanned_row_count"
+  "\030\002 \001(\005\022\032\n\022filtered_row_count\030\003 \001(\0052\224\002\n\022I"
+  "nterfaceContainer\022X\n\nSetSnippet\022%.Storag"
+  "eEngineInstance.SnippetRequest\032\035.Storage"
+  "EngineInstance.Result\"\000(\0010\001\022F\n\003Run\022\036.Sto"
+  "rageEngineInstance.Request\032\035.StorageEngi"
+  "neInstance.Result\"\000\022\\\n\020SetSnippetAndRun\022"
+  "%.StorageEngineInstance.SnippetRequest\032\035"
+  ".StorageEngineInstance.Result\"\000(\001B6\n\026io."
+  "grpc.snippet_sampleB\024snippet_sample_Prot"
+  "oP\001\242\002\003SSPb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_snippet_5fsample_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_snippet_5fsample_2eproto = {
-  false, false, 2915, descriptor_table_protodef_snippet_5fsample_2eproto, "snippet_sample.proto", 
+  false, false, 2977, descriptor_table_protodef_snippet_5fsample_2eproto, "snippet_sample.proto", 
   &descriptor_table_snippet_5fsample_2eproto_once, nullptr, 0, 10,
   schemas, file_default_instances, TableStruct_snippet_5fsample_2eproto::offsets,
   file_level_metadata_snippet_5fsample_2eproto, file_level_enum_descriptors_snippet_5fsample_2eproto, file_level_service_descriptors_snippet_5fsample_2eproto,
@@ -3348,22 +3354,29 @@ Result::Result(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 Result::Result(const Result& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  query_result_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    value_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+    query_result_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_value().empty()) {
-    value_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_value(), 
+  if (!from._internal_query_result().empty()) {
+    query_result_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_query_result(), 
       GetArenaForAllocation());
   }
+  ::memcpy(&scanned_row_count_, &from.scanned_row_count_,
+    static_cast<size_t>(reinterpret_cast<char*>(&filtered_row_count_) -
+    reinterpret_cast<char*>(&scanned_row_count_)) + sizeof(filtered_row_count_));
   // @@protoc_insertion_point(copy_constructor:StorageEngineInstance.Result)
 }
 
 inline void Result::SharedCtor() {
-value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+query_result_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  value_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  query_result_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&scanned_row_count_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&filtered_row_count_) -
+    reinterpret_cast<char*>(&scanned_row_count_)) + sizeof(filtered_row_count_));
 }
 
 Result::~Result() {
@@ -3375,7 +3388,7 @@ Result::~Result() {
 
 inline void Result::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  value_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  query_result_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void Result::ArenaDtor(void* object) {
@@ -3394,7 +3407,10 @@ void Result::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  value_.ClearToEmpty();
+  query_result_.ClearToEmpty();
+  ::memset(&scanned_row_count_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&filtered_row_count_) -
+      reinterpret_cast<char*>(&scanned_row_count_)) + sizeof(filtered_row_count_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -3404,12 +3420,28 @@ const char* Result::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string value = 1;
+      // string query_result = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_value();
+          auto str = _internal_mutable_query_result();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "StorageEngineInstance.Result.value"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "StorageEngineInstance.Result.query_result"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 scanned_row_count = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          scanned_row_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 filtered_row_count = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          filtered_row_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3443,14 +3475,26 @@ uint8_t* Result::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string value = 1;
-  if (!this->_internal_value().empty()) {
+  // string query_result = 1;
+  if (!this->_internal_query_result().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_value().data(), static_cast<int>(this->_internal_value().length()),
+      this->_internal_query_result().data(), static_cast<int>(this->_internal_query_result().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "StorageEngineInstance.Result.value");
+      "StorageEngineInstance.Result.query_result");
     target = stream->WriteStringMaybeAliased(
-        1, this->_internal_value(), target);
+        1, this->_internal_query_result(), target);
+  }
+
+  // int32 scanned_row_count = 2;
+  if (this->_internal_scanned_row_count() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_scanned_row_count(), target);
+  }
+
+  // int32 filtered_row_count = 3;
+  if (this->_internal_filtered_row_count() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_filtered_row_count(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -3469,11 +3513,21 @@ size_t Result::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string value = 1;
-  if (!this->_internal_value().empty()) {
+  // string query_result = 1;
+  if (!this->_internal_query_result().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_value());
+        this->_internal_query_result());
+  }
+
+  // int32 scanned_row_count = 2;
+  if (this->_internal_scanned_row_count() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_scanned_row_count());
+  }
+
+  // int32 filtered_row_count = 3;
+  if (this->_internal_filtered_row_count() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_filtered_row_count());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -3498,8 +3552,14 @@ void Result::MergeFrom(const Result& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_value().empty()) {
-    _internal_set_value(from._internal_value());
+  if (!from._internal_query_result().empty()) {
+    _internal_set_query_result(from._internal_query_result());
+  }
+  if (from._internal_scanned_row_count() != 0) {
+    _internal_set_scanned_row_count(from._internal_scanned_row_count());
+  }
+  if (from._internal_filtered_row_count() != 0) {
+    _internal_set_filtered_row_count(from._internal_filtered_row_count());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -3522,9 +3582,15 @@ void Result::InternalSwap(Result* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &value_, lhs_arena,
-      &other->value_, rhs_arena
+      &query_result_, lhs_arena,
+      &other->query_result_, rhs_arena
   );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Result, filtered_row_count_)
+      + sizeof(Result::filtered_row_count_)
+      - PROTOBUF_FIELD_OFFSET(Result, scanned_row_count_)>(
+          reinterpret_cast<char*>(&scanned_row_count_),
+          reinterpret_cast<char*>(&other->scanned_row_count_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Result::GetMetadata() const {

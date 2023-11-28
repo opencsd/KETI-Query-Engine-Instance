@@ -1,0 +1,52 @@
+{
+  "type" : 10,
+  "snippet":
+  {
+    "queryID":3,
+    "workID":2,
+    "tableName": ["ProcessTable3-1","ProcessTable3-0"],
+    "tableCol":[],
+    "tableFilter":[],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "ResultTable4",
+    "columnAlias": [
+      "order_count",
+      "o_orderpriority"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 4,
+        "value": [],
+        "valueType": []
+      },
+      {
+        "selectType": 0,
+        "value": ["o_orderpriority"],
+        "valueType": [10]
+      }
+    ],
+    "dependency":{
+      "dependencyProjection":[],
+      "dependencyFilter" : [
+        {
+          "LV": {
+            "type": [10],
+            "value": ["o_orderkey"]
+        },
+        "Operator" : 5, 
+        "RV" : {
+            "type": [10],
+            "value": ["l_orderkey"]
+          }
+        }
+      ]
+    },
+    "groupBy": ["o_orderpriority"],
+    "orderBy": {
+      "ascending" : [0],
+      "columnName" : ["o_orderpriority"]
+    }
+  }
+}

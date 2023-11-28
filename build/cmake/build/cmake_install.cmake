@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/root/workspace/Query-Engine-Instance/query_engine_instance/script/cmake/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/root/workspace/Query-Engine-Instance/query_engine_instance/build/cmake/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

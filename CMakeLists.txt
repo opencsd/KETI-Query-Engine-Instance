@@ -23,6 +23,8 @@ project(snippet_sample C CXX)
 
 include(../cmake/common.cmake)
 
+# find_package(MySQLConnectorCPP REQUIRED)
+
 # Proto file
 get_filename_component(ss_proto "./proto/snippet_sample.proto" ABSOLUTE)
 get_filename_component(ss_proto_path "${ss_proto}" PATH)
@@ -57,7 +59,7 @@ target_link_libraries(ss_grpc_proto
   ${_PROTOBUF_LIBPROTOBUF})
 
 # Query_Engine_Instance
-add_executable(query_enginge_instance "DB_Connector_Instance_Main.cc" "Storage_Engine_Interface.h" "Plan_Executer.cc" "Plan_Executer.h" "Query_Planner.h" "Meta_Data_Manager.h" "Parsed_Query.h" "DB_Connector_Instance.cpp" "DB_Connector_Instance.h" "stdafx.h" "kodbc.h" "keti_log.h")
+add_executable(query_engine_instance "main.cc" "storage_engine_interface.h" "plan_executor.cc" "plan_executor.h" "query_planner.h" "meta_data_manager.h" "parsed_query.h" "db_connector_instance.cpp" "db_connector_instance.h" "query_log_assistant.h" "stdafx.h" "kodbc.h" "keti_log.h")
 
 set(Casablanca_LIBRARIES "-lboost_system -lcrypto -lssl -lcpprest")
 set(KODBC_LLIBRARIES "-lodbc")
@@ -69,16 +71,9 @@ if (UNIX)
 	set(LINKING_LIBRARIES ${LINKING_LIBRARIES} Threads::Threads)
 endif (UNIX)
 
-target_link_libraries(query_enginge_instance
-  ss_grpc_proto
-  ${LINKING_LIBRARIES}
-  ${_REFLECTION}
-  ${_GRPC_GRPCPP}
-  ${_PROTOBUF_LIBPROTOBUF})
+# target_include_directories(query_engine_instance PRIVATE ${MySQLConnectorCPP_INCLUDE_DIRS})
 
-# Storage_Engine_Instance
-add_executable(storage_engine_instance "storage_engine_instance.cc")
-target_link_libraries(storage_engine_instance
+target_link_libraries(query_engine_instance
   ss_grpc_proto
   ${LINKING_LIBRARIES}
   ${_REFLECTION}

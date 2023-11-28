@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 set(CMAKE_RELATIVE_PATH_TOP_SOURCE "/root/workspace/Query-Engine-Instance/query_engine_instance")
-set(CMAKE_RELATIVE_PATH_TOP_BINARY "/root/workspace/Query-Engine-Instance/query_engine_instance/script/cmake/build")
+set(CMAKE_RELATIVE_PATH_TOP_BINARY "/root/workspace/Query-Engine-Instance/query_engine_instance/build/cmake/build")
 
 # Force unix paths in dependencies.
 set(CMAKE_FORCE_UNIX_PATHS 1)

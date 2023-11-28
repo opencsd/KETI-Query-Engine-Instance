@@ -1,0 +1,94 @@
+{
+  "type" : 0,
+  "snippet":
+  {
+    "queryID":1,
+    "workID":1,
+    "tableName": ["supplier"],
+    "tableCol":[
+      "s_suppkey",
+      "s_name",
+      "s_address",
+      "s_nationkey",
+      "s_phone",
+      "s_acctbal",
+      "s_comment"
+    ],
+    "tableFilter":[],
+    "tableOffset":[
+      0,
+      4,
+      29,
+      69,
+      73,
+      88,
+      95
+    ],
+    "tableOfflen":[
+      4,
+      25,
+      40,
+      4,
+      15,
+      7,
+      101
+    ],
+    "tableDatatype":[
+      3,
+      254,
+      15,
+      3,
+      254,
+      246,
+      15
+    ],
+    "tableAlias": "ProcessTable1-1",
+    "columnAlias": [
+        "s_suppkey", 
+        "s_nationkey",
+        "s_acctbal",
+        "s_name",
+        "s_address",
+        "s_phone",
+        "s_comment"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["s_suppkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_nationkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_acctbal"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_name"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_address"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_phone"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_comment"],
+        "valueType": [10]
+      }
+    ],
+    "pkNum" : 0
+  }
+}

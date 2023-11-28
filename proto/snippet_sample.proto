@@ -135,5 +135,7 @@ message Request{
 }
 
 message Result {
-  string value = 1;
+  string query_result = 1;
+  int32 scanned_row_count = 2;
+  int32 filtered_row_count = 3; 
 }

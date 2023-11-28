@@ -146,6 +146,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/ss_grpc_proto.dir/DependInfo.cmake"
-  "CMakeFiles/query_enginge_instance.dir/DependInfo.cmake"
-  "CMakeFiles/storage_engine_instance.dir/DependInfo.cmake"
+  "CMakeFiles/query_engine_instance.dir/DependInfo.cmake"
   )
