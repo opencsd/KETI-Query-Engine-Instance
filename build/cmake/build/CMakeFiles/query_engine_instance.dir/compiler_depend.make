@@ -1212,6 +1212,16 @@ CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o: /root/workspac
   /usr/include/cppconn/exception.h \
   /usr/include/mysql_connection.h \
   /usr/include/cppconn/connection.h \
+  /usr/include/cppconn/prepared_statement.h \
+  /usr/include/cppconn/statement.h \
+  /usr/include/cppconn/config.h \
+  /usr/include/inttypes.h \
+  /usr/include/cppconn/resultset.h \
+  /usr/include/cppconn/resultset_metadata.h \
+  /usr/include/cppconn/datatype.h \
+  /usr/include/cppconn/resultset.h \
+  /usr/include/cppconn/exception.h \
+  /usr/include/cppconn/statement.h \
   snippet_sample.grpc.pb.h \
   snippet_sample.pb.h \
   /include/google/protobuf/port_def.inc \
@@ -1375,7 +1385,6 @@ CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o: /root/workspac
   /usr/include/rapidjson/reader.h \
   /usr/include/rapidjson/allocators.h \
   /usr/include/rapidjson/rapidjson.h \
-  /usr/include/inttypes.h \
   /usr/include/rapidjson/stream.h \
   /usr/include/rapidjson/encodings.h \
   /usr/include/rapidjson/encodedstream.h \
@@ -1408,6 +1417,11 @@ CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o: /root/workspac
   /usr/include/x86_64-linux-gnu/bits/ipc.h \
   /usr/include/x86_64-linux-gnu/sys/msg.h \
   /usr/include/x86_64-linux-gnu/bits/msq.h \
+  /root/workspace/Query-Engine-Instance/query_engine_instance/db_monitoring_manager.h \
+  /usr/include/c++/11/thread \
+  /usr/include/c++/11/bits/std_thread.h \
+  /usr/include/c++/11/bits/this_thread_sleep.h \
+  /root/workspace/Query-Engine-Instance/query_engine_instance/influxdb.hpp \
   /root/workspace/Query-Engine-Instance/query_engine_instance/plan_executor.h \
   /root/workspace/Query-Engine-Instance/query_engine_instance/storage_engine_interface.h \
   /include/grpcpp/grpcpp.h \
@@ -1458,7 +1472,8 @@ CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o: /root/workspac
   /include/grpcpp/server_posix.h \
   /include/google/protobuf/empty.pb.h \
   /include/google/protobuf/generated_message_bases.h \
-  /include/google/protobuf/io/zero_copy_stream_impl.h
+  /include/google/protobuf/io/zero_copy_stream_impl.h \
+  /usr/include/c++/11/iomanip
 
 CMakeFiles/query_engine_instance.dir/main.cc.o: /root/workspace/Query-Engine-Instance/query_engine_instance/main.cc \
   /usr/include/stdc-predef.h \
@@ -2671,6 +2686,16 @@ CMakeFiles/query_engine_instance.dir/main.cc.o: /root/workspace/Query-Engine-Ins
   /usr/include/cppconn/exception.h \
   /usr/include/mysql_connection.h \
   /usr/include/cppconn/connection.h \
+  /usr/include/cppconn/prepared_statement.h \
+  /usr/include/cppconn/statement.h \
+  /usr/include/cppconn/config.h \
+  /usr/include/inttypes.h \
+  /usr/include/cppconn/resultset.h \
+  /usr/include/cppconn/resultset_metadata.h \
+  /usr/include/cppconn/datatype.h \
+  /usr/include/cppconn/resultset.h \
+  /usr/include/cppconn/exception.h \
+  /usr/include/cppconn/statement.h \
   snippet_sample.grpc.pb.h \
   snippet_sample.pb.h \
   /include/google/protobuf/port_def.inc \
@@ -2834,7 +2859,6 @@ CMakeFiles/query_engine_instance.dir/main.cc.o: /root/workspace/Query-Engine-Ins
   /usr/include/rapidjson/reader.h \
   /usr/include/rapidjson/allocators.h \
   /usr/include/rapidjson/rapidjson.h \
-  /usr/include/inttypes.h \
   /usr/include/rapidjson/stream.h \
   /usr/include/rapidjson/encodings.h \
   /usr/include/rapidjson/encodedstream.h \
@@ -2867,6 +2891,11 @@ CMakeFiles/query_engine_instance.dir/main.cc.o: /root/workspace/Query-Engine-Ins
   /usr/include/x86_64-linux-gnu/bits/ipc.h \
   /usr/include/x86_64-linux-gnu/sys/msg.h \
   /usr/include/x86_64-linux-gnu/bits/msq.h \
+  /root/workspace/Query-Engine-Instance/query_engine_instance/db_monitoring_manager.h \
+  /usr/include/c++/11/thread \
+  /usr/include/c++/11/bits/std_thread.h \
+  /usr/include/c++/11/bits/this_thread_sleep.h \
+  /root/workspace/Query-Engine-Instance/query_engine_instance/influxdb.hpp \
   /root/workspace/Query-Engine-Instance/query_engine_instance/plan_executor.h \
   /root/workspace/Query-Engine-Instance/query_engine_instance/storage_engine_interface.h \
   /include/grpcpp/grpcpp.h \
@@ -2917,7 +2946,8 @@ CMakeFiles/query_engine_instance.dir/main.cc.o: /root/workspace/Query-Engine-Ins
   /include/grpcpp/server_posix.h \
   /include/google/protobuf/empty.pb.h \
   /include/google/protobuf/generated_message_bases.h \
-  /include/google/protobuf/io/zero_copy_stream_impl.h
+  /include/google/protobuf/io/zero_copy_stream_impl.h \
+  /root/workspace/Query-Engine-Instance/query_engine_instance/ip_config.h
 
 CMakeFiles/query_engine_instance.dir/plan_executor.cc.o: /root/workspace/Query-Engine-Instance/query_engine_instance/plan_executor.cc \
   /usr/include/stdc-predef.h \
@@ -3577,11 +3607,20 @@ CMakeFiles/query_engine_instance.dir/plan_executor.cc.o: /root/workspace/Query-E
   /usr/include/boost/predef/version.h \
   /usr/include/boost/smart_ptr/detail/local_sp_deleter.hpp \
   /usr/include/boost/smart_ptr/detail/local_counted_base.hpp \
+  /usr/include/cppconn/prepared_statement.h \
+  /usr/include/cppconn/statement.h \
+  /usr/include/cppconn/config.h \
+  /usr/include/inttypes.h \
+  /usr/include/cppconn/resultset.h \
+  /usr/include/cppconn/resultset_metadata.h \
+  /usr/include/cppconn/datatype.h \
+  /usr/include/cppconn/resultset.h \
+  /usr/include/cppconn/exception.h \
+  /usr/include/cppconn/statement.h \
   /usr/include/rapidjson/document.h \
   /usr/include/rapidjson/reader.h \
   /usr/include/rapidjson/allocators.h \
   /usr/include/rapidjson/rapidjson.h \
-  /usr/include/inttypes.h \
   /usr/include/rapidjson/stream.h \
   /usr/include/rapidjson/encodings.h \
   /usr/include/rapidjson/encodedstream.h \
@@ -3608,6 +3647,28 @@ CMakeFiles/query_engine_instance.dir/plan_executor.cc.o: /root/workspace/Query-E
   /usr/include/rapidjson/stringbuffer.h \
   /usr/include/rapidjson/prettywriter.h \
   /usr/include/rapidjson/writer.h \
+  /root/workspace/Query-Engine-Instance/query_engine_instance/db_monitoring_manager.h \
+  /usr/include/c++/11/thread \
+  /usr/include/c++/11/bits/std_thread.h \
+  /usr/include/c++/11/bits/this_thread_sleep.h \
+  /root/workspace/Query-Engine-Instance/query_engine_instance/influxdb.hpp \
+  /usr/include/c++/11/sstream \
+  /usr/include/c++/11/bits/sstream.tcc \
+  /usr/include/x86_64-linux-gnu/sys/socket.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
+  /usr/include/x86_64-linux-gnu/bits/socket.h \
+  /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+  /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+  /usr/include/x86_64-linux-gnu/asm/socket.h \
+  /usr/include/asm-generic/socket.h \
+  /usr/include/x86_64-linux-gnu/asm/sockios.h \
+  /usr/include/asm-generic/sockios.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
+  /usr/include/x86_64-linux-gnu/sys/uio.h \
+  /usr/include/x86_64-linux-gnu/bits/uio-ext.h \
+  /usr/include/netinet/in.h \
+  /usr/include/x86_64-linux-gnu/bits/in.h \
+  /usr/include/arpa/inet.h \
   /usr/include/c++/11/fstream \
   /usr/include/c++/11/bits/codecvt.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
@@ -3687,6 +3748,8 @@ CMakeFiles/query_engine_instance.dir/plan_executor.cc.o: /root/workspace/Query-E
 
 /root/workspace/Query-Engine-Instance/query_engine_instance/plan_executor.h:
 
+/usr/include/c++/11/bits/std_thread.h:
+
 /usr/include/x86_64-linux-gnu/bits/msq.h:
 
 /usr/include/x86_64-linux-gnu/bits/ipctypes.h:
@@ -3716,8 +3779,6 @@ CMakeFiles/query_engine_instance.dir/plan_executor.cc.o: /root/workspace/Query-E
 /usr/include/rapidjson/encodedstream.h:
 
 /usr/include/rapidjson/stream.h:
-
-/usr/include/inttypes.h:
 
 /usr/include/rapidjson/rapidjson.h:
 
@@ -3914,6 +3975,18 @@ CMakeFiles/query_engine_instance.dir/plan_executor.cc.o: /root/workspace/Query-E
 snippet_sample.pb.h:
 
 snippet_sample.grpc.pb.h:
+
+/usr/include/cppconn/datatype.h:
+
+/usr/include/c++/11/thread:
+
+/usr/include/cppconn/resultset.h:
+
+/usr/include/inttypes.h:
+
+/usr/include/cppconn/config.h:
+
+/usr/include/cppconn/statement.h:
 
 /usr/include/cppconn/exception.h:
 
@@ -4480,6 +4553,8 @@ snippet_sample.grpc.pb.h:
 /usr/include/boost/range/config.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/getopt_core.h:
+
+/root/workspace/Query-Engine-Instance/query_engine_instance/db_monitoring_manager.h:
 
 /usr/include/c++/11/bits/functexcept.h:
 
@@ -5499,6 +5574,8 @@ snippet_sample.grpc.pb.h:
 
 /usr/include/c++/11/bits/unique_lock.h:
 
+/root/workspace/Query-Engine-Instance/query_engine_instance/influxdb.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h:
 
 /usr/include/boost/mpl/aux_/nested_type_wknd.hpp:
@@ -5518,6 +5595,8 @@ snippet_sample.grpc.pb.h:
 /usr/include/boost/predef/compiler/compaq.h:
 
 /usr/include/c++/11/bits/refwrap.h:
+
+/usr/include/c++/11/iomanip:
 
 /usr/include/c++/11/bits/shared_ptr_atomic.h:
 
@@ -5599,6 +5678,8 @@ snippet_sample.grpc.pb.h:
 
 /include/google/protobuf/stubs/hash.h:
 
+/usr/include/cppconn/prepared_statement.h:
+
 /usr/include/boost/concept/detail/concept_undef.hpp:
 
 /usr/include/openssl/objectserr.h:
@@ -5648,6 +5729,8 @@ snippet_sample.grpc.pb.h:
 /usr/include/boost/preprocessor/seq/cat.hpp:
 
 /usr/include/boost/preprocessor/seq/transform.hpp:
+
+/root/workspace/Query-Engine-Instance/query_engine_instance/ip_config.h:
 
 /include/grpcpp/support/status.h:
 
@@ -5952,6 +6035,10 @@ snippet_sample.grpc.pb.h:
 /usr/include/boost/algorithm/string/detail/find_format_all.hpp:
 
 /usr/include/openssl/ecerr.h:
+
+/usr/include/c++/11/bits/this_thread_sleep.h:
+
+/usr/include/cppconn/resultset_metadata.h:
 
 /usr/include/cpprest/http_msg.h:
 

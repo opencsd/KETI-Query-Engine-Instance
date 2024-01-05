@@ -550,41 +550,40 @@ ORDER  BY cntrycode;");
           parsed_query.SetQueryTypeAsOffloading();
         } else if(parsed_query.GetOriginalQuery() == "test_index_scan1"){ //custom query jhk
             parsed_query.SetParsedQuery("");
-          parsed_query.SetQueryTypeAsOffloading();
+            parsed_query.SetQueryTypeAsOffloading();
         }else if(parsed_query.GetOriginalQuery() == "test_index_scan2"){
             parsed_query.SetParsedQuery("");
-          parsed_query.SetQueryTypeAsOffloading();
+            parsed_query.SetQueryTypeAsOffloading();
         }else if(parsed_query.GetOriginalQuery() == "test_lineitem"){
             parsed_query.SetParsedQuery("");
-          parsed_query.SetQueryTypeAsOffloading();
+            parsed_query.SetQueryTypeAsOffloading();
         }else if(parsed_query.GetOriginalQuery() == "test_customer"){
             parsed_query.SetParsedQuery("");
-          parsed_query.SetQueryTypeAsOffloading();
+            parsed_query.SetQueryTypeAsOffloading();
         }else if(parsed_query.GetOriginalQuery() == "test_orders"){
             parsed_query.SetParsedQuery("");
-          parsed_query.SetQueryTypeAsOffloading();
+            parsed_query.SetQueryTypeAsOffloading();
         }else if(parsed_query.GetOriginalQuery() == "test_supplier"){
             parsed_query.SetParsedQuery("");
-          parsed_query.SetQueryTypeAsOffloading();
+            parsed_query.SetQueryTypeAsOffloading();
         }else if(parsed_query.GetOriginalQuery() == "test_part"){
             parsed_query.SetParsedQuery("");
-          parsed_query.SetQueryTypeAsOffloading();
+            parsed_query.SetQueryTypeAsOffloading();
         }else if(parsed_query.GetOriginalQuery() == "test_partsupp"){
             parsed_query.SetParsedQuery("");
-          parsed_query.SetQueryTypeAsOffloading();
+            parsed_query.SetQueryTypeAsOffloading();
         }else if(parsed_query.GetOriginalQuery() == "test_region"){
             parsed_query.SetParsedQuery("");
-          parsed_query.SetQueryTypeAsOffloading();
+            parsed_query.SetQueryTypeAsOffloading();
         }else if(parsed_query.GetOriginalQuery() == "test_nation"){
             parsed_query.SetParsedQuery("");
-          parsed_query.SetQueryTypeAsOffloading();
+            parsed_query.SetQueryTypeAsOffloading();
         }else if(parsed_query.GetOriginalQuery() == "test_tpch08-0"){
             parsed_query.SetParsedQuery("");
-          parsed_query.SetQueryTypeAsOffloading();
+            parsed_query.SetQueryTypeAsOffloading();
         }else { //Other Query
             parsed_query.SetParsedQuery(parsed_query.GetOriginalQuery().c_str());
         }
     } 
 
-private:
 };

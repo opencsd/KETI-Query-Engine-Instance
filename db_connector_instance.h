@@ -21,7 +21,7 @@ class DB_Connector_Instance
 {
     public:
         DB_Connector_Instance();
-        DB_Connector_Instance(utility::string_t url);
+        DB_Connector_Instance(utility::string_t url, string stprage_engine_address);
         virtual ~DB_Connector_Instance();
 
         pplx::task<void>open(){return m_listener.open();}

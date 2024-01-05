@@ -2,6 +2,11 @@ registry="ketidevit2"
 image_name="query-engine-instance"
 version="v1.0"
 
+(
+    cd cmake/build
+    make -j
+)
+
 # make image
 docker build -t $image_name:$version . && \
 

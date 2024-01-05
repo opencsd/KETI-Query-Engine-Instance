@@ -35,14 +35,14 @@ class InterfaceContainer final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>> SetSnippet(::grpc::ClientContext* context) {
-      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>>(SetSnippetRaw(context));
+    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>> SetSnippet(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>>(SetSnippetRaw(context));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>> AsyncSetSnippet(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>>(AsyncSetSnippetRaw(context, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>> AsyncSetSnippet(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>>(AsyncSetSnippetRaw(context, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>> PrepareAsyncSetSnippet(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>>(PrepareAsyncSetSnippetRaw(context, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>> PrepareAsyncSetSnippet(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>>(PrepareAsyncSetSnippetRaw(context, cq));
     }
     virtual ::grpc::Status Run(::grpc::ClientContext* context, const ::StorageEngineInstance::Request& request, ::StorageEngineInstance::Result* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::StorageEngineInstance::Result>> AsyncRun(::grpc::ClientContext* context, const ::StorageEngineInstance::Request& request, ::grpc::CompletionQueue* cq) {
@@ -63,7 +63,7 @@ class InterfaceContainer final {
     class async_interface {
      public:
       virtual ~async_interface() {}
-      virtual void SetSnippet(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::StorageEngineInstance::SnippetRequest,::StorageEngineInstance::Result>* reactor) = 0;
+      virtual void SetSnippet(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::StorageEngineInstance::SnippetRequest,::StorageEngineInstance::Response>* reactor) = 0;
       virtual void Run(::grpc::ClientContext* context, const ::StorageEngineInstance::Request* request, ::StorageEngineInstance::Result* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Run(::grpc::ClientContext* context, const ::StorageEngineInstance::Request* request, ::StorageEngineInstance::Result* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void SetSnippetAndRun(::grpc::ClientContext* context, ::StorageEngineInstance::Result* response, ::grpc::ClientWriteReactor< ::StorageEngineInstance::SnippetRequest>* reactor) = 0;
@@ -72,9 +72,9 @@ class InterfaceContainer final {
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>* SetSnippetRaw(::grpc::ClientContext* context) = 0;
-    virtual ::grpc::ClientAsyncReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>* AsyncSetSnippetRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>* PrepareAsyncSetSnippetRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>* SetSnippetRaw(::grpc::ClientContext* context) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>* AsyncSetSnippetRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>* PrepareAsyncSetSnippetRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::StorageEngineInstance::Result>* AsyncRunRaw(::grpc::ClientContext* context, const ::StorageEngineInstance::Request& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::StorageEngineInstance::Result>* PrepareAsyncRunRaw(::grpc::ClientContext* context, const ::StorageEngineInstance::Request& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientWriterInterface< ::StorageEngineInstance::SnippetRequest>* SetSnippetAndRunRaw(::grpc::ClientContext* context, ::StorageEngineInstance::Result* response) = 0;
@@ -84,14 +84,14 @@ class InterfaceContainer final {
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    std::unique_ptr< ::grpc::ClientReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>> SetSnippet(::grpc::ClientContext* context) {
-      return std::unique_ptr< ::grpc::ClientReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>>(SetSnippetRaw(context));
+    std::unique_ptr< ::grpc::ClientReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>> SetSnippet(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>>(SetSnippetRaw(context));
     }
-    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>> AsyncSetSnippet(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>>(AsyncSetSnippetRaw(context, cq, tag));
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>> AsyncSetSnippet(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>>(AsyncSetSnippetRaw(context, cq, tag));
     }
-    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>> PrepareAsyncSetSnippet(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>>(PrepareAsyncSetSnippetRaw(context, cq));
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>> PrepareAsyncSetSnippet(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>>(PrepareAsyncSetSnippetRaw(context, cq));
     }
     ::grpc::Status Run(::grpc::ClientContext* context, const ::StorageEngineInstance::Request& request, ::StorageEngineInstance::Result* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::StorageEngineInstance::Result>> AsyncRun(::grpc::ClientContext* context, const ::StorageEngineInstance::Request& request, ::grpc::CompletionQueue* cq) {
@@ -112,7 +112,7 @@ class InterfaceContainer final {
     class async final :
       public StubInterface::async_interface {
      public:
-      void SetSnippet(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::StorageEngineInstance::SnippetRequest,::StorageEngineInstance::Result>* reactor) override;
+      void SetSnippet(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::StorageEngineInstance::SnippetRequest,::StorageEngineInstance::Response>* reactor) override;
       void Run(::grpc::ClientContext* context, const ::StorageEngineInstance::Request* request, ::StorageEngineInstance::Result* response, std::function<void(::grpc::Status)>) override;
       void Run(::grpc::ClientContext* context, const ::StorageEngineInstance::Request* request, ::StorageEngineInstance::Result* response, ::grpc::ClientUnaryReactor* reactor) override;
       void SetSnippetAndRun(::grpc::ClientContext* context, ::StorageEngineInstance::Result* response, ::grpc::ClientWriteReactor< ::StorageEngineInstance::SnippetRequest>* reactor) override;
@@ -127,9 +127,9 @@ class InterfaceContainer final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>* SetSnippetRaw(::grpc::ClientContext* context) override;
-    ::grpc::ClientAsyncReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>* AsyncSetSnippetRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>* PrepareAsyncSetSnippetRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>* SetSnippetRaw(::grpc::ClientContext* context) override;
+    ::grpc::ClientAsyncReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>* AsyncSetSnippetRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReaderWriter< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>* PrepareAsyncSetSnippetRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::StorageEngineInstance::Result>* AsyncRunRaw(::grpc::ClientContext* context, const ::StorageEngineInstance::Request& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::StorageEngineInstance::Result>* PrepareAsyncRunRaw(::grpc::ClientContext* context, const ::StorageEngineInstance::Request& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientWriter< ::StorageEngineInstance::SnippetRequest>* SetSnippetAndRunRaw(::grpc::ClientContext* context, ::StorageEngineInstance::Result* response) override;
@@ -145,7 +145,7 @@ class InterfaceContainer final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status SetSnippet(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::StorageEngineInstance::Result, ::StorageEngineInstance::SnippetRequest>* stream);
+    virtual ::grpc::Status SetSnippet(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::StorageEngineInstance::Response, ::StorageEngineInstance::SnippetRequest>* stream);
     virtual ::grpc::Status Run(::grpc::ServerContext* context, const ::StorageEngineInstance::Request* request, ::StorageEngineInstance::Result* response);
     virtual ::grpc::Status SetSnippetAndRun(::grpc::ServerContext* context, ::grpc::ServerReader< ::StorageEngineInstance::SnippetRequest>* reader, ::StorageEngineInstance::Result* response);
   };
@@ -161,11 +161,11 @@ class InterfaceContainer final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetSnippet(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StorageEngineInstance::Result, ::StorageEngineInstance::SnippetRequest>* /*stream*/)  override {
+    ::grpc::Status SetSnippet(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StorageEngineInstance::Response, ::StorageEngineInstance::SnippetRequest>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestSetSnippet(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::StorageEngineInstance::Result, ::StorageEngineInstance::SnippetRequest>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestSetSnippet(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::StorageEngineInstance::Response, ::StorageEngineInstance::SnippetRequest>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncBidiStreaming(0, context, stream, new_call_cq, notification_cq, tag);
     }
   };
@@ -217,7 +217,7 @@ class InterfaceContainer final {
    public:
     WithCallbackMethod_SetSnippet() {
       ::grpc::Service::MarkMethodCallback(0,
-          new ::grpc::internal::CallbackBidiHandler< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>(
+          new ::grpc::internal::CallbackBidiHandler< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>(
             [this](
                    ::grpc::CallbackServerContext* context) { return this->SetSnippet(context); }));
     }
@@ -225,11 +225,11 @@ class InterfaceContainer final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetSnippet(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StorageEngineInstance::Result, ::StorageEngineInstance::SnippetRequest>* /*stream*/)  override {
+    ::grpc::Status SetSnippet(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StorageEngineInstance::Response, ::StorageEngineInstance::SnippetRequest>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerBidiReactor< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Result>* SetSnippet(
+    virtual ::grpc::ServerBidiReactor< ::StorageEngineInstance::SnippetRequest, ::StorageEngineInstance::Response>* SetSnippet(
       ::grpc::CallbackServerContext* /*context*/)
       { return nullptr; }
   };
@@ -296,7 +296,7 @@ class InterfaceContainer final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetSnippet(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StorageEngineInstance::Result, ::StorageEngineInstance::SnippetRequest>* /*stream*/)  override {
+    ::grpc::Status SetSnippet(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StorageEngineInstance::Response, ::StorageEngineInstance::SnippetRequest>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -347,7 +347,7 @@ class InterfaceContainer final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetSnippet(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StorageEngineInstance::Result, ::StorageEngineInstance::SnippetRequest>* /*stream*/)  override {
+    ::grpc::Status SetSnippet(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StorageEngineInstance::Response, ::StorageEngineInstance::SnippetRequest>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -410,7 +410,7 @@ class InterfaceContainer final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetSnippet(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StorageEngineInstance::Result, ::StorageEngineInstance::SnippetRequest>* /*stream*/)  override {
+    ::grpc::Status SetSnippet(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::StorageEngineInstance::Response, ::StorageEngineInstance::SnippetRequest>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }

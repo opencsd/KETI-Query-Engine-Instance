@@ -13,10 +13,12 @@ using StorageEngineInstance::Snippet;
 using StorageEngineInstance::SnippetRequest;
 using StorageEngineInstance::Result;
 using StorageEngineInstance::Request;
+using StorageEngineInstance::Response;
 using google::protobuf::Empty;
 
 class Storage_Engine_Interface {
 	public:
+		Storage_Engine_Interface(){}
 		Storage_Engine_Interface(std::shared_ptr<Channel> channel) : stub_(InterfaceContainer::NewStub(channel)) {}
 
 		void OpenStream(){
@@ -28,8 +30,8 @@ class Storage_Engine_Interface {
 			KETILOG::DEBUGLOG("Storage Engine Interface","Send Snippet (WorkID : " + std::to_string(snippet.snippet().work_id()) + ") to Storage Engine Instance");
 		}
 		void GetReturn(){		
-			Result result;		
-			stream->Read(&result);
+			Response response;		
+			stream->Read(&response);
 		}
 		void CloseStream(){
 			stream->WritesDone();
@@ -84,7 +86,7 @@ class Storage_Engine_Interface {
 
 	private:
 		std::unique_ptr<InterfaceContainer::Stub> stub_;
-		std::unique_ptr<grpc::ClientReaderWriter<StorageEngineInstance::SnippetRequest, StorageEngineInstance::Result>> stream;
+		std::unique_ptr<grpc::ClientReaderWriter<StorageEngineInstance::SnippetRequest, StorageEngineInstance::Response>> stream;
 		std::unique_ptr<ClientContext> streamcontext;
 		inline const static std::string LOGTAG = "DB Connector Instance::Storage Engine Interface";
 };

@@ -64,6 +64,7 @@ add_executable(query_engine_instance "main.cc" "storage_engine_interface.h" "pla
 set(Casablanca_LIBRARIES "-lboost_system -lcrypto -lssl -lcpprest")
 set(KODBC_LLIBRARIES "-lodbc")
 set(LINKING_LIBRARIES ${Casablanca_LIBRARIES} ${KODBC_LLIBRARIES})
+set(MySQLConnectorCPP_INCLUDE_DIRS "-lmysqlcppconn")
 
 if (UNIX)
 	# Linking POSIX threads
@@ -75,6 +76,7 @@ endif (UNIX)
 
 target_link_libraries(query_engine_instance
   ss_grpc_proto
+  ${MySQLConnectorCPP_INCLUDE_DIRS}
   ${LINKING_LIBRARIES}
   ${_REFLECTION}
   ${_GRPC_GRPCPP}

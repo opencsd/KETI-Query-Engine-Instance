@@ -1,6 +1,7 @@
 #pragma once
 
 #include "query_log_assistant.h"
+#include "db_monitoring_manager.h"
 
 class Parsed_Query {
 public:
@@ -17,7 +18,6 @@ public:
     void SetQueryTypeAsOffloading(){
         execution_mode_ = EXECUTION_MODE::OFFLOADING;
     }
-
 
     std::string GetParsedQuery(){
         return parsed_query_;

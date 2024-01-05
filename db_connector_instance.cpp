@@ -7,6 +7,7 @@
 #include "keti_log.h"
 
 #include <ctime>
+#include <iomanip>
 
 using namespace rapidjson;
 
@@ -14,7 +15,7 @@ DB_Connector_Instance::DB_Connector_Instance() : storageEngineInterface_(grpc::C
 {
     //ctor
 }
-DB_Connector_Instance::DB_Connector_Instance(utility::string_t url):m_listener(url), storageEngineInterface_(grpc::CreateChannel("localhost:40200", grpc::InsecureChannelCredentials())), meta_data_manager_("localhost:40200")
+DB_Connector_Instance::DB_Connector_Instance(utility::string_t url, string storage_engine_address):m_listener(url), storageEngineInterface_(grpc::CreateChannel(storage_engine_address, grpc::InsecureChannelCredentials())), meta_data_manager_("localhost:40200")
 {
     m_listener.support(methods::GET, std::bind(&DB_Connector_Instance::handle_get, this, std::placeholders::_1));
     m_listener.support(methods::PUT, std::bind(&DB_Connector_Instance::handle_put, this, std::placeholders::_1));
@@ -47,7 +48,8 @@ void DB_Connector_Instance::handle_get(http_request message)
     utility::string_t url = message.relative_uri().path();
 
     if(url == "/query/run"){
-        struct timespec  begin, end, execution;
+        string begin, end;
+        double execution;
 
         auto body_json = message.extract_string();
         std::string json = utility::conversions::to_utf8string(body_json.get());
@@ -56,10 +58,19 @@ void DB_Connector_Instance::handle_get(http_request message)
         Document document;
         document.Parse(json.c_str());
 
-        clock_gettime(CLOCK_MONOTONIC, &begin);
+        auto startTime = std::chrono::system_clock::now();
+        std::time_t startTimeT = std::chrono::system_clock::to_time_t(startTime);
+        std::tm *startLocalTime = std::localtime(&startTimeT);
+        std::ostringstream startTimeStringStream;
+        startTimeStringStream << std::put_time(startLocalTime, "%Y-%m-%d %H:%M:%S");
+        begin = startTimeStringStream.str();
         
         Parsed_Query parsed_query(document["query"].GetString());
-        int user_id = document["user_id"].GetInt();
+        string user_id = document["user_id"].GetString();
+
+        if(document.HasMember("debug_mode")){
+          bool is_debug_mode = document["debugMode"].GetBool();
+        }
         
         query_planner_.Parse(meta_data_manager_,parsed_query);
 
@@ -67,17 +78,43 @@ void DB_Connector_Instance::handle_get(http_request message)
 
         std::string rep = plan_executer_.Execute_Query(storageEngineInterface_,parsed_query,query_log) + "\n";
         
-        clock_gettime(CLOCK_MONOTONIC, &end);
-        double time = (double)(end.tv_sec - begin.tv_sec) + (double)(end.tv_nsec - begin.tv_nsec)/1000000000;
-        execution.tv_sec = end.tv_sec - begin.tv_sec;
-        execution.tv_nsec = end.tv_nsec - begin.tv_nsec;
+        auto endTime = std::chrono::system_clock::now();
+        std::time_t endTimeT = std::chrono::system_clock::to_time_t(endTime);
+        std::tm *endLocalTime = std::localtime(&endTimeT);
+        std::ostringstream endTimeStringStream;
+        endTimeStringStream << std::put_time(endLocalTime, "%Y-%m-%d %H:%M:%S");
+        end = endTimeStringStream.str();
+
+        auto elapsed_seconds = std::chrono::duration_cast<std::chrono::duration<double>>(endTime - startTime);
+        execution = elapsed_seconds.count();
 
         query_log.AddTimeInfo(end,execution);
+        query_log.InsertQueryLog();
 
-        message.reply(status_codes::OK,rep /*+ "End Query time : " + std::to_string(time) + "s"*/);
+        std::string response = query_log.QueryLog2Json();
+
+        cout << response << endl;
+
+        message.reply(status_codes::OK,response);
         
-        KETILOG::DEBUGLOG("DB Connector Instance","End Query time : " + std::to_string(time) + "s");
+        KETILOG::INFOLOG("DB Connector Instance","End Query time : " + to_string(execution) + " sec");
         return;
+    }else if(url == "/log-level"){
+        try{
+            utility::string_t query =  message.relative_uri().query();
+            int equalPos = query.find("=");
+            std::string logLevelStr = query.substr(equalPos + 1);
+            int log_level = std::stoi(logLevelStr);
+
+            KETILOG::SetLogLevel(log_level);
+
+            KETILOG::FATALLOG("DB Connector Instance", "changed log level" + to_string(log_level));
+
+            message.reply(status_codes::OK,"");
+        }catch (std::exception &e) {
+            KETILOG::INFOLOG("Handle Set Log Level", e.what());
+            message.reply(status_codes::NotImplemented,"");
+        }
     }else{
         struct timespec  begin, end;
 
@@ -103,7 +140,7 @@ void DB_Connector_Instance::handle_get(http_request message)
 
         message.reply(status_codes::OK,rep /*+ "End Query time : " + std::to_string(time) + "s"*/);
         
-        KETILOG::DEBUGLOG("DB Connector Instance","End Query time : " + std::to_string(time) + "s");
+        KETILOG::INFOLOG("DB Connector Instance","End Query time : " + std::to_string(time) + "s");
         return;
     }
 };

@@ -5,7 +5,7 @@
 
 class Plan_Executer {
 public:
-	Plan_Executer( ){
+	Plan_Executer(){
         Query_ID = 0;
     }
     std::string Execute_Query(Storage_Engine_Interface &storageEngineInterface,Parsed_Query &parsed_query, Query_Log &query_log);

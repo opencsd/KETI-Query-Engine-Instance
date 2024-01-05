@@ -18,6 +18,9 @@ std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngine
 
     if(parsed_query.isGenericQuery()){
         KETILOG::DEBUGLOG("Plan Executer"," => Generic Query");
+        
+        // DB_Monitoring_Manager::UpdateSelectCount();//구분필요!!!!
+
         char *szDSN = (char*)"myodbc5w";
         char *szUID;
         char *szPWD;
@@ -50,6 +53,9 @@ std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngine
     } else {
         Result result;
         KETILOG::DEBUGLOG("Plan Executer"," => Pushdown Query");
+
+        DB_Monitoring_Manager::UpdateSelectCount();//구분필요!!!!
+        DB_Monitoring_Manager::UpdateOffloadingCount();
         
         int query_id = Set_Query_ID();
         auto snippet_list = Gen_Snippet(parsed_query);
@@ -59,6 +65,9 @@ std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngine
 
         result = Get_Query_Result(storageEngineInterface,query_id);
         query_log.AddResultInfo(result.scanned_row_count(),result.filtered_row_count(), result.query_result());
+
+        DB_Monitoring_Manager::UpdateScanRowCount(result.scanned_row_count());
+        DB_Monitoring_Manager::UpdateFilterRowCount(result.filtered_row_count());
 
         res = result.query_result();
     }
@@ -71,8 +80,7 @@ void Plan_Executer::Send_Snippets(Storage_Engine_Interface &storageEngineInterfa
     std::list<SnippetRequest>::iterator iter = snippet_list.begin();
     storageEngineInterface.OpenStream();
     for(;iter != snippet_list.end();iter++){
-        //set query id
-        iter->mutable_snippet()->set_query_id(query_id);
+        iter->mutable_snippet()->set_query_id(query_id);//set query id
         storageEngineInterface.SendSnippet(*iter);
     }
     storageEngineInterface.CloseStream();
@@ -85,7 +93,24 @@ Result Plan_Executer::Get_Query_Result(Storage_Engine_Interface &storageEngineIn
 
 int Plan_Executer::Set_Query_ID(){
     std::lock_guard<std::mutex> lock(mutex);
-    return Query_ID++;
+    try {
+        sql::mysql::MySQL_Driver *driver = sql::mysql::get_mysql_driver_instance();
+        sql::Connection *con = driver->connect("tcp://10.0.4.87:30702", "keti", "ketilinux");
+        con->setSchema("keti_db");
+
+        sql::Statement *stmt = con->createStatement();
+        sql::ResultSet  *res = stmt->executeQuery("SELECT MAX(query_id) FROM query_log");
+        res->next();
+
+        Query_ID = res->getInt(1);
+
+        delete res;
+        delete stmt;
+        delete con;
+    } catch (sql::SQLException &e) {
+        KETILOG::INFOLOG("Plan Executer"," failed to get max query_id in log database");
+    }
+    return ++Query_ID;
 }
 
 std::unique_ptr<std::list<SnippetRequest>> Plan_Executer::Gen_Snippet(Parsed_Query &parsed_query){ // test code
@@ -330,6 +355,5 @@ void load_snippet(std::list<SnippetRequest> &list,std::string snippet_name){
     options.ignore_unknown_fields = true;
     google::protobuf::util::JsonStringToMessage(json_str, &request, options);
 
-
-  list.push_back(request);
+    list.push_back(request);
 }
