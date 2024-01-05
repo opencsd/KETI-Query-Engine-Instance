@@ -21,7 +21,7 @@ cmake_minimum_required(VERSION 3.5.1)
 
 project(snippet_sample C CXX)
 
-include(../cmake/common.cmake)
+include(./build/cmake/common.cmake)
 
 # find_package(MySQLConnectorCPP REQUIRED)
 
