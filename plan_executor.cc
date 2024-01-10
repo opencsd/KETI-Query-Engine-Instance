@@ -96,7 +96,7 @@ int Plan_Executer::Set_Query_ID(){
     try {
         sql::mysql::MySQL_Driver *driver = sql::mysql::get_mysql_driver_instance();
         sql::Connection *con = driver->connect("tcp://10.0.4.87:30702", "keti", "ketilinux");
-        con->setSchema("keti_db");
+        con->setSchema("keti_opencsd");
 
         sql::Statement *stmt = con->createStatement();
         sql::ResultSet  *res = stmt->executeQuery("SELECT MAX(query_id) FROM query_log");

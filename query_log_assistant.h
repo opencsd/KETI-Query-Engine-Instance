@@ -82,7 +82,7 @@ public:
         try {
             sql::mysql::MySQL_Driver *driver = sql::mysql::get_mysql_driver_instance();
             sql::Connection *con = driver->connect("tcp://10.0.4.87:30702", "keti", "ketilinux");
-            con->setSchema("keti_db");
+            con->setSchema("keti_opencsd");
 
             string log_statement = "INSERT INTO query_log (query_id, user_id, query_statement, query_result, \
                                 execution_mode, query_type, start_time, end_time, execution_time, \
