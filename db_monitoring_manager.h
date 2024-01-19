@@ -94,7 +94,7 @@ private:
             string resp;
 
             int ret = influxdb_cpp::builder()
-                .meas("database_monitoring")
+                .meas("database_status")
                 .field("select_count", select_count_)
                 .field("insert_count", insert_count_)
                 .field("delete_count", delete_count_)
@@ -116,13 +116,13 @@ private:
             KETILOG::ERRORLOG("DB Connector Instance::DB Monitoring Manager::SQL Error", e.what());
         }
 
-        cout << "-------------------------" << endl;
-        cout << "Insert DB Monitorint Info" << endl;
-        cout << select_count_<<" / "<<insert_count_<<" / "<<delete_count_<<" / "<<update_count_ << endl;
-        cout << ddl_count_<<" / "<<dml_count_<<" / "<<dcl_count_<<" / "<<offloading_count_<<" / "<< client_count_ << endl;
-        cout << disk_read_rate_<<" / "<<disk_write_rate_<<" / "<<cache_hit_rate_<<" / "<<cache_usage_rate_ << endl;
-        cout << csd_scan_row_count_<<" / "<<csd_filter_row_count_<< endl;
-        cout << "-------------------------" << endl;
+        // cout << "-------------------------" << endl;
+        // cout << "Insert DB Monitorint Info" << endl;
+        // cout << select_count_<<" / "<<insert_count_<<" / "<<delete_count_<<" / "<<update_count_ << endl;
+        // cout << ddl_count_<<" / "<<dml_count_<<" / "<<dcl_count_<<" / "<<offloading_count_<<" / "<< client_count_ << endl;
+        // cout << disk_read_rate_<<" / "<<disk_write_rate_<<" / "<<cache_hit_rate_<<" / "<<cache_usage_rate_ << endl;
+        // cout << csd_scan_row_count_<<" / "<<csd_filter_row_count_<< endl;
+        // cout << "-------------------------" << endl;
     
         resetMonitoringData();
     }

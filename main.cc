@@ -86,7 +86,7 @@ int main(int argc, char** argv){
 
     on_initialize(address);
 
-    DB_Monitoring_Manager& manager = DB_Monitoring_Manager::GetInstance();
+    // DB_Monitoring_Manager& manager = DB_Monitoring_Manager::GetInstance();
 
     while (true);
 

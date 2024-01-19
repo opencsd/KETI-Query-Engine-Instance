@@ -57,7 +57,7 @@ std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngine
         DB_Monitoring_Manager::UpdateSelectCount();//구분필요!!!!
         DB_Monitoring_Manager::UpdateOffloadingCount();
         
-        int query_id = Set_Query_ID();
+        int query_id = Get_Query_ID();
         auto snippet_list = Gen_Snippet(parsed_query);
 
         query_log.AddSnippetInfo(query_id, *snippet_list);
@@ -91,7 +91,7 @@ Result Plan_Executer::Get_Query_Result(Storage_Engine_Interface &storageEngineIn
     return storageEngineInterface.Run(query_id);
 }
 
-int Plan_Executer::Set_Query_ID(){
+void Plan_Executer::Set_Query_ID(){
     std::lock_guard<std::mutex> lock(mutex);
     try {
         sql::mysql::MySQL_Driver *driver = sql::mysql::get_mysql_driver_instance();
@@ -110,7 +110,7 @@ int Plan_Executer::Set_Query_ID(){
     } catch (sql::SQLException &e) {
         KETILOG::INFOLOG("Plan Executer"," failed to get max query_id in log database");
     }
-    return ++Query_ID;
+    // return ++Query_ID;
 }
 
 std::unique_ptr<std::list<SnippetRequest>> Plan_Executer::Gen_Snippet(Parsed_Query &parsed_query){ // test code
