@@ -7,10 +7,10 @@ option objc_class_prefix = "SSP";
 
 package StorageEngineInstance;
 
-service InterfaceContainer {
-  rpc SetSnippet (stream SnippetRequest) returns (stream Response) {}
-  rpc Run (Request) returns (Result) {}
-  rpc SetSnippetAndRun (stream SnippetRequest) returns (Result) {}
+service StorageEngineInterface {
+  rpc GenericQueryInterface(Request) returns (Response) {}
+  rpc OffloadingQueryInterface (stream SnippetRequest) returns (QueryStringResult) {}
+  rpc SyncMetaDataManager (DBInfo) returns (Response) {}
 }
 
 message SnippetRequest {
@@ -64,11 +64,10 @@ message Snippet {
       KETI_NOT = 12;
       KETI_AND = 13;
       KETI_OR = 14;
-      KETI_BRACKET_OPEN = 15;
-      KETI_BRACKET_CLOSE = 16;
-      KETI_SUBSTRING = 17; //임시 데모 이후 제거예정
+      KETI_ALL = 15;
+      KETI_SUBSTRING = 16;
     }
-    message FilterValue{
+    message FilterValue {
       repeated ValueType type = 1;
       repeated string value = 2;
     }
@@ -93,7 +92,7 @@ message Snippet {
     repeated ValueType value_type = 3;    
   }
   message Order {
-    enum OrderDirection{
+    enum OrderDirection {
       ASC = 0; //DEFAULT
       DESC = 1;
     }
@@ -108,38 +107,53 @@ message Snippet {
     int32 offset = 1;
     int32 length = 2;
   }
-  int32 query_ID = 1;
-  int32 work_ID = 2;
-  repeated string table_name = 3;
-  repeated string table_col = 4;
-  repeated Filter table_filter = 5;
-  Dependency dependency = 6;
-  repeated int32 table_offset = 7;
-  repeated int32 table_offlen = 8;
-  repeated int32 table_datatype = 9;
-  string table_alias = 10;
-  repeated string column_alias = 11;
-  repeated Projection column_projection = 12;
-  repeated string column_filtering = 13;
-  repeated string group_by = 14;
-  Order order_by = 15;
-  Limit limit = 16;
-  int32 pk_num = 17;
-  repeated Filter having = 18;
+  string db_name = 1;
+  int32 query_ID = 2;
+  int32 work_ID = 3;
+  repeated string table_name = 4;
+  repeated string table_col = 5;
+  repeated Filter table_filter = 6;
+  Dependency dependency = 7;
+  repeated int32 table_offset = 8;
+  repeated int32 table_offlen = 9;
+  repeated int32 table_datatype = 10;
+  string table_alias = 11;
+  repeated string column_alias = 12;
+  repeated Projection column_projection = 13;
+  repeated string column_filtering = 14;
+  repeated string group_by = 15;
+  Order order_by = 16;
+  Limit limit = 17;
+  int32 pk_num = 18;
+  repeated Filter having = 19;
 }
 
-message Request{
+message Request {
   int32 query_id = 1;
   int32 work_id = 2;
-  string table_name = 3;
+  string db_name = 3;
+  string table_name = 4;
+  int32 table_index_number = 5;
+  map<string, string> sst_csd_map = 6;
 }
 
 message Response {
   string value = 1;
 }
 
-message Result {
+message QueryStringResult {
   string query_result = 1;
   int32 scanned_row_count = 2;
   int32 filtered_row_count = 3; 
+}
+
+message DBInfo {
+  message DB {
+    message Table {
+      int32 table_index_number = 1;
+      repeated string sst_list = 2;
+    }
+    map<string, Table> table_list = 1;
+  }
+  map<string, DB> db_list = 1;
 }

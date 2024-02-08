@@ -3,10 +3,10 @@
 #include "parsed_query.h"
 #include "keti_log.h"
 
-class Query_Planner {
+class QueryPlanner {
 public:
-	Query_Planner() {}
-    void Parse(Meta_Data_Manager &mata_data_manager,Parsed_Query &parsed_query){
+	QueryPlanner() {}
+    void Parse(ParsedQuery &parsed_query){
     KETILOG::DEBUGLOG("Query Planner","Start Query Processing");
     KETILOG::DEBUGLOG("Query Planner","Parsing Query ...");
 

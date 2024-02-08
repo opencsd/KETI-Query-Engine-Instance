@@ -6,40 +6,25 @@
 // db connect instance include
 #include "stdafx.h"
 #include "db_connector_instance.h"
-#include "query_planner.h"
 #include "meta_data_manager.h"
-#include "plan_executor.h"
-#include "storage_engine_interface.h"
-#include "parsed_query.h"
 #include "keti_log.h"
 #include "ip_config.h"
-std::unique_ptr<DB_Connector_Instance> g_httpHandler;
 
-void on_initialize(const string_t& address){
-    web::uri_builder uri(address);  
+std::unique_ptr<DBConnectorInstance> g_httpHandler;
 
-    string storage_engine_address, storage_engine_ip, storage_engine_port;
+void on_initialize(){
+    string query_engine_address;
+    query_engine_address = "http://" + (string)LOCALHOST + ":" + (string)QUERY_ENGINE_PORT;
+    web::uri_builder query_engine_address_uri(query_engine_address);
+    auto query_engine_address_ = query_engine_address_uri.to_uri().to_string();
 
-    if (getenv("CLUSTER_MASTER_IP") != NULL){
-        storage_engine_ip = getenv("CLUSTER_MASTER_IP");
-        if (getenv("SE_INTERFACE_CONTAINER_POD_PORT") != NULL){
-            storage_engine_port = getenv("SE_INTERFACE_CONTAINER_POD_PORT");
-        }else{
-            storage_engine_ip = STORAGE_ENGINE_LOCAL;
-            storage_engine_port = to_string(SE_INTERFACE_CONTAINER_PORT);
-        }
-    }else{
-        storage_engine_ip = STORAGE_ENGINE_LOCAL;
-        storage_engine_port = to_string(SE_INTERFACE_CONTAINER_PORT);
-    }
+    string storage_engine_address;
+    storage_engine_address = (string)STORAGE_ENGINE_IP + ":" + (string)SE_INTERFACE_PORT;
 
-    storage_engine_address = storage_engine_ip + ":" + storage_engine_port;
-
-    auto addr = uri.to_uri().to_string();
-    g_httpHandler = std::unique_ptr<DB_Connector_Instance>(new DB_Connector_Instance(addr,storage_engine_address));
+    g_httpHandler = std::unique_ptr<DBConnectorInstance>(new DBConnectorInstance(query_engine_address_,storage_engine_address));
     g_httpHandler->open().wait();
 
-    KETILOG::WARNLOG("DB Connector Instance","Listening for request at " + addr);
+    KETILOG::WARNLOG("Query Engine","Listening for request at " + query_engine_address_);
 
     return;
 }
@@ -65,26 +50,19 @@ int main(int argc, char** argv){
             log_level = DEBUGG_LEVEL::WARN;
         }else if (env == "ERROR"){
             log_level = DEBUGG_LEVEL::ERROR;
-        }else{
+        }else if (env == "FATAL"){
             log_level = DEBUGG_LEVEL::FATAL;
+        }else{
+            log_level = DEBUGG_LEVEL::INFO;
         }
         KETILOG::SetLogLevel(log_level);
     }else{
         KETILOG::SetDefaultLogLevel();
     }
 
-    utility::string_t port;
-    if (getenv("QUERY_ENGINE_POD_PORT") != NULL){
-        port = getenv("QUERY_ENGINE_POD_PORT"); //running on pod
-    } else{
-        port = U("40100"); //running on local
-    }
+    MetaDataManager::InitMetaDataManager();
 
-    utility::string_t address = U("http://0.0.0.0:");
-
-    address.append(port);
-
-    on_initialize(address);
+    on_initialize();
 
     // DB_Monitoring_Manager& manager = DB_Monitoring_Manager::GetInstance();
 

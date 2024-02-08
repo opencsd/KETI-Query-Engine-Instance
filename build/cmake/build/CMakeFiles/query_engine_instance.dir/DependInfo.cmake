@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/root/workspace/keti/Query-Engine-Instance/query_engine_instance/db_connector_instance.cpp" "CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o" "gcc" "CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o.d"
+  "/root/workspace/keti/Query-Engine-Instance/query_engine_instance/db_connector_instance.cc" "CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o" "gcc" "CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o.d"
   "/root/workspace/keti/Query-Engine-Instance/query_engine_instance/main.cc" "CMakeFiles/query_engine_instance.dir/main.cc.o" "gcc" "CMakeFiles/query_engine_instance.dir/main.cc.o.d"
   "/root/workspace/keti/Query-Engine-Instance/query_engine_instance/plan_executor.cc" "CMakeFiles/query_engine_instance.dir/plan_executor.cc.o" "gcc" "CMakeFiles/query_engine_instance.dir/plan_executor.cc.o.d"
   )

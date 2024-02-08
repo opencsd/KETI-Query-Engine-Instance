@@ -5,10 +5,7 @@
 
 // db connect instance include
 #include "query_planner.h"
-#include "meta_data_manager.h"
 #include "plan_executor.h"
-#include "storage_engine_interface.h"
-#include "parsed_query.h"
 
 using namespace std;
 using namespace web;
@@ -16,13 +13,12 @@ using namespace http;
 using namespace utility;
 using namespace http::experimental::listener;
 
-
-class DB_Connector_Instance
+class DBConnectorInstance
 {
     public:
-        DB_Connector_Instance();
-        DB_Connector_Instance(utility::string_t url, string stprage_engine_address);
-        virtual ~DB_Connector_Instance();
+        DBConnectorInstance();
+        DBConnectorInstance(utility::string_t url, string storage_engine_address);
+        virtual ~DBConnectorInstance();
 
         pplx::task<void>open(){return m_listener.open();}
         pplx::task<void>close(){return m_listener.close();}
@@ -37,10 +33,9 @@ class DB_Connector_Instance
         void handle_error(pplx::task<void>& t);
         http_listener m_listener;
         
-	Query_Planner query_planner_;
-	Meta_Data_Manager meta_data_manager_;
-	Plan_Executer plan_executer_;
-	Storage_Engine_Interface storageEngineInterface_;
+	QueryPlanner query_planner_;
+	PlanExecutor plan_executor_;
+	StorageEngineConnector storage_engine_connector_;
 };
 
 

@@ -59,7 +59,7 @@ target_link_libraries(ss_grpc_proto
   ${_PROTOBUF_LIBPROTOBUF})
 
 # Query_Engine_Instance
-add_executable(query_engine_instance "main.cc" "storage_engine_interface.h" "plan_executor.cc" "plan_executor.h" "query_planner.h" "meta_data_manager.h" "parsed_query.h" "db_connector_instance.cpp" "db_connector_instance.h" "query_log_assistant.h" "stdafx.h" "kodbc.h" "keti_log.h")
+add_executable(query_engine_instance "main.cc" "plan_executor.cc" "db_connector_instance.cc")
 
 set(Casablanca_LIBRARIES "-lboost_system -lcrypto -lssl -lcpprest")
 set(KODBC_LLIBRARIES "-lodbc")

@@ -36,7 +36,7 @@ typedef enum DEBUGG_LEVEL {
 class KETILOG {
     public:
         static void SetDefaultLogLevel(){
-            GetInstance().LOG_LEVEL = DEBUG;
+            GetInstance().LOG_LEVEL = INFO;
         }
         
         static void SetLogLevel(int level){

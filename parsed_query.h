@@ -3,9 +3,9 @@
 #include "query_log_assistant.h"
 #include "db_monitoring_manager.h"
 
-class Parsed_Query {
+class ParsedQuery {
 public:
-    Parsed_Query(std::string query){
+    ParsedQuery(std::string query){
         ori_query_ = query;
         execution_mode_ = EXECUTION_MODE::GENERIC;
         query_type_ = QUERY_TYPE::SELECT;//구분필요!!!!
