@@ -97,32 +97,32 @@ CMakeFiles/query_engine_instance.dir/plan_executor.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/query_engine_instance.dir/plan_executor.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/workspace/keti/Query-Engine-Instance/query_engine_instance/plan_executor.cc -o CMakeFiles/query_engine_instance.dir/plan_executor.cc.s
 
-CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o: CMakeFiles/query_engine_instance.dir/flags.make
-CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o: /root/workspace/keti/Query-Engine-Instance/query_engine_instance/db_connector_instance.cpp
-CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o: CMakeFiles/query_engine_instance.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/keti/Query-Engine-Instance/query_engine_instance/build/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o -MF CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o.d -o CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o -c /root/workspace/keti/Query-Engine-Instance/query_engine_instance/db_connector_instance.cpp
+CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o: CMakeFiles/query_engine_instance.dir/flags.make
+CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o: /root/workspace/keti/Query-Engine-Instance/query_engine_instance/db_connector_instance.cc
+CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o: CMakeFiles/query_engine_instance.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/keti/Query-Engine-Instance/query_engine_instance/build/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o -MF CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o.d -o CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o -c /root/workspace/keti/Query-Engine-Instance/query_engine_instance/db_connector_instance.cc
 
-CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/workspace/keti/Query-Engine-Instance/query_engine_instance/db_connector_instance.cpp > CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.i
+CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/workspace/keti/Query-Engine-Instance/query_engine_instance/db_connector_instance.cc > CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.i
 
-CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/workspace/keti/Query-Engine-Instance/query_engine_instance/db_connector_instance.cpp -o CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.s
+CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/workspace/keti/Query-Engine-Instance/query_engine_instance/db_connector_instance.cc -o CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.s
 
 # Object files for target query_engine_instance
 query_engine_instance_OBJECTS = \
 "CMakeFiles/query_engine_instance.dir/main.cc.o" \
 "CMakeFiles/query_engine_instance.dir/plan_executor.cc.o" \
-"CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o"
+"CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o"
 
 # External object files for target query_engine_instance
 query_engine_instance_EXTERNAL_OBJECTS =
 
 query_engine_instance: CMakeFiles/query_engine_instance.dir/main.cc.o
 query_engine_instance: CMakeFiles/query_engine_instance.dir/plan_executor.cc.o
-query_engine_instance: CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o
+query_engine_instance: CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o
 query_engine_instance: CMakeFiles/query_engine_instance.dir/build.make
 query_engine_instance: libss_grpc_proto.a
 query_engine_instance: /lib/libgrpc++_reflection.a

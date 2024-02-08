@@ -12,11 +12,11 @@
 
 void load_snippet(std::list<SnippetRequest> &list,std::string snippet_name);
 
-std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngineInterface,Parsed_Query &parsed_query, Query_Log &query_log){
+std::string PlanExecutor::ExecuteQuery(StorageEngineConnector &storageEngineInterface, ParsedQuery &parsed_query, QueryLog &query_log){
     string res = "";
     KETILOG::DEBUGLOG("Plan Executer","Analyzing Query ...");
 
-    if(parsed_query.isGenericQuery()){
+    if(parsed_query.isGenericQuery()){ //Generic Query
         KETILOG::DEBUGLOG("Plan Executer"," => Generic Query");
         
         // DB_Monitoring_Manager::UpdateSelectCount();//구분필요!!!!
@@ -34,7 +34,6 @@ std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngine
         }
         printf("[K-ODBC] K-OpenSource DB Connected!\n[K-ODBC] Using DBMS : \n");
         system("mysql --version");
-        // printf("\n");
         printf("[K-ODBC] DSN : %s\n", szDSN);
         printf("[K-ODBC] User ID : root\n");
         printf("[K-ODBC] Using DataBase : tpch_1m_no_index\n\n");
@@ -50,20 +49,23 @@ std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngine
 
         //Database Close
         CloseDatabase(hEnv, hDbc);
-    } else {
-        Result result;
+    } else { //Offloading Query
+        QueryStringResult result;
         KETILOG::DEBUGLOG("Plan Executer"," => Pushdown Query");
 
-        DB_Monitoring_Manager::UpdateSelectCount();//구분필요!!!!
+        DB_Monitoring_Manager::UpdateSelectCount();
         DB_Monitoring_Manager::UpdateOffloadingCount();
         
-        int query_id = Get_Query_ID();
-        auto snippet_list = Gen_Snippet(parsed_query);
+        int query_id = GetQueryID();
+        auto snippet_list = genSnippet(parsed_query);
 
         query_log.AddSnippetInfo(query_id, *snippet_list);
-        Send_Snippets(storageEngineInterface,*snippet_list,query_id);
+        
+        // Send_Snippets(storageEngineInterface,*snippet_list,query_id);
+        // result = Get_Query_Result(storageEngineInterface,query_id);
 
-        result = Get_Query_Result(storageEngineInterface,query_id);
+        result = queryOffload(storageEngineInterface,*snippet_list,query_id);
+
         query_log.AddResultInfo(result.scanned_row_count(),result.filtered_row_count(), result.query_result());
 
         DB_Monitoring_Manager::UpdateScanRowCount(result.scanned_row_count());
@@ -74,24 +76,13 @@ std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngine
     return res;
 }
 
-void Plan_Executer::Send_Snippets(Storage_Engine_Interface &storageEngineInterface,std::list<SnippetRequest> &snippet_list, int query_id){
+QueryStringResult PlanExecutor::queryOffload(StorageEngineConnector &storageEngineInterface,std::list<SnippetRequest> &snippet_list, int query_id){
     std::lock_guard<std::mutex> lock(gRPC_mutex);
 
-    std::list<SnippetRequest>::iterator iter = snippet_list.begin();
-    storageEngineInterface.OpenStream();
-    for(;iter != snippet_list.end();iter++){
-        iter->mutable_snippet()->set_query_id(query_id);//set query id
-        storageEngineInterface.SendSnippet(*iter);
-    }
-    storageEngineInterface.CloseStream();
+    return storageEngineInterface.OffloadingQuery(snippet_list, query_id);
 }
 
-Result Plan_Executer::Get_Query_Result(Storage_Engine_Interface &storageEngineInterface,int query_id){
-    // std::lock_guard<std::mutex> lock(mutex);
-    return storageEngineInterface.Run(query_id);
-}
-
-void Plan_Executer::Set_Query_ID(){
+void PlanExecutor::setQueryID(){
     std::lock_guard<std::mutex> lock(mutex);
     try {
         sql::mysql::MySQL_Driver *driver = sql::mysql::get_mysql_driver_instance();
@@ -102,7 +93,7 @@ void Plan_Executer::Set_Query_ID(){
         sql::ResultSet  *res = stmt->executeQuery("SELECT MAX(query_id) FROM query_log");
         res->next();
 
-        Query_ID = res->getInt(1);
+        queryID_ = res->getInt(1);
 
         delete res;
         delete stmt;
@@ -110,10 +101,9 @@ void Plan_Executer::Set_Query_ID(){
     } catch (sql::SQLException &e) {
         KETILOG::INFOLOG("Plan Executer"," failed to get max query_id in log database");
     }
-    // return ++Query_ID;
 }
 
-std::unique_ptr<std::list<SnippetRequest>> Plan_Executer::Gen_Snippet(Parsed_Query &parsed_query){ // test code
+std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery &parsed_query){ // test code
     std::unique_ptr<std::list<SnippetRequest>> ret(new std::list<SnippetRequest>());
     std::string query_str = parsed_query.GetOriginalQuery();
     

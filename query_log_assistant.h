@@ -37,11 +37,11 @@ typedef enum QUERY_TYPE {
     OTHER = 7
 }QUERY_TYPE;
 
-class Query_Log {
+class QueryLog {
 public:
-    Query_Log(){}
+    QueryLog(){}
 
-    Query_Log(string user_id, string query_statement, string start_time, EXECUTION_MODE execution_mode, QUERY_TYPE query_type){
+    QueryLog(string user_id, string query_statement, string start_time, EXECUTION_MODE execution_mode, QUERY_TYPE query_type){
         user_id_ = user_id;
         query_statement_ = query_statement;
         start_time_ = start_time;
@@ -223,5 +223,5 @@ private:
     int scanned_row_count_;
     int filtered_row_count_;
     int snippet_count_;
-    vector<Query_Log::Snippet_Log> snippet_log_;
+    vector<QueryLog::Snippet_Log> snippet_log_;
 };

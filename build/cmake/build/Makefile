@@ -142,29 +142,29 @@ query_engine_instance/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/build
 .PHONY : query_engine_instance/fast
 
-db_connector_instance.o: db_connector_instance.cpp.o
+db_connector_instance.o: db_connector_instance.cc.o
 .PHONY : db_connector_instance.o
 
 # target to build an object file
-db_connector_instance.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o
-.PHONY : db_connector_instance.cpp.o
+db_connector_instance.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o
+.PHONY : db_connector_instance.cc.o
 
-db_connector_instance.i: db_connector_instance.cpp.i
+db_connector_instance.i: db_connector_instance.cc.i
 .PHONY : db_connector_instance.i
 
 # target to preprocess a source file
-db_connector_instance.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.i
-.PHONY : db_connector_instance.cpp.i
+db_connector_instance.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.i
+.PHONY : db_connector_instance.cc.i
 
-db_connector_instance.s: db_connector_instance.cpp.s
+db_connector_instance.s: db_connector_instance.cc.s
 .PHONY : db_connector_instance.s
 
 # target to generate assembly for a file
-db_connector_instance.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.s
-.PHONY : db_connector_instance.cpp.s
+db_connector_instance.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.s
+.PHONY : db_connector_instance.cc.s
 
 main.o: main.cc.o
 .PHONY : main.o

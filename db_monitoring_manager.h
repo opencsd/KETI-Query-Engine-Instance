@@ -13,7 +13,7 @@ using namespace std;
 
 class DB_Monitoring_Manager {
 public:
-    inline const static std::string LOGTAG = "Query Engine Instance::DB Monitoring Manager";
+    const std::string LOGTAG = "Query Engine Instance::DB Monitoring Manager";
 
     static void UpdateSelectCount(){
         GetInstance().updateSelectCount();

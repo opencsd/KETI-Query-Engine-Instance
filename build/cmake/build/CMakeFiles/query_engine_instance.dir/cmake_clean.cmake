@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o"
-  "CMakeFiles/query_engine_instance.dir/db_connector_instance.cpp.o.d"
+  "CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o"
+  "CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o.d"
   "CMakeFiles/query_engine_instance.dir/main.cc.o"
   "CMakeFiles/query_engine_instance.dir/main.cc.o.d"
   "CMakeFiles/query_engine_instance.dir/plan_executor.cc.o"
