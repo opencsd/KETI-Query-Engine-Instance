@@ -22,7 +22,8 @@ DBConnectorInstance::DBConnectorInstance(utility::string_t url, string storage_e
     m_listener.support(methods::POST, std::bind(&DBConnectorInstance::handle_post, this, std::placeholders::_1));
     m_listener.support(methods::DEL, std::bind(&DBConnectorInstance::handle_delete, this, std::placeholders::_1));
 
-    storage_engine_connector_.SyncMetaDataManager();
+    thread syncMetadataThread = thread(&StorageEngineConnector::SyncMetaDataManager, &storage_engine_connector_);
+    syncMetadataThread.detach();
 }
 DBConnectorInstance::~DBConnectorInstance()
 {
