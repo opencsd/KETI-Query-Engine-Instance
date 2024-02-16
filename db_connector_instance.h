@@ -36,6 +36,7 @@ class DBConnectorInstance
 	QueryPlanner query_planner_;
 	PlanExecutor plan_executor_;
 	StorageEngineConnector storage_engine_connector_;
+    const std::string LOGTAG = "Query Engine";
 };
 
 
