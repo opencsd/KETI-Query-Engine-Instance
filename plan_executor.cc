@@ -16,10 +16,15 @@ std::string PlanExecutor::ExecuteQuery(StorageEngineConnector &storageEngineInte
     string res = "";
     KETILOG::DEBUGLOG(LOGTAG,"Analyzing Query ...");
 
+     // opencsd offloading O -> Offloading Query
+    // opencsd offloading X -> Generic Query
+    // use other dbms -> K-ODBC
+
     if(parsed_query.isGenericQuery()){ //Generic Query
         KETILOG::DEBUGLOG(LOGTAG," => Generic Query");
         
         // DB_Monitoring_Manager::UpdateSelectCount();//구분필요!!!!
+        //Generic Query 및 K-ODBC Query 구분 필요!!
 
         char *szDSN = (char*)"myodbc5w";
         char *szUID;
@@ -97,6 +102,7 @@ void PlanExecutor::setQueryID(){
         delete con;
     } catch (sql::SQLException &e) {
         KETILOG::INFOLOG(LOGTAG," failed to get max query_id in log database");
+        queryID_ = 0;
     }
 }
 
