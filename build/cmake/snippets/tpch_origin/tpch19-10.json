@@ -1,0 +1,30 @@
+{
+  "type": 7,
+  "snippet": {
+    "queryID": 18,
+    "workID": 10,
+    "tableName": [
+      "ProcessTable19-8", "ProcessTable19-9"
+    ],
+    "tableCol": [],
+    "tableFilter": [
+      {
+        "Operator": 15
+      }
+    ],
+    "tableOffset": [],
+    "tableOfflen": [],
+    "tableDatatype": [],
+    "tableAlias": "ResultTable18",
+    "columnAlias": [
+      "revenue"
+    ],
+    "columnProjection": [
+      {
+          "selectType": 1,
+          "value": ["revenue"],
+          "valueType": [10]
+      }
+    ]
+  }
+}

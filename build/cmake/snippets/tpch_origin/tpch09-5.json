@@ -1,0 +1,74 @@
+{
+  "type" : 0,
+  "snippet":
+  {
+    "queryID":8,
+    "workID":5,
+    "tableName": ["nation"],
+    "tableCol":[
+      "n_nationkey",  
+      "n_name",
+      "n_regionkey",
+      "n_comment"
+    ],
+    "tableFilter":[],
+    "tableOffset":[
+      0,
+      4,
+      29,
+      33
+    ],
+    "tableOfflen":[
+      4,
+      25,
+      4,
+      152
+    ],
+    "tableDatatype":[
+      3,
+      254,
+      3,
+      15
+    ],
+    "tableAlias": "ProcessTable8-5",
+    "columnAlias": [
+      "nation",
+      "n_nationkey"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": [
+          "n_name"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "n_nationkey"
+        ],
+        "valueType": [
+          10
+        ]
+      }
+    ],
+    "pkNum" : 0
+  },
+  "scanInfo":{
+    "blockInfo":[                                                             
+      {
+          "sstName": "002064.sst",
+          "csdList": ["2"],
+          "lbaList": [
+          {
+          "offset": 0,
+          "length": 3053
+          }
+          ]
+      }
+    ]
+  }
+}

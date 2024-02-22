@@ -1,0 +1,74 @@
+{
+  "type" : 9,
+  "snippet":
+  {
+    "queryID":19,
+    "workID":4,
+    "tableName": ["ProcessTable19-3","ProcessTable19-0"],
+    "tableCol":[],
+    "tableFilter":[
+      {
+        "LV": {
+          "type": [10],
+          "value": ["ps_availqty"]
+      },
+      "Operator" : 3, 
+      "RV" : {
+          "type": [],
+          "value": []
+        }
+      }
+    ],
+    "dependency":{
+      "dependencyProjection":[
+        {
+          "selectType": 1,
+          "value": ["ProcessTable19-0-c1"],
+          "valueType": [10]
+        }
+      ],
+      "dependencyFilter" : [
+        {
+          "LV": {
+            "type": [10],
+            "value": ["ps_partkey"]
+        },
+        "Operator" : 5, 
+        "RV" : {
+            "type": [10],
+            "value": ["l_partkey"]
+          }
+        },
+        {
+        "Operator" : 13
+        },
+        {
+          "LV": {
+            "type": [10],
+            "value": ["ps_suppkey"]
+        },
+        "Operator" : 5, 
+        "RV" : {
+            "type": [10],
+            "value": ["l_suppkey"]
+          }
+        }
+      ]
+    },
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "blockList":[],
+    "tableAlias": "ProcessTable19-4",
+    "columnAlias": [
+        "ProcessTable19-4-c1"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["ps_suppkey"],
+        "valueType": [10]
+      }
+    ]
+  }
+}

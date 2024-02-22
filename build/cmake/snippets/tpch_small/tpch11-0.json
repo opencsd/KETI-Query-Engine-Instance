@@ -1,0 +1,77 @@
+{
+  "type": 0,
+  "snippet": {
+    "queryID": 10,
+    "workID": 0,
+    "tableName": [
+      "partsupp"
+    ],
+    "tableCol":[
+      "ps_partkey",  
+      "ps_suppkey",
+      "ps_availqty",
+      "ps_supplycost",
+      "ps_comment"
+    ],
+    "tableFilter":[],
+    "tableOffset": [
+      0,
+      4,
+      8,
+      12,
+      19
+    ],
+    "tableOfflen": [
+      4,
+      4,
+      4,
+      7,
+      199
+    ],
+    "tableDatatype": [
+      3,
+      3,
+      3,
+      246,
+      15
+    ],
+    "tableAlias": "ProcessTable10-0",
+    "columnAlias": [
+      "ProcessTable10-0-c1",
+      "ps_suppkey",
+      "ps_partkey"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": [
+          "ps_supplycost","ps_availqty","*"
+        ],
+        "valueType": [
+          10,10,11
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "ps_suppkey"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "ps_partkey"
+        ],
+        "valueType": [
+          10
+        ]
+      }
+    ],
+    "pkNum" : 0
+  },
+  "scanInfo":{"blockInfo":[{"sstName":"001881.sst","csdList":["1"],"lbaList":[{"offset":0,"length":3978},{"offset":3978,"length":3920},{"offset":7898,"length":3936},{"offset":11834,"length":4028},{"offset":15862,"length":4071},{"offset":19933,"length":4055},{"offset":23988,"length":3911},{"offset":27899,"length":4062},{"offset":31961,"length":4048},{"offset":36009,"length":3999},{"offset":40008,"length":4049},{"offset":44057,"length":4061},{"offset":48118,"length":4008},{"offset":52126,"length":4009},{"offset":56135,"length":3926},{"offset":60061,"length":4023},{"offset":64084,"length":3966},{"offset":68050,"length":3993},{"offset":72043,"length":3959},{"offset":76002,"length":4024},{"offset":80026,"length":3964},{"offset":83990,"length":4011},{"offset":88001,"length":3951},{"offset":91952,"length":4050},{"offset":96002,"length":4086},{"offset":100088,"length":4009},{"offset":104097,"length":3977},{"offset":108074,"length":3956},{"offset":112030,"length":4078},{"offset":116108,"length":4041},{"offset":120149,"length":4012},{"offset":124161,"length":4010},{"offset":128171,"length":4087},{"offset":132258,"length":4084},{"offset":136342,"length":3950},{"offset":140292,"length":3925},{"offset":144217,"length":4075},{"offset":148292,"length":3948},{"offset":152240,"length":3980},{"offset":156220,"length":978}]},{"sstName":"001940.sst","csdList":["2"],"lbaList":[{"offset":0,"length":3915},{"offset":3915,"length":3984},{"offset":7899,"length":4069},{"offset":11968,"length":4073},{"offset":16041,"length":4039},{"offset":20080,"length":4044},{"offset":24124,"length":3995},{"offset":28119,"length":4061},{"offset":32180,"length":4066},{"offset":36246,"length":4023},{"offset":40269,"length":4063},{"offset":44332,"length":4073},{"offset":48405,"length":4068},{"offset":52473,"length":4081},{"offset":56554,"length":3988},{"offset":60542,"length":4020},{"offset":64562,"length":3969},{"offset":68531,"length":3978},{"offset":72509,"length":3971},{"offset":76480,"length":4033},{"offset":80513,"length":3870},{"offset":84383,"length":3909},{"offset":88292,"length":4054},{"offset":92346,"length":3938},{"offset":96284,"length":4039},{"offset":100323,"length":4039},{"offset":104362,"length":4028},{"offset":108390,"length":3971},{"offset":112361,"length":4060},{"offset":116421,"length":4062},{"offset":120483,"length":3995},{"offset":124478,"length":3973},{"offset":128451,"length":4056},{"offset":132507,"length":4072},{"offset":136579,"length":3930},{"offset":140509,"length":3927},{"offset":144436,"length":3897},{"offset":148333,"length":3926},{"offset":152259,"length":4044},{"offset":156303,"length":4062}]},{"sstName":"001941.sst","csdList":["3"],"lbaList":[{"offset":0,"length":3969},{"offset":3969,"length":4070},{"offset":8039,"length":4070},{"offset":12109,"length":3940},{"offset":16049,"length":3948},{"offset":19997,"length":4043},{"offset":24040,"length":3966},{"offset":28006,"length":4087},{"offset":32093,"length":3880},{"offset":35973,"length":4080},{"offset":40053,"length":4002},{"offset":44055,"length":4074},{"offset":48129,"length":4061},{"offset":52190,"length":3980},{"offset":56170,"length":3898},{"offset":60068,"length":4035},{"offset":64103,"length":3980},{"offset":68083,"length":4041},{"offset":72124,"length":4057},{"offset":76181,"length":4069},{"offset":80250,"length":4020},{"offset":84270,"length":4021},{"offset":88291,"length":3977},{"offset":92268,"length":3898},{"offset":96166,"length":4001},{"offset":100167,"length":3937},{"offset":104104,"length":3951},{"offset":108055,"length":4045},{"offset":112100,"length":4029},{"offset":116129,"length":3961},{"offset":120090,"length":4033},{"offset":124123,"length":4013},{"offset":128136,"length":4055},{"offset":132191,"length":4060},{"offset":136251,"length":4061},{"offset":140312,"length":3951},{"offset":144263,"length":4019},{"offset":148282,"length":3999},{"offset":152281,"length":3985},{"offset":156266,"length":2326}]},{"sstName":"001942.sst","csdList":["4"],"lbaList":[{"offset":0,"length":3949},{"offset":3949,"length":3974},{"offset":7923,"length":3979},{"offset":11902,"length":3921},{"offset":15823,"length":4020},{"offset":19843,"length":3973},{"offset":23816,"length":4043},{"offset":27859,"length":4046},{"offset":31905,"length":4053},{"offset":35958,"length":4022},{"offset":39980,"length":4082},{"offset":44062,"length":3960},{"offset":48022,"length":4057},{"offset":52079,"length":3935},{"offset":56014,"length":3917},{"offset":59931,"length":4015},{"offset":63946,"length":3912},{"offset":67858,"length":3997},{"offset":71855,"length":4033},{"offset":75888,"length":4036},{"offset":79924,"length":4081},{"offset":84005,"length":4002},{"offset":88007,"length":4052},{"offset":92059,"length":3914},{"offset":95973,"length":3989},{"offset":99962,"length":3952},{"offset":103914,"length":3977},{"offset":107891,"length":3999},{"offset":111890,"length":3965},{"offset":115855,"length":4041},{"offset":119896,"length":3987},{"offset":123883,"length":4013},{"offset":127896,"length":4064},{"offset":131960,"length":3906},{"offset":135866,"length":3920},{"offset":139786,"length":3960},{"offset":143746,"length":4010},{"offset":147756,"length":3946},{"offset":151702,"length":3958},{"offset":155660,"length":1630}]},{"sstName":"001943.sst","csdList":["5"],"lbaList":[{"offset":0,"length":3935},{"offset":3935,"length":4000},{"offset":7935,"length":4027},{"offset":11962,"length":3907},{"offset":15869,"length":3888},{"offset":19757,"length":3917},{"offset":23674,"length":4043},{"offset":27717,"length":4077},{"offset":31794,"length":4064},{"offset":35858,"length":3937},{"offset":39795,"length":4036},{"offset":43831,"length":3973},{"offset":47804,"length":3981},{"offset":51785,"length":4080},{"offset":55865,"length":3941},{"offset":59806,"length":4083},{"offset":63889,"length":4074},{"offset":67963,"length":3900},{"offset":71863,"length":3939},{"offset":75802,"length":4027},{"offset":79829,"length":4000},{"offset":83829,"length":4014},{"offset":87843,"length":3919},{"offset":91762,"length":4072},{"offset":95834,"length":3958},{"offset":99792,"length":4028},{"offset":103820,"length":4020},{"offset":107840,"length":4055},{"offset":111895,"length":4056},{"offset":115951,"length":3934},{"offset":119885,"length":4059},{"offset":123944,"length":4049},{"offset":127993,"length":4085},{"offset":132078,"length":3991},{"offset":136069,"length":3991},{"offset":140060,"length":4020},{"offset":144080,"length":3972},{"offset":148052,"length":3907},{"offset":151959,"length":4086},{"offset":156045,"length":2974}]},{"sstName":"002002.sst","csdList":["6"],"lbaList":[{"offset":0,"length":4034},{"offset":4034,"length":4004},{"offset":8038,"length":3935},{"offset":11973,"length":4036},{"offset":16009,"length":4036},{"offset":20045,"length":4007},{"offset":24052,"length":4062},{"offset":28114,"length":4005},{"offset":32119,"length":4009},{"offset":36128,"length":3934},{"offset":40062,"length":4077},{"offset":44139,"length":4055},{"offset":48194,"length":3902},{"offset":52096,"length":4007},{"offset":56103,"length":4035},{"offset":60138,"length":4066},{"offset":64204,"length":4042},{"offset":68246,"length":4069},{"offset":72315,"length":4085},{"offset":76400,"length":4016},{"offset":80416,"length":4016},{"offset":84432,"length":4082},{"offset":88514,"length":3900},{"offset":92414,"length":3991},{"offset":96405,"length":4021},{"offset":100426,"length":3955},{"offset":104381,"length":3991},{"offset":108372,"length":3988},{"offset":112360,"length":4037},{"offset":116397,"length":3994},{"offset":120391,"length":4056},{"offset":124447,"length":3900},{"offset":128347,"length":3981},{"offset":132328,"length":4039},{"offset":136367,"length":3984},{"offset":140351,"length":4063},{"offset":144414,"length":3961},{"offset":148375,"length":3949},{"offset":152324,"length":3953},{"offset":156277,"length":1989}]},{"sstName":"002003.sst","csdList":["7"],"lbaList":[{"offset":0,"length":3909},{"offset":3909,"length":3895},{"offset":7804,"length":3933},{"offset":11737,"length":4084},{"offset":15821,"length":4061},{"offset":19882,"length":3943},{"offset":23825,"length":3963},{"offset":27788,"length":3929},{"offset":31717,"length":4060},{"offset":35777,"length":4028},{"offset":39805,"length":3994},{"offset":43799,"length":3989},{"offset":47788,"length":3973},{"offset":51761,"length":4085},{"offset":55846,"length":4045},{"offset":59891,"length":4014},{"offset":63905,"length":3922},{"offset":67827,"length":3961},{"offset":71788,"length":4082},{"offset":75870,"length":3990},{"offset":79860,"length":4029},{"offset":83889,"length":4050},{"offset":87939,"length":3960},{"offset":91899,"length":4074},{"offset":95973,"length":3900},{"offset":99873,"length":3963},{"offset":103836,"length":4082},{"offset":107918,"length":3934},{"offset":111852,"length":4000},{"offset":115852,"length":4084},{"offset":119936,"length":4020},{"offset":123956,"length":4046},{"offset":128002,"length":3955},{"offset":131957,"length":4054},{"offset":136011,"length":4056},{"offset":140067,"length":3996},{"offset":144063,"length":4004},{"offset":148067,"length":3995},{"offset":152062,"length":3494}]},{"sstName":"002004.sst","csdList":["8"],"lbaList":[{"offset":0,"length":3903},{"offset":3903,"length":4007},{"offset":7910,"length":3951},{"offset":11861,"length":3950},{"offset":15811,"length":4016},{"offset":19827,"length":3998},{"offset":23825,"length":3957},{"offset":27782,"length":4009},{"offset":31791,"length":3960},{"offset":35751,"length":4045},{"offset":39796,"length":4049},{"offset":43845,"length":4016},{"offset":47861,"length":4087},{"offset":51948,"length":4018},{"offset":55966,"length":4043},{"offset":60009,"length":4006},{"offset":64015,"length":4022},{"offset":68037,"length":4034},{"offset":72071,"length":3972},{"offset":76043,"length":4076},{"offset":80119,"length":4019},{"offset":84138,"length":4036},{"offset":88174,"length":3958},{"offset":92132,"length":4053},{"offset":96185,"length":4076},{"offset":100261,"length":4023},{"offset":104284,"length":4065},{"offset":108349,"length":4017},{"offset":112366,"length":4015},{"offset":116381,"length":3960},{"offset":120341,"length":3973},{"offset":124314,"length":4053},{"offset":128367,"length":3881},{"offset":132248,"length":4051},{"offset":136299,"length":4042},{"offset":140341,"length":3963},{"offset":144304,"length":3966},{"offset":148270,"length":3931},{"offset":152201,"length":3938},{"offset":156139,"length":3392}]}]}
+
+}

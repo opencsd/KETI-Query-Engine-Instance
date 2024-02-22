@@ -1,0 +1,76 @@
+{
+  "type": 3,
+  "snippet":
+  {
+    "queryID":21,
+    "workID":4,
+    "tableName": ["ProcessTable21-3","ProcessTable21-1"],
+    "tableCol": [],
+    "tableFilter":[
+      {
+        "LV": {
+          "type": [10],
+          "value": ["c_acctbal"]
+      },
+      "Operator" : 3,
+      "RV" : {
+          "type": [10],
+          "value": ["ProcessTable21-1.c1"]
+        }
+      }
+    ],
+    "tableOffset": [
+      0,
+      4,
+      29,
+      69,
+      73,
+      88,
+      95,
+      105
+    ],
+    "tableOfflen": [
+      4,
+      25,
+      40,
+      4,
+      15,
+      7,
+      10,
+      117
+    ],
+    "tableDatatype": [
+      3,
+      15,
+      15,
+      3,
+      254,
+      246,
+      254,
+      15
+    ],
+    "tableAlias": "ProcessTable21-4",
+    "columnAlias": [
+        "c_acctbal",
+        "c_custkey",
+        "cntrycode"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["c_acctbal"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["c_custkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["cntrycode"],
+        "valueType": [10]
+      }
+    ]
+  }
+}
