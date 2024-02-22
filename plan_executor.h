@@ -20,5 +20,6 @@ private:
     void setQueryID();
     std::unique_ptr<std::list<SnippetRequest>> genSnippet(ParsedQuery &parsed_query);
     QueryStringResult queryOffload(StorageEngineConnector &storageEngineInterface,std::list<SnippetRequest> &snippet_list, int query_id);
+    const std::string LOGTAG = "Query Engine::Plan Executor";
 };
 

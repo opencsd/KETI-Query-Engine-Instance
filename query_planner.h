@@ -7,8 +7,8 @@ class QueryPlanner {
 public:
 	QueryPlanner() {}
     void Parse(ParsedQuery &parsed_query){
-    KETILOG::DEBUGLOG("Query Planner","Start Query Processing");
-    KETILOG::DEBUGLOG("Query Planner","Parsing Query ...");
+    KETILOG::DEBUGLOG(LOGTAG,"Start Query Processing");
+    KETILOG::DEBUGLOG(LOGTAG,"Parsing Query ...");
 
         if(parsed_query.GetOriginalQuery() == "TPC-H_01") { //TPC-H Query 1
             parsed_query.SetParsedQuery("SELECT l_returnflag,\n\
@@ -586,4 +586,6 @@ ORDER  BY cntrycode;");
         }
     } 
 
+    private:
+        const std::string LOGTAG = "Query Engine::Query Planner";
 };

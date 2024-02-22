@@ -14,10 +14,10 @@ void load_snippet(std::list<SnippetRequest> &list,std::string snippet_name);
 
 std::string PlanExecutor::ExecuteQuery(StorageEngineConnector &storageEngineInterface, ParsedQuery &parsed_query, QueryLog &query_log){
     string res = "";
-    KETILOG::DEBUGLOG("Plan Executer","Analyzing Query ...");
+    KETILOG::DEBUGLOG(LOGTAG,"Analyzing Query ...");
 
     if(parsed_query.isGenericQuery()){ //Generic Query
-        KETILOG::DEBUGLOG("Plan Executer"," => Generic Query");
+        KETILOG::DEBUGLOG(LOGTAG," => Generic Query");
         
         // DB_Monitoring_Manager::UpdateSelectCount();//구분필요!!!!
 
@@ -51,7 +51,7 @@ std::string PlanExecutor::ExecuteQuery(StorageEngineConnector &storageEngineInte
         CloseDatabase(hEnv, hDbc);
     } else { //Offloading Query
         QueryStringResult result;
-        KETILOG::DEBUGLOG("Plan Executer"," => Pushdown Query");
+        KETILOG::DEBUGLOG(LOGTAG," => Pushdown Query");
 
         DB_Monitoring_Manager::UpdateSelectCount();
         DB_Monitoring_Manager::UpdateOffloadingCount();
@@ -60,9 +60,6 @@ std::string PlanExecutor::ExecuteQuery(StorageEngineConnector &storageEngineInte
         auto snippet_list = genSnippet(parsed_query);
 
         query_log.AddSnippetInfo(query_id, *snippet_list);
-        
-        // Send_Snippets(storageEngineInterface,*snippet_list,query_id);
-        // result = Get_Query_Result(storageEngineInterface,query_id);
 
         result = queryOffload(storageEngineInterface,*snippet_list,query_id);
 
@@ -99,7 +96,7 @@ void PlanExecutor::setQueryID(){
         delete stmt;
         delete con;
     } catch (sql::SQLException &e) {
-        KETILOG::INFOLOG("Plan Executer"," failed to get max query_id in log database");
+        KETILOG::INFOLOG(LOGTAG," failed to get max query_id in log database");
     }
 }
 
@@ -107,7 +104,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     std::unique_ptr<std::list<SnippetRequest>> ret(new std::list<SnippetRequest>());
     std::string query_str = parsed_query.GetOriginalQuery();
     
-    KETILOG::DEBUGLOG("Plan Executer","Creating Snippet ...");
+    KETILOG::DEBUGLOG(LOGTAG,"Creating Snippet ...");
 
     if (query_str == "TPC-H_01"){ //TPC-H Query 1
         load_snippet(*ret,"tpch01-0");

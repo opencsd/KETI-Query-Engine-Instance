@@ -56,7 +56,7 @@ void DBConnectorInstance::handle_get(http_request message)
 
         auto body_json = message.extract_string();
         std::string json = utility::conversions::to_utf8string(body_json.get());
-        KETILOG::DEBUGLOG("Query Engnine", json);
+        KETILOG::DEBUGLOG(LOGTAG, json);
         
         Document document;
         document.Parse(json.c_str());
@@ -80,6 +80,8 @@ void DBConnectorInstance::handle_get(http_request message)
         QueryLog query_log(user_id, parsed_query.GetParsedQuery(), begin, parsed_query.GetExecutionMode(), parsed_query.GetQueryType());
 
         std::string rep = plan_executor_.ExecuteQuery(storage_engine_connector_,parsed_query,query_log) + "\n";
+
+        cout << rep << endl;
         
         auto endTime = std::chrono::system_clock::now();
         std::time_t endTimeT = std::chrono::system_clock::to_time_t(endTime);
@@ -98,7 +100,7 @@ void DBConnectorInstance::handle_get(http_request message)
 
         message.reply(status_codes::OK,response);
         
-        KETILOG::INFOLOG("Query Engnine","End Query time : " + to_string(execution) + " sec");
+        KETILOG::INFOLOG(LOGTAG,"End Query time : " + to_string(execution) + " sec");
         return;
     }else if(url == "/log-level"){
         try{
@@ -109,7 +111,7 @@ void DBConnectorInstance::handle_get(http_request message)
 
             KETILOG::SetLogLevel(log_level);
 
-            KETILOG::FATALLOG("Query Engnine", "changed log level" + to_string(log_level));
+            KETILOG::FATALLOG(LOGTAG, "changed log level" + to_string(log_level));
 
             message.reply(status_codes::OK,"");
         }catch (std::exception &e) {
@@ -117,7 +119,7 @@ void DBConnectorInstance::handle_get(http_request message)
             message.reply(status_codes::NotImplemented,"");
         }
     }else{
-        KETILOG::FATALLOG("Query Engnine", "error:invalid url");
+        KETILOG::FATALLOG(LOGTAG, "error:invalid url");
         return;
     }
 };
