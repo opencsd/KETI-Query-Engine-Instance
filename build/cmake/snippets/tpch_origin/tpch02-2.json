@@ -4,6 +4,7 @@
   {
     "queryID":1,
     "workID":2,
+    "dbName": "tpch_origin",
     "tableName": ["nation"],
     "tableCol":[
       "n_nationkey",  

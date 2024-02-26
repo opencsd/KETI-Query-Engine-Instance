@@ -4,6 +4,7 @@
   {
     "queryID":1,
     "workID":3,
+    "dbName": "tpch_origin",
     "tableName": ["region"],
     "tableCol":[
       "r_regionkey",  

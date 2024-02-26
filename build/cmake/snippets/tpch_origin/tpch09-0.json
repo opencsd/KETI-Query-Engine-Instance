@@ -4,6 +4,7 @@
   {
     "queryID":8,
     "workID":0,
+    "dbName": "tpch_origin",
     "tableName": ["part"],
     "tableCol":[
       "p_partkey", 

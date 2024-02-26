@@ -4,6 +4,7 @@
   {
     "queryID":6,
     "workID":14,
+    "dbName": "tpch_origin",
     "tableName": ["shipping"],
     "tableCol":[],
     "tableFilter":[],

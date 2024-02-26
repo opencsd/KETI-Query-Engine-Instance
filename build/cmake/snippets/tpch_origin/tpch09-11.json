@@ -4,6 +4,7 @@
   {
     "queryID":8,
     "workID":11,
+    "dbName": "tpch_origin",
     "tableName": ["profit"],
     "tableCol":[],
     "tableFilter":[],

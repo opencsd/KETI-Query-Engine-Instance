@@ -3,6 +3,7 @@
   "snippet": {
     "queryID": 18,
     "workID": 4,
+    "dbName": "tpch_origin",
     "tableName": [
       "part"
     ],

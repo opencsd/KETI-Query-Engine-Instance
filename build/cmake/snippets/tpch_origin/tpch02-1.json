@@ -4,6 +4,7 @@
   {
     "queryID":1,
     "workID":1,
+    "dbName": "tpch_origin",
     "tableName": ["supplier"],
     "tableCol":[
       "s_suppkey",

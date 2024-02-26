@@ -4,6 +4,7 @@
   {
     "queryID":7,
     "workID":3,
+    "dbName": "tpch_origin",
     "tableName": ["orders"],
     "tableCol":[
       "o_orderkey",

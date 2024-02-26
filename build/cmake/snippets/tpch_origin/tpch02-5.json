@@ -4,6 +4,7 @@
   {
     "queryID":1,
     "workID":5,
+    "dbName": "tpch_origin",
     "tableName": ["ProcessTable1-1","ProcessTable1-0"],
     "tableCol":[],
     "tableFilter":[

@@ -4,6 +4,7 @@
   {
     "queryID":9,
     "workID":0,
+    "dbName": "tpch_origin",
     "tableName": ["customer"],
     "tableCol": [
       "c_custkey",
