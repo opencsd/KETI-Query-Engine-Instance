@@ -1316,10 +1316,6 @@ CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o
  /include/google/protobuf/stubs/stl_util.h
  /include/google/protobuf/message.h
  /include/google/protobuf/extension_set.h
- /include/google/protobuf/map_entry.h
- /include/google/protobuf/reflection_ops.h
- /include/google/protobuf/map_field_inl.h
- /include/google/protobuf/map_field.h
  /include/grpcpp/impl/codegen/async_generic_service.h
  /include/grpc/impl/codegen/port_platform.h
  /include/grpcpp/impl/codegen/async_stream.h
@@ -2796,10 +2792,6 @@ CMakeFiles/query_engine_instance.dir/main.cc.o
  /include/google/protobuf/stubs/stl_util.h
  /include/google/protobuf/message.h
  /include/google/protobuf/extension_set.h
- /include/google/protobuf/map_entry.h
- /include/google/protobuf/reflection_ops.h
- /include/google/protobuf/map_field_inl.h
- /include/google/protobuf/map_field.h
  /include/grpcpp/impl/codegen/async_generic_service.h
  /include/grpc/impl/codegen/port_platform.h
  /include/grpcpp/impl/codegen/async_stream.h
@@ -3411,10 +3403,6 @@ CMakeFiles/query_engine_instance.dir/plan_executor.cc.o
  /include/google/protobuf/extension_set.h
  /root/workspace/keti/Query-Engine-Instance/query_engine_instance/build/cmake/build/snippet_sample.grpc.pb.h
  /root/workspace/keti/Query-Engine-Instance/query_engine_instance/build/cmake/build/snippet_sample.pb.h
- /include/google/protobuf/map_entry.h
- /include/google/protobuf/reflection_ops.h
- /include/google/protobuf/map_field_inl.h
- /include/google/protobuf/map_field.h
  /include/grpcpp/impl/codegen/async_generic_service.h
  /include/grpcpp/impl/codegen/async_stream.h
  /include/grpcpp/impl/codegen/service_type.h

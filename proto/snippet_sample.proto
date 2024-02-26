@@ -29,7 +29,7 @@ message SnippetRequest {
   }
   SnippetType type = 1;
   Snippet snippet = 2;
-  ScanInfo scanInfo = 3;
+  ScanInfo scan_info = 3;
 }
 
 message Chunk {
@@ -41,7 +41,7 @@ message ScanInfo {
   message BlockInfo {
     string sst_name = 1;
     repeated string csd_list = 2;
-    repeated Chunk lba_chunks = 3;
+    repeated Chunk lba_list = 3;
   }
   repeated BlockInfo block_info = 1;
 }
@@ -152,8 +152,6 @@ message Request {
   int32 work_id = 2;
   string db_name = 3;
   string table_name = 4;
-  int32 table_index_number = 5;
-  map<string, string> sst_csd_map = 6;
 }
 
 message Response {

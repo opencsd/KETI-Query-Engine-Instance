@@ -294,10 +294,6 @@ CMakeFiles/ss_grpc_proto.dir/snippet_sample.grpc.pb.cc.o: snippet_sample.grpc.pb
   /include/google/protobuf/message.h \
   /include/google/protobuf/extension_set.h \
   /usr/include/c++/11/cassert \
-  /include/google/protobuf/map_entry.h \
-  /include/google/protobuf/reflection_ops.h \
-  /include/google/protobuf/map_field_inl.h \
-  /include/google/protobuf/map_field.h \
   snippet_sample.grpc.pb.h \
   /include/grpcpp/impl/codegen/async_generic_service.h \
   /include/grpc/impl/codegen/port_platform.h \
@@ -719,10 +715,7 @@ CMakeFiles/ss_grpc_proto.dir/snippet_sample.pb.cc.o: snippet_sample.pb.cc \
   /include/google/protobuf/message.h \
   /include/google/protobuf/extension_set.h \
   /usr/include/c++/11/cassert \
-  /include/google/protobuf/map_entry.h \
   /include/google/protobuf/reflection_ops.h \
-  /include/google/protobuf/map_field_inl.h \
-  /include/google/protobuf/map_field.h \
   /include/google/protobuf/wire_format.h
 
 
@@ -743,6 +736,10 @@ CMakeFiles/ss_grpc_proto.dir/snippet_sample.pb.cc.o: snippet_sample.pb.cc \
 /include/google/protobuf/util/json_util.h:
 
 /include/google/protobuf/descriptor_database.h:
+
+/include/google/protobuf/reflection_ops.h:
+
+/include/google/protobuf/descriptor.pb.h:
 
 /include/google/protobuf/wire_format.h:
 
@@ -842,6 +839,8 @@ CMakeFiles/ss_grpc_proto.dir/snippet_sample.pb.cc.o: snippet_sample.pb.cc \
 
 /include/grpcpp/impl/codegen/config.h:
 
+/include/grpcpp/impl/codegen/status.h:
+
 /include/grpc/impl/codegen/connectivity_state.h:
 
 /include/grpc/impl/codegen/status.h:
@@ -853,18 +852,6 @@ CMakeFiles/ss_grpc_proto.dir/snippet_sample.pb.cc.o: snippet_sample.pb.cc \
 /include/grpc/impl/codegen/compression_types.h:
 
 /include/grpcpp/impl/codegen/async_generic_service.h:
-
-/include/google/protobuf/map_field.h:
-
-/include/google/protobuf/map_field_inl.h:
-
-/include/google/protobuf/descriptor.pb.h:
-
-/include/google/protobuf/reflection_ops.h:
-
-/include/grpcpp/impl/codegen/status.h:
-
-/include/google/protobuf/map_entry.h:
 
 /usr/include/c++/11/cassert:
 

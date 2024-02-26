@@ -1315,10 +1315,6 @@ CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o: /root/workspace
   /include/google/protobuf/stubs/stl_util.h \
   /include/google/protobuf/message.h \
   /include/google/protobuf/extension_set.h \
-  /include/google/protobuf/map_entry.h \
-  /include/google/protobuf/reflection_ops.h \
-  /include/google/protobuf/map_field_inl.h \
-  /include/google/protobuf/map_field.h \
   /include/grpcpp/impl/codegen/async_generic_service.h \
   /include/grpc/impl/codegen/port_platform.h \
   /include/grpcpp/impl/codegen/async_stream.h \
@@ -2794,10 +2790,6 @@ CMakeFiles/query_engine_instance.dir/main.cc.o: /root/workspace/keti/Query-Engin
   /include/google/protobuf/stubs/stl_util.h \
   /include/google/protobuf/message.h \
   /include/google/protobuf/extension_set.h \
-  /include/google/protobuf/map_entry.h \
-  /include/google/protobuf/reflection_ops.h \
-  /include/google/protobuf/map_field_inl.h \
-  /include/google/protobuf/map_field.h \
   /include/grpcpp/impl/codegen/async_generic_service.h \
   /include/grpc/impl/codegen/port_platform.h \
   /include/grpcpp/impl/codegen/async_stream.h \
@@ -3408,10 +3400,6 @@ CMakeFiles/query_engine_instance.dir/plan_executor.cc.o: /root/workspace/keti/Qu
   /include/google/protobuf/extension_set.h \
   snippet_sample.grpc.pb.h \
   snippet_sample.pb.h \
-  /include/google/protobuf/map_entry.h \
-  /include/google/protobuf/reflection_ops.h \
-  /include/google/protobuf/map_field_inl.h \
-  /include/google/protobuf/map_field.h \
   /include/grpcpp/impl/codegen/async_generic_service.h \
   /include/grpcpp/impl/codegen/async_stream.h \
   /include/grpcpp/impl/codegen/service_type.h \
@@ -3900,12 +3888,6 @@ CMakeFiles/query_engine_instance.dir/plan_executor.cc.o: /root/workspace/keti/Qu
 /include/grpc/impl/codegen/port_platform.h:
 
 /include/grpcpp/impl/codegen/async_generic_service.h:
-
-/include/google/protobuf/map_field.h:
-
-/include/google/protobuf/map_field_inl.h:
-
-/include/google/protobuf/reflection_ops.h:
 
 /include/google/protobuf/stubs/callback.h:
 
@@ -6286,8 +6268,6 @@ snippet_sample.grpc.pb.h:
 /usr/include/x86_64-linux-gnu/asm/ioctl.h:
 
 /usr/include/x86_64-linux-gnu/bits/ioctl-types.h:
-
-/include/google/protobuf/map_entry.h:
 
 /usr/include/x86_64-linux-gnu/sys/ttydefaults.h:
 
