@@ -134,12 +134,11 @@ message Snippet {
   string table_alias = 11;
   repeated string column_alias = 12;
   repeated Projection column_projection = 13;
-  repeated string column_filtering = 14;
-  repeated string group_by = 15;
-  Order order_by = 16;
-  Limit limit = 17;
-  int32 pk_num = 18;
-  repeated Filter having = 19;
+  repeated string group_by = 14;
+  Order order_by = 15;
+  Limit limit = 16;
+  int32 pk_num = 17;
+  repeated Filter having = 18;
 }
 
 message GenericQuery {
