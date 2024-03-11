@@ -1,0 +1,62 @@
+{
+  "type" : 3,
+  "snippet":
+  {
+    "queryID":7,
+    "workID":14,
+    "dbName": "tpch_origin",
+    "tableName": ["ProcessTable7-13","n2"],
+    "tableCol":[],
+    "tableFilter":[
+      {
+        "LV": {
+            "type": [10],
+            "value": ["s_nationkey"]
+        },
+        "Operator" : 5, 
+        "RV" : {
+            "type": [10],
+            "value": ["n2.n_nationkey"]
+        }
+      } 
+    ],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "all_nations",
+    "columnAlias": [
+      "o_year",
+      "volume",
+      "nation"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": [
+          "o_year"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "volume"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "nation"
+        ],
+        "valueType": [
+          10
+        ]
+      }
+    ]
+  }
+}

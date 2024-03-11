@@ -1,0 +1,71 @@
+{
+  "type" : 2,
+  "snippet":
+  {
+    "queryID":6,
+    "workID":11,
+    "dbName": "tpch_origin",
+    "tableName": ["ProcessTable6-10"],
+    "tableCol":[],
+    "tableFilter":[
+      {
+        "LV": {
+          "type": [10],
+          "value": ["n1.n_name"]
+      },
+      "Operator" : 5, 
+      "RV" : {
+          "type": [9],
+          "value": ["JAPAN"]
+        }
+      },
+      {
+      "Operator" : 13
+      },
+      {
+        "LV": {
+          "type": [10],
+          "value": ["n2.n_name"]
+      },
+      "Operator" : 5, 
+      "RV" : {
+          "type": [9],
+          "value": ["INDIA"]
+        }
+      }
+    ],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "ProcessTable6-11",
+    "columnAlias": [
+      "l_year",
+      "volume",
+      "n1.n_name",
+      "n2.n_name"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["l_year"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["volume"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["n1.n_name"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["n2.n_name"],
+        "valueType": [10]
+      }
+    ]
+  }
+
+}

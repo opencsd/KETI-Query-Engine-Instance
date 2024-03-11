@@ -1,0 +1,57 @@
+{
+  "type": 4,
+  "snippet": {
+    "queryID": 12,
+    "workID": 2,
+    "dbName": "tpch_origin",
+    "tableName": [
+      "ProcessTable12-1",
+      "ProcessTable12-0"
+    ],
+    "tableCol": [ ],
+    "tableFilter": [
+      {
+        "LV": {
+          "type": [
+            10
+          ],
+          "value": [
+            "c_custkey"
+          ]
+        },
+        "Operator": 5, 
+        "RV": {
+          "type": [
+            10
+          ],
+          "value": [
+            "o_custkey"
+          ]
+       }
+      }
+    ],
+    "tableOffset": [ ],
+    "tableOfflen": [ ],
+    "tableDatatype": [ ],
+    "tableAlias": "c_orders",
+    "columnAlias": [
+      "c_custkey",
+      "c_count"
+    ],
+    "columnProjection": [
+        {
+          "selectType": 0,
+          "value": ["c_custkey"],
+          "valueType": [10]
+        },
+        {
+          "selectType": 3,
+          "value": ["o_orderkey"],
+          "valueType": [10]
+        }
+    ],
+    "groupBy": [
+      "c_custkey"
+    ]
+  }
+}

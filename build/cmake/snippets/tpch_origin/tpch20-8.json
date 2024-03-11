@@ -1,0 +1,50 @@
+{
+  "type" : 3,
+  "snippet":
+  {
+    "queryID":19,
+    "workID":8,
+    "dbName": "tpch_origin",
+    "tableName": ["ProcessTable19-7","ProcessTable19-6"],
+    "tableCol":[],
+    "tableFilter":[
+      {
+        "LV": {
+          "type": [10],
+          "value": ["s_nationkey"]
+      },
+      "Operator" : 5, 
+      "RV" : {
+          "type": [10],
+          "value": ["n_nationkey"]
+        }
+      }
+    ],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "blockList":[],
+    "tableAlias": "ResultTable19",
+    "columnAlias": [
+        "s_name",
+        "s_address"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["s_name"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_address"],
+        "valueType": [10]
+      }
+    ],
+    "orderBy": 
+      {
+        "ascending" : [0],
+        "columnName" : ["s_name"]
+      }
+  }
+}

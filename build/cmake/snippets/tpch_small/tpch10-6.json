@@ -1,0 +1,112 @@
+{
+  "type" : 3,
+  "snippet":
+  {
+    "queryID":9,
+    "workID":6,
+    "tableName": ["ProcessTable9-5","ProcessTable9-3"],
+    "tableCol":[],
+    "tableFilter":[
+      {
+        "LV": {
+            "type": [10],
+            "value": ["c_nationkey"]
+        },
+        "Operator" : 5, 
+        "RV" : {
+            "type": [10],
+            "value": ["n_nationkey"]
+        }
+      } 
+  ],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "ProcessTable9-6",
+    "columnAlias": [
+      "revenue",
+      "c_custkey",
+      "c_name",
+      "c_acctbal",
+      "c_address",
+      "c_phone",
+      "c_comment",
+      "n_name"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": [
+          "revenue"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "c_custkey"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "c_name"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "c_acctbal"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "c_address"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "c_phone"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "c_comment"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "n_name"
+        ],
+        "valueType": [
+          10
+        ]
+      }
+    ]
+  }
+
+}

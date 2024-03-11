@@ -8,9 +8,8 @@ option objc_class_prefix = "SSP";
 package StorageEngineInstance;
 
 service StorageEngineInterface {
-  rpc GenericQueryInterface(Request) returns (Response) {}
+  rpc GenericQueryInterface(GenericQuery) returns (Response) {}
   rpc OffloadingQueryInterface (stream SnippetRequest) returns (QueryStringResult) {}
-  rpc SyncMetaDataManager (DBInfo) returns (Response) {}
 }
 
 message SnippetRequest {
@@ -30,6 +29,21 @@ message SnippetRequest {
   }
   SnippetType type = 1;
   Snippet snippet = 2;
+  ScanInfo scan_info = 3;
+}
+
+message Chunk {
+  int64 offset = 1;
+  int32 length = 2;
+}
+
+message ScanInfo {
+  message BlockInfo {
+    string sst_name = 1;
+    repeated string csd_list = 2;
+    repeated Chunk lba_list = 3;
+  }
+  repeated BlockInfo block_info = 1;
 }
 
 message Snippet {
@@ -120,12 +134,16 @@ message Snippet {
   string table_alias = 11;
   repeated string column_alias = 12;
   repeated Projection column_projection = 13;
-  repeated string column_filtering = 14;
-  repeated string group_by = 15;
-  Order order_by = 16;
-  Limit limit = 17;
-  int32 pk_num = 18;
-  repeated Filter having = 19;
+  repeated string group_by = 14;
+  Order order_by = 15;
+  Limit limit = 16;
+  int32 pk_num = 17;
+  repeated Filter having = 18;
+}
+
+message GenericQuery {
+  string db_name = 1;
+  string query = 2;
 }
 
 message Request {
@@ -133,8 +151,6 @@ message Request {
   int32 work_id = 2;
   string db_name = 3;
   string table_name = 4;
-  int32 table_index_number = 5;
-  map<string, string> sst_csd_map = 6;
 }
 
 message Response {
@@ -145,15 +161,4 @@ message QueryStringResult {
   string query_result = 1;
   int32 scanned_row_count = 2;
   int32 filtered_row_count = 3; 
-}
-
-message DBInfo {
-  message DB {
-    message Table {
-      int32 table_index_number = 1;
-      repeated string sst_list = 2;
-    }
-    map<string, Table> table_list = 1;
-  }
-  map<string, DB> db_list = 1;
 }

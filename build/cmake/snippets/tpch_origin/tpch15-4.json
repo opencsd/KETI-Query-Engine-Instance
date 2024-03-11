@@ -1,0 +1,62 @@
+{
+    "type": 3,
+    "snippet": {
+      "queryID": 14,
+      "workID": 4,
+      "dbName": "tpch_origin",
+      "tableName": [
+        "revenue0",
+        "ProcessTable14-3"
+      ],
+      "tableCol": [],
+      "tableFilter": [
+        {
+          "LV": {
+            "type": [
+              10
+            ],
+            "value": [
+              "total_revenue"
+            ]
+          },
+          "Operator": 5,
+          "RV": {
+            "type": [
+              10
+            ],
+            "value": [
+              "ProcessTable14-3-c1"
+            ]
+          }
+        }
+      ],
+      "tableOffset": [],
+      "tableOfflen": [],
+      "tableDatatype": [],
+      "tableAlias": "ProcessTable14-4",
+      "columnAlias": [
+        "total_revenue",
+        "supplier_no"
+      ],
+      "columnProjection": [
+        {
+          "selectType": 0,
+          "value": [
+            "total_revenue"
+          ],
+          "valueType": [
+            10
+          ]
+        },
+        {
+          "selectType": 0,
+          "value": [
+            "supplier_no"
+          ],
+          "valueType": [
+            10
+          ]
+        }
+      ]
+    }
+  }

@@ -1,0 +1,93 @@
+{
+  "type" : 3,
+  "snippet":
+  {
+    "queryID":1,
+    "workID":11,
+    "dbName": "tpch_origin",
+    "tableName": ["ProcessTable1-4","ProcessTable1-10"],
+    "tableCol":[],
+    "tableFilter":[
+      {
+        "LV": {
+          "type": [10],
+          "value": ["p_partkey"]
+      },
+      "Operator" : 5, 
+      "RV" : {
+          "type": [10],
+          "value": ["ps_partkey"]
+        }
+      }
+    ],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "ProcessTable1-11",
+    "columnAlias": [
+      "s_acctbal",
+      "s_name",
+      "s_address",
+      "s_phone",
+      "s_comment",
+      "ps_supplycost",
+      "n_regionkey",
+      "n_name",
+      "p_partkey", 
+      "p_mfgr"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["s_acctbal"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_name"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_address"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_phone"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_comment"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["ps_supplycost"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["n_regionkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["n_name"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["p_partkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["p_mfgr"],
+        "valueType": [10]
+      }
+    ]
+  }
+
+}

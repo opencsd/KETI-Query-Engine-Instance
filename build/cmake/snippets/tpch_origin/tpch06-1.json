@@ -1,0 +1,30 @@
+{
+  "type": 1,
+  "snippet": {
+    "queryID":5,
+    "workID": 1,
+    "dbName": "tpch_origin",
+    "tableName": ["ProcessTable5-0"],
+    "tableCol":[],
+    "tableFilter": [],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "ResultTable5",
+    "columnAlias": [
+      "revenue"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 1,
+        "value": [
+          "revenue"
+        ],
+        "valueType": [
+          10
+        ]
+      }
+    ]
+  }
+}
+    

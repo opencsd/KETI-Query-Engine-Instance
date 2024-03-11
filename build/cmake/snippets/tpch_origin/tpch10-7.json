@@ -1,0 +1,109 @@
+{
+  "type" : 1,
+  "snippet":
+  {
+    "queryID":9,
+    "workID":7,
+    "dbName": "tpch_origin",
+    "tableName": ["ProcessTable9-6"],
+    "tableCol":[],
+    "tableFilter":[],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "ResultTable9",
+    "columnAlias": [
+      "c_custkey",
+      "revenue",
+      "c_name",
+      "c_acctbal",
+      "n_name",
+      "c_address",
+      "c_phone",
+      "c_comment"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": [
+          "c_custkey"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 1,
+        "value": [
+          "revenue"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "c_name"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "c_acctbal"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "n_name"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "c_address"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "c_phone"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "c_comment"
+        ],
+        "valueType": [
+          10
+        ]
+      }
+    ],
+    "groupBy": ["c_custkey","c_name","c_acctbal","c_phone","n_name","c_address","c_comment"],
+    "orderBy": {
+      "ascending" : [1],
+      "columnName" : ["revenue"]
+    },
+    "limit" : {
+      "offset" : 0,
+      "length" : 20
+    }
+  }
+}

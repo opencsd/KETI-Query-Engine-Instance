@@ -1,0 +1,51 @@
+{
+  "type" : 10,
+  "snippet":
+  {
+    "queryID":21,
+    "workID":5,
+    "tableName": ["ProcessTable21-4","ProcessTable21-2"],
+    "tableCol":[],
+    "tableFilter": [
+      {
+        "Operator" : 12
+      }
+    ],
+    "dependency":{
+      "dependencyProjection":[],
+      "dependencyFilter" : [
+        {
+          "LV": {
+            "type": [10],
+            "value": ["c_custkey"]
+        },
+        "Operator" : 5, 
+        "RV" : {
+            "type": [10],
+            "value": ["o_custkey"]
+          }
+        }
+      ]
+    },
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "custsale",
+    "columnAlias": [
+      "cntrycode", 
+      "c_acctbal"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["cntrycode"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["c_acctbal"],
+        "valueType": [10]
+      }
+    ]
+  }
+}

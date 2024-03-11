@@ -1,0 +1,100 @@
+{
+    "type": 3,
+    "snippet": {
+      "queryID": 14,
+      "workID": 5,
+      "dbName": "tpch_origin",
+      "tableName": [
+        "ProcessTable14-2",
+        "ProcessTable14-4"
+      ],
+      "tableCol": [],
+      "tableFilter": [
+        {
+          "LV": {
+            "type": [
+              10
+            ],
+            "value": [
+              "s_suppkey"
+            ]
+          },
+          "Operator": 5,
+          "RV": {
+            "type": [
+              10
+            ],
+            "value": [
+              "supplier_no"
+            ]
+          }
+        }
+      ],
+      "tableOffset": [],
+      "tableOfflen": [],
+      "tableDatatype": [],
+      "tableAlias": "ResultTable14",
+      "columnAlias": [
+        "s_suppkey",
+        "s_name",
+        "s_address",
+        "s_phone",
+        "total_revenue"
+      ],
+      "columnProjection": [
+        {
+          "selectType": 0,
+          "value": [
+            "s_suppkey"
+          ],
+          "valueType": [
+            10
+          ]
+        },
+        {
+          "selectType": 0,
+          "value": [
+            "s_name"
+          ],
+          "valueType": [
+            10
+          ]
+        },
+        {
+          "selectType": 0,
+          "value": [
+            "s_address"
+          ],
+          "valueType": [
+            10
+          ]
+        },
+        {
+          "selectType": 0,
+          "value": [
+            "s_phone"
+          ],
+          "valueType": [
+            10
+          ]
+        },
+        {
+          "selectType": 0,
+          "value": [
+            "total_revenue"
+          ],
+          "valueType": [
+            10
+          ]
+        }
+      ],
+      "orderBy": {
+        "ascending": [
+          0
+        ],
+        "columnName": [
+          "s_suppkey"
+        ]
+      }
+    }
+  }

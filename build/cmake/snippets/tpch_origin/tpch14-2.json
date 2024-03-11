@@ -1,0 +1,44 @@
+{
+  "type" : 3,
+  "snippet":
+  {
+    "queryID":13,
+    "workID":2,
+    "dbName": "tpch_origin",
+    "tableName": ["ProcessTable13-0", "ProcessTable13-1"],
+    "tableCol":[],
+    "tableFilter":[
+      {
+        "LV": {
+            "type": [10],
+            "value": ["l_partkey"]
+        },
+        "Operator" : 5, 
+        "RV" : {
+            "type": [10],
+            "value": ["p_partkey"]
+        }
+      }   
+    ],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "ProcessTable13-2",
+    "columnAlias": [
+      "ProcessTable13-2-c1",
+      "ProcessTable13-2-c2"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 1,
+        "value": ["CASE", "WHEN", "p_type", "PROMO%", "LIKE", "THEN", "ProcessTable13-0-c1", "ELSE", "0", "END"],
+        "valueType": [11, 11, 10, 9, 11, 11, 10, 11, 5, 11]
+      },
+      {
+        "selectType": 1,
+        "value": ["ProcessTable13-0-c1"],
+        "valueType": [10]
+      }
+    ]
+  }
+}

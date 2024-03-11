@@ -1,0 +1,68 @@
+{
+  "type" : 8,
+  "snippet":
+  {
+    "queryID":19,
+    "workID":3,
+    "dbName": "tpch_origin",
+    "tableName": ["ProcessTable19-2","ProcessTable19-1"],
+    "tableCol":[],
+    "tableFilter":[
+      {
+        "LV": {
+          "type": [10],
+          "value": ["ps_partkey"]
+      },
+      "Operator" : 9, 
+      "RV" : {
+          "type": [10],
+          "value": ["p_partkey"]
+        }
+      }
+    ],
+    "tableOffset": [
+      0,
+      4,
+      8,
+      12,
+      19
+    ],
+    "tableOfflen": [
+      4,
+      4,
+      4,
+      7,
+      199
+    ],
+    "tableDatatype": [
+      3,
+      3,
+      3,
+      246,
+      15
+    ],
+    "tableAlias": "ProcessTable19-3",
+    "columnAlias": [
+        "ps_suppkey",
+        "ps_partkey",
+        "ps_availqty"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["ps_suppkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["ps_partkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["ps_availqty"],
+        "valueType": [10]
+      }
+    ]
+  }
+}

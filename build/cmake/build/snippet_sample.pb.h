@@ -30,9 +30,6 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
-#include <google/protobuf/map.h>  // IWYU pragma: export
-#include <google/protobuf/map_entry.h>
-#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
@@ -50,7 +47,7 @@ struct TableStruct_snippet_5fsample_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[17]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[15]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -58,33 +55,27 @@ struct TableStruct_snippet_5fsample_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_snippet_5fsample_2eproto;
 namespace StorageEngineInstance {
-class DBInfo;
-struct DBInfoDefaultTypeInternal;
-extern DBInfoDefaultTypeInternal _DBInfo_default_instance_;
-class DBInfo_DB;
-struct DBInfo_DBDefaultTypeInternal;
-extern DBInfo_DBDefaultTypeInternal _DBInfo_DB_default_instance_;
-class DBInfo_DB_Table;
-struct DBInfo_DB_TableDefaultTypeInternal;
-extern DBInfo_DB_TableDefaultTypeInternal _DBInfo_DB_Table_default_instance_;
-class DBInfo_DB_TableListEntry_DoNotUse;
-struct DBInfo_DB_TableListEntry_DoNotUseDefaultTypeInternal;
-extern DBInfo_DB_TableListEntry_DoNotUseDefaultTypeInternal _DBInfo_DB_TableListEntry_DoNotUse_default_instance_;
-class DBInfo_DbListEntry_DoNotUse;
-struct DBInfo_DbListEntry_DoNotUseDefaultTypeInternal;
-extern DBInfo_DbListEntry_DoNotUseDefaultTypeInternal _DBInfo_DbListEntry_DoNotUse_default_instance_;
+class Chunk;
+struct ChunkDefaultTypeInternal;
+extern ChunkDefaultTypeInternal _Chunk_default_instance_;
+class GenericQuery;
+struct GenericQueryDefaultTypeInternal;
+extern GenericQueryDefaultTypeInternal _GenericQuery_default_instance_;
 class QueryStringResult;
 struct QueryStringResultDefaultTypeInternal;
 extern QueryStringResultDefaultTypeInternal _QueryStringResult_default_instance_;
 class Request;
 struct RequestDefaultTypeInternal;
 extern RequestDefaultTypeInternal _Request_default_instance_;
-class Request_SstCsdMapEntry_DoNotUse;
-struct Request_SstCsdMapEntry_DoNotUseDefaultTypeInternal;
-extern Request_SstCsdMapEntry_DoNotUseDefaultTypeInternal _Request_SstCsdMapEntry_DoNotUse_default_instance_;
 class Response;
 struct ResponseDefaultTypeInternal;
 extern ResponseDefaultTypeInternal _Response_default_instance_;
+class ScanInfo;
+struct ScanInfoDefaultTypeInternal;
+extern ScanInfoDefaultTypeInternal _ScanInfo_default_instance_;
+class ScanInfo_BlockInfo;
+struct ScanInfo_BlockInfoDefaultTypeInternal;
+extern ScanInfo_BlockInfoDefaultTypeInternal _ScanInfo_BlockInfo_default_instance_;
 class Snippet;
 struct SnippetDefaultTypeInternal;
 extern SnippetDefaultTypeInternal _Snippet_default_instance_;
@@ -111,15 +102,13 @@ struct Snippet_ProjectionDefaultTypeInternal;
 extern Snippet_ProjectionDefaultTypeInternal _Snippet_Projection_default_instance_;
 }  // namespace StorageEngineInstance
 PROTOBUF_NAMESPACE_OPEN
-template<> ::StorageEngineInstance::DBInfo* Arena::CreateMaybeMessage<::StorageEngineInstance::DBInfo>(Arena*);
-template<> ::StorageEngineInstance::DBInfo_DB* Arena::CreateMaybeMessage<::StorageEngineInstance::DBInfo_DB>(Arena*);
-template<> ::StorageEngineInstance::DBInfo_DB_Table* Arena::CreateMaybeMessage<::StorageEngineInstance::DBInfo_DB_Table>(Arena*);
-template<> ::StorageEngineInstance::DBInfo_DB_TableListEntry_DoNotUse* Arena::CreateMaybeMessage<::StorageEngineInstance::DBInfo_DB_TableListEntry_DoNotUse>(Arena*);
-template<> ::StorageEngineInstance::DBInfo_DbListEntry_DoNotUse* Arena::CreateMaybeMessage<::StorageEngineInstance::DBInfo_DbListEntry_DoNotUse>(Arena*);
+template<> ::StorageEngineInstance::Chunk* Arena::CreateMaybeMessage<::StorageEngineInstance::Chunk>(Arena*);
+template<> ::StorageEngineInstance::GenericQuery* Arena::CreateMaybeMessage<::StorageEngineInstance::GenericQuery>(Arena*);
 template<> ::StorageEngineInstance::QueryStringResult* Arena::CreateMaybeMessage<::StorageEngineInstance::QueryStringResult>(Arena*);
 template<> ::StorageEngineInstance::Request* Arena::CreateMaybeMessage<::StorageEngineInstance::Request>(Arena*);
-template<> ::StorageEngineInstance::Request_SstCsdMapEntry_DoNotUse* Arena::CreateMaybeMessage<::StorageEngineInstance::Request_SstCsdMapEntry_DoNotUse>(Arena*);
 template<> ::StorageEngineInstance::Response* Arena::CreateMaybeMessage<::StorageEngineInstance::Response>(Arena*);
+template<> ::StorageEngineInstance::ScanInfo* Arena::CreateMaybeMessage<::StorageEngineInstance::ScanInfo>(Arena*);
+template<> ::StorageEngineInstance::ScanInfo_BlockInfo* Arena::CreateMaybeMessage<::StorageEngineInstance::ScanInfo_BlockInfo>(Arena*);
 template<> ::StorageEngineInstance::Snippet* Arena::CreateMaybeMessage<::StorageEngineInstance::Snippet>(Arena*);
 template<> ::StorageEngineInstance::SnippetRequest* Arena::CreateMaybeMessage<::StorageEngineInstance::SnippetRequest>(Arena*);
 template<> ::StorageEngineInstance::Snippet_Dependency* Arena::CreateMaybeMessage<::StorageEngineInstance::Snippet_Dependency>(Arena*);
@@ -473,6 +462,7 @@ class SnippetRequest final :
 
   enum : int {
     kSnippetFieldNumber = 2,
+    kScanInfoFieldNumber = 3,
     kTypeFieldNumber = 1,
   };
   // .StorageEngineInstance.Snippet snippet = 2;
@@ -493,6 +483,24 @@ class SnippetRequest final :
       ::StorageEngineInstance::Snippet* snippet);
   ::StorageEngineInstance::Snippet* unsafe_arena_release_snippet();
 
+  // .StorageEngineInstance.ScanInfo scan_info = 3;
+  bool has_scan_info() const;
+  private:
+  bool _internal_has_scan_info() const;
+  public:
+  void clear_scan_info();
+  const ::StorageEngineInstance::ScanInfo& scan_info() const;
+  PROTOBUF_NODISCARD ::StorageEngineInstance::ScanInfo* release_scan_info();
+  ::StorageEngineInstance::ScanInfo* mutable_scan_info();
+  void set_allocated_scan_info(::StorageEngineInstance::ScanInfo* scan_info);
+  private:
+  const ::StorageEngineInstance::ScanInfo& _internal_scan_info() const;
+  ::StorageEngineInstance::ScanInfo* _internal_mutable_scan_info();
+  public:
+  void unsafe_arena_set_allocated_scan_info(
+      ::StorageEngineInstance::ScanInfo* scan_info);
+  ::StorageEngineInstance::ScanInfo* unsafe_arena_release_scan_info();
+
   // .StorageEngineInstance.SnippetRequest.SnippetType type = 1;
   void clear_type();
   ::StorageEngineInstance::SnippetRequest_SnippetType type() const;
@@ -510,7 +518,519 @@ class SnippetRequest final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::StorageEngineInstance::Snippet* snippet_;
+  ::StorageEngineInstance::ScanInfo* scan_info_;
   int type_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_snippet_5fsample_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Chunk final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:StorageEngineInstance.Chunk) */ {
+ public:
+  inline Chunk() : Chunk(nullptr) {}
+  ~Chunk() override;
+  explicit constexpr Chunk(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Chunk(const Chunk& from);
+  Chunk(Chunk&& from) noexcept
+    : Chunk() {
+    *this = ::std::move(from);
+  }
+
+  inline Chunk& operator=(const Chunk& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Chunk& operator=(Chunk&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Chunk& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Chunk* internal_default_instance() {
+    return reinterpret_cast<const Chunk*>(
+               &_Chunk_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(Chunk& a, Chunk& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Chunk* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Chunk* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Chunk* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Chunk>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Chunk& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const Chunk& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Chunk* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "StorageEngineInstance.Chunk";
+  }
+  protected:
+  explicit Chunk(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kOffsetFieldNumber = 1,
+    kLengthFieldNumber = 2,
+  };
+  // int64 offset = 1;
+  void clear_offset();
+  int64_t offset() const;
+  void set_offset(int64_t value);
+  private:
+  int64_t _internal_offset() const;
+  void _internal_set_offset(int64_t value);
+  public:
+
+  // int32 length = 2;
+  void clear_length();
+  int32_t length() const;
+  void set_length(int32_t value);
+  private:
+  int32_t _internal_length() const;
+  void _internal_set_length(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:StorageEngineInstance.Chunk)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  int64_t offset_;
+  int32_t length_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_snippet_5fsample_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ScanInfo_BlockInfo final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:StorageEngineInstance.ScanInfo.BlockInfo) */ {
+ public:
+  inline ScanInfo_BlockInfo() : ScanInfo_BlockInfo(nullptr) {}
+  ~ScanInfo_BlockInfo() override;
+  explicit constexpr ScanInfo_BlockInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ScanInfo_BlockInfo(const ScanInfo_BlockInfo& from);
+  ScanInfo_BlockInfo(ScanInfo_BlockInfo&& from) noexcept
+    : ScanInfo_BlockInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline ScanInfo_BlockInfo& operator=(const ScanInfo_BlockInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ScanInfo_BlockInfo& operator=(ScanInfo_BlockInfo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ScanInfo_BlockInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ScanInfo_BlockInfo* internal_default_instance() {
+    return reinterpret_cast<const ScanInfo_BlockInfo*>(
+               &_ScanInfo_BlockInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(ScanInfo_BlockInfo& a, ScanInfo_BlockInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ScanInfo_BlockInfo* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ScanInfo_BlockInfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ScanInfo_BlockInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ScanInfo_BlockInfo>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ScanInfo_BlockInfo& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const ScanInfo_BlockInfo& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ScanInfo_BlockInfo* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "StorageEngineInstance.ScanInfo.BlockInfo";
+  }
+  protected:
+  explicit ScanInfo_BlockInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCsdListFieldNumber = 2,
+    kLbaListFieldNumber = 3,
+    kSstNameFieldNumber = 1,
+  };
+  // repeated string csd_list = 2;
+  int csd_list_size() const;
+  private:
+  int _internal_csd_list_size() const;
+  public:
+  void clear_csd_list();
+  const std::string& csd_list(int index) const;
+  std::string* mutable_csd_list(int index);
+  void set_csd_list(int index, const std::string& value);
+  void set_csd_list(int index, std::string&& value);
+  void set_csd_list(int index, const char* value);
+  void set_csd_list(int index, const char* value, size_t size);
+  std::string* add_csd_list();
+  void add_csd_list(const std::string& value);
+  void add_csd_list(std::string&& value);
+  void add_csd_list(const char* value);
+  void add_csd_list(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& csd_list() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_csd_list();
+  private:
+  const std::string& _internal_csd_list(int index) const;
+  std::string* _internal_add_csd_list();
+  public:
+
+  // repeated .StorageEngineInstance.Chunk lba_list = 3;
+  int lba_list_size() const;
+  private:
+  int _internal_lba_list_size() const;
+  public:
+  void clear_lba_list();
+  ::StorageEngineInstance::Chunk* mutable_lba_list(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Chunk >*
+      mutable_lba_list();
+  private:
+  const ::StorageEngineInstance::Chunk& _internal_lba_list(int index) const;
+  ::StorageEngineInstance::Chunk* _internal_add_lba_list();
+  public:
+  const ::StorageEngineInstance::Chunk& lba_list(int index) const;
+  ::StorageEngineInstance::Chunk* add_lba_list();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Chunk >&
+      lba_list() const;
+
+  // string sst_name = 1;
+  void clear_sst_name();
+  const std::string& sst_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_sst_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_sst_name();
+  PROTOBUF_NODISCARD std::string* release_sst_name();
+  void set_allocated_sst_name(std::string* sst_name);
+  private:
+  const std::string& _internal_sst_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_sst_name(const std::string& value);
+  std::string* _internal_mutable_sst_name();
+  public:
+
+  // @@protoc_insertion_point(class_scope:StorageEngineInstance.ScanInfo.BlockInfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> csd_list_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Chunk > lba_list_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sst_name_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_snippet_5fsample_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ScanInfo final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:StorageEngineInstance.ScanInfo) */ {
+ public:
+  inline ScanInfo() : ScanInfo(nullptr) {}
+  ~ScanInfo() override;
+  explicit constexpr ScanInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ScanInfo(const ScanInfo& from);
+  ScanInfo(ScanInfo&& from) noexcept
+    : ScanInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline ScanInfo& operator=(const ScanInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ScanInfo& operator=(ScanInfo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ScanInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ScanInfo* internal_default_instance() {
+    return reinterpret_cast<const ScanInfo*>(
+               &_ScanInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(ScanInfo& a, ScanInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ScanInfo* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ScanInfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ScanInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ScanInfo>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ScanInfo& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const ScanInfo& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ScanInfo* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "StorageEngineInstance.ScanInfo";
+  }
+  protected:
+  explicit ScanInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef ScanInfo_BlockInfo BlockInfo;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBlockInfoFieldNumber = 1,
+  };
+  // repeated .StorageEngineInstance.ScanInfo.BlockInfo block_info = 1;
+  int block_info_size() const;
+  private:
+  int _internal_block_info_size() const;
+  public:
+  void clear_block_info();
+  ::StorageEngineInstance::ScanInfo_BlockInfo* mutable_block_info(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_BlockInfo >*
+      mutable_block_info();
+  private:
+  const ::StorageEngineInstance::ScanInfo_BlockInfo& _internal_block_info(int index) const;
+  ::StorageEngineInstance::ScanInfo_BlockInfo* _internal_add_block_info();
+  public:
+  const ::StorageEngineInstance::ScanInfo_BlockInfo& block_info(int index) const;
+  ::StorageEngineInstance::ScanInfo_BlockInfo* add_block_info();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_BlockInfo >&
+      block_info() const;
+
+  // @@protoc_insertion_point(class_scope:StorageEngineInstance.ScanInfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_BlockInfo > block_info_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_snippet_5fsample_2eproto;
 };
@@ -564,7 +1084,7 @@ class Snippet_Filter_FilterValue final :
                &_Snippet_Filter_FilterValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    4;
 
   friend void swap(Snippet_Filter_FilterValue& a, Snippet_Filter_FilterValue& b) {
     a.Swap(&b);
@@ -745,7 +1265,7 @@ class Snippet_Filter final :
                &_Snippet_Filter_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    5;
 
   friend void swap(Snippet_Filter& a, Snippet_Filter& b) {
     a.Swap(&b);
@@ -993,7 +1513,7 @@ class Snippet_Projection final :
                &_Snippet_Projection_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    6;
 
   friend void swap(Snippet_Projection& a, Snippet_Projection& b) {
     a.Swap(&b);
@@ -1229,7 +1749,7 @@ class Snippet_Order final :
                &_Snippet_Order_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    7;
 
   friend void swap(Snippet_Order& a, Snippet_Order& b) {
     a.Swap(&b);
@@ -1440,7 +1960,7 @@ class Snippet_Dependency final :
                &_Snippet_Dependency_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    8;
 
   friend void swap(Snippet_Dependency& a, Snippet_Dependency& b) {
     a.Swap(&b);
@@ -1615,7 +2135,7 @@ class Snippet_Limit final :
                &_Snippet_Limit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    9;
 
   friend void swap(Snippet_Limit& a, Snippet_Limit& b) {
     a.Swap(&b);
@@ -1772,7 +2292,7 @@ class Snippet final :
                &_Snippet_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    10;
 
   friend void swap(Snippet& a, Snippet& b) {
     a.Swap(&b);
@@ -2305,31 +2825,171 @@ class Snippet final :
 };
 // -------------------------------------------------------------------
 
-class Request_SstCsdMapEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Request_SstCsdMapEntry_DoNotUse, 
-    std::string, std::string,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
-public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<Request_SstCsdMapEntry_DoNotUse, 
-    std::string, std::string,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
-  Request_SstCsdMapEntry_DoNotUse();
-  explicit constexpr Request_SstCsdMapEntry_DoNotUse(
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit Request_SstCsdMapEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const Request_SstCsdMapEntry_DoNotUse& other);
-  static const Request_SstCsdMapEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const Request_SstCsdMapEntry_DoNotUse*>(&_Request_SstCsdMapEntry_DoNotUse_default_instance_); }
-  static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "StorageEngineInstance.Request.SstCsdMapEntry.key");
- }
-  static bool ValidateValue(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "StorageEngineInstance.Request.SstCsdMapEntry.value");
- }
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-};
+class GenericQuery final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:StorageEngineInstance.GenericQuery) */ {
+ public:
+  inline GenericQuery() : GenericQuery(nullptr) {}
+  ~GenericQuery() override;
+  explicit constexpr GenericQuery(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
+  GenericQuery(const GenericQuery& from);
+  GenericQuery(GenericQuery&& from) noexcept
+    : GenericQuery() {
+    *this = ::std::move(from);
+  }
+
+  inline GenericQuery& operator=(const GenericQuery& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GenericQuery& operator=(GenericQuery&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GenericQuery& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GenericQuery* internal_default_instance() {
+    return reinterpret_cast<const GenericQuery*>(
+               &_GenericQuery_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(GenericQuery& a, GenericQuery& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GenericQuery* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GenericQuery* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GenericQuery* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GenericQuery>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const GenericQuery& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const GenericQuery& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GenericQuery* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "StorageEngineInstance.GenericQuery";
+  }
+  protected:
+  explicit GenericQuery(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDbNameFieldNumber = 1,
+    kQueryFieldNumber = 2,
+  };
+  // string db_name = 1;
+  void clear_db_name();
+  const std::string& db_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_db_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_db_name();
+  PROTOBUF_NODISCARD std::string* release_db_name();
+  void set_allocated_db_name(std::string* db_name);
+  private:
+  const std::string& _internal_db_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_db_name(const std::string& value);
+  std::string* _internal_mutable_db_name();
+  public:
+
+  // string query = 2;
+  void clear_query();
+  const std::string& query() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_query(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_query();
+  PROTOBUF_NODISCARD std::string* release_query();
+  void set_allocated_query(std::string* query);
+  private:
+  const std::string& _internal_query() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_query(const std::string& value);
+  std::string* _internal_mutable_query();
+  public:
+
+  // @@protoc_insertion_point(class_scope:StorageEngineInstance.GenericQuery)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr db_name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr query_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_snippet_5fsample_2eproto;
+};
 // -------------------------------------------------------------------
 
 class Request final :
@@ -2380,7 +3040,7 @@ class Request final :
                &_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    12;
 
   friend void swap(Request& a, Request& b) {
     a.Swap(&b);
@@ -2451,34 +3111,14 @@ class Request final :
 
   // nested types ----------------------------------------------------
 
-
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSstCsdMapFieldNumber = 6,
     kDbNameFieldNumber = 3,
     kTableNameFieldNumber = 4,
     kQueryIdFieldNumber = 1,
     kWorkIdFieldNumber = 2,
-    kTableIndexNumberFieldNumber = 5,
   };
-  // map<string, string> sst_csd_map = 6;
-  int sst_csd_map_size() const;
-  private:
-  int _internal_sst_csd_map_size() const;
-  public:
-  void clear_sst_csd_map();
-  private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      _internal_sst_csd_map() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      _internal_mutable_sst_csd_map();
-  public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-      sst_csd_map() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-      mutable_sst_csd_map();
-
   // string db_name = 3;
   void clear_db_name();
   const std::string& db_name() const;
@@ -2525,15 +3165,6 @@ class Request final :
   void _internal_set_work_id(int32_t value);
   public:
 
-  // int32 table_index_number = 5;
-  void clear_table_index_number();
-  int32_t table_index_number() const;
-  void set_table_index_number(int32_t value);
-  private:
-  int32_t _internal_table_index_number() const;
-  void _internal_set_table_index_number(int32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:StorageEngineInstance.Request)
  private:
   class _Internal;
@@ -2541,16 +3172,10 @@ class Request final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-      Request_SstCsdMapEntry_DoNotUse,
-      std::string, std::string,
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> sst_csd_map_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr db_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
   int32_t query_id_;
   int32_t work_id_;
-  int32_t table_index_number_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_snippet_5fsample_2eproto;
 };
@@ -2604,7 +3229,7 @@ class Response final :
                &_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    13;
 
   friend void swap(Response& a, Response& b) {
     a.Swap(&b);
@@ -2755,7 +3380,7 @@ class QueryStringResult final :
                &_QueryStringResult_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    14;
 
   friend void swap(QueryStringResult& a, QueryStringResult& b) {
     a.Swap(&b);
@@ -2878,548 +3503,6 @@ class QueryStringResult final :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_snippet_5fsample_2eproto;
 };
-// -------------------------------------------------------------------
-
-class DBInfo_DB_Table final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:StorageEngineInstance.DBInfo.DB.Table) */ {
- public:
-  inline DBInfo_DB_Table() : DBInfo_DB_Table(nullptr) {}
-  ~DBInfo_DB_Table() override;
-  explicit constexpr DBInfo_DB_Table(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  DBInfo_DB_Table(const DBInfo_DB_Table& from);
-  DBInfo_DB_Table(DBInfo_DB_Table&& from) noexcept
-    : DBInfo_DB_Table() {
-    *this = ::std::move(from);
-  }
-
-  inline DBInfo_DB_Table& operator=(const DBInfo_DB_Table& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline DBInfo_DB_Table& operator=(DBInfo_DB_Table&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const DBInfo_DB_Table& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const DBInfo_DB_Table* internal_default_instance() {
-    return reinterpret_cast<const DBInfo_DB_Table*>(
-               &_DBInfo_DB_Table_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    12;
-
-  friend void swap(DBInfo_DB_Table& a, DBInfo_DB_Table& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(DBInfo_DB_Table* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(DBInfo_DB_Table* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  DBInfo_DB_Table* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<DBInfo_DB_Table>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const DBInfo_DB_Table& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const DBInfo_DB_Table& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(DBInfo_DB_Table* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "StorageEngineInstance.DBInfo.DB.Table";
-  }
-  protected:
-  explicit DBInfo_DB_Table(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kSstListFieldNumber = 2,
-    kTableIndexNumberFieldNumber = 1,
-  };
-  // repeated string sst_list = 2;
-  int sst_list_size() const;
-  private:
-  int _internal_sst_list_size() const;
-  public:
-  void clear_sst_list();
-  const std::string& sst_list(int index) const;
-  std::string* mutable_sst_list(int index);
-  void set_sst_list(int index, const std::string& value);
-  void set_sst_list(int index, std::string&& value);
-  void set_sst_list(int index, const char* value);
-  void set_sst_list(int index, const char* value, size_t size);
-  std::string* add_sst_list();
-  void add_sst_list(const std::string& value);
-  void add_sst_list(std::string&& value);
-  void add_sst_list(const char* value);
-  void add_sst_list(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& sst_list() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_sst_list();
-  private:
-  const std::string& _internal_sst_list(int index) const;
-  std::string* _internal_add_sst_list();
-  public:
-
-  // int32 table_index_number = 1;
-  void clear_table_index_number();
-  int32_t table_index_number() const;
-  void set_table_index_number(int32_t value);
-  private:
-  int32_t _internal_table_index_number() const;
-  void _internal_set_table_index_number(int32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:StorageEngineInstance.DBInfo.DB.Table)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> sst_list_;
-  int32_t table_index_number_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_snippet_5fsample_2eproto;
-};
-// -------------------------------------------------------------------
-
-class DBInfo_DB_TableListEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<DBInfo_DB_TableListEntry_DoNotUse, 
-    std::string, ::StorageEngineInstance::DBInfo_DB_Table,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
-public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<DBInfo_DB_TableListEntry_DoNotUse, 
-    std::string, ::StorageEngineInstance::DBInfo_DB_Table,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
-  DBInfo_DB_TableListEntry_DoNotUse();
-  explicit constexpr DBInfo_DB_TableListEntry_DoNotUse(
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit DBInfo_DB_TableListEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const DBInfo_DB_TableListEntry_DoNotUse& other);
-  static const DBInfo_DB_TableListEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const DBInfo_DB_TableListEntry_DoNotUse*>(&_DBInfo_DB_TableListEntry_DoNotUse_default_instance_); }
-  static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "StorageEngineInstance.DBInfo.DB.TableListEntry.key");
- }
-  static bool ValidateValue(void*) { return true; }
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-};
-
-// -------------------------------------------------------------------
-
-class DBInfo_DB final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:StorageEngineInstance.DBInfo.DB) */ {
- public:
-  inline DBInfo_DB() : DBInfo_DB(nullptr) {}
-  ~DBInfo_DB() override;
-  explicit constexpr DBInfo_DB(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  DBInfo_DB(const DBInfo_DB& from);
-  DBInfo_DB(DBInfo_DB&& from) noexcept
-    : DBInfo_DB() {
-    *this = ::std::move(from);
-  }
-
-  inline DBInfo_DB& operator=(const DBInfo_DB& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline DBInfo_DB& operator=(DBInfo_DB&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const DBInfo_DB& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const DBInfo_DB* internal_default_instance() {
-    return reinterpret_cast<const DBInfo_DB*>(
-               &_DBInfo_DB_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    14;
-
-  friend void swap(DBInfo_DB& a, DBInfo_DB& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(DBInfo_DB* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(DBInfo_DB* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  DBInfo_DB* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<DBInfo_DB>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const DBInfo_DB& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const DBInfo_DB& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(DBInfo_DB* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "StorageEngineInstance.DBInfo.DB";
-  }
-  protected:
-  explicit DBInfo_DB(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  typedef DBInfo_DB_Table Table;
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kTableListFieldNumber = 1,
-  };
-  // map<string, .StorageEngineInstance.DBInfo.DB.Table> table_list = 1;
-  int table_list_size() const;
-  private:
-  int _internal_table_list_size() const;
-  public:
-  void clear_table_list();
-  private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::StorageEngineInstance::DBInfo_DB_Table >&
-      _internal_table_list() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::StorageEngineInstance::DBInfo_DB_Table >*
-      _internal_mutable_table_list();
-  public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::StorageEngineInstance::DBInfo_DB_Table >&
-      table_list() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::StorageEngineInstance::DBInfo_DB_Table >*
-      mutable_table_list();
-
-  // @@protoc_insertion_point(class_scope:StorageEngineInstance.DBInfo.DB)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-      DBInfo_DB_TableListEntry_DoNotUse,
-      std::string, ::StorageEngineInstance::DBInfo_DB_Table,
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> table_list_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_snippet_5fsample_2eproto;
-};
-// -------------------------------------------------------------------
-
-class DBInfo_DbListEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<DBInfo_DbListEntry_DoNotUse, 
-    std::string, ::StorageEngineInstance::DBInfo_DB,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> {
-public:
-  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<DBInfo_DbListEntry_DoNotUse, 
-    std::string, ::StorageEngineInstance::DBInfo_DB,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> SuperType;
-  DBInfo_DbListEntry_DoNotUse();
-  explicit constexpr DBInfo_DbListEntry_DoNotUse(
-      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-  explicit DBInfo_DbListEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  void MergeFrom(const DBInfo_DbListEntry_DoNotUse& other);
-  static const DBInfo_DbListEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const DBInfo_DbListEntry_DoNotUse*>(&_DBInfo_DbListEntry_DoNotUse_default_instance_); }
-  static bool ValidateKey(std::string* s) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "StorageEngineInstance.DBInfo.DbListEntry.key");
- }
-  static bool ValidateValue(void*) { return true; }
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-};
-
-// -------------------------------------------------------------------
-
-class DBInfo final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:StorageEngineInstance.DBInfo) */ {
- public:
-  inline DBInfo() : DBInfo(nullptr) {}
-  ~DBInfo() override;
-  explicit constexpr DBInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  DBInfo(const DBInfo& from);
-  DBInfo(DBInfo&& from) noexcept
-    : DBInfo() {
-    *this = ::std::move(from);
-  }
-
-  inline DBInfo& operator=(const DBInfo& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline DBInfo& operator=(DBInfo&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const DBInfo& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const DBInfo* internal_default_instance() {
-    return reinterpret_cast<const DBInfo*>(
-               &_DBInfo_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    16;
-
-  friend void swap(DBInfo& a, DBInfo& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(DBInfo* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(DBInfo* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  DBInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<DBInfo>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const DBInfo& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const DBInfo& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(DBInfo* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "StorageEngineInstance.DBInfo";
-  }
-  protected:
-  explicit DBInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  typedef DBInfo_DB DB;
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kDbListFieldNumber = 1,
-  };
-  // map<string, .StorageEngineInstance.DBInfo.DB> db_list = 1;
-  int db_list_size() const;
-  private:
-  int _internal_db_list_size() const;
-  public:
-  void clear_db_list();
-  private:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::StorageEngineInstance::DBInfo_DB >&
-      _internal_db_list() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::StorageEngineInstance::DBInfo_DB >*
-      _internal_mutable_db_list();
-  public:
-  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::StorageEngineInstance::DBInfo_DB >&
-      db_list() const;
-  ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::StorageEngineInstance::DBInfo_DB >*
-      mutable_db_list();
-
-  // @@protoc_insertion_point(class_scope:StorageEngineInstance.DBInfo)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::MapField<
-      DBInfo_DbListEntry_DoNotUse,
-      std::string, ::StorageEngineInstance::DBInfo_DB,
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_MESSAGE> db_list_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_snippet_5fsample_2eproto;
-};
 // ===================================================================
 
 
@@ -3539,6 +3622,354 @@ inline void SnippetRequest::set_allocated_snippet(::StorageEngineInstance::Snipp
   }
   snippet_ = snippet;
   // @@protoc_insertion_point(field_set_allocated:StorageEngineInstance.SnippetRequest.snippet)
+}
+
+// .StorageEngineInstance.ScanInfo scan_info = 3;
+inline bool SnippetRequest::_internal_has_scan_info() const {
+  return this != internal_default_instance() && scan_info_ != nullptr;
+}
+inline bool SnippetRequest::has_scan_info() const {
+  return _internal_has_scan_info();
+}
+inline void SnippetRequest::clear_scan_info() {
+  if (GetArenaForAllocation() == nullptr && scan_info_ != nullptr) {
+    delete scan_info_;
+  }
+  scan_info_ = nullptr;
+}
+inline const ::StorageEngineInstance::ScanInfo& SnippetRequest::_internal_scan_info() const {
+  const ::StorageEngineInstance::ScanInfo* p = scan_info_;
+  return p != nullptr ? *p : reinterpret_cast<const ::StorageEngineInstance::ScanInfo&>(
+      ::StorageEngineInstance::_ScanInfo_default_instance_);
+}
+inline const ::StorageEngineInstance::ScanInfo& SnippetRequest::scan_info() const {
+  // @@protoc_insertion_point(field_get:StorageEngineInstance.SnippetRequest.scan_info)
+  return _internal_scan_info();
+}
+inline void SnippetRequest::unsafe_arena_set_allocated_scan_info(
+    ::StorageEngineInstance::ScanInfo* scan_info) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(scan_info_);
+  }
+  scan_info_ = scan_info;
+  if (scan_info) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:StorageEngineInstance.SnippetRequest.scan_info)
+}
+inline ::StorageEngineInstance::ScanInfo* SnippetRequest::release_scan_info() {
+  
+  ::StorageEngineInstance::ScanInfo* temp = scan_info_;
+  scan_info_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::StorageEngineInstance::ScanInfo* SnippetRequest::unsafe_arena_release_scan_info() {
+  // @@protoc_insertion_point(field_release:StorageEngineInstance.SnippetRequest.scan_info)
+  
+  ::StorageEngineInstance::ScanInfo* temp = scan_info_;
+  scan_info_ = nullptr;
+  return temp;
+}
+inline ::StorageEngineInstance::ScanInfo* SnippetRequest::_internal_mutable_scan_info() {
+  
+  if (scan_info_ == nullptr) {
+    auto* p = CreateMaybeMessage<::StorageEngineInstance::ScanInfo>(GetArenaForAllocation());
+    scan_info_ = p;
+  }
+  return scan_info_;
+}
+inline ::StorageEngineInstance::ScanInfo* SnippetRequest::mutable_scan_info() {
+  ::StorageEngineInstance::ScanInfo* _msg = _internal_mutable_scan_info();
+  // @@protoc_insertion_point(field_mutable:StorageEngineInstance.SnippetRequest.scan_info)
+  return _msg;
+}
+inline void SnippetRequest::set_allocated_scan_info(::StorageEngineInstance::ScanInfo* scan_info) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete scan_info_;
+  }
+  if (scan_info) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::StorageEngineInstance::ScanInfo>::GetOwningArena(scan_info);
+    if (message_arena != submessage_arena) {
+      scan_info = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, scan_info, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  scan_info_ = scan_info;
+  // @@protoc_insertion_point(field_set_allocated:StorageEngineInstance.SnippetRequest.scan_info)
+}
+
+// -------------------------------------------------------------------
+
+// Chunk
+
+// int64 offset = 1;
+inline void Chunk::clear_offset() {
+  offset_ = int64_t{0};
+}
+inline int64_t Chunk::_internal_offset() const {
+  return offset_;
+}
+inline int64_t Chunk::offset() const {
+  // @@protoc_insertion_point(field_get:StorageEngineInstance.Chunk.offset)
+  return _internal_offset();
+}
+inline void Chunk::_internal_set_offset(int64_t value) {
+  
+  offset_ = value;
+}
+inline void Chunk::set_offset(int64_t value) {
+  _internal_set_offset(value);
+  // @@protoc_insertion_point(field_set:StorageEngineInstance.Chunk.offset)
+}
+
+// int32 length = 2;
+inline void Chunk::clear_length() {
+  length_ = 0;
+}
+inline int32_t Chunk::_internal_length() const {
+  return length_;
+}
+inline int32_t Chunk::length() const {
+  // @@protoc_insertion_point(field_get:StorageEngineInstance.Chunk.length)
+  return _internal_length();
+}
+inline void Chunk::_internal_set_length(int32_t value) {
+  
+  length_ = value;
+}
+inline void Chunk::set_length(int32_t value) {
+  _internal_set_length(value);
+  // @@protoc_insertion_point(field_set:StorageEngineInstance.Chunk.length)
+}
+
+// -------------------------------------------------------------------
+
+// ScanInfo_BlockInfo
+
+// string sst_name = 1;
+inline void ScanInfo_BlockInfo::clear_sst_name() {
+  sst_name_.ClearToEmpty();
+}
+inline const std::string& ScanInfo_BlockInfo::sst_name() const {
+  // @@protoc_insertion_point(field_get:StorageEngineInstance.ScanInfo.BlockInfo.sst_name)
+  return _internal_sst_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ScanInfo_BlockInfo::set_sst_name(ArgT0&& arg0, ArgT... args) {
+ 
+ sst_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:StorageEngineInstance.ScanInfo.BlockInfo.sst_name)
+}
+inline std::string* ScanInfo_BlockInfo::mutable_sst_name() {
+  std::string* _s = _internal_mutable_sst_name();
+  // @@protoc_insertion_point(field_mutable:StorageEngineInstance.ScanInfo.BlockInfo.sst_name)
+  return _s;
+}
+inline const std::string& ScanInfo_BlockInfo::_internal_sst_name() const {
+  return sst_name_.Get();
+}
+inline void ScanInfo_BlockInfo::_internal_set_sst_name(const std::string& value) {
+  
+  sst_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* ScanInfo_BlockInfo::_internal_mutable_sst_name() {
+  
+  return sst_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* ScanInfo_BlockInfo::release_sst_name() {
+  // @@protoc_insertion_point(field_release:StorageEngineInstance.ScanInfo.BlockInfo.sst_name)
+  return sst_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void ScanInfo_BlockInfo::set_allocated_sst_name(std::string* sst_name) {
+  if (sst_name != nullptr) {
+    
+  } else {
+    
+  }
+  sst_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), sst_name,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (sst_name_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    sst_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:StorageEngineInstance.ScanInfo.BlockInfo.sst_name)
+}
+
+// repeated string csd_list = 2;
+inline int ScanInfo_BlockInfo::_internal_csd_list_size() const {
+  return csd_list_.size();
+}
+inline int ScanInfo_BlockInfo::csd_list_size() const {
+  return _internal_csd_list_size();
+}
+inline void ScanInfo_BlockInfo::clear_csd_list() {
+  csd_list_.Clear();
+}
+inline std::string* ScanInfo_BlockInfo::add_csd_list() {
+  std::string* _s = _internal_add_csd_list();
+  // @@protoc_insertion_point(field_add_mutable:StorageEngineInstance.ScanInfo.BlockInfo.csd_list)
+  return _s;
+}
+inline const std::string& ScanInfo_BlockInfo::_internal_csd_list(int index) const {
+  return csd_list_.Get(index);
+}
+inline const std::string& ScanInfo_BlockInfo::csd_list(int index) const {
+  // @@protoc_insertion_point(field_get:StorageEngineInstance.ScanInfo.BlockInfo.csd_list)
+  return _internal_csd_list(index);
+}
+inline std::string* ScanInfo_BlockInfo::mutable_csd_list(int index) {
+  // @@protoc_insertion_point(field_mutable:StorageEngineInstance.ScanInfo.BlockInfo.csd_list)
+  return csd_list_.Mutable(index);
+}
+inline void ScanInfo_BlockInfo::set_csd_list(int index, const std::string& value) {
+  csd_list_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:StorageEngineInstance.ScanInfo.BlockInfo.csd_list)
+}
+inline void ScanInfo_BlockInfo::set_csd_list(int index, std::string&& value) {
+  csd_list_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:StorageEngineInstance.ScanInfo.BlockInfo.csd_list)
+}
+inline void ScanInfo_BlockInfo::set_csd_list(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  csd_list_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:StorageEngineInstance.ScanInfo.BlockInfo.csd_list)
+}
+inline void ScanInfo_BlockInfo::set_csd_list(int index, const char* value, size_t size) {
+  csd_list_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:StorageEngineInstance.ScanInfo.BlockInfo.csd_list)
+}
+inline std::string* ScanInfo_BlockInfo::_internal_add_csd_list() {
+  return csd_list_.Add();
+}
+inline void ScanInfo_BlockInfo::add_csd_list(const std::string& value) {
+  csd_list_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:StorageEngineInstance.ScanInfo.BlockInfo.csd_list)
+}
+inline void ScanInfo_BlockInfo::add_csd_list(std::string&& value) {
+  csd_list_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:StorageEngineInstance.ScanInfo.BlockInfo.csd_list)
+}
+inline void ScanInfo_BlockInfo::add_csd_list(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  csd_list_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:StorageEngineInstance.ScanInfo.BlockInfo.csd_list)
+}
+inline void ScanInfo_BlockInfo::add_csd_list(const char* value, size_t size) {
+  csd_list_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:StorageEngineInstance.ScanInfo.BlockInfo.csd_list)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+ScanInfo_BlockInfo::csd_list() const {
+  // @@protoc_insertion_point(field_list:StorageEngineInstance.ScanInfo.BlockInfo.csd_list)
+  return csd_list_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+ScanInfo_BlockInfo::mutable_csd_list() {
+  // @@protoc_insertion_point(field_mutable_list:StorageEngineInstance.ScanInfo.BlockInfo.csd_list)
+  return &csd_list_;
+}
+
+// repeated .StorageEngineInstance.Chunk lba_list = 3;
+inline int ScanInfo_BlockInfo::_internal_lba_list_size() const {
+  return lba_list_.size();
+}
+inline int ScanInfo_BlockInfo::lba_list_size() const {
+  return _internal_lba_list_size();
+}
+inline void ScanInfo_BlockInfo::clear_lba_list() {
+  lba_list_.Clear();
+}
+inline ::StorageEngineInstance::Chunk* ScanInfo_BlockInfo::mutable_lba_list(int index) {
+  // @@protoc_insertion_point(field_mutable:StorageEngineInstance.ScanInfo.BlockInfo.lba_list)
+  return lba_list_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Chunk >*
+ScanInfo_BlockInfo::mutable_lba_list() {
+  // @@protoc_insertion_point(field_mutable_list:StorageEngineInstance.ScanInfo.BlockInfo.lba_list)
+  return &lba_list_;
+}
+inline const ::StorageEngineInstance::Chunk& ScanInfo_BlockInfo::_internal_lba_list(int index) const {
+  return lba_list_.Get(index);
+}
+inline const ::StorageEngineInstance::Chunk& ScanInfo_BlockInfo::lba_list(int index) const {
+  // @@protoc_insertion_point(field_get:StorageEngineInstance.ScanInfo.BlockInfo.lba_list)
+  return _internal_lba_list(index);
+}
+inline ::StorageEngineInstance::Chunk* ScanInfo_BlockInfo::_internal_add_lba_list() {
+  return lba_list_.Add();
+}
+inline ::StorageEngineInstance::Chunk* ScanInfo_BlockInfo::add_lba_list() {
+  ::StorageEngineInstance::Chunk* _add = _internal_add_lba_list();
+  // @@protoc_insertion_point(field_add:StorageEngineInstance.ScanInfo.BlockInfo.lba_list)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Chunk >&
+ScanInfo_BlockInfo::lba_list() const {
+  // @@protoc_insertion_point(field_list:StorageEngineInstance.ScanInfo.BlockInfo.lba_list)
+  return lba_list_;
+}
+
+// -------------------------------------------------------------------
+
+// ScanInfo
+
+// repeated .StorageEngineInstance.ScanInfo.BlockInfo block_info = 1;
+inline int ScanInfo::_internal_block_info_size() const {
+  return block_info_.size();
+}
+inline int ScanInfo::block_info_size() const {
+  return _internal_block_info_size();
+}
+inline void ScanInfo::clear_block_info() {
+  block_info_.Clear();
+}
+inline ::StorageEngineInstance::ScanInfo_BlockInfo* ScanInfo::mutable_block_info(int index) {
+  // @@protoc_insertion_point(field_mutable:StorageEngineInstance.ScanInfo.block_info)
+  return block_info_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_BlockInfo >*
+ScanInfo::mutable_block_info() {
+  // @@protoc_insertion_point(field_mutable_list:StorageEngineInstance.ScanInfo.block_info)
+  return &block_info_;
+}
+inline const ::StorageEngineInstance::ScanInfo_BlockInfo& ScanInfo::_internal_block_info(int index) const {
+  return block_info_.Get(index);
+}
+inline const ::StorageEngineInstance::ScanInfo_BlockInfo& ScanInfo::block_info(int index) const {
+  // @@protoc_insertion_point(field_get:StorageEngineInstance.ScanInfo.block_info)
+  return _internal_block_info(index);
+}
+inline ::StorageEngineInstance::ScanInfo_BlockInfo* ScanInfo::_internal_add_block_info() {
+  return block_info_.Add();
+}
+inline ::StorageEngineInstance::ScanInfo_BlockInfo* ScanInfo::add_block_info() {
+  ::StorageEngineInstance::ScanInfo_BlockInfo* _add = _internal_add_block_info();
+  // @@protoc_insertion_point(field_add:StorageEngineInstance.ScanInfo.block_info)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_BlockInfo >&
+ScanInfo::block_info() const {
+  // @@protoc_insertion_point(field_list:StorageEngineInstance.ScanInfo.block_info)
+  return block_info_;
 }
 
 // -------------------------------------------------------------------
@@ -5333,6 +5764,110 @@ Snippet::having() const {
 
 // -------------------------------------------------------------------
 
+// GenericQuery
+
+// string db_name = 1;
+inline void GenericQuery::clear_db_name() {
+  db_name_.ClearToEmpty();
+}
+inline const std::string& GenericQuery::db_name() const {
+  // @@protoc_insertion_point(field_get:StorageEngineInstance.GenericQuery.db_name)
+  return _internal_db_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GenericQuery::set_db_name(ArgT0&& arg0, ArgT... args) {
+ 
+ db_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:StorageEngineInstance.GenericQuery.db_name)
+}
+inline std::string* GenericQuery::mutable_db_name() {
+  std::string* _s = _internal_mutable_db_name();
+  // @@protoc_insertion_point(field_mutable:StorageEngineInstance.GenericQuery.db_name)
+  return _s;
+}
+inline const std::string& GenericQuery::_internal_db_name() const {
+  return db_name_.Get();
+}
+inline void GenericQuery::_internal_set_db_name(const std::string& value) {
+  
+  db_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* GenericQuery::_internal_mutable_db_name() {
+  
+  return db_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* GenericQuery::release_db_name() {
+  // @@protoc_insertion_point(field_release:StorageEngineInstance.GenericQuery.db_name)
+  return db_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void GenericQuery::set_allocated_db_name(std::string* db_name) {
+  if (db_name != nullptr) {
+    
+  } else {
+    
+  }
+  db_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), db_name,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (db_name_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    db_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:StorageEngineInstance.GenericQuery.db_name)
+}
+
+// string query = 2;
+inline void GenericQuery::clear_query() {
+  query_.ClearToEmpty();
+}
+inline const std::string& GenericQuery::query() const {
+  // @@protoc_insertion_point(field_get:StorageEngineInstance.GenericQuery.query)
+  return _internal_query();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GenericQuery::set_query(ArgT0&& arg0, ArgT... args) {
+ 
+ query_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:StorageEngineInstance.GenericQuery.query)
+}
+inline std::string* GenericQuery::mutable_query() {
+  std::string* _s = _internal_mutable_query();
+  // @@protoc_insertion_point(field_mutable:StorageEngineInstance.GenericQuery.query)
+  return _s;
+}
+inline const std::string& GenericQuery::_internal_query() const {
+  return query_.Get();
+}
+inline void GenericQuery::_internal_set_query(const std::string& value) {
+  
+  query_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* GenericQuery::_internal_mutable_query() {
+  
+  return query_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* GenericQuery::release_query() {
+  // @@protoc_insertion_point(field_release:StorageEngineInstance.GenericQuery.query)
+  return query_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void GenericQuery::set_allocated_query(std::string* query) {
+  if (query != nullptr) {
+    
+  } else {
+    
+  }
+  query_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), query,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (query_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    query_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:StorageEngineInstance.GenericQuery.query)
+}
+
 // -------------------------------------------------------------------
 
 // Request
@@ -5477,55 +6012,6 @@ inline void Request::set_allocated_table_name(std::string* table_name) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:StorageEngineInstance.Request.table_name)
-}
-
-// int32 table_index_number = 5;
-inline void Request::clear_table_index_number() {
-  table_index_number_ = 0;
-}
-inline int32_t Request::_internal_table_index_number() const {
-  return table_index_number_;
-}
-inline int32_t Request::table_index_number() const {
-  // @@protoc_insertion_point(field_get:StorageEngineInstance.Request.table_index_number)
-  return _internal_table_index_number();
-}
-inline void Request::_internal_set_table_index_number(int32_t value) {
-  
-  table_index_number_ = value;
-}
-inline void Request::set_table_index_number(int32_t value) {
-  _internal_set_table_index_number(value);
-  // @@protoc_insertion_point(field_set:StorageEngineInstance.Request.table_index_number)
-}
-
-// map<string, string> sst_csd_map = 6;
-inline int Request::_internal_sst_csd_map_size() const {
-  return sst_csd_map_.size();
-}
-inline int Request::sst_csd_map_size() const {
-  return _internal_sst_csd_map_size();
-}
-inline void Request::clear_sst_csd_map() {
-  sst_csd_map_.Clear();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-Request::_internal_sst_csd_map() const {
-  return sst_csd_map_.GetMap();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-Request::sst_csd_map() const {
-  // @@protoc_insertion_point(field_map:StorageEngineInstance.Request.sst_csd_map)
-  return _internal_sst_csd_map();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-Request::_internal_mutable_sst_csd_map() {
-  return sst_csd_map_.MutableMap();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-Request::mutable_sst_csd_map() {
-  // @@protoc_insertion_point(field_mutable_map:StorageEngineInstance.Request.sst_csd_map)
-  return _internal_mutable_sst_csd_map();
 }
 
 // -------------------------------------------------------------------
@@ -5678,182 +6164,9 @@ inline void QueryStringResult::set_filtered_row_count(int32_t value) {
   // @@protoc_insertion_point(field_set:StorageEngineInstance.QueryStringResult.filtered_row_count)
 }
 
-// -------------------------------------------------------------------
-
-// DBInfo_DB_Table
-
-// int32 table_index_number = 1;
-inline void DBInfo_DB_Table::clear_table_index_number() {
-  table_index_number_ = 0;
-}
-inline int32_t DBInfo_DB_Table::_internal_table_index_number() const {
-  return table_index_number_;
-}
-inline int32_t DBInfo_DB_Table::table_index_number() const {
-  // @@protoc_insertion_point(field_get:StorageEngineInstance.DBInfo.DB.Table.table_index_number)
-  return _internal_table_index_number();
-}
-inline void DBInfo_DB_Table::_internal_set_table_index_number(int32_t value) {
-  
-  table_index_number_ = value;
-}
-inline void DBInfo_DB_Table::set_table_index_number(int32_t value) {
-  _internal_set_table_index_number(value);
-  // @@protoc_insertion_point(field_set:StorageEngineInstance.DBInfo.DB.Table.table_index_number)
-}
-
-// repeated string sst_list = 2;
-inline int DBInfo_DB_Table::_internal_sst_list_size() const {
-  return sst_list_.size();
-}
-inline int DBInfo_DB_Table::sst_list_size() const {
-  return _internal_sst_list_size();
-}
-inline void DBInfo_DB_Table::clear_sst_list() {
-  sst_list_.Clear();
-}
-inline std::string* DBInfo_DB_Table::add_sst_list() {
-  std::string* _s = _internal_add_sst_list();
-  // @@protoc_insertion_point(field_add_mutable:StorageEngineInstance.DBInfo.DB.Table.sst_list)
-  return _s;
-}
-inline const std::string& DBInfo_DB_Table::_internal_sst_list(int index) const {
-  return sst_list_.Get(index);
-}
-inline const std::string& DBInfo_DB_Table::sst_list(int index) const {
-  // @@protoc_insertion_point(field_get:StorageEngineInstance.DBInfo.DB.Table.sst_list)
-  return _internal_sst_list(index);
-}
-inline std::string* DBInfo_DB_Table::mutable_sst_list(int index) {
-  // @@protoc_insertion_point(field_mutable:StorageEngineInstance.DBInfo.DB.Table.sst_list)
-  return sst_list_.Mutable(index);
-}
-inline void DBInfo_DB_Table::set_sst_list(int index, const std::string& value) {
-  sst_list_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set:StorageEngineInstance.DBInfo.DB.Table.sst_list)
-}
-inline void DBInfo_DB_Table::set_sst_list(int index, std::string&& value) {
-  sst_list_.Mutable(index)->assign(std::move(value));
-  // @@protoc_insertion_point(field_set:StorageEngineInstance.DBInfo.DB.Table.sst_list)
-}
-inline void DBInfo_DB_Table::set_sst_list(int index, const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  sst_list_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:StorageEngineInstance.DBInfo.DB.Table.sst_list)
-}
-inline void DBInfo_DB_Table::set_sst_list(int index, const char* value, size_t size) {
-  sst_list_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:StorageEngineInstance.DBInfo.DB.Table.sst_list)
-}
-inline std::string* DBInfo_DB_Table::_internal_add_sst_list() {
-  return sst_list_.Add();
-}
-inline void DBInfo_DB_Table::add_sst_list(const std::string& value) {
-  sst_list_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:StorageEngineInstance.DBInfo.DB.Table.sst_list)
-}
-inline void DBInfo_DB_Table::add_sst_list(std::string&& value) {
-  sst_list_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:StorageEngineInstance.DBInfo.DB.Table.sst_list)
-}
-inline void DBInfo_DB_Table::add_sst_list(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  sst_list_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:StorageEngineInstance.DBInfo.DB.Table.sst_list)
-}
-inline void DBInfo_DB_Table::add_sst_list(const char* value, size_t size) {
-  sst_list_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:StorageEngineInstance.DBInfo.DB.Table.sst_list)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
-DBInfo_DB_Table::sst_list() const {
-  // @@protoc_insertion_point(field_list:StorageEngineInstance.DBInfo.DB.Table.sst_list)
-  return sst_list_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-DBInfo_DB_Table::mutable_sst_list() {
-  // @@protoc_insertion_point(field_mutable_list:StorageEngineInstance.DBInfo.DB.Table.sst_list)
-  return &sst_list_;
-}
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// DBInfo_DB
-
-// map<string, .StorageEngineInstance.DBInfo.DB.Table> table_list = 1;
-inline int DBInfo_DB::_internal_table_list_size() const {
-  return table_list_.size();
-}
-inline int DBInfo_DB::table_list_size() const {
-  return _internal_table_list_size();
-}
-inline void DBInfo_DB::clear_table_list() {
-  table_list_.Clear();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::StorageEngineInstance::DBInfo_DB_Table >&
-DBInfo_DB::_internal_table_list() const {
-  return table_list_.GetMap();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::StorageEngineInstance::DBInfo_DB_Table >&
-DBInfo_DB::table_list() const {
-  // @@protoc_insertion_point(field_map:StorageEngineInstance.DBInfo.DB.table_list)
-  return _internal_table_list();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::StorageEngineInstance::DBInfo_DB_Table >*
-DBInfo_DB::_internal_mutable_table_list() {
-  return table_list_.MutableMap();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::StorageEngineInstance::DBInfo_DB_Table >*
-DBInfo_DB::mutable_table_list() {
-  // @@protoc_insertion_point(field_mutable_map:StorageEngineInstance.DBInfo.DB.table_list)
-  return _internal_mutable_table_list();
-}
-
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
-// DBInfo
-
-// map<string, .StorageEngineInstance.DBInfo.DB> db_list = 1;
-inline int DBInfo::_internal_db_list_size() const {
-  return db_list_.size();
-}
-inline int DBInfo::db_list_size() const {
-  return _internal_db_list_size();
-}
-inline void DBInfo::clear_db_list() {
-  db_list_.Clear();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::StorageEngineInstance::DBInfo_DB >&
-DBInfo::_internal_db_list() const {
-  return db_list_.GetMap();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::StorageEngineInstance::DBInfo_DB >&
-DBInfo::db_list() const {
-  // @@protoc_insertion_point(field_map:StorageEngineInstance.DBInfo.db_list)
-  return _internal_db_list();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::StorageEngineInstance::DBInfo_DB >*
-DBInfo::_internal_mutable_db_list() {
-  return db_list_.MutableMap();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::StorageEngineInstance::DBInfo_DB >*
-DBInfo::mutable_db_list() {
-  // @@protoc_insertion_point(field_mutable_map:StorageEngineInstance.DBInfo.db_list)
-  return _internal_mutable_db_list();
-}
-
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

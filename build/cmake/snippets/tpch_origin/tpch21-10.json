@@ -1,0 +1,76 @@
+{
+  "type" : 10,
+  "snippet":
+  {
+    "queryID":20,
+    "workID":10,
+    "dbName": "tpch_origin",
+    "tableName": ["ProcessTable20-9","l3"],
+    "tableCol":[],
+    "tableFilter":[
+      {
+        "Operator" : 12
+      }
+    ],
+    "dependency":{
+      "dependencyProjection":[],
+      "dependencyFilter" : [
+        {
+          "LV": {
+            "type": [10],
+            "value": ["l1.l_orderkey"]
+        },
+        "Operator" : 5, 
+        "RV" : {
+            "type": [10],
+            "value": ["l3.l_orderkey"]
+          }
+        },
+        {
+        "Operator" : 13
+        },
+        {
+          "LV": {
+            "type": [10],
+            "value": ["l1.l_suppkey"]
+        },
+        "Operator" : 6, 
+        "RV" : {
+            "type": [10],
+            "value": ["l3.l_suppkey"]
+          }
+        }
+      ]
+    },
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "ResultTable20",
+    "columnAlias": [
+      "s_name",
+      "numwait"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["s_name"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 4,
+        "value": [],
+        "valueType": []
+      }
+    ],
+    "groupBy": ["s_name"],
+    "orderBy": {
+      "ascending" : [1,0],
+      "columnName" : ["numwait","s_name"]
+    },
+    "limit" : {
+      "offset" : 0,
+      "length" : 200
+    }
+  }
+
+}
