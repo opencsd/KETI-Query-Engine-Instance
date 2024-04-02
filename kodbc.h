@@ -62,7 +62,7 @@ OpenDatabase( SQLHENV *phEnv, SQLHDBC *phDbc, char *szDSN, char *szUID, char *sz
 
     /*
      * does the driver support SQLMoreResults
-     */
+    */
 
     if ( !SQL_SUCCEEDED( SQLGetFunctions( *phDbc, SQL_API_SQLMORERESULTS, &has_moreresults )))
     {
