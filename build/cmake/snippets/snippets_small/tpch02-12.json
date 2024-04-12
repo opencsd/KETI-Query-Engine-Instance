@@ -1,0 +1,110 @@
+{
+  "type" : 9,
+  "snippet":
+  {
+    "queryID":1,
+    "workID":12,
+    "tableName": ["ProcessTable1-11","ProcessTable1-7"],
+    "tableCol":[],
+    "tableFilter":[
+      {
+        "LV": {
+          "type": [10],
+          "value": ["ps_supplycost"]
+      },
+      "Operator" : 5, 
+      "RV" : {
+          "type": [],
+          "value": []
+        }
+      }
+    ],
+    "dependency":{
+      "dependencyProjection":[
+        {
+          "selectType": 7,
+          "value": ["ps_supplycost"],
+          "valueType": [10]
+        }
+      ],
+      "dependencyFilter" : [
+        {
+          "LV": {
+            "type": [10],
+            "value": ["p_partkey"]
+        },
+        "Operator" : 5, 
+        "RV" : {
+            "type": [10],
+            "value": ["ps_partkey"]
+          }
+        }
+      ]
+    },
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "blockList":[],
+    "tableAlias": "ResultTable2",
+    "columnAlias": [
+      "s_comment",
+      "s_phone",
+      "s_address",
+      "p_mfgr",
+      "p_partkey",
+      "n_name",
+      "s_name",
+      "s_acctbal" 
+    ],
+    "columnProjection": [
+        {
+          "selectType": 0,
+          "value": ["s_comment"],
+          "valueType": [10]
+        },
+        {
+          "selectType": 0,
+          "value": ["s_phone"],
+          "valueType": [10]
+        },
+        {
+          "selectType": 0,
+          "value": ["s_address"],
+          "valueType": [10]
+        },
+        {
+          "selectType": 0,
+          "value": ["p_mfgr"],
+          "valueType": [10]
+        },
+        {
+          "selectType": 0,
+          "value": ["p_partkey"],
+          "valueType": [10]
+        },
+        {
+          "selectType": 0,
+          "value": ["n_name"],
+          "valueType": [10]
+        },
+        {
+          "selectType": 0,
+          "value": ["s_name"],
+          "valueType": [10]
+        },
+        {
+          "selectType": 0,
+          "value": ["s_acctbal"],
+          "valueType": [10]
+        }
+    ],
+    "orderBy": {
+      "ascending" : [1,0,0,0],
+      "columnName" : ["s_acctbal","n_name","s_name","p_partkey"]
+    },
+    "limit" : {
+      "offset" : 0,
+      "length" : 100
+    }
+  }
+}

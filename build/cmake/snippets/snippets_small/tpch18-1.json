@@ -1,0 +1,54 @@
+{
+  "type": 1,
+  "snippet": {
+    "queryID": 17,
+    "workID": 1,
+    "tableName": [
+      "ProcessTable17-0"
+    ],
+    "tableCol": [],
+    "tableFilter": [],
+    "tableOffset": [],
+    "tableOfflen": [],
+    "tableDatatype": [],
+    "tableAlias": "ProcessTable17-1",
+    "columnAlias": [
+      "ProcessTable17-1-c1",
+      "l_orderkey"
+    ],
+    "columnProjection": [
+      {
+          "selectType": 1,
+          "value": ["l_quantity"],
+          "valueType": [10]
+      },
+      {
+          "selectType": 0,
+          "value": ["l_orderkey"],
+          "valueType": [10]
+      }
+    ],
+    "groupBy": ["l_orderkey"],
+    "having":[
+      {
+        "LV": {
+          "type": [
+            10
+          ],
+          "value": [
+            "ProcessTable17-1-c1"
+          ]
+        },
+        "Operator": 3,
+        "RV": {
+          "type": [
+            4
+          ],
+          "value": [
+            "314"
+          ]
+        }
+      }
+    ]
+  }
+}

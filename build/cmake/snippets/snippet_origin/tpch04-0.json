@@ -1,0 +1,126 @@
+{
+  "type" : 0,
+  "snippet":
+  {
+    "queryID":3,
+    "workID":0,
+    "tableName": ["lineitem"],
+    "tableCol":[
+      "l_orderkey",
+      "l_partkey",
+      "l_suppkey",
+      "l_linenumber",
+      "l_quantity",
+      "l_extendedprice",
+      "l_discount",
+      "l_tax",
+      "l_returnflag",
+      "l_linestatus",
+      "l_shipdate",
+      "l_commitdate",
+      "l_receiptdate",
+      "l_shipinstruct",
+      "l_shipmode",
+      "l_comment"
+    ],
+    "tableFilter":[
+      {
+        "LV": {
+          "type": [10],
+          "value": ["l_commitdate"]
+      },
+      "Operator" : 4, 
+      "RV" : {
+          "type": [10],
+          "value": ["l_receiptdate"]
+        }
+      }
+    ],
+    "tableOffset":[
+      0,
+      4,
+      8,
+      12,
+      16,
+      23,
+      30,
+      37,
+      44,
+      45,
+      46,
+      49,
+      52,
+      55,
+      80,
+      90
+    ],
+    "tableOfflen":[
+      4,
+      4,
+      4,
+      4,
+      7,
+      7,
+      7,
+      7,
+      1,
+      1,
+      3,
+      3,
+      3,
+      25,
+      10,
+      44
+    ],
+    "tableDatatype":[
+      3,
+      3,
+      3,
+      3,
+      246,
+      246,
+      246,
+      246,
+      254,
+      254,
+      14,
+      14,
+      14,
+      254,
+      254,
+      15
+    ],
+    "tableAlias": "ProcessTable3-0",
+    "columnAlias": [
+        "l_orderkey"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["l_orderkey"],
+        "valueType": [10]
+      }
+    ],
+    "pkNum" : 0
+  },
+  "scan_info":{
+    "sst_info":[
+        {"sst_name": "001379.sst", "csd_list": [1]},
+        {"sst_name": "001383.sst", "csd_list": [2]},
+        {"sst_name": "001400.sst", "csd_list": [3]},
+        {"sst_name": "001435.sst", "csd_list": [4]},
+        {"sst_name": "001437.sst", "csd_list": [5]},
+        {"sst_name": "001472.sst", "csd_list": [6]},
+        {"sst_name": "001474.sst", "csd_list": [7]},
+        {"sst_name": "001506.sst", "csd_list": [8]},
+        {"sst_name": "001382.sst", "csd_list": [1]},
+        {"sst_name": "001384.sst", "csd_list": [2]},
+        {"sst_name": "001434.sst", "csd_list": [3]},
+        {"sst_name": "001436.sst", "csd_list": [4]},
+        {"sst_name": "001508.sst", "csd_list": [5]},
+        {"sst_name": "001471.sst", "csd_list": [6]},
+        {"sst_name": "001473.sst", "csd_list": [7]},
+        {"sst_name": "001507.sst", "csd_list": [8]}
+      ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "type" : 0,
+  "snippet":
+  {
+    "queryID":19,
+    "workID":6,
+    "tableName": ["nation"],
+    "tableCol":[
+      "n_nationkey",  
+      "n_name",
+      "n_regionkey",
+      "n_comment"
+    ],
+    "tableFilter":[
+      {
+        "LV": {
+          "type": [10],
+          "value": ["n_name"]
+      },
+      "Operator" : 5, 
+      "RV" : {
+          "type": [9],
+          "value": ["ALGERIA"]
+        }
+      }
+    ],
+    "tableOffset":[
+      0,
+      4,
+      29,
+      33
+    ],
+    "tableOfflen":[
+      4,
+      25,
+      4,
+      152
+    ],
+    "tableDatatype":[
+      3,
+      254,
+      3,
+      15
+    ],
+    "tableAlias": "ProcessTable19-6",
+    "columnAlias": [
+        "n_nationkey",
+        "n_name"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["n_nationkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["n_name"],
+        "valueType": [10]
+      }
+    ],
+    "pkNum" : 0
+  },
+  "scan_info":{
+    "sst_info":[
+        {"sst_name" :"002064.sst", "csd_list": [1]}
+      ]
+  }
+}

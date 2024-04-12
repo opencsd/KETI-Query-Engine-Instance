@@ -1,0 +1,89 @@
+{
+  "type": 0,
+  "snippet": {
+    "queryID": 19,
+    "workID": 5,
+    "tableName": [
+      "supplier"
+    ],
+    "tableCol":[
+      "s_suppkey",  
+      "s_name",
+      "s_address",
+      "s_nationkey",
+      "s_phone",
+      "s_acctbal",
+      "s_comment"
+    ],
+    "tableFilter":[],
+    "tableOffset": [
+      0,
+      4,
+      29,
+      69,
+      73,
+      88,
+      95
+    ],
+    "tableOfflen": [
+      4,
+      25,
+      40,
+      4,
+      15,
+      7,
+      101
+    ],
+    "tableDatatype": [
+      3,
+      254,
+      15,
+      3,
+      254,
+      246,
+      15
+    ],
+    "tableAlias": "ProcessTable19-5",
+    "columnAlias": [
+      "s_suppkey",
+      "s_nationkey",
+      "s_name",
+      "s_address"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["s_suppkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_nationkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_name"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_address"],
+        "valueType": [10]
+      }
+    ],
+    "pkNum" : 0
+  },
+  "scan_info":{
+    "sst_info":[
+        {"sst_name": "000788.sst", "csd_list": [1]},
+        {"sst_name": "000847.sst", "csd_list": [2]},
+        {"sst_name": "000848.sst", "csd_list": [3]},
+        {"sst_name": "000849.sst", "csd_list": [4]},
+        {"sst_name": "000850.sst", "csd_list": [5]},
+        {"sst_name": "000923.sst", "csd_list": [6]},
+        {"sst_name": "000924.sst", "csd_list": [7]},
+        {"sst_name": "000925.sst", "csd_list": [8]}
+      ]
+  }
+}  

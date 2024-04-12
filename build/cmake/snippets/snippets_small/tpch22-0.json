@@ -1,0 +1,107 @@
+{
+  "type" : 0,
+  "snippet":
+  {
+    "queryID":21,
+    "workID":0,
+    "tableName": ["customer"],
+    "tableCol": [
+      "c_custkey",
+      "c_name",
+      "c_address",
+      "c_nationkey",
+      "c_phone",
+      "c_acctbal",
+      "c_mktsegment",
+      "c_comment"
+    ],
+    "tableFilter":[
+      {
+        "LV": {
+          "type": [10],
+          "value": ["c_acctbal"]
+      },
+      "Operator" : 3,
+      "RV" : {
+          "type": [6],
+          "value": ["80000000000000"]
+        }
+      },
+      {
+      "Operator" : 13
+      },
+      {
+        "LV": {
+          "type": [10],
+          "value": ["c_phone"]
+        },
+        "Operator" : 16,
+        "RV" : {
+            "type": [9,9],
+            "value": ["1","2"]
+        }
+      },
+      {
+      "Operator" : 9,
+      "RV" : {
+          "type": [9,9,9,9,9,9,9],
+          "value": ["20","40","22","30","39","42","21"]
+        }
+      }
+    ],
+    "tableOffset": [
+      0,
+      4,
+      29,
+      69,
+      73,
+      88,
+      95,
+      105
+    ],
+    "tableOfflen": [
+      4,
+      25,
+      40,
+      4,
+      15,
+      7,
+      10,
+      117
+    ],
+    "tableDatatype": [
+      3,
+      15,
+      15,
+      3,
+      254,
+      246,
+      254,
+      15
+    ],
+    "tableAlias": "ProcessTable21-0",
+    "columnAlias": [
+        "c_acctbal"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["c_acctbal"],
+        "valueType": [10]
+      }
+    ],
+    "pkNum" : 0
+  },
+  "scan_info":{
+    "sst_info":[
+        {"sst_name": "002065.sst", "csd_list": [1]},
+        {"sst_name": "002066.sst", "csd_list": [2]},
+        {"sst_name": "002067.sst", "csd_list": [3]},
+        {"sst_name": "002126.sst", "csd_list": [4]},
+        {"sst_name": "002127.sst", "csd_list": [5]},
+        {"sst_name": "002128.sst", "csd_list": [6]},
+        {"sst_name": "002129.sst", "csd_list": [7]},
+        {"sst_name": "002188.sst", "csd_list": [8]}
+      ]
+  }
+}

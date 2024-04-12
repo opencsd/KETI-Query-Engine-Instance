@@ -1,0 +1,50 @@
+{
+  "type": 8,
+  "snippet": {
+    "queryID": 17,
+    "workID": 4,
+    "tableName": [
+      "ProcessTable17-3", "ProcessTable17-1"
+    ],
+    "tableCol": [],
+    "tableFilter": [
+      {
+          "LV": {
+              "type": [10],
+              "value": ["o_orderkey"]
+          },
+          "Operator" : 9, 
+          "RV" : {
+              "type": [10],
+              "value": ["ProcessTable17-1-c1"]
+          }
+      }
+    ],
+    "tableOffset": [],
+    "tableOfflen": [],
+    "tableDatatype": [],
+    "tableAlias": "ProcessTable17-4",
+    "columnAlias": [
+      "o_orderkey",
+      "o_orderdate",
+      "o_totalprice"
+    ],
+    "columnProjection": [
+      {
+          "selectType": 0,
+          "value": ["o_orderkey"],
+          "valueType": [10]
+      },
+      {
+          "selectType": 0,
+          "value": ["o_orderdate"],
+          "valueType": [10]
+      },
+      {
+          "selectType": 0,
+          "value": ["o_totalprice"],
+          "valueType": [10]
+      }
+    ]
+  }
+}
