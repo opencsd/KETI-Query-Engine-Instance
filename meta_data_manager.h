@@ -46,7 +46,7 @@ public:
 		string sst_name;
 		int sst_rows;
         int data_size;
-		// map<string,vector<string>> IndexTable;
+		// map<string,vector<string>> IndexTable; // 오픈시스넷 03.08 논의 결정
 	};
 	
 	struct Table {
@@ -62,6 +62,7 @@ public:
         vector<int> column_length_list;
 		vector<struct Index> index_column_info;
 		vector<string> pk_column_name; 
+        // map<string, string> lbapba_map; //오픈시스넷 03.08 논의 결정, lbapba map 스니펫에 오프로딩
 	};
 
     struct DB {
