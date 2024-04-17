@@ -6,6 +6,7 @@
 // db connect instance include
 #include "query_planner.h"
 #include "plan_executor.h"
+#include "cost_analyzer.h"
 
 using namespace std;
 using namespace web;
@@ -33,7 +34,8 @@ class DBConnectorInstance
         void handle_error(pplx::task<void>& t);
         http_listener m_listener;
         
-	QueryPlanner query_planner_;
+	CostAnalyzer cost_analyzer_; // 쿼리 점수화 모듈
+    QueryPlanner query_planner_;
 	PlanExecutor plan_executor_;
 	StorageEngineConnector storage_engine_connector_;
     const std::string LOGTAG = "Query Engine";

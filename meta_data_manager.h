@@ -62,6 +62,7 @@ public:
         vector<int> column_length_list;
 		vector<struct Index> index_column_info;
 		vector<string> pk_column_name; 
+        vector<string> block_filtering_; // 블록 필터링 정보 스니펫 추가
         // map<string, string> lbapba_map; //오픈시스넷 03.08 논의 결정, lbapba map 스니펫에 오프로딩
 	};
 
