@@ -51,9 +51,9 @@
     ],
     "pkNum" : 0
   },
-  "scan_info":{
-    "sst_info":[
-        {"sst_name" :"002005.sst", "csd_list": [1]}
+  "scanInfo":{
+    "sstCsdMap":[
+        {"sstName" :"002005.sst", "csdList": [1]}
       ]
   }
 }

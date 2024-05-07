@@ -54,9 +54,9 @@
       }
     ]
   },
-  "scan_info":{
-    "sst_info":[
-        {"sst_name" :"002064.sst", "csd_list": [1]}
+  "scanInfo":{
+    "sstCsdMap":[
+        {"sstName" :"002064.sst", "csdList": [1]}
       ]
   }
 

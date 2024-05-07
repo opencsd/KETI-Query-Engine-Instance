@@ -46,7 +46,7 @@ message ScanInfo {
     string lv = 1;
     string rv = 2;
   }
-  repeated SSTInfo sst_csd_map_info = 1;
+  repeated SSTInfo sst_csd_map = 1;
   BlockFilterInfo filter_info = 2;
 }
 
