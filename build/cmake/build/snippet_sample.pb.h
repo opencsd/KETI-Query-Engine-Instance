@@ -1155,26 +1155,26 @@ class ScanInfo final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kInfoFieldNumber = 1,
+    kSstCsdMapFieldNumber = 1,
     kFilterInfoFieldNumber = 2,
   };
-  // repeated .StorageEngineInstance.ScanInfo.SSTInfo info = 1;
-  int info_size() const;
+  // repeated .StorageEngineInstance.ScanInfo.SSTInfo sst_csd_map = 1;
+  int sst_csd_map_size() const;
   private:
-  int _internal_info_size() const;
+  int _internal_sst_csd_map_size() const;
   public:
-  void clear_info();
-  ::StorageEngineInstance::ScanInfo_SSTInfo* mutable_info(int index);
+  void clear_sst_csd_map();
+  ::StorageEngineInstance::ScanInfo_SSTInfo* mutable_sst_csd_map(int index);
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_SSTInfo >*
-      mutable_info();
+      mutable_sst_csd_map();
   private:
-  const ::StorageEngineInstance::ScanInfo_SSTInfo& _internal_info(int index) const;
-  ::StorageEngineInstance::ScanInfo_SSTInfo* _internal_add_info();
+  const ::StorageEngineInstance::ScanInfo_SSTInfo& _internal_sst_csd_map(int index) const;
+  ::StorageEngineInstance::ScanInfo_SSTInfo* _internal_add_sst_csd_map();
   public:
-  const ::StorageEngineInstance::ScanInfo_SSTInfo& info(int index) const;
-  ::StorageEngineInstance::ScanInfo_SSTInfo* add_info();
+  const ::StorageEngineInstance::ScanInfo_SSTInfo& sst_csd_map(int index) const;
+  ::StorageEngineInstance::ScanInfo_SSTInfo* add_sst_csd_map();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_SSTInfo >&
-      info() const;
+      sst_csd_map() const;
 
   // .StorageEngineInstance.ScanInfo.BlockFilterInfo filter_info = 2;
   bool has_filter_info() const;
@@ -1201,7 +1201,7 @@ class ScanInfo final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_SSTInfo > info_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_SSTInfo > sst_csd_map_;
   ::StorageEngineInstance::ScanInfo_BlockFilterInfo* filter_info_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_snippet_5fsample_2eproto;
@@ -4144,44 +4144,44 @@ inline void ScanInfo_BlockFilterInfo::set_allocated_rv(std::string* rv) {
 
 // ScanInfo
 
-// repeated .StorageEngineInstance.ScanInfo.SSTInfo info = 1;
-inline int ScanInfo::_internal_info_size() const {
-  return info_.size();
+// repeated .StorageEngineInstance.ScanInfo.SSTInfo sst_csd_map = 1;
+inline int ScanInfo::_internal_sst_csd_map_size() const {
+  return sst_csd_map_.size();
 }
-inline int ScanInfo::info_size() const {
-  return _internal_info_size();
+inline int ScanInfo::sst_csd_map_size() const {
+  return _internal_sst_csd_map_size();
 }
-inline void ScanInfo::clear_info() {
-  info_.Clear();
+inline void ScanInfo::clear_sst_csd_map() {
+  sst_csd_map_.Clear();
 }
-inline ::StorageEngineInstance::ScanInfo_SSTInfo* ScanInfo::mutable_info(int index) {
-  // @@protoc_insertion_point(field_mutable:StorageEngineInstance.ScanInfo.info)
-  return info_.Mutable(index);
+inline ::StorageEngineInstance::ScanInfo_SSTInfo* ScanInfo::mutable_sst_csd_map(int index) {
+  // @@protoc_insertion_point(field_mutable:StorageEngineInstance.ScanInfo.sst_csd_map)
+  return sst_csd_map_.Mutable(index);
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_SSTInfo >*
-ScanInfo::mutable_info() {
-  // @@protoc_insertion_point(field_mutable_list:StorageEngineInstance.ScanInfo.info)
-  return &info_;
+ScanInfo::mutable_sst_csd_map() {
+  // @@protoc_insertion_point(field_mutable_list:StorageEngineInstance.ScanInfo.sst_csd_map)
+  return &sst_csd_map_;
 }
-inline const ::StorageEngineInstance::ScanInfo_SSTInfo& ScanInfo::_internal_info(int index) const {
-  return info_.Get(index);
+inline const ::StorageEngineInstance::ScanInfo_SSTInfo& ScanInfo::_internal_sst_csd_map(int index) const {
+  return sst_csd_map_.Get(index);
 }
-inline const ::StorageEngineInstance::ScanInfo_SSTInfo& ScanInfo::info(int index) const {
-  // @@protoc_insertion_point(field_get:StorageEngineInstance.ScanInfo.info)
-  return _internal_info(index);
+inline const ::StorageEngineInstance::ScanInfo_SSTInfo& ScanInfo::sst_csd_map(int index) const {
+  // @@protoc_insertion_point(field_get:StorageEngineInstance.ScanInfo.sst_csd_map)
+  return _internal_sst_csd_map(index);
 }
-inline ::StorageEngineInstance::ScanInfo_SSTInfo* ScanInfo::_internal_add_info() {
-  return info_.Add();
+inline ::StorageEngineInstance::ScanInfo_SSTInfo* ScanInfo::_internal_add_sst_csd_map() {
+  return sst_csd_map_.Add();
 }
-inline ::StorageEngineInstance::ScanInfo_SSTInfo* ScanInfo::add_info() {
-  ::StorageEngineInstance::ScanInfo_SSTInfo* _add = _internal_add_info();
-  // @@protoc_insertion_point(field_add:StorageEngineInstance.ScanInfo.info)
+inline ::StorageEngineInstance::ScanInfo_SSTInfo* ScanInfo::add_sst_csd_map() {
+  ::StorageEngineInstance::ScanInfo_SSTInfo* _add = _internal_add_sst_csd_map();
+  // @@protoc_insertion_point(field_add:StorageEngineInstance.ScanInfo.sst_csd_map)
   return _add;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_SSTInfo >&
-ScanInfo::info() const {
-  // @@protoc_insertion_point(field_list:StorageEngineInstance.ScanInfo.info)
-  return info_;
+ScanInfo::sst_csd_map() const {
+  // @@protoc_insertion_point(field_list:StorageEngineInstance.ScanInfo.sst_csd_map)
+  return sst_csd_map_;
 }
 
 // .StorageEngineInstance.ScanInfo.BlockFilterInfo filter_info = 2;

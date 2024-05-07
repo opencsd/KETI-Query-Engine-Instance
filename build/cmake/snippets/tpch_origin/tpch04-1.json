@@ -97,14 +97,14 @@
   },
   "scanInfo":{
     "sstCsdMap":[
-        {"sstName": "000290.sst", "csdList": [1]},
-        {"sstName": "000291.sst", "csdList": [2]},
-        {"sstName": "000292.sst", "csdList": [3]},
-        {"sstName": "000351.sst", "csdList": [4]},
-        {"sstName": "000352.sst", "csdList": [5]},
-        {"sstName": "000353.sst", "csdList": [6]},
-        {"sstName": "000354.sst", "csdList": [7]},
-        {"sstName": "000413.sst", "csdList": [8]}
+        {"sstName": "000290.sst", "csdList": ["1"]},
+        {"sstName": "000291.sst", "csdList": ["2"]},
+        {"sstName": "000292.sst", "csdList": ["3"]},
+        {"sstName": "000351.sst", "csdList": ["4"]},
+        {"sstName": "000352.sst", "csdList": ["5"]},
+        {"sstName": "000353.sst", "csdList": ["6"]},
+        {"sstName": "000354.sst", "csdList": ["7"]},
+        {"sstName": "000413.sst", "csdList": ["8"]}
       ]
   }
 }
