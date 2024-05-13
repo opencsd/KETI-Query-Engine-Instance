@@ -8,10 +8,11 @@ public:
 	CostAnalyzer(){
         // setQueryID();
     }
-    int Query_Scoring(const std::string& query) {
+    void Query_Scoring(ParsedQuery &parsed_query) {
         // 쿼리 점수화 함수 추가
-
-        return query.length();
+        KETILOG::DEBUGLOG(LOGTAG,"Start Query Scoring");
+        KETILOG::DEBUGLOG(LOGTAG,"Scoring Query ...");
+        
     }
 private:
     const std::string LOGTAG = "Query Engine::Cost Analyzer";

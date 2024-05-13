@@ -71,6 +71,12 @@ void DBConnectorInstance::handle_get(http_request message)
         if(document.HasMember("debug_mode")){
           bool is_debug_mode = document["debugMode"].GetBool();
         }
+
+        // 쿼리 점수화 함수 실행
+        cost_analyzer_.Query_Scoring(parsed_query);
+        
+        // Query Explain 기반 쿼리 수행 계획 함수 실행
+        query_planner_.Planning_Query(parsed_query);
         
         query_planner_.Parse(parsed_query);
 
