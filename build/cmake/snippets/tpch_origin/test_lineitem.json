@@ -78,109 +78,37 @@
       254,
       15
     ],
-    "tableAlias": "ProcessTable3-0",
+    "tableAlias": "lineitem",
     "columnAlias": [
-      "l_orderkey",
-      "l_partkey",
-      "l_suppkey",
-      "l_linenumber",
-      "l_quantity",
-      "l_extendedprice",
-      "l_discount",
-      "l_tax",
-      "l_returnflag",
-      "l_linestatus",
-      "l_shipdate",
-      "l_commitdate",
-      "l_receiptdate",
-      "l_shipinstruct",
-      "l_shipmode",
-      "l_comment"
+      "l_orderkey"
     ],
     "columnProjection": [
       {
         "selectType": 0,
         "value": ["l_orderkey"],
         "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["l_partkey"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["l_suppkey"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["l_linenumber"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["l_quantity"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["l_extendedprice"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["l_discount"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["l_tax"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["l_returnflag"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["l_linestatus"],
-        "valueType": [10]
       }
-      ,
-      {
-        "selectType": 0,
-        "value": ["l_shipdate"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["l_commitdate"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["l_receiptdate"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["l_shipinstruct"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["l_shipmode"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["l_comment"],
-        "valueType": [10]
-      }
-      
     ],
     "pkNum" : 0
+  },
+  "scanInfo":{
+    "sstCsdMap":[
+        {"sstName": "001379.sst", "csdList": ["1"]},
+        {"sstName": "001383.sst", "csdList": ["2"]},
+        {"sstName": "001400.sst", "csdList": ["3"]},
+        {"sstName": "001435.sst", "csdList": ["4"]},
+        {"sstName": "001437.sst", "csdList": ["5"]},
+        {"sstName": "001472.sst", "csdList": ["6"]},
+        {"sstName": "001474.sst", "csdList": ["7"]},
+        {"sstName": "001506.sst", "csdList": ["8"]},
+        {"sstName": "001382.sst", "csdList": ["1"]},
+        {"sstName": "001384.sst", "csdList": ["2"]},
+        {"sstName": "001434.sst", "csdList": ["3"]},
+        {"sstName": "001436.sst", "csdList": ["4"]},
+        {"sstName": "001508.sst", "csdList": ["5"]},
+        {"sstName": "001471.sst", "csdList": ["6"]},
+        {"sstName": "001473.sst", "csdList": ["7"]},
+        {"sstName": "001507.sst", "csdList": ["8"]}
+      ]
   }
 }

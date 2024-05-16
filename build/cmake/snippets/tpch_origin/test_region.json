@@ -38,6 +38,11 @@
       }
     ],
     "pkNum":0
+  },
+  "scanInfo":{
+    "sstCsdMap":[
+        {"sstName" :"002005.sst", "csdList": ["1"]}
+      ]
   }
 
 }
