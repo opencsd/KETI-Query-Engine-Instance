@@ -68,7 +68,7 @@
   },
   "scan_info":{
     "sst_info":[
-        {"sst_name" :"002064.sst", "csd_list": [1]}
+        {"sst_name" :"002064.sst", "csd_list": ["2"]}
       ]
   }
 }

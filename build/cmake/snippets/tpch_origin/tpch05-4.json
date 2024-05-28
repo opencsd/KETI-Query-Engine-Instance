@@ -57,7 +57,7 @@
   },
   "scanInfo":{
     "sstCsdMap":[
-        {"sstName" :"002064.sst", "csdList": ["1"]}
+        {"sstName" :"002064.sst", "csdList": ["2"]}
       ]
   }
 }
