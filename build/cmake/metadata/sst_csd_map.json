@@ -1,7 +1,7 @@
 {
     "sst_csd_map": [
         {"sst_name" :"002005.sst", "csd_list": [1]},
-        {"sst_name" :"002064.sst", "csd_list": ["2"]},
+        {"sst_name" :"002064.sst", "csd_list": [2]},
         {"sst_name" :"002189.sst", "csd_list": [1]},
         {"sst_name" :"002191.sst", "csd_list": [2]},
         {"sst_name" :"002250.sst", "csd_list": [3]},
