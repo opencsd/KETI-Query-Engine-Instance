@@ -38,12 +38,16 @@ message Chunk {
 }
 
 message ScanInfo {
-  message BlockInfo {
+  message SSTInfo {
     string sst_name = 1;
     repeated string csd_list = 2;
-    repeated Chunk lba_list = 3;
   }
-  repeated BlockInfo block_info = 1;
+  message BlockInfo {
+    string sst_name = 1;
+    repeated Chunk chunks = 2;
+  }
+  repeated SSTInfo sst_csd_map = 1;
+  repeated BlockInfo block_info = 2;
 }
 
 message Snippet {

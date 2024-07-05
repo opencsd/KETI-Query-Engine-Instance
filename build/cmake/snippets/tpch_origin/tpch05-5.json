@@ -4,7 +4,6 @@
   {
     "queryID":4,
     "workID":5,
-    "dbName": "tpch_origin",
     "tableName": ["region"],
     "tableCol":[
       "r_regionkey",  
@@ -53,17 +52,9 @@
     "pkNum":0
   },
   "scanInfo":{
-    "blockInfo":[
-        {
-            "sstName": "002005.sst",
-            "csdList": ["1"],
-            "lbaList": [
-            {
-            "offset": 0,
-            "length": 566
-            }
-            ]
-        }
-    ]
+    "sstCsdMap":[
+        {"sstName" :"002005.sst", "csdList": ["1"]}
+      ]
   }
+
 }

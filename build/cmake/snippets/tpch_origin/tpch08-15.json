@@ -4,7 +4,6 @@
   {
     "queryID":7,
     "workID":15,
-    "dbName": "tpch_origin",
     "tableName": ["all_nations"],
     "tableCol":[],
     "tableFilter":[],

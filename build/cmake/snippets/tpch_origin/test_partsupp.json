@@ -1,0 +1,68 @@
+{
+  "type" : 0,
+  "snippet":
+  {
+    "queryID":0,
+    "workID":0,
+    "tableName": [
+      "partsupp"
+    ],
+    "tableCol":[
+      "ps_partkey",  
+      "ps_suppkey",
+      "ps_availqty",
+      "ps_supplycost",
+      "ps_comment"
+    ],
+    "tableFilter":[],
+    "tableOffset": [
+      0,
+      4,
+      8,
+      12,
+      19
+    ],
+    "tableOfflen": [
+      4,
+      4,
+      4,
+      7,
+      199
+    ],
+    "tableDatatype": [
+      3,
+      3,
+      3,
+      246,
+      15
+    ],
+    "tableAlias": "ResultTable0-0",
+    "columnAlias": [
+      "ps_suppkey"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": [
+          "ps_suppkey"
+        ],
+        "valueType": [
+          10
+        ]
+      }
+    ],
+    "pkNum" : 0
+  },
+  "scanInfo":{
+    "sstCsdMap":[
+        {"sstName": "000538.sst", "csdList": ["1"]},
+        {"sstName": "000539.sst", "csdList": ["2"]},
+        {"sstName": "000540.sst", "csdList": ["3"]},
+        {"sstName": "000599.sst", "csdList": ["4"]},
+        {"sstName": "000600.sst", "csdList": ["5"]},
+        {"sstName": "000601.sst", "csdList": ["6"]},
+        {"sstName": "000602.sst", "csdList": ["7"]},
+        {"sstName": "000661.sst", "csdList": ["8"]}
+      ]
+  }
+}

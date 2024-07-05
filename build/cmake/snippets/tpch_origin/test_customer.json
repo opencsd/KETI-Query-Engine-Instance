@@ -1,0 +1,75 @@
+{
+  "type" : 0,
+  "snippet":
+  {
+    "queryID":0,
+    "workID":0,
+    "tableName": ["customer"],
+    "tableCol":[
+        "c_custkey", 
+        "c_name", 
+        "c_address", 
+        "c_nationkey", 
+        "c_phone", 
+        "c_acctbal", 
+        "c_mktsegment", 
+        "c_comment"
+    ],
+    "tableFilter":[],
+    "tableOffset": [
+      0,
+      4,
+      29,
+      69,
+      73,
+      88,
+      95,
+      105
+    ],
+    "tableOfflen": [
+      4,
+      25,
+      40,
+      4,
+      15,
+      7,
+      10,
+      117
+    ],
+    "tableDatatype": [
+      3,
+      15,
+      15,
+      3,
+      254,
+      246,
+      254,
+      15
+    ],
+    "tableAlias": "ResultTable0-0",
+    "columnAlias": [
+        "c_custkey"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["c_custkey"],
+        "valueType": [10]
+      }
+    ],
+    "pkNum" : 0
+  },
+  "scanInfo":{
+    "sstCsdMap":[
+        {"sstName": "000664.sst", "csdList": ["1"]},
+        {"sstName": "000723.sst", "csdList": ["2"]},
+        {"sstName": "000724.sst", "csdList": ["3"]},
+        {"sstName": "000725.sst", "csdList": ["4"]},
+        {"sstName": "000726.sst", "csdList": ["5"]},
+        {"sstName": "000785.sst", "csdList": ["6"]},
+        {"sstName": "000786.sst", "csdList": ["7"]},
+        {"sstName": "000787.sst", "csdList": ["8"]}
+      ]
+  }
+
+}

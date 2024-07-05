@@ -1,0 +1,70 @@
+{
+  "type" : 0,
+  "snippet":
+  {
+    "queryID":0,
+    "workID":0,
+    "tableName": ["supplier"],
+    "tableCol":[
+      "s_suppkey",
+      "s_name",
+      "s_address",
+      "s_nationkey",
+      "s_phone",
+      "s_acctbal",
+      "s_comment"
+    ],
+    "tableFilter":[],
+    "tableOffset":[
+      0,
+      4,
+      29,
+      69,
+      73,
+      88,
+      95
+    ],
+    "tableOfflen":[
+      4,
+      25,
+      40,
+      4,
+      15,
+      7,
+      101
+    ],
+    "tableDatatype":[
+      3,
+      254,
+      15,
+      3,
+      254,
+      246,
+      15
+    ],
+    "tableAlias": "ResultTable0-0",
+    "columnAlias": [
+        "s_suppkey"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["s_suppkey"],
+        "valueType": [10]
+      }
+    ],
+    "pkNum":0
+  },
+  "scanInfo":{
+    "sstCsdMap":[
+        {"sstName": "000788.sst", "csdList": ["1"]},
+        {"sstName": "000847.sst", "csdList": ["2"]},
+        {"sstName": "000848.sst", "csdList": ["3"]},
+        {"sstName": "000849.sst", "csdList": ["4"]},
+        {"sstName": "000850.sst", "csdList": ["5"]},
+        {"sstName": "000923.sst", "csdList": ["6"]},
+        {"sstName": "000924.sst", "csdList": ["7"]},
+        {"sstName": "000925.sst", "csdList": ["8"]}
+      ]
+  }
+}

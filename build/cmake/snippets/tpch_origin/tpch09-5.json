@@ -4,7 +4,6 @@
   {
     "queryID":8,
     "workID":5,
-    "dbName": "tpch_origin",
     "tableName": ["nation"],
     "tableCol":[
       "n_nationkey",  
@@ -59,17 +58,9 @@
     "pkNum" : 0
   },
   "scanInfo":{
-    "blockInfo":[                                                             
-      {
-          "sstName": "002064.sst",
-          "csdList": ["2"],
-          "lbaList": [
-          {
-          "offset": 0,
-          "length": 3053
-          }
-          ]
-      }
-    ]
+    "sstCsdMap":[
+        {"sstName" :"002064.sst", "csdList": ["2"]}
+      ]
   }
+
 }

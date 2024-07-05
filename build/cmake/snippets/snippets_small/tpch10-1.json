@@ -1,0 +1,135 @@
+{
+  "type" : 0,
+  "snippet":
+  {
+    "queryID":9,
+    "workID":1,
+    "tableName": ["orders"],
+    "tableCol":[
+      "o_orderkey",
+      "o_custkey",
+      "o_orderstatus",
+      "o_totalprice",
+      "o_orderdate",
+      "o_orderpriority",
+      "o_clerk",
+      "o_shippriority",
+      "o_comment"
+    ],
+    "tableFilter":[
+      {
+        "LV": {
+          "type": [
+            10
+          ],
+          "value": [
+            "o_orderdate"
+          ]
+        },
+        "Operator": 1,
+        "RV": {
+          "type": [
+            7
+          ],
+          "value": [
+            "1020673"
+          ]
+        }
+      },
+      {
+        "Operator" : 13
+      },
+      {
+        "LV": {
+          "type": [
+            10
+          ],
+          "value": [
+            "o_orderdate"
+          ]
+        },
+        "Operator": 4,
+        "RV": {
+          "type": [
+            7
+          ],
+          "value": [
+            "1020769"
+          ]
+        }
+      }
+    ],
+    "tableOffset":[
+      0,
+      4,
+      8,
+      9,
+      16,
+      19,
+      34,
+      49,
+      53
+    ],
+    "tableOfflen":[
+      4,
+      4,
+      1,
+      7,
+      3,
+      15,
+      15,
+      4,
+      79
+    ],
+    "tableDatatype":[
+      3,
+      3,
+      254,
+      246,
+      14,
+      254,
+      254,
+      3,
+      15
+    ],
+    "tableAlias": "ProcessTable9-1",
+    "columnAlias": [
+      "o_custkey",
+      "o_orderkey"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": [
+          "o_custkey"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "o_orderkey"
+        ],
+        "valueType": [
+          10
+        ]
+      }
+    ],
+    "pkNum" : 0
+  },
+  "scan_info":{
+    "sst_info":[
+        {"sst_name": "001633.sst", "csd_list": [1]},
+        {"sst_name": "001692.sst", "csd_list": [2]},
+        {"sst_name": "001693.sst", "csd_list": [3]},
+        {"sst_name": "001694.sst", "csd_list": [4]},
+        {"sst_name": "001695.sst", "csd_list": [5]},
+        {"sst_name": "001754.sst", "csd_list": [6]},
+        {"sst_name": "001755.sst", "csd_list": [7]},
+        {"sst_name": "001756.sst", "csd_list": [8]}
+      ]
+  }
+
+}
