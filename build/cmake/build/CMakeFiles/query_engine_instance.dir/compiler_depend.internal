@@ -3698,10 +3698,10 @@ CMakeFiles/query_engine_instance.dir/plan_executor.cc.o
  /usr/include/netinet/in.h
  /usr/include/x86_64-linux-gnu/bits/in.h
  /usr/include/arpa/inet.h
- /usr/include/sql.h
- /usr/include/sqltypes.h
- /usr/include/x86_64-linux-gnu/unixodbc.h
- /usr/include/sqlext.h
- /usr/include/sqlucode.h
+ /include/sql.h
+ /include/sqltypes.h
+ /include/unixodbc_conf.h
+ /include/sqlext.h
+ /include/sqlucode.h
  /root/workspace/hsw/KETI-Query-Engine-Instance/kodbc.h
 
