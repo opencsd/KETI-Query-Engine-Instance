@@ -1,0 +1,48 @@
+{
+  "type" : 0,
+  "snippet":
+  {
+    "queryID":0,
+    "workID":0,
+    "tableName": ["region"],
+    "tableCol":[
+      "r_regionkey",  
+      "r_name",
+      "r_comment"
+    ],
+    "tableFilter":[ ],
+    "tableOffset":[
+      0,
+      4,
+      29
+    ],
+    "tableOfflen":[
+      4,
+      25,
+      152
+    ],
+    "tableDatatype":[
+      3,
+      254,
+      15
+    ],
+    "tableAlias": "ResultTable0-0",
+    "columnAlias": [
+        "r_regionkey"
+      ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["r_regionkey"],
+        "valueType": [10]
+      }
+    ],
+    "pkNum":0
+  },
+  "scanInfo":{
+    "sstCsdMap":[
+        {"sstName" :"002005.sst", "csdList": ["1"]}
+      ]
+  }
+
+}

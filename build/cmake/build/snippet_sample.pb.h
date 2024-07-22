@@ -73,9 +73,15 @@ extern ResponseDefaultTypeInternal _Response_default_instance_;
 class ScanInfo;
 struct ScanInfoDefaultTypeInternal;
 extern ScanInfoDefaultTypeInternal _ScanInfo_default_instance_;
+<<<<<<< HEAD
 class ScanInfo_BlockFilteringInfo;
 struct ScanInfo_BlockFilteringInfoDefaultTypeInternal;
 extern ScanInfo_BlockFilteringInfoDefaultTypeInternal _ScanInfo_BlockFilteringInfo_default_instance_;
+=======
+class ScanInfo_BlockInfo;
+struct ScanInfo_BlockInfoDefaultTypeInternal;
+extern ScanInfo_BlockInfoDefaultTypeInternal _ScanInfo_BlockInfo_default_instance_;
+>>>>>>> 5319cec4e6797ac891dcb13cbd55fddbade31302
 class ScanInfo_SSTInfo;
 struct ScanInfo_SSTInfoDefaultTypeInternal;
 extern ScanInfo_SSTInfoDefaultTypeInternal _ScanInfo_SSTInfo_default_instance_;
@@ -111,7 +117,11 @@ template<> ::StorageEngineInstance::QueryStringResult* Arena::CreateMaybeMessage
 template<> ::StorageEngineInstance::Request* Arena::CreateMaybeMessage<::StorageEngineInstance::Request>(Arena*);
 template<> ::StorageEngineInstance::Response* Arena::CreateMaybeMessage<::StorageEngineInstance::Response>(Arena*);
 template<> ::StorageEngineInstance::ScanInfo* Arena::CreateMaybeMessage<::StorageEngineInstance::ScanInfo>(Arena*);
+<<<<<<< HEAD
 template<> ::StorageEngineInstance::ScanInfo_BlockFilteringInfo* Arena::CreateMaybeMessage<::StorageEngineInstance::ScanInfo_BlockFilteringInfo>(Arena*);
+=======
+template<> ::StorageEngineInstance::ScanInfo_BlockInfo* Arena::CreateMaybeMessage<::StorageEngineInstance::ScanInfo_BlockInfo>(Arena*);
+>>>>>>> 5319cec4e6797ac891dcb13cbd55fddbade31302
 template<> ::StorageEngineInstance::ScanInfo_SSTInfo* Arena::CreateMaybeMessage<::StorageEngineInstance::ScanInfo_SSTInfo>(Arena*);
 template<> ::StorageEngineInstance::Snippet* Arena::CreateMaybeMessage<::StorageEngineInstance::Snippet>(Arena*);
 template<> ::StorageEngineInstance::SnippetRequest* Arena::CreateMaybeMessage<::StorageEngineInstance::SnippetRequest>(Arena*);
@@ -835,6 +845,8 @@ class ScanInfo_SSTInfo final :
   std::string* _internal_add_csd_list();
   public:
 
+<<<<<<< HEAD
+=======
   // string sst_name = 1;
   void clear_sst_name();
   const std::string& sst_name() const;
@@ -857,6 +869,182 @@ class ScanInfo_SSTInfo final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> csd_list_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sst_name_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_snippet_5fsample_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ScanInfo_BlockInfo final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:StorageEngineInstance.ScanInfo.BlockInfo) */ {
+ public:
+  inline ScanInfo_BlockInfo() : ScanInfo_BlockInfo(nullptr) {}
+  ~ScanInfo_BlockInfo() override;
+  explicit constexpr ScanInfo_BlockInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ScanInfo_BlockInfo(const ScanInfo_BlockInfo& from);
+  ScanInfo_BlockInfo(ScanInfo_BlockInfo&& from) noexcept
+    : ScanInfo_BlockInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline ScanInfo_BlockInfo& operator=(const ScanInfo_BlockInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ScanInfo_BlockInfo& operator=(ScanInfo_BlockInfo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ScanInfo_BlockInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ScanInfo_BlockInfo* internal_default_instance() {
+    return reinterpret_cast<const ScanInfo_BlockInfo*>(
+               &_ScanInfo_BlockInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(ScanInfo_BlockInfo& a, ScanInfo_BlockInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ScanInfo_BlockInfo* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ScanInfo_BlockInfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ScanInfo_BlockInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ScanInfo_BlockInfo>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ScanInfo_BlockInfo& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const ScanInfo_BlockInfo& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ScanInfo_BlockInfo* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "StorageEngineInstance.ScanInfo.BlockInfo";
+  }
+  protected:
+  explicit ScanInfo_BlockInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kChunksFieldNumber = 2,
+    kSstNameFieldNumber = 1,
+  };
+  // repeated .StorageEngineInstance.Chunk chunks = 2;
+  int chunks_size() const;
+  private:
+  int _internal_chunks_size() const;
+  public:
+  void clear_chunks();
+  ::StorageEngineInstance::Chunk* mutable_chunks(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Chunk >*
+      mutable_chunks();
+  private:
+  const ::StorageEngineInstance::Chunk& _internal_chunks(int index) const;
+  ::StorageEngineInstance::Chunk* _internal_add_chunks();
+  public:
+  const ::StorageEngineInstance::Chunk& chunks(int index) const;
+  ::StorageEngineInstance::Chunk* add_chunks();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Chunk >&
+      chunks() const;
+
+>>>>>>> 5319cec4e6797ac891dcb13cbd55fddbade31302
+  // string sst_name = 1;
+  void clear_sst_name();
+  const std::string& sst_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_sst_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_sst_name();
+  PROTOBUF_NODISCARD std::string* release_sst_name();
+  void set_allocated_sst_name(std::string* sst_name);
+  private:
+  const std::string& _internal_sst_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_sst_name(const std::string& value);
+  std::string* _internal_mutable_sst_name();
+  public:
+
+  // @@protoc_insertion_point(class_scope:StorageEngineInstance.ScanInfo.SSTInfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+<<<<<<< HEAD
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> csd_list_;
+=======
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Chunk > chunks_;
+>>>>>>> 5319cec4e6797ac891dcb13cbd55fddbade31302
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sst_name_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_snippet_5fsample_2eproto;
@@ -1150,11 +1338,16 @@ class ScanInfo final :
   // nested types ----------------------------------------------------
 
   typedef ScanInfo_SSTInfo SSTInfo;
+<<<<<<< HEAD
   typedef ScanInfo_BlockFilteringInfo BlockFilteringInfo;
+=======
+  typedef ScanInfo_BlockInfo BlockInfo;
+>>>>>>> 5319cec4e6797ac891dcb13cbd55fddbade31302
 
   // accessors -------------------------------------------------------
 
   enum : int {
+<<<<<<< HEAD
     kSstInfoFieldNumber = 1,
     kFilterInfoFieldNumber = 2,
   };
@@ -1167,6 +1360,31 @@ class ScanInfo final :
   ::StorageEngineInstance::ScanInfo_SSTInfo* mutable_sst_info(int index);
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_SSTInfo >*
       mutable_sst_info();
+=======
+    kSstCsdMapFieldNumber = 1,
+    kBlockInfoFieldNumber = 2,
+  };
+  // repeated .StorageEngineInstance.ScanInfo.SSTInfo sst_csd_map = 1;
+  int sst_csd_map_size() const;
+  private:
+  int _internal_sst_csd_map_size() const;
+  public:
+  void clear_sst_csd_map();
+  ::StorageEngineInstance::ScanInfo_SSTInfo* mutable_sst_csd_map(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_SSTInfo >*
+      mutable_sst_csd_map();
+  private:
+  const ::StorageEngineInstance::ScanInfo_SSTInfo& _internal_sst_csd_map(int index) const;
+  ::StorageEngineInstance::ScanInfo_SSTInfo* _internal_add_sst_csd_map();
+  public:
+  const ::StorageEngineInstance::ScanInfo_SSTInfo& sst_csd_map(int index) const;
+  ::StorageEngineInstance::ScanInfo_SSTInfo* add_sst_csd_map();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_SSTInfo >&
+      sst_csd_map() const;
+
+  // repeated .StorageEngineInstance.ScanInfo.BlockInfo block_info = 2;
+  int block_info_size() const;
+>>>>>>> 5319cec4e6797ac891dcb13cbd55fddbade31302
   private:
   const ::StorageEngineInstance::ScanInfo_SSTInfo& _internal_sst_info(int index) const;
   ::StorageEngineInstance::ScanInfo_SSTInfo* _internal_add_sst_info();
@@ -1201,8 +1419,13 @@ class ScanInfo final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+<<<<<<< HEAD
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_SSTInfo > sst_info_;
   ::StorageEngineInstance::ScanInfo_BlockFilteringInfo* filter_info_;
+=======
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_SSTInfo > sst_csd_map_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_BlockInfo > block_info_;
+>>>>>>> 5319cec4e6797ac891dcb13cbd55fddbade31302
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_snippet_5fsample_2eproto;
 };
@@ -4036,6 +4259,7 @@ ScanInfo_SSTInfo::mutable_csd_list() {
 
 // -------------------------------------------------------------------
 
+<<<<<<< HEAD
 // ScanInfo_BlockFilteringInfo
 
 // string lv = 1;
@@ -4138,15 +4362,154 @@ inline void ScanInfo_BlockFilteringInfo::set_allocated_rv(std::string* rv) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:StorageEngineInstance.ScanInfo.BlockFilteringInfo.rv)
+=======
+// ScanInfo_BlockInfo
+
+// string sst_name = 1;
+inline void ScanInfo_BlockInfo::clear_sst_name() {
+  sst_name_.ClearToEmpty();
+}
+inline const std::string& ScanInfo_BlockInfo::sst_name() const {
+  // @@protoc_insertion_point(field_get:StorageEngineInstance.ScanInfo.BlockInfo.sst_name)
+  return _internal_sst_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ScanInfo_BlockInfo::set_sst_name(ArgT0&& arg0, ArgT... args) {
+ 
+ sst_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:StorageEngineInstance.ScanInfo.BlockInfo.sst_name)
+}
+inline std::string* ScanInfo_BlockInfo::mutable_sst_name() {
+  std::string* _s = _internal_mutable_sst_name();
+  // @@protoc_insertion_point(field_mutable:StorageEngineInstance.ScanInfo.BlockInfo.sst_name)
+  return _s;
+}
+inline const std::string& ScanInfo_BlockInfo::_internal_sst_name() const {
+  return sst_name_.Get();
+}
+inline void ScanInfo_BlockInfo::_internal_set_sst_name(const std::string& value) {
+  
+  sst_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* ScanInfo_BlockInfo::_internal_mutable_sst_name() {
+  
+  return sst_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* ScanInfo_BlockInfo::release_sst_name() {
+  // @@protoc_insertion_point(field_release:StorageEngineInstance.ScanInfo.BlockInfo.sst_name)
+  return sst_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void ScanInfo_BlockInfo::set_allocated_sst_name(std::string* sst_name) {
+  if (sst_name != nullptr) {
+    
+  } else {
+    
+  }
+  sst_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), sst_name,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (sst_name_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    sst_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:StorageEngineInstance.ScanInfo.BlockInfo.sst_name)
+}
+
+// repeated .StorageEngineInstance.Chunk chunks = 2;
+inline int ScanInfo_BlockInfo::_internal_chunks_size() const {
+  return chunks_.size();
+}
+inline int ScanInfo_BlockInfo::chunks_size() const {
+  return _internal_chunks_size();
+}
+inline void ScanInfo_BlockInfo::clear_chunks() {
+  chunks_.Clear();
+}
+inline ::StorageEngineInstance::Chunk* ScanInfo_BlockInfo::mutable_chunks(int index) {
+  // @@protoc_insertion_point(field_mutable:StorageEngineInstance.ScanInfo.BlockInfo.chunks)
+  return chunks_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Chunk >*
+ScanInfo_BlockInfo::mutable_chunks() {
+  // @@protoc_insertion_point(field_mutable_list:StorageEngineInstance.ScanInfo.BlockInfo.chunks)
+  return &chunks_;
+}
+inline const ::StorageEngineInstance::Chunk& ScanInfo_BlockInfo::_internal_chunks(int index) const {
+  return chunks_.Get(index);
+}
+inline const ::StorageEngineInstance::Chunk& ScanInfo_BlockInfo::chunks(int index) const {
+  // @@protoc_insertion_point(field_get:StorageEngineInstance.ScanInfo.BlockInfo.chunks)
+  return _internal_chunks(index);
+}
+inline ::StorageEngineInstance::Chunk* ScanInfo_BlockInfo::_internal_add_chunks() {
+  return chunks_.Add();
+}
+inline ::StorageEngineInstance::Chunk* ScanInfo_BlockInfo::add_chunks() {
+  ::StorageEngineInstance::Chunk* _add = _internal_add_chunks();
+  // @@protoc_insertion_point(field_add:StorageEngineInstance.ScanInfo.BlockInfo.chunks)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::Chunk >&
+ScanInfo_BlockInfo::chunks() const {
+  // @@protoc_insertion_point(field_list:StorageEngineInstance.ScanInfo.BlockInfo.chunks)
+  return chunks_;
+>>>>>>> 5319cec4e6797ac891dcb13cbd55fddbade31302
 }
 
 // -------------------------------------------------------------------
 
 // ScanInfo
 
+<<<<<<< HEAD
 // repeated .StorageEngineInstance.ScanInfo.SSTInfo sst_info = 1;
 inline int ScanInfo::_internal_sst_info_size() const {
   return sst_info_.size();
+=======
+// repeated .StorageEngineInstance.ScanInfo.SSTInfo sst_csd_map = 1;
+inline int ScanInfo::_internal_sst_csd_map_size() const {
+  return sst_csd_map_.size();
+}
+inline int ScanInfo::sst_csd_map_size() const {
+  return _internal_sst_csd_map_size();
+}
+inline void ScanInfo::clear_sst_csd_map() {
+  sst_csd_map_.Clear();
+}
+inline ::StorageEngineInstance::ScanInfo_SSTInfo* ScanInfo::mutable_sst_csd_map(int index) {
+  // @@protoc_insertion_point(field_mutable:StorageEngineInstance.ScanInfo.sst_csd_map)
+  return sst_csd_map_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_SSTInfo >*
+ScanInfo::mutable_sst_csd_map() {
+  // @@protoc_insertion_point(field_mutable_list:StorageEngineInstance.ScanInfo.sst_csd_map)
+  return &sst_csd_map_;
+}
+inline const ::StorageEngineInstance::ScanInfo_SSTInfo& ScanInfo::_internal_sst_csd_map(int index) const {
+  return sst_csd_map_.Get(index);
+}
+inline const ::StorageEngineInstance::ScanInfo_SSTInfo& ScanInfo::sst_csd_map(int index) const {
+  // @@protoc_insertion_point(field_get:StorageEngineInstance.ScanInfo.sst_csd_map)
+  return _internal_sst_csd_map(index);
+}
+inline ::StorageEngineInstance::ScanInfo_SSTInfo* ScanInfo::_internal_add_sst_csd_map() {
+  return sst_csd_map_.Add();
+}
+inline ::StorageEngineInstance::ScanInfo_SSTInfo* ScanInfo::add_sst_csd_map() {
+  ::StorageEngineInstance::ScanInfo_SSTInfo* _add = _internal_add_sst_csd_map();
+  // @@protoc_insertion_point(field_add:StorageEngineInstance.ScanInfo.sst_csd_map)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StorageEngineInstance::ScanInfo_SSTInfo >&
+ScanInfo::sst_csd_map() const {
+  // @@protoc_insertion_point(field_list:StorageEngineInstance.ScanInfo.sst_csd_map)
+  return sst_csd_map_;
+}
+
+// repeated .StorageEngineInstance.ScanInfo.BlockInfo block_info = 2;
+inline int ScanInfo::_internal_block_info_size() const {
+  return block_info_.size();
+>>>>>>> 5319cec4e6797ac891dcb13cbd55fddbade31302
 }
 inline int ScanInfo::sst_info_size() const {
   return _internal_sst_info_size();

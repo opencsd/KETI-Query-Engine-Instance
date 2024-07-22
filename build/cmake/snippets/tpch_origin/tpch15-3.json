@@ -3,7 +3,6 @@
   "snippet": {
     "queryID": 14,
     "workID": 3,
-    "dbName": "tpch_origin",
     "tableName": [
       "revenue0"
     ],

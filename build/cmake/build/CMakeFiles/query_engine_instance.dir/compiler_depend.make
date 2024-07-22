@@ -3700,8 +3700,15 @@ CMakeFiles/query_engine_instance.dir/plan_executor.cc.o: /root/workspace/hsw/KET
   /include/unixodbc_conf.h \
   /include/sqlext.h \
   /include/sqlucode.h \
+<<<<<<< HEAD
   /root/workspace/hsw/KETI-Query-Engine-Instance/kodbc.h
 
+=======
+  /root/workspace/keti/Query-Engine-Instance/query_engine_instance/kodbc.h
+
+
+/include/sqlext.h:
+>>>>>>> 5319cec4e6797ac891dcb13cbd55fddbade31302
 
 /include/sqlext.h:
 
@@ -4977,7 +4984,13 @@ snippet_sample.grpc.pb.h:
 
 /usr/include/boost/mpl/aux_/config/nttp.hpp:
 
+<<<<<<< HEAD
 /usr/include/c++/11/bits/ostream_insert.h:
+=======
+/include/sql.h:
+
+/usr/include/c++/11/numeric:
+>>>>>>> 5319cec4e6797ac891dcb13cbd55fddbade31302
 
 /usr/include/boost/algorithm/string/detail/case_conv.hpp:
 

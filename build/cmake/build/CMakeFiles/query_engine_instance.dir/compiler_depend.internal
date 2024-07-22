@@ -3703,5 +3703,9 @@ CMakeFiles/query_engine_instance.dir/plan_executor.cc.o
  /include/unixodbc_conf.h
  /include/sqlext.h
  /include/sqlucode.h
+<<<<<<< HEAD
  /root/workspace/hsw/KETI-Query-Engine-Instance/kodbc.h
+=======
+ /root/workspace/keti/Query-Engine-Instance/query_engine_instance/kodbc.h
+>>>>>>> 5319cec4e6797ac891dcb13cbd55fddbade31302
 
