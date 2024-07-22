@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DCARES_STATICLIB
 
-CXX_INCLUDES = -I/root/workspace/keti/Query-Engine-Instance/query_engine_instance/build/cmake/build -isystem /include
+CXX_INCLUDES = -I/root/workspace/hsw/KETI-Query-Engine-Instance/build/cmake/build -isystem /include
 
 CXX_FLAGS = -std=gnu++11
 

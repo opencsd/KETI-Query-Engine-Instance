@@ -54,10 +54,10 @@ RM = /usr/local/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/workspace/keti/Query-Engine-Instance/query_engine_instance
+CMAKE_SOURCE_DIR = /root/workspace/hsw/KETI-Query-Engine-Instance
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/workspace/keti/Query-Engine-Instance/query_engine_instance/build/cmake/build
+CMAKE_BINARY_DIR = /root/workspace/hsw/KETI-Query-Engine-Instance/build/cmake/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -83,14 +83,14 @@ clean: CMakeFiles/query_engine_instance.dir/clean
 CMakeFiles/ss_grpc_proto.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ss_grpc_proto.dir/build.make CMakeFiles/ss_grpc_proto.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ss_grpc_proto.dir/build.make CMakeFiles/ss_grpc_proto.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/workspace/keti/Query-Engine-Instance/query_engine_instance/build/cmake/build/CMakeFiles --progress-num=5,6,7,8 "Built target ss_grpc_proto"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/workspace/hsw/KETI-Query-Engine-Instance/build/cmake/build/CMakeFiles --progress-num=5,6,7,8 "Built target ss_grpc_proto"
 .PHONY : CMakeFiles/ss_grpc_proto.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ss_grpc_proto.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/keti/Query-Engine-Instance/query_engine_instance/build/cmake/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/hsw/KETI-Query-Engine-Instance/build/cmake/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ss_grpc_proto.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/keti/Query-Engine-Instance/query_engine_instance/build/cmake/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/hsw/KETI-Query-Engine-Instance/build/cmake/build/CMakeFiles 0
 .PHONY : CMakeFiles/ss_grpc_proto.dir/rule
 
 # Convenience name for target.
@@ -109,14 +109,14 @@ CMakeFiles/ss_grpc_proto.dir/clean:
 CMakeFiles/query_engine_instance.dir/all: CMakeFiles/ss_grpc_proto.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/query_engine_instance.dir/build.make CMakeFiles/query_engine_instance.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/workspace/keti/Query-Engine-Instance/query_engine_instance/build/cmake/build/CMakeFiles --progress-num=1,2,3,4 "Built target query_engine_instance"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/workspace/hsw/KETI-Query-Engine-Instance/build/cmake/build/CMakeFiles --progress-num=1,2,3,4 "Built target query_engine_instance"
 .PHONY : CMakeFiles/query_engine_instance.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/query_engine_instance.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/keti/Query-Engine-Instance/query_engine_instance/build/cmake/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/hsw/KETI-Query-Engine-Instance/build/cmake/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/query_engine_instance.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/keti/Query-Engine-Instance/query_engine_instance/build/cmake/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/hsw/KETI-Query-Engine-Instance/build/cmake/build/CMakeFiles 0
 .PHONY : CMakeFiles/query_engine_instance.dir/rule
 
 # Convenience name for target.

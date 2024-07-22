@@ -21,11 +21,17 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/lib/cmake/protobuf/protobuf-options.cmake"
   "/lib/cmake/protobuf/protobuf-targets-noconfig.cmake"
   "/lib/cmake/protobuf/protobuf-targets.cmake"
-  "/root/workspace/keti/Query-Engine-Instance/query_engine_instance/CMakeLists.txt"
+  "/root/workspace/hsw/KETI-Query-Engine-Instance/CMakeLists.txt"
   "CMakeFiles/3.25.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.25.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.25.3/CMakeSystem.cmake"
+<<<<<<< HEAD
+  "/root/workspace/hsw/KETI-Query-Engine-Instance/build/cmake/common.cmake"
+  "/usr/local/share/cmake-3.25/Modules/CMakeCCompiler.cmake.in"
+  "/usr/local/share/cmake-3.25/Modules/CMakeCCompilerABI.c"
+=======
   "/root/workspace/keti/Query-Engine-Instance/query_engine_instance/build/cmake/common.cmake"
+>>>>>>> 5319cec4e6797ac891dcb13cbd55fddbade31302
   "/usr/local/share/cmake-3.25/Modules/CMakeCInformation.cmake"
   "/usr/local/share/cmake-3.25/Modules/CMakeCXXInformation.cmake"
   "/usr/local/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake"

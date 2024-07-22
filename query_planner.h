@@ -6,6 +6,12 @@
 class QueryPlanner {
 public:
 	QueryPlanner() {}
+    void Planning_Query(ParsedQuery &parsed_query){
+        // 쿼리 수행 계획 함수
+        // Query Explain 기반
+        KETILOG::DEBUGLOG(LOGTAG,"Start Query Planning");
+        KETILOG::DEBUGLOG(LOGTAG,"Planning Query ...");
+    }
     void Parse(ParsedQuery &parsed_query){
     KETILOG::DEBUGLOG(LOGTAG,"Start Query Processing");
     KETILOG::DEBUGLOG(LOGTAG,"Parsing Query ...");

@@ -26,7 +26,7 @@ std::string PlanExecutor::ExecuteQuery(StorageEngineConnector &storageEngineInte
         // DB_Monitoring_Manager::UpdateSelectCount();//구분필요!!!!
         //Generic Query 및 K-ODBC Query 구분 필요!!
 
-        char *szDSN = (char*)"myodbc5w";
+        char *szDSN = (char*)"myodbc8w";
         char *szUID;
         char *szPWD;
         char *szSQL;

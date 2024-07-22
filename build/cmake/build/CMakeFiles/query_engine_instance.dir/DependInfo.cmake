@@ -8,14 +8,14 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/root/workspace/keti/Query-Engine-Instance/query_engine_instance/db_connector_instance.cc" "CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o" "gcc" "CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o.d"
-  "/root/workspace/keti/Query-Engine-Instance/query_engine_instance/main.cc" "CMakeFiles/query_engine_instance.dir/main.cc.o" "gcc" "CMakeFiles/query_engine_instance.dir/main.cc.o.d"
-  "/root/workspace/keti/Query-Engine-Instance/query_engine_instance/plan_executor.cc" "CMakeFiles/query_engine_instance.dir/plan_executor.cc.o" "gcc" "CMakeFiles/query_engine_instance.dir/plan_executor.cc.o.d"
+  "/root/workspace/hsw/KETI-Query-Engine-Instance/db_connector_instance.cc" "CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o" "gcc" "CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o.d"
+  "/root/workspace/hsw/KETI-Query-Engine-Instance/main.cc" "CMakeFiles/query_engine_instance.dir/main.cc.o" "gcc" "CMakeFiles/query_engine_instance.dir/main.cc.o.d"
+  "/root/workspace/hsw/KETI-Query-Engine-Instance/plan_executor.cc" "CMakeFiles/query_engine_instance.dir/plan_executor.cc.o" "gcc" "CMakeFiles/query_engine_instance.dir/plan_executor.cc.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/root/workspace/keti/Query-Engine-Instance/query_engine_instance/build/cmake/build/CMakeFiles/ss_grpc_proto.dir/DependInfo.cmake"
+  "/root/workspace/hsw/KETI-Query-Engine-Instance/build/cmake/build/CMakeFiles/ss_grpc_proto.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

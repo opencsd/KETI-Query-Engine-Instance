@@ -1,4 +1,4 @@
-# Install script for directory: /root/workspace/keti/Query-Engine-Instance/query_engine_instance
+# Install script for directory: /root/workspace/hsw/KETI-Query-Engine-Instance
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/root/workspace/keti/Query-Engine-Instance/query_engine_instance/build/cmake/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/root/workspace/hsw/KETI-Query-Engine-Instance/build/cmake/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
