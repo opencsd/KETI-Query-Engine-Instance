@@ -66,9 +66,5 @@
     ],
     "pkNum" : 0
   },
-  "scanInfo":{
-    "sstCsdMap":[
-        {"sstName" :"002064.sst", "csdList": ["2"]}
-      ]
-  }
+  "scanInfo":{"sstList":{"002064.sst":{"csdPbaMap":{"2":{"blockList":[{"offset":8731254784,"length":[3053]}]}},"sstBlockCount":1}},"totalBlockcount":1}
 }

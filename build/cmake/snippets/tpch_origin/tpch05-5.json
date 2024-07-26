@@ -51,10 +51,6 @@
     ],
     "pkNum":0
   },
-  "scanInfo":{
-    "sstCsdMap":[
-        {"sstName" :"002005.sst", "csdList": ["1"]}
-      ]
-  }
+  "scanInfo":{"sstList":{"002005.sst":{"csdPbaMap":{"1":{"blockList":[{"offset":150470418432,"length":[566]}]}},"sstBlockCount":1}},"totalBlockcount":1}
 
 }
