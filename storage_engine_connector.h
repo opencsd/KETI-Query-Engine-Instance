@@ -14,9 +14,6 @@ using StorageEngineInstance::StorageEngineInterface;
 using StorageEngineInstance::Snippet;
 using StorageEngineInstance::SnippetRequest;
 using StorageEngineInstance::QueryStringResult;
-using StorageEngineInstance::GenericQuery;
-using StorageEngineInstance::Request;
-using StorageEngineInstance::Response;
 using google::protobuf::Empty;
 
 class StorageEngineConnector {
@@ -41,20 +38,6 @@ class StorageEngineConnector {
 			if (!status.ok()) {
 				KETILOG::FATALLOG(LOGTAG,status.error_code() + ": " + status.error_message());
 				KETILOG::FATALLOG(LOGTAG,"RPC failed");
-			}
-
-			return result;
-		}
-
-		Response SendQuery(GenericQuery genericquery){
-			Response result;
-			ClientContext context;
-
-			Status status = stub_->GenericQueryInterface(&context, genericquery, &result);
-
-			if(!status.ok()){
-				KETILOG::FATALLOG(LOGTAG, status.error_code() + ": " + status.error_message());
-				KETILOG::FATALLOG(LOGTAG, "RPC failed");
 			}
 
 			return result;
