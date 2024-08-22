@@ -1,0 +1,84 @@
+{
+    "type" : 0,
+    "snippet":
+    {
+        "query_id":16,
+        "work_id":0,
+        "query_info":{
+            "table_name": ["supplier"],
+            "filtering":[
+                {
+                    "lv": {
+                        "type": [10],
+                        "value": ["s_comment"]
+                    },
+                    "operator" : 7, 
+                    "rv" : {
+                        "type": [9],
+                        "value": ["%CUSTOMER%COMPLAINTS%"]
+                    }
+                }
+            ],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": ["s_suppkey"],
+                    "value_type": [10]
+                }
+            ]
+        },
+        "schema_info":{
+            "column_name":[
+                "s_suppkey",
+                "s_name",
+                "s_address",
+                "s_nationkey",
+                "s_phone",
+                "s_acctbal",
+                "s_comment"
+            ],
+            "column_offset":[
+                0,
+                4,
+                29,
+                69,
+                73,
+                88,
+                95
+            ],
+            "column_length":[
+                4,
+                25,
+                40,
+                4,
+                15,
+                7,
+                101
+            ],
+            "column_type":[
+                3,
+                254,
+                15,
+                3,
+                254,
+                246,
+                15
+            ],
+            "table_index_number" : 256,
+            "pk_column":[]
+        },
+        "index_table_info":{},
+        "sst_info":[],
+        "wal_info":{
+            "deleted_key" : [],
+            "inserted_key" : [],
+            "inserted_value" : []
+        },
+        "result_info":{
+            "table_alias" : "snippet16-0",
+            "column_alias": [
+                "s_suppkey"
+            ]
+        }
+    }
+}

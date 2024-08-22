@@ -1,0 +1,39 @@
+{
+    "type" : 3,
+    "snippet":
+    {
+        "query_id":8,
+        "work_id":16,
+        "query_info":{
+            "table_name": ["snippet8-15"],
+            "filtering":[],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": ["o_year"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["snippet8-15-c1","snippet8-15-c2","/"],
+                    "value_type": [10,10,11]
+                }
+            ],
+            "order_by": {
+               "ascending" : [0],
+               "column_name" : ["o_year"]
+            }
+        },
+        "schema_info":{},
+        "index_table_info":{},
+        "sst_info":[],
+        "wal_info":{},
+        "result_info":{
+            "table_alias" : "result8",
+            "column_alias": [
+                "o_year",
+                "mkt_share"
+            ]
+        }
+    }
+}

@@ -1,0 +1,70 @@
+{
+  "type" : 8,
+  "snippet":
+  {
+    "queryID":15,
+    "workID":3,
+    "tableName": ["ProcessTable15-1", "ProcessTable15-0"],
+    "tableCol":[],
+    "tableFilter":[ 
+    ],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "ProcessTable15-3",
+    "columnAlias": [
+      "p_brand",
+      "p_type",
+      "p_size",
+      "p_partkey",
+      "s_suppkey"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": [
+          "p_brand"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "p_type"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "p_size"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "p_partkey"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "s_suppkey"
+        ],
+        "valueType": [
+          10
+        ]
+      }
+    ]
+  }
+}

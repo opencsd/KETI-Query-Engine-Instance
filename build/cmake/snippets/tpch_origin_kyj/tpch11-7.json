@@ -1,0 +1,68 @@
+{
+  "type": 3,
+  "snippet": {
+    "queryID": 10,
+    "workID": 7,
+    "tableName": [
+      "ProcessTable10-6",
+      "ProcessTable10-4"
+    ],
+    "tableCol": [ ],
+    "tableFilter": [ 
+      {
+        "LV": {
+          "type": [
+            10
+          ],
+          "value": [
+            "ProcessTable10-6-c1"
+          ]
+        },
+        "Operator": 3,
+        "RV": {
+          "type": [
+            9
+          ],
+          "value": [
+            "ProcessTable10-4-c1"
+          ]
+        }
+      }
+    ],
+    "tableOffset": [ ],
+    "tableOfflen": [ ],
+    "tableDatatype": [ ],
+    "tableAlias": "ResultTable10",
+    "columnAlias": [
+      "ps_partkey",
+      "value"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": [
+          "ps_partkey"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "ProcessTable10-6-c1"
+        ],
+        "valueType": [
+          10
+        ]
+      }
+    ],
+    "orderBy": {
+      "ascending" : [1],
+      "columnName" : ["value"]
+    },"limit" : {
+      "offset" : 0,
+      "length" : 5
+    }
+  }
+}

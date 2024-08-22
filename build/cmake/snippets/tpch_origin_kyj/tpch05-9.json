@@ -1,0 +1,50 @@
+{
+  "type" : 3,
+  "snippet":
+  {
+    "queryID":4,
+    "workID":9,
+    "tableName": ["ProcessTable4-8", "ProcessTable4-4"],
+    "tableCol":[],
+    "tableFilter":[
+      {
+        "LV": {
+          "type": [10],
+          "value": ["c_custkey"]
+        },
+        "Operator" : 5, 
+        "RV" : {
+            "type": [10],
+            "value": ["o_custkey"]
+        }
+      }        
+    ],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "ProcessTable4-9",
+    "columnAlias": [
+      "n_name",
+      "s_suppkey",
+      "o_orderkey"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["n_name"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_suppkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["o_orderkey"],
+        "valueType": [10]
+      }
+    ]
+  }
+
+}

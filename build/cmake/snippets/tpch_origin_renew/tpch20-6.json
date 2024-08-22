@@ -1,0 +1,77 @@
+{
+    "type" : 12,
+    "snippet":
+    {
+        "query_id":20,
+        "work_id":6,
+        "query_info":{
+            "table_name": ["snippet20-5","snippet20-0"],
+            "filtering":[
+                {
+                    "lv": {
+                    "type": [10],
+                    "value": ["ps_availqty"]
+                },
+                "operator" : 3, 
+                "rv" : {
+                    "type": [],
+                    "value": []
+                    }
+                }
+            ],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": ["ps_suppkey"],
+                    "value_type": [10]
+                }
+            ],
+            "dependency":{
+              "dependency_projection":[
+                {
+                  "select_type": 1,
+                  "value": ["l_quantity","0.5","*"],
+                  "value_type": [10]
+                }
+              ],
+              "dependency_filter" : [
+                {
+                  "lv": {
+                    "type": [10],
+                    "value": ["ps_partkey"]
+                },
+                "operator" : 5, 
+                "rv" : {
+                    "type": [10],
+                    "value": ["l_partkey"]
+                  }
+                },
+                {
+                "operator" : 13
+                },
+                {
+                  "lv": {
+                    "type": [10],
+                    "value": ["ps_suppkey"]
+                },
+                "operator" : 5, 
+                "rv" : {
+                    "type": [10],
+                    "value": ["l_suppkey"]
+                  }
+                }
+              ]
+            }
+        },
+        "schema_info":{},
+        "index_table_info":{},
+        "sst_info":[],
+        "wal_info":{},
+        "result_info":{
+            "table_alias" : "snippet20-6",
+            "column_alias": [
+                "ps_suppkey"
+            ]
+        }
+    }
+}

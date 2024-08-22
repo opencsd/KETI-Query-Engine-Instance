@@ -1,0 +1,59 @@
+{
+  "type" : 0,
+  "snippet":
+  {
+    "queryID":4,
+    "workID":1,
+    "tableName": ["nation"],
+    "tableCol":[
+      "n_nationkey",  
+      "n_name",
+      "n_regionkey",
+      "n_comment"
+    ],
+    "tableFilter":[],
+    "tableOffset":[
+      0,
+      4,
+      29,
+      33
+    ],
+    "tableOfflen":[
+      4,
+      25,
+      4,
+      152
+    ],
+    "tableDatatype":[
+      3,
+      254,
+      3,
+      15
+    ],
+    "tableAlias": "ProcessTable4-1",
+    "columnAlias": [
+        "n_nationkey",
+        "n_name",
+        "n_regionkey"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["n_nationkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["n_name"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["n_regionkey"],
+        "valueType": [10]
+      }
+    ],
+    "pkNum":0
+  },
+  "scanInfo":{"sstList":{"002064.sst":{"csdPbaMap":{"2":{"blockList":[{"offset":8731254784,"length":[3053]}]}},"sstBlockCount":1}},"tableBlockCount":1}
+}

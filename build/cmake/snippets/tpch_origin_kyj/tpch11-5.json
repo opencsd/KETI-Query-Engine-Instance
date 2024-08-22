@@ -1,0 +1,51 @@
+{
+  "type": 3,
+  "snippet": {
+    "queryID": 10,
+    "workID": 5,
+    "tableName": [
+      "ProcessTable10-0",
+      "ProcessTable10-1"
+    ],
+    "tableCol": [],
+    "tableFilter": [
+      {
+        "LV": {
+          "type": [
+            10
+          ],
+          "value": [
+            "n_nationkey"
+          ]
+        },
+        "Operator": 5,
+        "RV": {
+          "type": [
+            10
+          ],
+          "value": [
+            "s_nationkey"
+          ]
+        }
+      }
+    ],
+    "tableOffset": [ ],
+    "tableOfflen": [ ],
+    "tableDatatype": [ ],
+    "tableAlias": "ProcessTable10-5",
+    "columnAlias": [
+      "s_suppkey"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": [
+          "s_suppkey"
+        ],
+        "valueType": [
+          10
+        ]
+      }
+    ]
+  }
+}

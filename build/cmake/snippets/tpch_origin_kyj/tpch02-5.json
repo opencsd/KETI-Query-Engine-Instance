@@ -1,0 +1,37 @@
+{
+  "type" : 3,
+  "snippet":
+  {
+    "queryID":1,
+    "workID":5,
+    "tableName": ["ProcessTable1-1","ProcessTable1-0"],
+    "tableCol":[],
+    "tableFilter":[
+      {
+        "LV": {
+          "type": [10],
+          "value": ["r_regionkey"]
+      },
+      "Operator" : 5, 
+      "RV" : {
+          "type": [10],
+          "value": ["n_regionkey"]
+        }
+      }
+    ],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "ProcessTable1-5",
+    "columnAlias": [
+      "n_nationkey"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["n_nationkey"],
+        "valueType": [10]
+      }
+    ]
+  }
+}

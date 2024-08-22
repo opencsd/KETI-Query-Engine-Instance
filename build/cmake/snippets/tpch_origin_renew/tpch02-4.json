@@ -1,0 +1,76 @@
+{
+    "type" : 0,
+    "snippet":
+    {
+        "query_id":2,
+        "work_id":4,
+        "query_info":{
+            "table_name": ["partsupp"],
+            "filtering":[],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": ["ps_partkey"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["ps_suppkey"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["ps_supplycost"],
+                    "value_type": [10]
+                }
+            ]
+        },
+        "schema_info":{
+            "column_name":[
+                "ps_partkey",  
+                "ps_suppkey",
+                "ps_availqty",
+                "ps_supplycost",
+                "ps_comment"
+            ],
+            "column_offset":[
+                0,
+                4,
+                8,
+                12,
+                19
+            ],
+            "column_length":[
+                4,
+                4,
+                4,
+                7,
+                199
+            ],
+            "column_type":[
+                3,
+                3,
+                3,
+                246,
+                15
+            ],
+            "table_index_number" : 256,
+            "pk_column":[]
+        },
+        "index_table_info":{},
+        "sst_info":[],
+        "wal_info":{
+            "deleted_key" : [],
+            "inserted_key" : [],
+            "inserted_value" : []
+        },
+        "result_info":{
+            "table_alias" : "snippet2-4",
+            "column_alias": [
+                "ps_partkey", 
+                "ps_suppkey",
+                "ps_supplycost"
+            ]
+        }
+    }
+}

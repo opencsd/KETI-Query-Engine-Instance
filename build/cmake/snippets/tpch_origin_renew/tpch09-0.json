@@ -1,0 +1,66 @@
+{
+    "type" : 0,
+    "snippet":
+    {
+        "query_id":9,
+        "work_id":0,
+        "query_info":{
+            "table_name": ["nation"],
+            "filtering":[],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": ["n_name"],
+                    "value_type": [10]
+                  },
+                  {
+                    "select_type": 0,
+                    "value": ["n_nationkey"],
+                    "value_type": [10]
+                  }
+            ]
+        },
+        "schema_info":{
+            "column_name":[
+                "n_nationkey",  
+                "n_name",
+                "n_regionkey",
+                "n_comment"
+            ],
+            "column_offset":[
+                0,
+                4,
+                29,
+                33
+            ],
+            "column_length":[
+                4,
+                25,
+                4,
+                152
+            ],
+            "column_type":[
+                3,
+                254,
+                3,
+                15
+            ],
+            "table_index_number" : 256,
+            "pk_column":[]
+        },
+        "index_table_info":{},
+        "sst_info":[],
+        "wal_info":{
+            "deleted_key" : [],
+            "inserted_key" : [],
+            "inserted_value" : []
+        },
+        "result_info":{
+            "table_alias" : "snippet9-0",
+            "column_alias": [
+                "nation",
+                "n_nationkey"
+            ]
+        }
+    }
+}

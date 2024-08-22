@@ -1,0 +1,50 @@
+{
+    "type" : 6,
+    "snippet":
+    {
+        "query_id":13,
+        "work_id":2,
+        "query_info":{
+            "table_name": ["snippet13-0","snippet13-1"],
+            "filtering":[
+                {
+                    "lv": {
+                        "type": [10],
+                        "value": ["c_custkey"]
+                    },
+                    "operator": 5,
+                    "rv": {
+                        "type": [10],
+                        "value": ["o_custkey"]
+                    }
+                }
+            ],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": ["c_custkey"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 3,
+                    "value": ["o_orderkey"],
+                    "value_type": [10]
+                }
+            ],
+            "group_by": [
+              "c_custkey"
+            ]
+        },
+        "schema_info":{},
+        "index_table_info":{},
+        "sst_info":[],
+        "wal_info":{},
+        "result_info":{
+            "table_alias" : "c_orders",
+            "column_alias": [
+                "c_custkey",
+                "c_count"
+            ]
+        }
+    }
+}

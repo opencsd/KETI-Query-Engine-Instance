@@ -1,0 +1,134 @@
+{
+  "type" : 3,
+  "snippet":
+  {
+    "queryID":8,
+    "workID":10,
+    "tableName": ["ProcessTable8-9","ProcessTable8-5"],
+    "tableCol":[],
+    "tableFilter":[
+      {
+        "LV": {
+            "type": [10],
+            "value": ["ps_suppkey"]
+        },
+        "Operator" : 5, 
+        "RV" : {
+            "type": [10],
+            "value": ["l_suppkey"]
+        }
+      },
+      {
+        "Operator" : 13
+      },
+      {
+        "LV": {
+            "type": [10],
+            "value": ["ps_partkey"]
+        },
+        "Operator" : 5, 
+        "RV" : {
+            "type": [10],
+            "value": ["l_partkey"]
+        }
+      } ,
+      {
+        "Operator" : 13
+      },
+      {
+        "LV": {
+            "type": [10],
+            "value": ["s_suppkey"]
+        },
+        "Operator" : 5, 
+        "RV" : {
+            "type": [10],
+            "value": ["l_suppkey"]
+        }
+      } ,
+      {
+        "Operator" : 13
+      },
+      {
+        "LV": {
+            "type": [10],
+            "value": ["p_partkey"]
+        },
+        "Operator" : 5, 
+        "RV" : {
+            "type": [10],
+            "value": ["l_partkey"]
+        }
+      } ,
+      {
+        "Operator" : 13
+      },
+      {
+        "LV": {
+            "type": [10],
+            "value": ["o_orderkey"]
+        },
+        "Operator" : 5, 
+        "RV" : {
+            "type": [10],
+            "value": ["l_orderkey"]
+        }
+      } 
+    ],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "profit",
+    "columnAlias": [
+      "nation",
+      "o_year",
+      "amount"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": [
+          "nation"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "o_year"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "l_extendedprice",
+          "1",
+          "l_discount",
+          "-",
+          "*",
+          "ps_supplycost",
+          "l_quantity",
+          "*",
+          "-"
+        ],
+        "valueType": [
+          10,
+          2,
+          10,
+          11,
+          11,
+          10,
+          10,
+          11,
+          11
+        ]
+      }
+    ]
+  }
+
+}

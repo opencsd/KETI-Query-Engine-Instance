@@ -1,0 +1,107 @@
+{
+    "type" : 0,
+    "snippet":
+    {
+        "query_id":22,
+        "work_id":4,
+        "query_info":{
+            "table_name": ["customer"],
+            "filtering":[
+                {
+                    "lv": {
+                        "type": [10],
+                        "value": ["c_phone"]
+                    },
+                    "operator" : 16,
+                    "rv" : {
+                        "type": [9,9],
+                        "value": ["1","2"]
+                    }
+                },
+                {
+                    "operator" : 9,
+                    "rv" : {
+                        "type": [9,9,9,9,9,9,9],
+                        "value": ["20","40","22","30","39","42","21"]
+                    }
+                }
+            ],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": ["c_acctbal"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["c_custkey"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["SUBSTRING","c_phone","1","2"],
+                    "value_type": [11,10,2,2]
+                }
+            ]
+        },
+        "schema_info":{
+            "column_name":[
+                "c_custkey",
+                "c_name",
+                "c_address",
+                "c_nationkey",
+                "c_phone",
+                "c_acctbal",
+                "c_mktsegment",
+                "c_comment"
+            ],
+            "column_offset":[
+                0,
+                4,
+                29,
+                69,
+                73,
+                88,
+                95,
+                105
+            ],
+            "column_length":[
+                4,
+                25,
+                40,
+                4,
+                15,
+                7,
+                10,
+                117
+            ],
+            "column_type":[
+                3,
+                15,
+                15,
+                3,
+                254,
+                246,
+                254,
+                15
+            ],
+            "table_index_number" : 256,
+            "pk_column":[]
+        },
+        "index_table_info":{},
+        "sst_info":[],
+        "wal_info":{
+            "deleted_key" : [],
+            "inserted_key" : [],
+            "inserted_value" : []
+        },
+        "result_info":{
+            "table_alias" : "snippet22-4",
+            "column_alias": [
+                "c_acctbal",
+                "c_custkey",
+                "cntrycode"
+            ]
+        }
+    }
+}

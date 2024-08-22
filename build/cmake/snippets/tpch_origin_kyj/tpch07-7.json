@@ -1,0 +1,55 @@
+{
+  "type" : 3,
+  "snippet":
+  {
+    "queryID":6,
+    "workID":7,
+    "tableName": ["ProcessTable6-2","ProcessTable6-6"],
+    "tableCol":[],
+    "tableFilter":[
+      {
+        "LV": {
+          "type": [10],
+          "value": ["c_custkey"]
+        },
+        "Operator" : 5,
+        "RV" : {
+          "type": [10],
+          "value": ["o_custkey"]
+        }
+      }
+    ],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "ProcessTable6-7",
+    "columnAlias": [
+      "s_suppkey", 
+      "s_nationkey",
+      "c_nationkey",
+      "o_orderkey"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["s_suppkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_nationkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["c_nationkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["o_orderkey"],
+        "valueType": [10]
+      }
+    ]
+  }
+}

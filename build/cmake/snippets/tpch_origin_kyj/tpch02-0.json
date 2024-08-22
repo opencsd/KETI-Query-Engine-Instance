@@ -1,0 +1,55 @@
+{
+  "type" : 0,
+  "snippet":
+  {
+    "queryID":1,
+    "workID":0,
+    "tableName": ["region"],
+    "tableCol":[
+      "r_regionkey",  
+      "r_name",
+      "r_comment"
+    ],
+    "tableFilter":[
+      {
+        "LV": {
+          "type": [10],
+          "value": ["r_name"]
+      },
+      "Operator" : 5, 
+      "RV" : {
+          "type": [9],
+          "value": ["ASIA"]
+        }
+      }
+    ],
+    "tableOffset":[
+      0,
+      4,
+      29
+    ],
+    "tableOfflen":[
+      4,
+      25,
+      152
+    ],
+    "tableDatatype":[
+      3,
+      254,
+      15
+    ],
+    "tableAlias": "ProcessTable1-0",
+    "columnAlias": [
+        "r_regionkey"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["r_regionkey"],
+        "valueType": [10]
+      }
+    ],
+    "pkNum" : 0
+  },
+  "scanInfo":{"sstList":{"002005.sst":{"csdPbaMap":{"1":{"blockList":[{"offset":150470418432,"length":[566]}]}},"sstBlockCount":1}},"tableBlockCount":1}
+}

@@ -1,0 +1,60 @@
+{
+  "type" : 3,
+  "snippet":
+  {
+    "queryID":7,
+    "workID":9,
+    "tableName": ["ProcessTable7-2","ProcessTable7-8"],
+    "tableCol":[],
+    "tableFilter":[
+    ],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "ProcessTable7-9",
+    "columnAlias": [
+      "n1.n_nationkey",
+      "r_name",
+      "nation",
+      "n2.n_nationkey"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": [
+          "n1.n_nationkey"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "r_name"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "nation"
+        ],
+        "valueType": [
+          10
+        ]
+      },
+      {
+        "selectType": 0,
+        "value": [
+          "n2.n_nationkey"
+        ],
+        "valueType": [
+          10
+        ]
+      }
+    ]
+  }
+}

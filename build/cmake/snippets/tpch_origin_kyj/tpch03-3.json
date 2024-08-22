@@ -1,0 +1,50 @@
+{
+  "type" : 3,
+  "snippet":
+  {
+    "queryID":2,
+    "workID":3,
+    "tableName": ["ProcessTable2-0","ProcessTable2-1"],
+    "tableCol":[],
+    "tableFilter":[
+      {
+        "LV": {
+          "type": [10],
+          "value": ["c_custkey"]
+      },
+      "Operator" : 5, 
+      "RV" : {
+          "type": [10],
+          "value": ["o_custkey"]
+        }
+      }
+    ],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "ProcessTable2-3",
+    "columnAlias": [
+      "o_orderdate", 
+      "o_orderkey", 
+      "o_shippriority"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["o_orderdate"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["o_orderkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["o_shippriority"],
+        "valueType": [10]
+      }
+    ]
+  }
+
+}

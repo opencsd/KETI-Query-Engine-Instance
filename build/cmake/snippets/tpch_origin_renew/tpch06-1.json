@@ -1,0 +1,29 @@
+{
+    "type" : 3,
+    "snippet":
+    {
+        "query_id":6,
+        "work_id":1,
+        "query_info":{
+            "table_name": ["snippet6-0"],
+            "filtering":[],
+            "projection": [
+                {
+                    "select_type": 1,
+                    "value": ["revenue"],
+                    "value_type": [10]
+                }
+            ]
+        },
+        "schema_info":{},
+        "index_table_info":{},
+        "sst_info":[],
+        "wal_info":{},
+        "result_info":{
+            "table_alias" : "result6",
+            "column_alias": [
+                "revenue"
+            ]
+        }
+    }
+}

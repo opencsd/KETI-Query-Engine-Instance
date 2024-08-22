@@ -1,0 +1,90 @@
+{
+    "type" : 0,
+    "snippet":
+    {
+        "query_id":8,
+        "work_id":0,
+        "query_info":{
+            "table_name": ["region"],
+            "filtering":[
+                {
+                    "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "r_name"
+                    ]
+                    },
+                    "operator": 5,
+                    "rv": {
+                    "type": [
+                        9
+                    ],
+                    "value": [
+                        "ASIA"
+                    ]
+                    }
+                }
+            ],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": [
+                    "r_regionkey"
+                    ],
+                    "value_type": [
+                    10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                    "r_name"
+                    ],
+                    "value_type": [
+                    10
+                    ]
+                }
+            ]
+        },
+        "schema_info":{
+            "column_name":[
+                "r_regionkey",  
+                "r_name",
+                "r_comment"
+            ],
+            "column_offset":[
+                0,
+                4,
+                29
+            ],
+            "column_length":[
+                4,
+                25,
+                152
+            ],
+            "column_type":[
+                3,
+                254,
+                15
+            ],
+            "table_index_number" : 256,
+            "pk_column":[]
+        },
+        "index_table_info":{},
+        "sst_info":[],
+        "wal_info":{
+            "deleted_key" : [],
+            "inserted_key" : [],
+            "inserted_value" : []
+        },
+        "result_info":{
+            "table_alias" : "snippet8-0",
+            "column_alias": [
+                "r_regionkey",
+                "r_name"
+            ]
+        }
+    }
+}

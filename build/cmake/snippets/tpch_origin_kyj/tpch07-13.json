@@ -1,0 +1,48 @@
+{
+  "type" : 7,
+  "snippet":
+  {
+    "queryID":6,
+    "workID":13,
+    "tableName": ["ProcessTable6-11","ProcessTable6-12"],
+    "tableCol":[],
+    "tableFilter":[
+      {
+        "Operator" : 15
+      }
+    ],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "shipping",
+    "columnAlias": [
+      "supp_nation",
+      "cust_nation", 
+      "l_year",
+      "volume"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["n1.n_name"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["n2.n_name"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["l_year"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["volume"],
+        "valueType": [10]
+      }
+    ]
+  }
+
+}

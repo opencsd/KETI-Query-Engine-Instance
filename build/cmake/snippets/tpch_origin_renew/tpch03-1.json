@@ -1,0 +1,110 @@
+{
+    "type" : 0,
+    "snippet":
+    {
+        "query_id":3,
+        "work_id":1,
+        "query_info":{
+            "table_name": ["orders"],
+            "filtering":[
+                {
+                    "lv": {
+                    "type": [10],
+                    "value": ["o_orderdate"]
+                },
+                "operator" : 4, 
+                "rv" : {
+                    "type": [7],
+                    "value": ["1021549"]
+                    }
+                }
+            ],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": ["o_orderdate"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["o_orderkey"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["o_shippriority"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["o_custkey"],
+                    "value_type": [10]
+                }
+            ]
+        },
+        "schema_info":{
+            "column_name":[
+                "o_orderkey",
+                "o_custkey",
+                "o_orderstatus",
+                "o_totalprice",
+                "o_orderdate",
+                "o_orderpriority",
+                "o_clerk",
+                "o_shippriority",
+                "o_comment"
+            ],
+            "column_offset":[
+                0,
+                4,
+                8,
+                9,
+                16,
+                19,
+                34,
+                49,
+                53
+            ],
+            "column_length":[
+                4,
+                4,
+                1,
+                7,
+                3,
+                15,
+                15,
+                4,
+                79
+            ],
+            "column_type":[
+                3,
+                3,
+                254,
+                246,
+                14,
+                254,
+                254,
+                3,
+                15
+            ],
+            "table_index_number" : 256,
+            "pk_column":[]
+        },
+        "index_table_info":{},
+        "sst_info":[],
+        "wal_info":{
+            "deleted_key" : [],
+            "inserted_key" : [],
+            "inserted_value" : []
+        },
+        "result_info":{
+            "table_alias" : "snippet3-1",
+            "column_alias": [
+                "o_orderdate", 
+                "o_orderkey", 
+                "o_shippriority", 
+                "o_custkey"
+            ]
+        }
+    }
+}

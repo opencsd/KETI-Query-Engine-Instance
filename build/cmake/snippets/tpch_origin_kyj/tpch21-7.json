@@ -1,0 +1,38 @@
+{
+  "type" : 3,
+  "snippet":
+  {
+    "queryID":20,
+    "workID":7,
+    "tableName": ["ProcessTable20-2","ProcessTable20-6"],
+    "tableCol":[],
+    "tableFilter":[
+    ],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "ProcessTable20-7",
+    "columnAlias": [
+      "s_suppkey",
+      "s_name",
+      "o_orderkey"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["s_suppkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_name"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["o_orderkey"],
+        "valueType": [10]
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+    "type" : 5,
+    "snippet":
+    {
+        "query_id":7,
+        "work_id":6,
+        "query_info":{
+            "table_name": ["snippet7-0","snippet7-1"],
+            "filtering":[
+                
+            ],
+            "projection": [
+                
+            ]
+        },
+        "schema_info":{},
+        "index_table_info":{},
+        "sst_info":[],
+        "wal_info":{},
+        "result_info":{
+            "table_alias" : "snippet0-0",
+            "column_alias": [
+                "r_regionkey"
+            ]
+        }
+    }
+}

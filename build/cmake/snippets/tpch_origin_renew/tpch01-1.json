@@ -1,0 +1,88 @@
+{
+    "type" : 3,
+    "snippet":
+    {
+        "query_id":1,
+        "work_id":1,
+        "query_info":{
+            "table_name": ["snippet1-0"],
+            "filtering":[],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": ["l_returnflag"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["l_linestatus"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 1,
+                    "value": ["sum_qty"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 1,
+                    "value": ["sum_base_price"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 1,
+                    "value": ["sum_disc_price"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 1,
+                    "value": ["sum_charge"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 2,
+                    "value": ["avg_qty"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 2,
+                    "value": ["avg_price"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 2,
+                    "value": ["avg_disc"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 4,
+                    "value": [],
+                    "value_type": []
+                }
+            ],
+            "group_by": ["l_returnflag","l_linestatus"],
+            "order_by": {
+                "ascending" : [0,0],
+                "column_name" : ["l_returnflag","l_linestatus"]
+            }
+        },
+        "schema_info":{},
+        "index_table_info":{},
+        "sst_info":[],
+        "wal_info":{},
+        "result_info":{
+            "table_alias" : "result1",
+            "column_alias": [
+                "l_returnflag",
+                "l_linestatus",
+                "sum_qty",
+                "sum_base_price",
+                "sum_disc_price",
+                "sum_charge",
+                "avg_qty",
+                "avg_price",
+                "avg_disc",
+                "count_order"
+            ]
+        }
+    }
+}

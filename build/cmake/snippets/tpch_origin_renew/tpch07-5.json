@@ -1,0 +1,138 @@
+{
+    "type" : 0,
+    "snippet":
+    {
+        "query_id":7,
+        "work_id":5,
+        "query_info":{
+            "table_name": ["lineitem"],
+            "filtering":[
+                {
+                    "lv": {
+                    "type": [10],
+                    "value": ["l_shipdate"]
+                },
+                "operator" : 8, 
+                "rv" : {
+                    "type": [7,7],
+                    "value": ["1021473","1022367"]
+                    }
+                }
+            ],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": ["l_suppkey"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["EXTRACT","YEAR","l_shipdate"],
+                    "value_type": [11,11,10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["l_orderkey"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["l_extendedprice","1","l_discount","-","*"],
+                    "value_type": [10,2,10,11,11]
+                }
+            ]
+        },
+        "schema_info":{
+            "column_name":[
+                "l_orderkey",
+                "l_partkey",
+                "l_suppkey",
+                "l_linenumber",
+                "l_quantity",
+                "l_extendedprice",
+                "l_discount",
+                "l_tax",
+                "l_returnflag",
+                "l_linestatus",
+                "l_shipdate",
+                "l_commitdate",
+                "l_receiptdate",
+                "l_shipinstruct",
+                "l_shipmode",
+                "l_comment"
+            ],
+            "column_offset":[
+                0,
+                4,
+                8,
+                12,
+                16,
+                23,
+                30,
+                37,
+                44,
+                45,
+                46,
+                49,
+                52,
+                55,
+                80,
+                90
+            ],
+            "column_length":[
+                4,
+                4,
+                4,
+                4,
+                7,
+                7,
+                7,
+                7,
+                1,
+                1,
+                3,
+                3,
+                3,
+                25,
+                10,
+                44
+            ],
+            "column_type":[
+                3,
+                3,
+                3,
+                3,
+                246,
+                246,
+                246,
+                246,
+                254,
+                254,
+                14,
+                14,
+                14,
+                254,
+                254,
+                15
+            ],
+            "table_index_number" : 256,
+            "pk_column":[]
+        },
+        "index_table_info":{},
+        "sst_info":[],
+        "wal_info":{
+            "deleted_key" : [],
+            "inserted_key" : [],
+            "inserted_value" : []
+        },
+        "result_info":{
+            "table_alias" : "snippet7-5",
+            "column_alias": [
+                "l_suppkey",
+                "l_year",
+                "l_orderkey",
+                "volume"
+            ]
+        }
+    }
+}

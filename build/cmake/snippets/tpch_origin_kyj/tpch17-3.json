@@ -1,0 +1,60 @@
+{
+  "type": 9,
+  "snippet": {
+    "queryID": 16,
+    "workID": 3,
+    "tableName": [
+      "ProcessTable16-2", "ProcessTable16-0"
+    ],
+    "tableCol": [],
+    "tableFilter": [
+      {
+        "LV": {
+            "type": [10],
+            "value": ["l_quantity"]
+        },
+        "Operator" : 4, 
+        "RV" : {
+            "type": [],
+            "value": []
+        }
+      }
+    ],
+    "dependency":{
+      "dependencyProjection":[
+        {
+          "selectType": 2,
+          "value": ["0.2", "l_quantity", "*"],
+          "valueType": [5, 10, 11]
+        }
+      ],
+      "dependencyFilter" : [
+        {
+          "LV": {
+            "type": [10],
+            "value": ["p_partkey"]
+        },
+        "Operator" : 5, 
+        "RV" : {
+            "type": [10],
+            "value": ["l_partkey"]
+          }
+        }
+      ]
+    },
+    "tableOffset": [],
+    "tableOfflen": [],
+    "tableDatatype": [],
+    "tableAlias": "ResultTable16",
+    "columnAlias": [
+      "avg_yearly"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 1,
+        "value": ["l_extendedprice", "7.0", "/"],
+        "valueType": [10, 5, 11]
+      }
+    ]
+  }
+}

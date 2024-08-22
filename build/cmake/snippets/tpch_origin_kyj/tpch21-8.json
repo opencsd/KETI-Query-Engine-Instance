@@ -1,0 +1,63 @@
+{
+  "type" : 3,
+  "snippet":
+  {
+    "queryID":20,
+    "workID":8,
+    "tableName": ["ProcessTable20-7","l1"],
+    "tableCol":[],
+    "tableFilter":[
+      {
+        "LV": {
+          "type": [10],
+          "value": ["o_orderkey"]
+      },
+      "Operator" : 5, 
+      "RV" : {
+          "type": [10],
+          "value": ["l1.l_orderkey"]
+        }
+      },
+      {
+        "Operator" : 13
+      },
+      {
+        "LV": {
+          "type": [10],
+          "value": ["s_suppkey"]
+      },
+      "Operator" : 5, 
+      "RV" : {
+          "type": [10],
+          "value": ["l1.l_suppkey"]
+        }
+      }
+    ],
+    "tableOffset":[],
+    "tableOfflen":[],
+    "tableDatatype":[],
+    "tableAlias": "ProcessTable20-8",
+    "columnAlias": [
+      "l1.l_orderkey",
+      "l1.l_suppkey",
+      "s_name"
+    ],
+    "columnProjection": [
+      {
+        "selectType": 0,
+        "value": ["s_name"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["l1.l_orderkey"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["l1.l_suppkey"],
+        "valueType": [10]
+      }
+    ]
+  }
+}

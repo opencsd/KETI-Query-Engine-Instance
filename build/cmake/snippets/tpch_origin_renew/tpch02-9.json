@@ -1,0 +1,77 @@
+{
+    "type" : 5,
+    "snippet":
+    {
+        "query_id":2,
+        "work_id":9,
+        "query_info":{
+            "table_name": ["snippet2-2","snippet2-8"],
+            "filtering":[
+                {
+                    "lv": {
+                        "type": [10],
+                        "value": ["s_nationkey"]
+                    },
+                    "operator" : 5, 
+                    "rv" : {
+                        "type": [10],
+                        "value": ["n_nationkey"]
+                    }
+                }
+            ],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": ["s_suppkey"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["s_acctbal"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["s_name"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["s_address"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["s_phone"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["s_comment"],
+                    "value_type": [10]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["n_name"],
+                    "value_type": [10]
+                }
+            ]
+        },
+        "schema_info":{},
+        "index_table_info":{},
+        "sst_info":[],
+        "wal_info":{},
+        "result_info":{
+            "table_alias" : "snippet2-9",
+            "column_alias": [
+                "s_supppkey",
+                "s_acctbal",
+                "s_name",
+                "s_address",
+                "s_phone",
+                "s_comment",
+                "n_name"
+            ]
+        }
+    }
+}
