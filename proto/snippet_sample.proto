@@ -13,41 +13,24 @@ service StorageEngineInterface {
 
 message SnippetRequest {
   enum SnippetType {
-    CSD_SCAN_SNIPPET = 0;
-    AGGREGATION_SNIPPET = 1;
-    STORAGE_FILTER_SNIPPET = 2;
-    INNER_JOIN_SNIPPET = 3;
-    LEFT_OUTER_JOIN_SNIPPET = 4;
-    RIGHT_OUTER_JOIN_SNIPPET = 5;
-    CROSS_JOIN_SNIPPET = 6;
-    UNION_SNIPPET = 7;
-    IN_SNIPPET = 8;
-    DEPENDENCY_INNER_JOIN_SNIPPET = 9;
-    DEPENDENCY_EXIST_SNIPPET = 10;
-    DEPENDENCY_IN_SNIPPET = 11;
+    FULL_SCAN = 0;
+    INDEX_SCAN = 1;
+    COVERING_INDEX_SCAN = 2;
+    AGGREGATION = 3;
+    FILTER = 4;
+    INNER_JOIN = 5;
+    LEFT_OUTER_JOIN = 6;
+    RIGHT_OUTER_JOIN = 7;
+    CROSS_JOIN = 8;
+    UNION = 9;
+    IN = 10;
+    EXIST = 11;
+    DEPENDENCY_INNER_JOIN = 12;
+    DEPENDENCY_EXIST = 13;
+    DEPENDENCY_IN = 14;
   }
   SnippetType type = 1;
   Snippet snippet = 2;
-  ScanInfo scan_info = 3;
-}
-
-message Chunk {
-  int64 offset = 1;
-  repeated int32 length = 2;
-}
-
-message BlockList {
-  repeated Chunk block_list = 1;
-}
-
-message ScanInfo {
-  message SST {
-    map<string, BlockList> csd_pba_map = 1;
-    int32 sst_block_count = 2;
-  }
-  map<string,SST> sst_list = 1;
-  int32 table_block_count = 2;
-  string wal_data = 3;
 }
 
 message Snippet {
@@ -89,9 +72,9 @@ message Snippet {
       repeated ValueType type = 1;
       repeated string value = 2;
     }
-    FilterValue LV = 1;
-    OperType Operator = 2;
-    FilterValue RV = 3;
+    FilterValue lv = 1;
+    OperType operator = 2;
+    FilterValue rv = 3;
   }
   message Projection {
     enum SelectType{
@@ -125,24 +108,72 @@ message Snippet {
     int32 offset = 1;
     int32 length = 2;
   }
-  string db_name = 1;
-  int32 query_ID = 2;
-  int32 work_ID = 3;
-  repeated string table_name = 4;
-  repeated string table_col = 5;
-  repeated Filter table_filter = 6;
-  Dependency dependency = 7;
-  repeated int32 table_offset = 8;
-  repeated int32 table_offlen = 9;
-  repeated int32 table_datatype = 10;
-  string table_alias = 11;
-  repeated string column_alias = 12;
-  repeated Projection column_projection = 13;
-  repeated string group_by = 14;
-  Order order_by = 15;
-  Limit limit = 16;
-  int32 pk_num = 17;
-  repeated Filter having = 18;
+  message Ref {
+    string table_name = 1;
+    string column_name = 2;
+  }
+  message QueryInfo {
+    repeated string table_name = 1;
+    repeated Filter filtering = 2;
+    repeated Projection projection = 3;
+    repeated Filter having = 4;
+    repeated string group_by = 5;
+    Order order_by = 6;
+    Limit limit = 7;
+    Dependency dependency = 8;
+    string key = 9;
+    Ref ref = 10;
+  }
+  message SchemaInfo {
+    repeated string column_name = 1;
+    repeated int32 column_offset = 2;
+    repeated int32 column_length = 3;
+    repeated int32 column_type = 4;
+    repeated string pk_column = 5;
+    int32 table_index_number = 6;
+  }
+  message IndexTableInfo {
+    repeated string column_name = 1;
+    repeated int32 column_offset = 2;
+    repeated int32 column_length = 3;
+    repeated int32 column_type = 4;
+    repeated string index_column = 5;
+    repeated string pk_column = 6;
+    int32 table_index_number = 7;
+    string key = 9;
+    Ref ref = 10;
+  }
+  message SstInfo {
+    message CSD {
+      message Block {
+        int32 offset = 1;
+        int32 length = 2;
+      }
+      string csd_id = 1;
+      string partition = 2;
+      repeated Block block = 3;
+    } 
+    string sst_name = 1;
+    repeated CSD csd = 2;
+  }
+  message WalInfo {
+    repeated string deleted_key = 1;
+    repeated string inserted_key = 2;
+    repeated string inserted_value = 3;
+  }
+  messate ResultInfo {
+    string table_alias = 1;
+    repeated string column_alias = 2;
+  }
+
+  int32 query_id = 1;
+  int32 work_id = 2;
+  QueryInfo query_info = 3;
+  SchemaInfo schema_info = 4;
+  IndexTableInfo index_table_info = 5;
+  repeated SstInfo sst_info = 6;
+  WalInfo wal_info = 7;
+  ResultInfo result_info = 8;
 }
 
 message QueryStringResult {
