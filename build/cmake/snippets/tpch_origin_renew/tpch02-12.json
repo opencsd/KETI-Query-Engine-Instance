@@ -1,110 +1,167 @@
 {
-    "type" : 12,
-    "snippet":
-    {
-        "query_id":2,
-        "work_id":12,
-        "query_info":{
-            "table_name": ["snippet2-11","snippet2-7"],
-            "filtering":[
-                {
-                    "lv": {
-                        "type": [10],
-                        "value": ["ps_supplycost"]
-                    },
-                    "operator" : 5, 
-                    "rv" : {}
-                }
-            ],
-            "projection": [
-                {
-                    "select_type": 0,
-                    "value": ["s_comment"],
-                    "value_type": [10]
+    "type": 12,
+    "query_id": 2,
+    "work_id": 12,
+    "query_info": {
+        "table_name": [
+            "snippet2-11",
+            "snippet2-7"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "ps_supplycost"
+                    ]
                 },
-                {
-                    "select_type": 0,
-                    "value": ["s_phone"],
-                    "value_type": [10]
-                },
-                {
-                    "select_type": 0,
-                    "value": ["s_address"],
-                    "value_type": [10]
-                },
-                {
-                    "select_type": 0,
-                    "value": ["s_name"],
-                    "value_type": [10]
-                },
-                {
-                    "select_type": 0,
-                    "value": ["s_acctbal"],
-                    "value_type": [10]
-                },
-                {
-                    "select_type": 0,
-                    "value": ["p_mfgr"],
-                    "value_type": [10]
-                },
-                {
-                    "select_type": 0,
-                    "value": ["p_partkey"],
-                    "value_type": [10]
-                },
-                {
-                    "select_type": 0,
-                    "value": ["n_name"],
-                    "value_type": [10]
-                }
-            ],
-            "dependency":{
-                "dependency_projection":[
-                    {
-                        "select_type": 7,
-                        "value": ["ps_supplycost"],
-                        "value_type": [10]
-                    }
+                "operator": 5,
+                "rv": {}
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "s_comment"
                 ],
-                "dependency_filtering" : [
-                    {
-                        "lv": {
-                            "type": [10],
-                            "value": ["p_partkey"]
-                        },
-                        "operator" : 5, 
-                        "rv" : {
-                            "type": [10],
-                            "value": ["ps_partkey"]
-                        }
-                    }
+                "value_type": [
+                    10
                 ]
             },
-            "order_by": {
-                "ascending" : [1,0,0,0],
-                "column_name" : ["s_acctbal","n_name","s_name","p_partkey"]
+            {
+                "select_type": 0,
+                "value": [
+                    "s_phone"
+                ],
+                "value_type": [
+                    10
+                ]
             },
-            "limit" : {
-                "offset" : 0,
-                "length" : 100
+            {
+                "select_type": 0,
+                "value": [
+                    "s_address"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "s_name"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "s_acctbal"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "p_mfgr"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "p_partkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "n_name"
+                ],
+                "value_type": [
+                    10
+                ]
             }
-        },
-        "schema_info":{},
-        "index_table_info":{},
-        "sst_info":[],
-        "wal_info":{},
-        "result_info":{
-            "table_alias" : "result2",
-            "column_alias": [
-                "s_comment",
-                "s_phone",
-                "s_address",
-                "s_name",
-                "s_acctbal",
-                "p_mfgr",
-                "p_partkey",
-                "n_name"
+        ],
+        "dependency": {
+            "dependency_projection": [
+                {
+                    "select_type": 7,
+                    "value": [
+                        "ps_supplycost"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                }
+            ],
+            "dependency_filtering": [
+                {
+                    "lv": {
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "p_partkey"
+                        ]
+                    },
+                    "operator": 5,
+                    "rv": {
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "ps_partkey"
+                        ]
+                    }
+                }
             ]
+        },
+        "order_by": {
+            "ascending": [
+                1,
+                0,
+                0,
+                0
+            ],
+            "column_name": [
+                "s_acctbal",
+                "n_name",
+                "s_name",
+                "p_partkey"
+            ]
+        },
+        "limit": {
+            "offset": 0,
+            "length": 100
         }
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "result2",
+        "column_alias": [
+            "s_comment",
+            "s_phone",
+            "s_address",
+            "s_name",
+            "s_acctbal",
+            "p_mfgr",
+            "p_partkey",
+            "n_name"
+        ]
     }
 }

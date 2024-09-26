@@ -1,82 +1,235 @@
 {
-    "type" : 0,
-    "snippet":
-    {
-        "query_id":7,
-        "work_id":3,
-        "query_info":{
-            "table_name": ["customer"],
-            "filtering":[],
+    "type": 0,
+        "query_id": 7,
+        "work_id": 3,
+        "query_info": {
+            "table_name": [
+                "customer"
+            ],
+            "filtering": [],
             "projection": [
                 {
                     "select_type": 0,
-                    "value": ["c_custkey"],
-                    "value_type": [10]
+                    "value": [
+                        "c_custkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
                 },
                 {
                     "select_type": 0,
-                    "value": ["c_nationkey"],
-                    "value_type": [10]
+                    "value": [
+                        "c_nationkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
                 }
             ]
         },
-        "schema_info":{
-            "column_name":[
-                "c_custkey",
-                "c_name",
-                "c_address",
-                "c_nationkey",
-                "c_phone",
-                "c_acctbal",
-                "c_mktsegment",
-                "c_comment"
+        "schema_info": {
+            "column_list": [
+                {
+                    "name": "c_custkey",
+                    "type": 2,
+                    "length": 4,
+                    "primary" : false,
+                    "index" : false,
+                    "nullable" : false
+                },
+                {
+                    "name": "c_name",
+                    "type": 15,
+                    "length": 25,
+                    "primary" : false,
+                    "index" : false,
+                    "nullable" : false
+                },
+                {
+                    "name": "c_address",
+                    "type": 15,
+                    "length": 40,
+                    "primary" : false,
+                    "index" : false,
+                    "nullable" : false
+                },
+                {
+                    "name": "c_nationkey",
+                    "type": 2,
+                    "length": 4,
+                    "primary" : false,
+                    "index" : false,
+                    "nullable" : false
+                },
+                {
+                    "name": "c_phone",
+                    "type": 254,
+                    "length": 15,
+                    "primary" : false,
+                    "index" : false,
+                    "nullable" : false
+                },
+                {
+                    "name": "c_acctbal",
+                    "type": 246,
+                    "length": 7,
+                    "primary" : false,
+                    "index" : false,
+                    "nullable" : false
+                },
+                {
+                    "name": "c_mktsegment",
+                    "type": 254,
+                    "length": 10,
+                    "primary" : false,
+                    "index" : false,
+                    "nullable" : false
+                },
+                {
+                    "name": "c_comment",
+                    "type": 15,
+                    "length": 117,
+                    "primary" : false,
+                    "index" : false,
+                    "nullable" : false
+                }
             ],
-            "column_offset":[
-                0,
-                4,
-                29,
-                69,
-                73,
-                88,
-                95,
-                105
-            ],
-            "column_length":[
-                4,
-                25,
-                40,
-                4,
-                15,
-                7,
-                10,
-                117
-            ],
-            "column_type":[
-                3,
-                15,
-                15,
-                3,
-                254,
-                246,
-                254,
-                15
-            ],
-            "table_index_number" : 256,
-            "pk_column":[]
+            "table_index_number": 283
         },
-        "index_table_info":{},
-        "sst_info":[],
-        "wal_info":{
-            "deleted_key" : [],
-            "inserted_key" : [],
-            "inserted_value" : []
+        "index_table_info": {},
+        "sst_info": [
+            {
+                "sst_name": "000725.sst",
+                "csd": [
+                    {
+                        "csd_id": "4",
+                        "partition": "/dev/nvme4n1p3",
+                        "block": [
+                            {
+                                "offset": 86057787392,
+                                "length": 3244288
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sst_name": "000664.sst",
+                "csd": [
+                    {
+                        "csd_id": "1",
+                        "partition": "/dev/nvme1n1p3",
+                        "block": [
+                            {
+                                "offset": 150510989312,
+                                "length": 3251429
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sst_name": "000723.sst",
+                "csd": [
+                    {
+                        "csd_id": "2",
+                        "partition": "/dev/nvme2n1p3",
+                        "block": [
+                            {
+                                "offset": 193437540352,
+                                "length": 3249832
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sst_name": "000785.sst",
+                "csd": [
+                    {
+                        "csd_id": "6",
+                        "partition": "/dev/nvme6n1p3",
+                        "block": [
+                            {
+                                "offset": 150484701184,
+                                "length": 3243212
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sst_name": "000786.sst",
+                "csd": [
+                    {
+                        "csd_id": "7",
+                        "partition": "/dev/nvme7n1p3",
+                        "block": [
+                            {
+                                "offset": 146180300800,
+                                "length": 3247972
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sst_name": "000724.sst",
+                "csd": [
+                    {
+                        "csd_id": "3",
+                        "partition": "/dev/nvme3n1p3",
+                        "block": [
+                            {
+                                "offset": 90345725952,
+                                "length": 3240793
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sst_name": "000726.sst",
+                "csd": [
+                    {
+                        "csd_id": "5",
+                        "partition": "/dev/nvme5n1p3",
+                        "block": [
+                            {
+                                "offset": 109794566144,
+                                "length": 3242775
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sst_name": "000787.sst",
+                "csd": [
+                    {
+                        "csd_id": "8",
+                        "partition": "/dev/nvme8n1p3",
+                        "block": [
+                            {
+                                "offset": 109680357376,
+                                "length": 3245552
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "wal_info": {
+            "deleted_key": [],
+            "inserted_key": [],
+            "inserted_value": []
         },
-        "result_info":{
-            "table_alias" : "snippet7-3",
+        "result_info": {
+            "table_alias": "snippet7-3",
             "column_alias": [
                 "c_custkey",
                 "c_nationkey"
-            ]
+             ]
         }
     }
-}

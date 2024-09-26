@@ -1,66 +1,87 @@
 {
-    "type" : 13,
-    "snippet":
-    {
-        "query_id":22,
-        "work_id":5,
-        "query_info":{
-            "table_name": ["snippet22-4","snippet22-2"],
-            "filtering":[
-                {
-                    "operator" : 12
-                }
-            ],
-            "projection": [
-                {
-                    "select_type": 0,
-                    "value": ["cntrycode"],
-                    "value_type": [10]
-                },
-                {
-                  "select_type": 4,
-                  "value": [],
-                  "value_type": []
-                },
-                {
-                    "select_type": 1,
-                    "value": ["c_acctbal"],
-                    "value_type": [10]
-                }
-            ],
-            "dependency":{
-                "dependency_projection":[],
-                "dependency_filter" : [
-                    {
-                        "lv": {
-                            "type": [10],
-                            "value": ["c_custkey"]
-                        },
-                        "operator" : 5, 
-                        "rv" : {
-                            "type": [10],
-                            "value": ["o_custkey"]
-                        }
-                    }
+    "type": 13,
+    "query_id": 22,
+    "work_id": 5,
+    "query_info": {
+        "table_name": [
+            "snippet22-4",
+            "snippet22-2"
+        ],
+        "filtering": [
+            {
+                "operator": 12
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "cntrycode"
+                ],
+                "value_type": [
+                    10
                 ]
             },
-            "group_by": ["cntrycode"],
-            "order_by": {
-              "ascending" : [0],
-              "column_name" : ["cntrycode"]
+            {
+                "select_type": 4,
+                "value": [],
+                "value_type": []
+            },
+            {
+                "select_type": 1,
+                "value": [
+                    "c_acctbal"
+                ],
+                "value_type": [
+                    10
+                ]
             }
+        ],
+        "dependency": {
+            "dependency_projection": [],
+            "dependency_filter": [
+                {
+                    "lv": {
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "c_custkey"
+                        ]
+                    },
+                    "operator": 5,
+                    "rv": {
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "o_custkey"
+                        ]
+                    }
+                }
+            ]
         },
-        "schema_info":{},
-        "index_table_info":{},
-        "sst_info":[],
-        "wal_info":{},
-        "result_info":{
-            "table_alias" : "result22",
-            "column_alias": [
-                "cntrycode", 
-                "numcust",
-                "totacctbal"
+        "group_by": [
+            "cntrycode"
+        ],
+        "order_by": {
+            "ascending": [
+                0
+            ],
+            "column_name": [
+                "cntrycode"
             ]
         }
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "result22",
+        "column_alias": [
+            "cntrycode",
+            "numcust",
+            "totacctbal"
+        ]
     }
 }

@@ -1,29 +1,39 @@
 {
-    "type" : 3,
-    "snippet":
-    {
-        "query_id":14,
-        "work_id":3,
-        "query_info":{
-            "table_name": ["snippet14-2"],
-            "filtering":[],
-            "projection": [
-                {
-                    "select_type": 0,
-                    "value": ["100.00","snippet14-2-c1","*","snippet14-2-c2","/"],
-                    "value_type": [5,10,11,10,11]
-                }
-            ]
-        },
-        "schema_info":{},
-        "index_table_info":{},
-        "sst_info":[],
-        "wal_info":{},
-        "result_info":{
-            "table_alias" : "result14",
-            "column_alias": [
-                "promo_revenue"
-            ]
-        }
+    "type": 2,
+    "query_id": 14,
+    "work_id": 3,
+    "query_info": {
+        "table_name": [
+            "snippet14-2"
+        ],
+        "filtering": [],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "100.00",
+                    "snippet14-2-c1",
+                    "*",
+                    "snippet14-2-c2",
+                    "/"
+                ],
+                "value_type": [
+                    5,
+                    10,
+                    11,
+                    10,
+                    11
+                ]
+            }
+        ]
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "result14",
+        "column_alias": [
+            "promo_revenue"
+        ]
     }
 }

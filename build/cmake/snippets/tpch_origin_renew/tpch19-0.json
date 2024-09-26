@@ -1,36 +1,57 @@
 {
-    "type" : 0,
-    "snippet":
-    {
-        "query_id":0,
-        "work_id":0,
-        "query_info":{
-            "table_name": ["region"],
-            "filtering":[
-                
+    "type": 0,
+    "query_id": 0,
+    "work_id": 0,
+    "query_info": {
+        "table_name": [
+            "region"
+        ],
+        "filtering": [],
+        "projection": [],
+        "group_by": [
+            "o_orderpriority"
+        ],
+        "order_by": {
+            "ascending": [
+                0
             ],
-            "projection": [
-                
-            ],
-            "group_by": ["o_orderpriority"],
-            "order_by": {
-                "ascending" : [0],
-                "column_name" : ["o_orderpriority"]
-            },
-            "limit" : {
-                "offset" : 0,
-                "length" : 200
-            }
+            "column_name": [
+                "o_orderpriority"
+            ]
         },
-        "schema_info":{},
-        "index_table_info":{},
-        "sst_info":[],
-        "wal_info":{},
-        "result_info":{
-            "table_alias" : "snippet0-0",
-            "column_alias": [
-                "r_regionkey"
+        "limit": {
+            "offset": 0,
+            "length": 200
+        }
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [
+        {
+            "sst_name": "002005.sst",
+            "csd": [
+                {
+                    "csd_id": "1",
+                    "partition": "/dev/nvme1n1p3",
+                    "block": [
+                        {
+                            "offset": 150510985216,
+                            "length": 566
+                        }
+                    ]
+                }
             ]
         }
+    ],
+    "wal_info": {
+        "deleted_key": [],
+        "inserted_key": [],
+        "inserted_value": []
+    },
+    "result_info": {
+        "table_alias": "snippet0-0",
+        "column_alias": [
+            "r_regionkey"
+        ]
     }
 }

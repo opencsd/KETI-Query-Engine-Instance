@@ -1,170 +1,900 @@
 {
-    "type" : 0,
-    "snippet":
-    {
-        "query_id":1,
-        "work_id":0,
-        "query_info":{
-            "table_name": ["lineitem"],
-            "filtering":[
-                {
-                    "lv": {
-                    "type": [10],
-                    "value": ["l_shipdate"]
+    "type": 0,
+    "query_id": 1,
+    "work_id": 0,
+    "query_info": {
+        "table_name": [
+            "lineitem"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_shipdate"
+                    ]
                 },
-                "operator" : 2, 
-                "rv" : {
-                    "type": [7],
-                    "value": ["1023247"]
-                    }
+                "operator": 1,
+                "rv": {
+                    "type": [
+                        7
+                    ],
+                    "value": [
+                        "1023253"
+                    ]
                 }
-            ],
-            "projection": [
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "l_returnflag"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_linestatus"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_quantity"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_extendedprice"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_extendedprice",
+                    "1",
+                    "l_discount",
+                    "-",
+                    "*"
+                ],
+                "value_type": [
+                    10,
+                    2,
+                    10,
+                    11,
+                    11
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_extendedprice",
+                    "1",
+                    "l_discount",
+                    "-",
+                    "*",
+                    "1",
+                    "l_tax",
+                    "+",
+                    "*"
+                ],
+                "value_type": [
+                    10,
+                    2,
+                    10,
+                    11,
+                    11,
+                    2,
+                    10,
+                    11,
+                    11
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_quantity"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_extendedprice"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_discount"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "schema_info": {
+        "column_list": [
+            {
+                "name": "l_orderkey",
+                "type": 2,
+                "length": 4,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "l_partkey",
+                "type": 2,
+                "length": 4,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "l_suppkey",
+                "type": 2,
+                "length": 4,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "l_linenumber",
+                "type": 2,
+                "length": 4,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "l_quantity",
+                "type": 246,
+                "length": 7,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "l_extendedprice",
+                "type": 246,
+                "length": 7,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "l_discount",
+                "type": 246,
+                "length": 7,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "l_tax",
+                "type": 246,
+                "length": 7,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "l_returnflag",
+                "type": 254,
+                "length": 1,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "l_linestatus",
+                "type": 254,
+                "length": 1,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "l_shipdate",
+                "type": 14,
+                "length": 3,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "l_commitdate",
+                "type": 14,
+                "length": 3,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "l_receiptdate",
+                "type": 14,
+                "length": 3,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "l_shipinstruct",
+                "type": 254,
+                "length": 25,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "l_shipmode",
+                "type": 254,
+                "length": 10,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "l_comment",
+                "type": 15,
+                "length": 44,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            }
+        ],
+        "table_index_number": 294
+    },
+    "sst_info": [
+        {
+            "sst_name": "001383.sst",
+            "csd": [
                 {
-                    "select_type": 0,
-                    "value": ["l_returnflag"],
-                    "value_type": [10]
-                },
-                {
-                    "select_type": 0,
-                    "value": ["l_linestatus"],
-                    "value_type": [10]
-                },
-                {
-                    "select_type": 0,
-                    "value": ["l_quantity"],
-                    "value_type": [10]
-                },
-                {
-                    "select_type": 0,
-                    "value": ["l_extendedprice"],
-                    "value_type": [10]
-                },
-                {
-                    "select_type": 0,
-                    "value": ["l_extendedprice", "1", "l_discount","-","*"],
-                    "value_type": [10,2,10,11,11]
-                },
-                {
-                    "select_type": 0,
-                    "value": ["l_extendedprice", "1", "l_discount","-","*","1","l_tax","+","*"],
-                    "value_type": [10,2,10,11,11,2,10,11,11]
-                },
-                {
-                    "select_type": 0,
-                    "value": ["l_quantity"],
-                    "value_type": [10]
-                },
-                {
-                    "select_type": 0,
-                    "value": ["l_extendedprice"],
-                    "value_type": [10]
-                },
-                {
-                    "select_type": 0,
-                    "value": ["l_discount"],
-                    "value_type": [10]
+                    "csd_id": "2",
+                    "partition": "/dev/nvme2n1p3",
+                    "block": [
+                        {
+                            "offset": 3087007744,
+                            "length": 7970077
+                        },
+                        {
+                            "offset": 3094977821,
+                            "length": 7968620
+                        },
+                        {
+                            "offset": 3102946441,
+                            "length": 7965926
+                        },
+                        {
+                            "offset": 3110912367,
+                            "length": 7964322
+                        },
+                        {
+                            "offset": 3118876689,
+                            "length": 7963947
+                        },
+                        {
+                            "offset": 3126840636,
+                            "length": 7963818
+                        },
+                        {
+                            "offset": 3134804454,
+                            "length": 7963743
+                        },
+                        {
+                            "offset": 3142768197,
+                            "length": 97701
+                        }
+                    ]
                 }
             ]
-        },  
-        "schema_info":{
-            "column_name":[
-                "l_orderkey",
-                "l_partkey",
-                "l_suppkey",
-                "l_linenumber",
-                "l_quantity",
-                "l_extendedprice",
-                "l_discount",
-                "l_tax",
-                "l_returnflag",
-                "l_linestatus",
-                "l_shipdate",
-                "l_commitdate",
-                "l_receiptdate",
-                "l_shipinstruct",
-                "l_shipmode",
-                "l_comment"
-            ],
-            "column_offset":[
-                0,
-                4,
-                8,
-                12,
-                16,
-                23,
-                30,
-                37,
-                44,
-                45,
-                46,
-                49,
-                52,
-                55,
-                80,
-                90
-            ],
-            "column_length":[
-                4,
-                4,
-                4,
-                4,
-                7,
-                7,
-                7,
-                7,
-                1,
-                1,
-                3,
-                3,
-                3,
-                25,
-                10,
-                44
-            ],
-            "column_type":[
-                3,
-                3,
-                3,
-                3,
-                246,
-                246,
-                246,
-                246,
-                254,
-                254,
-                14,
-                14,
-                14,
-                254,
-                254,
-                15
-            ],
-            "table_index_number" : 256,
-            "pk_column":[]
         },
-        "index_table_info":{},
-        "sst_info":[
-            
-        ],
-        "wal_info":{
-            "deleted_key" : [],
-            "inserted_key" : [],
-            "inserted_value" : []
+        {
+            "sst_name": "001473.sst",
+            "csd": [
+                {
+                    "csd_id": "7",
+                    "partition": "/dev/nvme7n1p3",
+                    "block": [
+                        {
+                            "offset": 3279945728,
+                            "length": 7970707
+                        },
+                        {
+                            "offset": 3287916435,
+                            "length": 7966441
+                        },
+                        {
+                            "offset": 3295882876,
+                            "length": 7963317
+                        },
+                        {
+                            "offset": 3303846193,
+                            "length": 7965432
+                        },
+                        {
+                            "offset": 3311811625,
+                            "length": 7964020
+                        },
+                        {
+                            "offset": 3319775645,
+                            "length": 2781047
+                        }
+                    ]
+                }
+            ]
         },
-        "result_info":{
-            "table_alias" : "snippet1-0",
-            "column_alias": [
-                "l_returnflag", 
-                "l_linestatus",
-                "sum_qty",
-                "sum_base_price",
-                "sum_disc_price",
-                "sum_charge",
-                "avg_qty",
-                "avg_price",
-                "avg_disc"
+        {
+            "sst_name": "001435.sst",
+            "csd": [
+                {
+                    "csd_id": "4",
+                    "partition": "/dev/nvme4n1p3",
+                    "block": [
+                        {
+                            "offset": 3363831808,
+                            "length": 7970256
+                        },
+                        {
+                            "offset": 3371802064,
+                            "length": 7964767
+                        },
+                        {
+                            "offset": 3379766831,
+                            "length": 7964707
+                        },
+                        {
+                            "offset": 3387731538,
+                            "length": 7966976
+                        },
+                        {
+                            "offset": 3395698514,
+                            "length": 7964009
+                        },
+                        {
+                            "offset": 3403662523,
+                            "length": 7964375
+                        },
+                        {
+                            "offset": 3411626898,
+                            "length": 7842844
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "sst_name": "001472.sst",
+            "csd": [
+                {
+                    "csd_id": "6",
+                    "partition": "/dev/nvme6n1p3",
+                    "block": [
+                        {
+                            "offset": 2952790016,
+                            "length": 7967691
+                        },
+                        {
+                            "offset": 2960757707,
+                            "length": 7965841
+                        },
+                        {
+                            "offset": 2968723548,
+                            "length": 7961630
+                        },
+                        {
+                            "offset": 2976685178,
+                            "length": 7965776
+                        },
+                        {
+                            "offset": 2984650954,
+                            "length": 7966208
+                        },
+                        {
+                            "offset": 2992617162,
+                            "length": 7968965
+                        },
+                        {
+                            "offset": 3000586127,
+                            "length": 7838789
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "sst_name": "001506.sst",
+            "csd": [
+                {
+                    "csd_id": "8",
+                    "partition": "/dev/nvme8n1p3",
+                    "block": [
+                        {
+                            "offset": 3221225472,
+                            "length": 7972251
+                        },
+                        {
+                            "offset": 3229197723,
+                            "length": 7965111
+                        },
+                        {
+                            "offset": 3237162834,
+                            "length": 7965872
+                        },
+                        {
+                            "offset": 3245128706,
+                            "length": 7966896
+                        },
+                        {
+                            "offset": 3253095602,
+                            "length": 7967918
+                        },
+                        {
+                            "offset": 3261063520,
+                            "length": 2764996
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "sst_name": "001434.sst",
+            "csd": [
+                {
+                    "csd_id": "3",
+                    "partition": "/dev/nvme3n1p3",
+                    "block": [
+                        {
+                            "offset": 3690987520,
+                            "length": 7970348
+                        },
+                        {
+                            "offset": 3698957868,
+                            "length": 7965811
+                        },
+                        {
+                            "offset": 3706923679,
+                            "length": 7967355
+                        },
+                        {
+                            "offset": 3714891034,
+                            "length": 7966128
+                        },
+                        {
+                            "offset": 3722857162,
+                            "length": 7965251
+                        },
+                        {
+                            "offset": 3730822413,
+                            "length": 2108417
+                        },
+                        {
+                            "offset": 3630653710,
+                            "length": 667061
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "sst_name": "001507.sst",
+            "csd": [
+                {
+                    "csd_id": "8",
+                    "partition": "/dev/nvme8n1p3",
+                    "block": [
+                        {
+                            "offset": 3271557120,
+                            "length": 7969314
+                        },
+                        {
+                            "offset": 3279526434,
+                            "length": 7966219
+                        },
+                        {
+                            "offset": 3287492653,
+                            "length": 7967720
+                        },
+                        {
+                            "offset": 3295460373,
+                            "length": 7966191
+                        },
+                        {
+                            "offset": 3303426564,
+                            "length": 7964643
+                        },
+                        {
+                            "offset": 3311391207,
+                            "length": 7964673
+                        },
+                        {
+                            "offset": 3319355880,
+                            "length": 7833896
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "sst_name": "001384.sst",
+            "csd": [
+                {
+                    "csd_id": "2",
+                    "partition": "/dev/nvme2n1p3",
+                    "block": [
+                        {
+                            "offset": 3145728000,
+                            "length": 7970247
+                        },
+                        {
+                            "offset": 3153698247,
+                            "length": 7966399
+                        },
+                        {
+                            "offset": 3161664646,
+                            "length": 7965667
+                        },
+                        {
+                            "offset": 3169630313,
+                            "length": 7964275
+                        },
+                        {
+                            "offset": 3177594588,
+                            "length": 7967833
+                        },
+                        {
+                            "offset": 3185562421,
+                            "length": 2551920
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "sst_name": "001471.sst",
+            "csd": [
+                {
+                    "csd_id": "6",
+                    "partition": "/dev/nvme6n1p3",
+                    "block": [
+                        {
+                            "offset": 3011510272,
+                            "length": 7967542
+                        },
+                        {
+                            "offset": 3019477814,
+                            "length": 7968177
+                        },
+                        {
+                            "offset": 3027445991,
+                            "length": 7963239
+                        },
+                        {
+                            "offset": 3035409230,
+                            "length": 7968844
+                        },
+                        {
+                            "offset": 3043378074,
+                            "length": 7963588
+                        },
+                        {
+                            "offset": 3051341662,
+                            "length": 2775003
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "sst_name": "001379.sst",
+            "csd": [
+                {
+                    "csd_id": "1",
+                    "partition": "/dev/nvme1n1p3",
+                    "block": [
+                        {
+                            "offset": 2281701376,
+                            "length": 7969926
+                        },
+                        {
+                            "offset": 2289671302,
+                            "length": 7965571
+                        },
+                        {
+                            "offset": 2297636873,
+                            "length": 7965558
+                        },
+                        {
+                            "offset": 2305602431,
+                            "length": 7964456
+                        },
+                        {
+                            "offset": 2313566887,
+                            "length": 7967153
+                        },
+                        {
+                            "offset": 2321534040,
+                            "length": 7967670
+                        },
+                        {
+                            "offset": 2329501710,
+                            "length": 7962237
+                        },
+                        {
+                            "offset": 2337463947,
+                            "length": 352827
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "sst_name": "001436.sst",
+            "csd": [
+                {
+                    "csd_id": "4",
+                    "partition": "/dev/nvme4n1p3",
+                    "block": [
+                        {
+                            "offset": 3422552064,
+                            "length": 7969560
+                        },
+                        {
+                            "offset": 3430521624,
+                            "length": 7966766
+                        },
+                        {
+                            "offset": 3438488390,
+                            "length": 7965593
+                        },
+                        {
+                            "offset": 3446453983,
+                            "length": 7966063
+                        },
+                        {
+                            "offset": 3454420046,
+                            "length": 7967402
+                        },
+                        {
+                            "offset": 3462387448,
+                            "length": 2110835
+                        },
+                        {
+                            "offset": 3359747179,
+                            "length": 680685
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "sst_name": "001400.sst",
+            "csd": [
+                {
+                    "csd_id": "3",
+                    "partition": "/dev/nvme3n1p3",
+                    "block": [
+                        {
+                            "offset": 3632267264,
+                            "length": 7971104
+                        },
+                        {
+                            "offset": 3640238368,
+                            "length": 7965796
+                        },
+                        {
+                            "offset": 3648204164,
+                            "length": 7967538
+                        },
+                        {
+                            "offset": 3656171702,
+                            "length": 7967407
+                        },
+                        {
+                            "offset": 3664139109,
+                            "length": 7969064
+                        },
+                        {
+                            "offset": 3672108173,
+                            "length": 7967189
+                        },
+                        {
+                            "offset": 3680075362,
+                            "length": 7827726
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "sst_name": "001437.sst",
+            "csd": [
+                {
+                    "csd_id": "5",
+                    "partition": "/dev/nvme5n1p3",
+                    "block": [
+                        {
+                            "offset": 1476395008,
+                            "length": 7971795
+                        },
+                        {
+                            "offset": 1484366803,
+                            "length": 7966809
+                        },
+                        {
+                            "offset": 1492333612,
+                            "length": 7967810
+                        },
+                        {
+                            "offset": 1500301422,
+                            "length": 7965654
+                        },
+                        {
+                            "offset": 1508267076,
+                            "length": 7963927
+                        },
+                        {
+                            "offset": 1516231003,
+                            "length": 7965180
+                        },
+                        {
+                            "offset": 1524196183,
+                            "length": 7832175
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "sst_name": "001508.sst",
+            "csd": [
+                {
+                    "csd_id": "5",
+                    "partition": "/dev/nvme5n1p3",
+                    "block": [
+                        {
+                            "offset": 1535115264,
+                            "length": 7970010
+                        },
+                        {
+                            "offset": 1543085274,
+                            "length": 7967302
+                        },
+                        {
+                            "offset": 1551052576,
+                            "length": 7966195
+                        },
+                        {
+                            "offset": 1559018771,
+                            "length": 7964147
+                        },
+                        {
+                            "offset": 1566982918,
+                            "length": 7965766
+                        },
+                        {
+                            "offset": 1574948684,
+                            "length": 2784244
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "sst_name": "001382.sst",
+            "csd": [
+                {
+                    "csd_id": "1",
+                    "partition": "/dev/nvme1n1p3",
+                    "block": [
+                        {
+                            "offset": 2340421632,
+                            "length": 7969031
+                        },
+                        {
+                            "offset": 2348390663,
+                            "length": 7968179
+                        },
+                        {
+                            "offset": 2356358842,
+                            "length": 7967083
+                        },
+                        {
+                            "offset": 2364325925,
+                            "length": 7966356
+                        },
+                        {
+                            "offset": 2372292281,
+                            "length": 7965913
+                        },
+                        {
+                            "offset": 2380258194,
+                            "length": 2313708
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "sst_name": "001474.sst",
+            "csd": [
+                {
+                    "csd_id": "7",
+                    "partition": "/dev/nvme7n1p3",
+                    "block": [
+                        {
+                            "offset": 3221225472,
+                            "length": 7970115
+                        },
+                        {
+                            "offset": 3229195587,
+                            "length": 7966175
+                        },
+                        {
+                            "offset": 3237161762,
+                            "length": 7967280
+                        },
+                        {
+                            "offset": 3245129042,
+                            "length": 7960354
+                        },
+                        {
+                            "offset": 3253089396,
+                            "length": 7966993
+                        },
+                        {
+                            "offset": 3261056389,
+                            "length": 7964441
+                        },
+                        {
+                            "offset": 3269020830,
+                            "length": 7842209
+                        }
+                    ]
+                }
             ]
         }
+    ],
+    "wal_info": {
+        "deleted_key": [],
+        "inserted_key": [],
+        "inserted_value": []
+    },
+    "result_info": {
+        "table_alias": "snippet1-0",
+        "column_alias": [
+            "l_returnflag",
+            "l_linestatus",
+            "sum_qty",
+            "sum_base_price",
+            "sum_disc_price",
+            "sum_charge",
+            "avg_qty",
+            "avg_price",
+            "avg_disc"
+        ]
     }
 }

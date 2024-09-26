@@ -1,29 +1,29 @@
 {
-    "type" : 0,
-    "snippet":
-    {
-        "query_id":8,
-        "work_id":0,
-        "query_info":{
-            "table_name": ["region"],
-            "filtering":[
+    "type": 0,
+        "query_id": 8,
+        "work_id": 0,
+        "query_info": {
+            "table_name": [
+                "region"
+            ],
+            "filtering": [
                 {
                     "lv": {
-                    "type": [
-                        10
-                    ],
-                    "value": [
-                        "r_name"
-                    ]
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "r_name"
+                        ]
                     },
-                    "operator": 5,
+                    "operator": 4,
                     "rv": {
-                    "type": [
-                        9
-                    ],
-                    "value": [
-                        "ASIA"
-                    ]
+                        "type": [
+                            9
+                        ],
+                        "value": [
+                            "ASIA"
+                        ]
                     }
                 }
             ],
@@ -31,60 +31,80 @@
                 {
                     "select_type": 0,
                     "value": [
-                    "r_regionkey"
+                        "r_regionkey"
                     ],
                     "value_type": [
-                    10
+                        10
                     ]
                 },
                 {
                     "select_type": 0,
                     "value": [
-                    "r_name"
+                        "r_name"
                     ],
                     "value_type": [
-                    10
+                        10
                     ]
                 }
             ]
         },
-        "schema_info":{
-            "column_name":[
-                "r_regionkey",  
-                "r_name",
-                "r_comment"
+        "schema_info": {
+            "column_list": [
+                {
+                    "name": "r_regionkey",
+                    "type": 2,
+                    "length": 4,
+                    "primary" : false,
+                    "index" : false,
+                    "nullable" : false
+                },
+                {
+                    "name": "r_name",
+                    "type": 254,
+                    "length": 25,
+                    "primary" : false,
+                    "index" : false,
+                    "nullable" : false
+                },
+                {
+                    "name": "r_comment",
+                    "type": 15,
+                    "length": 152,
+                    "primary" : false,
+                    "index" : false,
+                    "nullable" : false
+                }
             ],
-            "column_offset":[
-                0,
-                4,
-                29
-            ],
-            "column_length":[
-                4,
-                25,
-                152
-            ],
-            "column_type":[
-                3,
-                254,
-                15
-            ],
-            "table_index_number" : 256,
-            "pk_column":[]
+            "table_index_number": 299
         },
-        "index_table_info":{},
-        "sst_info":[],
-        "wal_info":{
-            "deleted_key" : [],
-            "inserted_key" : [],
-            "inserted_value" : []
+        "index_table_info": {},
+        "sst_info": [
+            {
+                "sst_name": "002005.sst",
+                "csd": [
+                    {
+                        "csd_id": "1",
+                        "partition": "/dev/nvme1n1p3",
+                        "block": [
+                            {
+                                "offset": 150510985216,
+                                "length": 566
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "wal_info": {
+            "deleted_key": [],
+            "inserted_key": [],
+            "inserted_value": []
         },
-        "result_info":{
-            "table_alias" : "snippet8-0",
+        "result_info": {
+            "table_alias": "snippet8-0",
             "column_alias": [
                 "r_regionkey",
                 "r_name"
-            ]
+             ]
         }
     }
-}

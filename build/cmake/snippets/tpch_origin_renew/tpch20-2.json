@@ -1,84 +1,321 @@
 {
-    "type" : 0,
-    "snippet":
-    {
-        "query_id":20,
-        "work_id":2,
-        "query_info":{
-            "table_name": ["partsupp"],
-            "filtering":[],
+    "type": 0,
+        "query_id": 20,
+        "work_id": 2,
+        "query_info": {
+            "table_name": [
+                "partsupp"
+            ],
+            "filtering": [],
             "projection": [
                 {
                     "select_type": 0,
                     "value": [
-                    "ps_suppkey"
+                        "ps_suppkey"
                     ],
                     "value_type": [
-                    10
+                        10
                     ]
                 },
                 {
                     "select_type": 0,
                     "value": [
-                    "ps_partkey"
+                        "ps_partkey"
                     ],
                     "value_type": [
-                    10
+                        10
                     ]
                 },
                 {
                     "select_type": 0,
-                    "value": ["ps_availqty"],
-                    "value_type": [10]
+                    "value": [
+                        "ps_availqty"
+                    ],
+                    "value_type": [
+                        10
+                    ]
                 }
             ]
         },
-        "schema_info":{
-            "column_name":[
-                "ps_partkey",  
-                "ps_suppkey",
-                "ps_availqty",
-                "ps_supplycost",
-                "ps_comment"
+        "schema_info": {
+            "column_list": [
+                {
+                    "name": "ps_partkey",
+                    "type": 2,
+                    "length": 4,
+                    "primary" : false,
+                    "index" : false,
+                    "nullable" : false
+                },
+                {
+                    "name": "ps_suppkey",
+                    "type": 2,
+                    "length": 4,
+                    "primary" : false,
+                    "index" : false,
+                    "nullable" : false
+                },
+                {
+                    "name": "ps_availqty",
+                    "type": 2,
+                    "length": 4,
+                    "primary" : false,
+                    "index" : false,
+                    "nullable" : false
+                },
+                {
+                    "name": "ps_supplycost",
+                    "type": 246,
+                    "length": 7,
+                    "primary" : false,
+                    "index" : false,
+                    "nullable" : false
+                },
+                {
+                    "name": "ps_comment",
+                    "type": 15,
+                    "length": 199,
+                    "primary" : false,
+                    "index" : false,
+                    "nullable" : false
+                }
             ],
-            "column_offset":[
-                0,
-                4,
-                8,
-                12,
-                19
-            ],
-            "column_length":[
-                4,
-                4,
-                4,
-                7,
-                199
-            ],
-            "column_type":[
-                3,
-                3,
-                3,
-                246,
-                15
-            ],
-            "table_index_number" : 256,
-            "pk_column":[]
+            "table_index_number": 280
         },
-        "index_table_info":{},
-        "sst_info":[],
-        "wal_info":{
-            "deleted_key" : [],
-            "inserted_key" : [],
-            "inserted_value" : []
+        "index_table_info": {},
+        "sst_info": [
+            {
+                "sst_name": "000600.sst",
+                "csd": [
+                    {
+                        "csd_id": "5",
+                        "partition": "/dev/nvme5n1p3",
+                        "block": [
+                            {
+                                "offset": 1602224128,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 1610224128,
+                                "length": 7773522
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sst_name": "000538.sst",
+                "csd": [
+                    {
+                        "csd_id": "1",
+                        "partition": "/dev/nvme1n1p3",
+                        "block": [
+                            {
+                                "offset": 2407530496,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 2415530496,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 2423530496,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 2431530496,
+                                "length": 7541738
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sst_name": "000602.sst",
+                "csd": [
+                    {
+                        "csd_id": "7",
+                        "partition": "/dev/nvme7n1p3",
+                        "block": [
+                            {
+                                "offset": 3347054592,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 3355054592,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 3363054592,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 3371054592,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 3379054592,
+                                "length": 7933314
+                            },
+                            {
+                                "offset": 3359746968,
+                                "length": 7395488
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sst_name": "000599.sst",
+                "csd": [
+                    {
+                        "csd_id": "4",
+                        "partition": "/dev/nvme4n1p3",
+                        "block": [
+                            {
+                                "offset": 3481272320,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 3489272320,
+                                "length": 7787947
+                            },
+                            {
+                                "offset": 3494797067,
+                                "length": 7387996
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sst_name": "000539.sst",
+                "csd": [
+                    {
+                        "csd_id": "2",
+                        "partition": "/dev/nvme2n1p3",
+                        "block": [
+                            {
+                                "offset": 3212836864,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 3220836864,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 3228836864,
+                                "length": 7164708
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sst_name": "000601.sst",
+                "csd": [
+                    {
+                        "csd_id": "6",
+                        "partition": "/dev/nvme6n1p3",
+                        "block": [
+                            {
+                                "offset": 3078619136,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 3086619136,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 3094619136,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 3102619136,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 3110619136,
+                                "length": 6947676
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sst_name": "000661.sst",
+                "csd": [
+                    {
+                        "csd_id": "8",
+                        "partition": "/dev/nvme8n1p3",
+                        "block": [
+                            {
+                                "offset": 3347054592,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 3355054592,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 3363054592,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 3371054592,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 3379054592,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 3387054592,
+                                "length": 7338847
+                            },
+                            {
+                                "offset": 3359746563,
+                                "length": 7376940
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "sst_name": "000540.sst",
+                "csd": [
+                    {
+                        "csd_id": "3",
+                        "partition": "/dev/nvme3n1p3",
+                        "block": [
+                            {
+                                "offset": 3749707776,
+                                "length": 8000000
+                            },
+                            {
+                                "offset": 3757707776,
+                                "length": 7767107
+                            },
+                            {
+                                "offset": 3763246615,
+                                "length": 7383751
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "wal_info": {
+            "deleted_key": [],
+            "inserted_key": [],
+            "inserted_value": []
         },
-        "result_info":{
-            "table_alias" : "snippet20-2",
+        "result_info": {
+            "table_alias": "snippet20-2",
             "column_alias": [
                 "ps_suppkey",
                 "ps_partkey",
                 "ps_availqty"
-            ]
+             ]
         }
     }
-}

@@ -1,72 +1,108 @@
 {
-    "type" : 0,
-    "snippet":
-    {
-        "query_id":21,
-        "work_id":0,
-        "query_info":{
-            "table_name": ["nation"],
-            "filtering":[
-                {
-                    "lv": {
-                    "type": [10],
-                    "value": ["n_name"]
+    "type": 0,
+    "query_id": 21,
+    "work_id": 0,
+    "query_info": {
+        "table_name": [
+            "nation"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "n_name"
+                    ]
                 },
-                "operator" : 5, 
-                "rv" : {
-                    "type": [9],
-                    "value": ["EGYPT"]
-                    }
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        9
+                    ],
+                    "value": [
+                        "EGYPT"
+                    ]
                 }
-            ],
-            "projection": [
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "n_nationkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "schema_info": {
+        "column_list": [
+        {
+            "name": "n_nationkey",
+            "type": 2,
+            "length": 4, 
+            "primary" : false,
+            "index" : false,
+            "nullable" : false
+        },
+        {
+            "name": "n_name",
+            "type": 254,
+            "length": 25,
+            "primary" : false,
+            "index" : false,
+            "nullable" : false
+        },
+        {
+            "name": "n_regionkey",
+            "type": 2,
+            "length": 4,
+            "primary" : false,
+            "index" : false,
+            "nullable" : false
+        },
+        {
+            "name": "n_comment",
+            "type": 15,
+            "length": 152,
+            "primary" : false,
+            "index" : false,
+            "nullable" : false
+        }
+    ],
+    "table_index_number": 300
+    },
+    "index_table_info": {},
+    "sst_info": [
+        {
+            "sst_name": "002064.sst",
+            "csd": [
                 {
-                    "select_type": 0,
-                    "value": ["n_nationkey"],
-                    "value_type": [10]
+                    "csd_id": "1",
+                    "partition": "/dev/nvme1n1p3",
+                    "block": [
+                        {
+                            "offset": 150514262016,
+                            "length": 3053
+                        }
+                    ]
                 }
-            ]
-        },
-        "schema_info":{
-            "column_name":[
-                "n_nationkey",  
-                "n_name",
-                "n_regionkey",
-                "n_comment"
-            ],
-            "column_offset":[
-                0,
-                4,
-                29,
-                33
-            ],
-            "column_length":[
-                4,
-                25,
-                4,
-                152
-            ],
-            "column_type":[
-                3,
-                254,
-                3,
-                15
-            ],
-            "table_index_number" : 256,
-            "pk_column":[]
-        },
-        "index_table_info":{},
-        "sst_info":[],
-        "wal_info":{
-            "deleted_key" : [],
-            "inserted_key" : [],
-            "inserted_value" : []
-        },
-        "result_info":{
-            "table_alias" : "snippet21-0",
-            "column_alias": [
-                "n_nationkey"
             ]
         }
+    ],
+    "wal_info": {
+        "deleted_key": [],
+        "inserted_key": [],
+        "inserted_value": []
+    },
+    "result_info": {
+        "table_alias": "snippet21-0",
+        "column_alias": [
+            "n_nationkey"
+            ]
     }
 }

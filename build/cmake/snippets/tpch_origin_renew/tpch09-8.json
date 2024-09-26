@@ -1,73 +1,120 @@
 {
-    "type" : 5,
-    "snippet":
-    {
-        "query_id":9,
-        "work_id":8,
-        "query_info":{
-            "table_name": ["snippet9-3","snippet9-7"],
-            "filtering":[
-                {
-                    "lv": {
-                        "type": [10],
-                        "value": ["ps_suppkey"]
-                    },
-                    "operator" : 5, 
-                    "rv" : {
-                        "type": [10],
-                        "value": ["l_suppkey"]
-                    }
+    "type": 5,
+    "query_id": 9,
+    "work_id": 8,
+    "query_info": {
+        "table_name": [
+            "snippet9-3",
+            "snippet9-7"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "ps_suppkey"
+                    ]
                 },
-                {
-                    "operator" : 13
-                },
-                {
-                    "lv": {
-                        "type": [10],
-                        "value": ["ps_partkey"]
-                    },
-                    "operator" : 5, 
-                    "rv" : {
-                        "type": [10],
-                        "value": ["l_partkey"]
-                    }
+                "operator": 5,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_suppkey"
+                    ]
                 }
-            ],
-            "projection": [
-                {
-                    "select_type": 0,
-                    "value": ["nation"],
-                    "value_type": [10]
+            },
+            {
+                "operator": 13
+            },
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "ps_partkey"
+                    ]
                 },
-                {
-                    "select_type": 0,
-                    "value": ["l_extendedprice","1","l_discount","-","*","ps_supplycost","l_quantity","*","-"],
-                    "value_type": [10,2,10,11,11,10,10,11,11]
-                },
-                {
-                    "select_type": 0,
-                    "value": ["l_partkey"],
-                    "value_type": [10]
-                },
-                {
-                    "select_type": 0,
-                    "value": ["l_orderkey"],
-                    "value_type": [10]
+                "operator": 5,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_partkey"
+                    ]
                 }
-            ]
-        },
-        "schema_info":{},
-        "index_table_info":{},
-        "sst_info":[],
-        "wal_info":{},
-        "result_info":{
-            "table_alias" : "snippet9-8",
-            "column_alias": [
-                "nation",
-                "amount",
-                "l_partkey",
-                "l_orderkey"
-            ]
-        }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "nation"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_extendedprice",
+                    "1",
+                    "l_discount",
+                    "-",
+                    "*",
+                    "ps_supplycost",
+                    "l_quantity",
+                    "*",
+                    "-"
+                ],
+                "value_type": [
+                    10,
+                    2,
+                    10,
+                    11,
+                    11,
+                    10,
+                    10,
+                    11,
+                    11
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_partkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_orderkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet9-8",
+        "column_alias": [
+            "nation",
+            "amount",
+            "l_partkey",
+            "l_orderkey"
+        ]
     }
 }

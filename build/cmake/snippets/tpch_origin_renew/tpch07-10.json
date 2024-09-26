@@ -1,27 +1,21 @@
 {
-    "type" : 5,
-    "snippet":
-    {
-        "query_id":7,
-        "work_id":10,
-        "query_info":{
-            "table_name": ["region"],
-            "filtering":[
-                
-            ],
-            "projection": [
-                
-            ]
-        },
-        "schema_info":{},
-        "index_table_info":{},
-        "sst_info":[],
-        "wal_info":{},
-        "result_info":{
-            "table_alias" : "snippet5-10",
-            "column_alias": [
-                "r_regionkey"
-            ]
-        }
+    "type": 5,
+    "query_id": 7,
+    "work_id": 10,
+    "query_info": {
+        "table_name": [
+            "region"
+        ],
+        "filtering": [],
+        "projection": []
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet5-10",
+        "column_alias": [
+            "r_regionkey"
+        ]
     }
 }

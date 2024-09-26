@@ -1,92 +1,140 @@
 {
-    "type" : 0,
-    "snippet":
-    {
-        "query_id":7,
-        "work_id":0,
-        "query_info":{
-            "table_name": ["nation"],
-            "filtering":[
-                {
-                    "lv": {
-                    "type": [10],
-                    "value": ["n_name"]
-                    },
-                    "operator" : 5,
-                    "rv" : {
-                    "type": [9],
-                    "value": ["JAPAN"]
-                    }
+    "type": 0,
+    "query_id": 7,
+    "work_id": 0,
+    "query_info": {
+        "table_name": [
+            "nation"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "n_name"
+                    ]
                 },
-                {
-                    "operator" : 14
-                },
-                {
-                    "lv": {
-                    "type": [10],
-                    "value": ["n_name"]
-                    },
-                    "operator" : 5, 
-                    "rv" : {
-                    "type": [9],
-                    "value": ["INDIA"]
-                    }
+                "operator": 5,
+                "rv": {
+                    "type": [
+                        9
+                    ],
+                    "value": [
+                        "JAPAN"
+                    ]
                 }
-            ],
-            "projection": [
-                {
-                    "select_type": 0,
-                    "value": ["n_name"],
-                    "value_type": [10]
+            },
+            {
+                "operator": 14
+            },
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "n_name"
+                    ]
                 },
-                {
-                    "select_type": 0,
-                    "value": ["n_nationkey"],
-                    "value_type": [10]
+                "operator": 5,
+                "rv": {
+                    "type": [
+                        9
+                    ],
+                    "value": [
+                        "INDIA"
+                    ]
                 }
-            ]
-        },
-        "schema_info":{
-            "column_name":[
-                "n_nationkey",  
-                "n_name",
-                "n_regionkey",
-                "n_comment"
-            ],
-            "column_offset":[
-                0,
-                4,
-                29,
-                33
-            ],
-            "column_length":[
-                4,
-                25,
-                4,
-                152
-            ],
-            "column_type":[
-                3,
-                254,
-                3,
-                15
-            ],
-            "table_index_number" : 256,
-            "pk_column":[]
-        },
-        "index_table_info":{},
-        "sst_info":[],
-        "wal_info":{
-            "deleted_key" : [],
-            "inserted_key" : [],
-            "inserted_value" : []
-        },
-        "result_info":{
-            "table_alias" : "n1",
-            "column_alias": [
-                "n1.n_name", 
-                "n1.n_nationkey"
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "n_name"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "n_nationkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "schema_info": {
+        "column_list": [
+            {
+                "name": "n_nationkey",
+                "type": 2,
+                "length": 4,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "n_name",
+                "type": 254,
+                "length": 25,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "n_regionkey",
+                "type": 2,
+                "length": 4,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "n_comment",
+                "type": 15,
+                "length": 152,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            }
+        ],
+        "table_index_number": 300
+    },
+    "index_table_info": {},
+    "sst_info": [
+        {
+            "sst_name": "002064.sst",
+            "csd": [
+                {
+                    "csd_id": "1",
+                    "partition": "/dev/nvme1n1p3",
+                    "block": [
+                        {
+                            "offset": 150514262016,
+                            "length": 3053
+                        }
+                    ]
+                }
             ]
         }
+    ],
+    "wal_info": {
+        "deleted_key": [],
+        "inserted_key": [],
+        "inserted_value": []
+    },
+    "result_info": {
+        "table_alias": "n1",
+        "column_alias": [
+            "n1.n_name",
+            "n1.n_nationkey"
+        ]
     }
 }

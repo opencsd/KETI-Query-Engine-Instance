@@ -1,27 +1,21 @@
 {
-    "type" : 5,
-    "snippet":
-    {
-        "query_id":0,
-        "work_id":0,
-        "query_info":{
-            "table_name": [""],
-            "filtering":[
-                
-            ],
-            "projection": [
-                
-            ]
-        },
-        "schema_info":{},
-        "index_table_info":{},
-        "sst_info":[],
-        "wal_info":{},
-        "result_info":{
-            "table_alias" : "snippet7-7",
-            "column_alias": [
-                ""
-            ]
-        }
+    "type": 5,
+    "query_id": 0,
+    "work_id": 0,
+    "query_info": {
+        "table_name": [
+            ""
+        ],
+        "filtering": [],
+        "projection": []
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet7-7",
+        "column_alias": [
+            ""
+        ]
     }
 }
