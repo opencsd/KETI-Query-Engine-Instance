@@ -56,13 +56,13 @@ public:
         for (const auto& snippet : snippet_request) {
             Snippet_Log snippet_log;
             snippet_log.query_id_ = query_id;
-            snippet_log.work_id_ = snippet.snippet().work_id();
+            snippet_log.work_id_ = snippet.work_id();
             snippet_log.snippet_type_ = snippet.type();
-            snippet_log.projection_count_ = snippet.snippet().column_projection_size();
-            snippet_log.filter_count_ = snippet.snippet().table_filter_size();
-            snippet_log.group_by_count_ = snippet.snippet().group_by_size();
-            snippet_log.order_by_count_ = snippet.snippet().order_by().column_name_size();
-            snippet_log.limit_exist_ = snippet.snippet().has_limit() ? true : false;
+            snippet_log.projection_count_ = snippet.query_info().projection_size();
+            snippet_log.filter_count_ = snippet.query_info().filtering_size();
+            snippet_log.group_by_count_ = snippet.query_info().group_by_size();
+            snippet_log.order_by_count_ = snippet.query_info().order_by().column_name_size();
+            snippet_log.limit_exist_ = snippet.query_info().has_limit() ? true : false;
             snippet_log_.push_back(snippet_log);
         }
     }

@@ -135,7 +135,6 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
         load_snippet(*ret,"tpch03-2");
         load_snippet(*ret,"tpch03-3");
         load_snippet(*ret,"tpch03-4");
-        load_snippet(*ret,"tpch03-5");
     } else if (query_str == "TPC-H_04"){ //TPC-H Query 4
         load_snippet(*ret,"tpch04-0");
         load_snippet(*ret,"tpch04-1");
@@ -169,9 +168,6 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
         load_snippet(*ret,"tpch07-9");
         load_snippet(*ret,"tpch07-10");
         load_snippet(*ret,"tpch07-11");
-        load_snippet(*ret,"tpch07-12");
-        load_snippet(*ret,"tpch07-13");
-        load_snippet(*ret,"tpch07-14");
     } else if(query_str == "TPC-H_08"){ //TPC-H Query 8
         load_snippet(*ret,"tpch08-0");
         load_snippet(*ret,"tpch08-1");
@@ -211,7 +207,6 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
         load_snippet(*ret,"tpch10-4");
         load_snippet(*ret,"tpch10-5");
         load_snippet(*ret,"tpch10-6");
-        load_snippet(*ret,"tpch10-7");
     } else if(query_str == "TPC-H_11"){ //TPC-H Query 11
         load_snippet(*ret,"tpch11-0");
         load_snippet(*ret,"tpch11-1");
@@ -220,7 +215,6 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
         load_snippet(*ret,"tpch11-4");
         load_snippet(*ret,"tpch11-5");
         load_snippet(*ret,"tpch11-6");
-        load_snippet(*ret,"tpch11-7");
     } else if(query_str == "TPC-H_12"){ //TPC-H Query 12
         load_snippet(*ret,"tpch12-0");
         load_snippet(*ret,"tpch12-1");
@@ -303,7 +297,6 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
         load_snippet(*ret,"tpch22-3");
         load_snippet(*ret,"tpch22-4");
         load_snippet(*ret,"tpch22-5");
-        load_snippet(*ret,"tpch22-6");
     } else if (query_str == "test_lineitem"){ 
         load_snippet(*ret,"test_lineitem");
     } else if (query_str == "test_customer"){ 
@@ -328,14 +321,14 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
         load_snippet(*ret,"test_orders_block_filtering2");
     } else if (query_str == "test_orders_block_filtering3"){ 
         load_snippet(*ret,"test_orders_block_filtering3");
-    }
+    } 
 	
     return ret;
 }
 
 void read_json(std::string& request,std::string snippet_name){
     request = "";
-	std::ifstream openFile("../snippets/tpch_origin/" + snippet_name + ".json");
+	std::ifstream openFile("../snippets/tpch_origin_renew/" + snippet_name + ".json");
 	if(openFile.is_open() ){
 		std::string line;
 		while(getline(openFile, line)){
@@ -352,7 +345,11 @@ void load_snippet(std::list<SnippetRequest> &list,std::string snippet_name){
     read_json(json_str, snippet_name);
     google::protobuf::util::JsonParseOptions options;
     options.ignore_unknown_fields = true;
-    google::protobuf::util::JsonStringToMessage(json_str, &request, options);
 
+    auto status = google::protobuf::util::JsonStringToMessage(json_str, &request, options);
+    if (!status.ok()) {
+        std::cerr << "Error parsing JSON: " << status.ToString() << std::endl;
+        return;
+    }
     list.push_back(request);
 }

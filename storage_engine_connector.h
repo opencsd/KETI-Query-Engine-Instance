@@ -11,7 +11,6 @@ using grpc::ClientContext;
 using grpc::Status;
 using grpc::ClientReaderWriter;
 using StorageEngineInstance::StorageEngineInterface;
-using StorageEngineInstance::Snippet;
 using StorageEngineInstance::SnippetRequest;
 using StorageEngineInstance::QueryStringResult;
 using google::protobuf::Empty;
@@ -28,7 +27,7 @@ class StorageEngineConnector {
 			stream = stub_->OffloadingQueryInterface(streamcontext.get(), &result);
 
 			for(list<SnippetRequest>::iterator iter = snippet_list.begin(); iter != snippet_list.end(); iter++){
-				iter->mutable_snippet()->set_query_id(query_id);//set query id
+				iter->set_query_id(query_id);//set query id
 				stream->Write(*iter);
 			}
 			
