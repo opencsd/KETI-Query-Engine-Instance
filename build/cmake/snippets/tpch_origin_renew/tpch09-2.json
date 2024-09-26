@@ -43,7 +43,7 @@
             "column_list": [
                 {
                     "name": "p_partkey",
-                    "type": 2,
+                    "type": 3,
                     "length": 4,
                     "primary" : false,
                     "index" : false,
@@ -83,7 +83,7 @@
                 },
                 {
                     "name": "p_size",
-                    "type": 2,
+                    "type": 3,
                     "length": 4,
                     "primary" : false,
                     "index" : false,

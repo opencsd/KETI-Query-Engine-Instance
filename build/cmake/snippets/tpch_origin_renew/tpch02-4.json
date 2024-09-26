@@ -41,7 +41,7 @@
         "column_list": [
             {
                 "name": "ps_partkey",
-                "type": 2,
+                "type": 3,
                 "length": 4,
                 "primary" : false,
                 "index" : false,
@@ -49,7 +49,7 @@
             },
             {
                 "name": "ps_suppkey",
-                "type": 2,
+                "type": 3,
                 "length": 4,
                 "primary" : false,
                 "index" : false,
@@ -57,7 +57,7 @@
             },
             {
                 "name": "ps_availqty",
-                "type": 2,
+                "type": 3,
                 "length": 4,
                 "primary" : false,
                 "index" : false,

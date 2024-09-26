@@ -83,7 +83,7 @@
             "column_list": [
                 {
                     "name": "l_orderkey",
-                    "type": 2,
+                    "type": 3,
                     "length": 4,
                     "primary": false,
                     "index": false,
@@ -91,7 +91,7 @@
                 },
                 {
                     "name": "l_partkey",
-                    "type": 2,
+                    "type": 3,
                     "length": 4,
                     "primary": false,
                     "index": false,
@@ -99,7 +99,7 @@
                 },
                 {
                     "name": "l_suppkey",
-                    "type": 2,
+                    "type": 3,
                     "length": 4,
                     "primary": false,
                     "index": false,
@@ -107,7 +107,7 @@
                 },
                 {
                     "name": "l_linenumber",
-                    "type": 2,
+                    "type": 3,
                     "length": 4,
                     "primary": false,
                     "index": false,

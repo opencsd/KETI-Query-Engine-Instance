@@ -77,7 +77,7 @@
         "column_list": [
             {
                 "name": "s_suppkey",
-                "type": 2,
+                "type": 3,
                 "length": 4,
                 "primary" : false,
                 "index" : false,
@@ -101,7 +101,7 @@
             },
             {
                 "name": "s_nationkey",
-                "type": 2,
+                "type": 3,
                 "length": 4,
                 "primary" : false,
                 "index" : false,

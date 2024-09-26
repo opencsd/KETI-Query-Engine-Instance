@@ -23,7 +23,7 @@
             "column_list": [
                 {
                     "name": "c_custkey",
-                    "type": 2,
+                    "type": 3,
                     "length": 4,
                     "primary" : false,
                     "index" : false,
@@ -47,7 +47,7 @@
                 },
                 {
                     "name": "c_nationkey",
-                    "type": 2,
+                    "type": 3,
                     "length": 4,
                     "primary" : false,
                     "index" : false,

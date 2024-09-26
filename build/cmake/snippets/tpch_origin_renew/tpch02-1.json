@@ -41,7 +41,7 @@
         "column_list": [
         {
             "name": "n_nationkey",
-            "type": 2,
+            "type": 3,
             "length": 4, 
             "primary" : false,
             "index" : false,
@@ -57,7 +57,7 @@
         },
         {
             "name": "n_regionkey",
-            "type": 2,
+            "type": 3,
             "length": 4,
             "primary" : false,
             "index" : false,

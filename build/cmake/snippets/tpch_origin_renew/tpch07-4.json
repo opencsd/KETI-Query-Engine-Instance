@@ -32,7 +32,7 @@
             "column_list": [
                 {
                     "name": "o_orderkey",
-                    "type": 2,
+                    "type": 3,
                     "length": 4,
                     "primary" : false,
                     "index" : false,
@@ -40,7 +40,7 @@
                 },
                 {
                     "name": "o_custkey",
-                    "type": 2,
+                    "type": 3,
                     "length": 4,
                     "primary" : false,
                     "index" : false,
@@ -88,7 +88,7 @@
                 },
                 {
                     "name": "o_shippriority",
-                    "type": 2,
+                    "type": 3,
                     "length": 4,
                     "primary" : false,
                     "index" : false,
