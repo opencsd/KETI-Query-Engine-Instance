@@ -152,6 +152,7 @@ message SnippetRequest {
   message ResultInfo {
     string table_alias = 1;
     repeated string column_alias = 2;
+    int32 total_block_count = 3;
   }
   SnippetType type = 1;
   int32 query_id = 2;
