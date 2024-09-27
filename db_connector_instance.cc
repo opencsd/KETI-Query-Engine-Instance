@@ -15,7 +15,7 @@ DBConnectorInstance::DBConnectorInstance() : storage_engine_connector_(grpc::Cre
 {
 
 }
-DBConnectorInstance::DBConnectorInstance(utility::string_t url, string storage_engine_address):m_listener(url), storage_engine_connector_(grpc::CreateChannel(storage_engine_address, grpc::InsecureChannelCredentials()))
+DBConnectorInstance::DBConnectorInstance(utility::string_t url, string storage_engine_address, grpc::ChannelArguments channel_args):m_listener(url), storage_engine_connector_(grpc::CreateCustomChannel(storage_engine_address, grpc::InsecureChannelCredentials(), channel_args))
 {
     m_listener.support(methods::GET, std::bind(&DBConnectorInstance::handle_get, this, std::placeholders::_1));
     m_listener.support(methods::PUT, std::bind(&DBConnectorInstance::handle_put, this, std::placeholders::_1));

@@ -21,7 +21,11 @@ void on_initialize(){
     string storage_engine_address;
     storage_engine_address = (string)STORAGE_ENGINE_IP + ":" + (string)SE_INTERFACE_PORT;
 
-    g_httpHandler = std::unique_ptr<DBConnectorInstance>(new DBConnectorInstance(query_engine_address_,storage_engine_address));
+    grpc::ChannelArguments channel_args;
+    channel_args.SetMaxSendMessageSize(-1);
+    channel_args.SetMaxReceiveMessageSize(-1);
+
+    g_httpHandler = std::unique_ptr<DBConnectorInstance>(new DBConnectorInstance(query_engine_address_,storage_engine_address,channel_args));
     g_httpHandler->open().wait();
 
     KETILOG::WARNLOG("Query Engine","Listening for request at " + query_engine_address_);

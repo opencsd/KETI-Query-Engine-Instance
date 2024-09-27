@@ -18,7 +18,7 @@ class DBConnectorInstance
 {
     public:
         DBConnectorInstance();
-        DBConnectorInstance(utility::string_t url, string storage_engine_address);
+        DBConnectorInstance(utility::string_t url, string storage_engine_address,grpc::ChannelArguments channel_args);
         virtual ~DBConnectorInstance();
 
         pplx::task<void>open(){return m_listener.open();}
