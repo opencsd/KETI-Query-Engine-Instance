@@ -95,6 +95,7 @@
         "table_alias": "snippet5-0",
         "column_alias": [
             "r_regionkey"
-        ]
+        ],
+        "total_block_count": 1
     }
 }

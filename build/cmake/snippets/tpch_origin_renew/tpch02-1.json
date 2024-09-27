@@ -103,7 +103,8 @@
             "n_nationkey",
             "n_regionkey",
             "n_name"
-        ]
+        ],
+        "total_block_count":1
     }
     
 }

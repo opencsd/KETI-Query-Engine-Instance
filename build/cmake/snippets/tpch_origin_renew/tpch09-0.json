@@ -93,6 +93,7 @@
             "column_alias": [
                 "nation",
                 "n_nationkey"
-             ]
+            ],
+            "total_block_count":1
         }
     }

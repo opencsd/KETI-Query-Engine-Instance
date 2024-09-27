@@ -135,6 +135,7 @@
             "column_alias": [
                 "n2.n_name",
                 "n2.n_nationkey"
-             ]
+            ],
+            "total_block_count":1
         }
     }
