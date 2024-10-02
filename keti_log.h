@@ -13,7 +13,7 @@
 #include <string.h>
 
 #define MSQID 12345
-#define MSGMAAX 4096 //test
+#define MSGMAAX 4096
 
 struct log_data {
     char msg[MSGMAAX];
