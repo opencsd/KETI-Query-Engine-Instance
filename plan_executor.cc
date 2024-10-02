@@ -80,7 +80,7 @@ std::string PlanExecutor::ExecuteQuery(StorageEngineConnector &storageEngineInte
 
 QueryStringResult PlanExecutor::queryOffload(StorageEngineConnector &storageEngineInterface,std::list<SnippetRequest> &snippet_list, int query_id){
     std::lock_guard<std::mutex> lock(gRPC_mutex);
-
+    std::cout << "[Query Engine] Query Offloading Initiated" << std::endl;
     return storageEngineInterface.OffloadingQuery(snippet_list, query_id);
 }
 
@@ -321,6 +321,8 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
         load_snippet(*ret,"test_orders_block_filtering2");
     } else if (query_str == "test_orders_block_filtering3"){ 
         load_snippet(*ret,"test_orders_block_filtering3");
+    } else if (query_str == "test"){ 
+        load_snippet(*ret,"tmp");
     } 
 	
     return ret;

@@ -596,7 +596,10 @@ ORDER  BY cntrycode;");
         }else if(parsed_query.GetOriginalQuery() == "test_orders_block_filtering3"){
             parsed_query.SetParsedQuery("");
             parsed_query.SetQueryTypeAsOffloading();
-        }else { //Other Query
+        }else if(parsed_query.GetOriginalQuery() == "test"){
+            parsed_query.SetParsedQuery("");
+            parsed_query.SetQueryTypeAsOffloading();
+        } else { //Other Query
             parsed_query.SetParsedQuery(parsed_query.GetOriginalQuery().c_str());
         }
     } 
