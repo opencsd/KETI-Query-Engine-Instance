@@ -100,7 +100,7 @@
     "result_info": {
         "table_alias": "snippet2-9",
         "column_alias": [
-            "s_supppkey",
+            "s_suppkey",
             "s_acctbal",
             "s_name",
             "s_address",
