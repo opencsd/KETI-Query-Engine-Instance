@@ -116,7 +116,7 @@
     "index_table_info": {},
     "sst_info": [],
     "result_info": {
-        "table_alias": "snippet2-10",
+        "table_alias": "snippet2-11",
         "column_alias": [
             "s_acctbal",
             "s_name",

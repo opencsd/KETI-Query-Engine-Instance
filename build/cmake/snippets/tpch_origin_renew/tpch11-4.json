@@ -23,7 +23,7 @@
             10
           ],
           "value": [
-            "s_nationkey"
+            "s_suppkey"
           ]
         }
       }

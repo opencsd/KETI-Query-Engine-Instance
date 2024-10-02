@@ -3,78 +3,78 @@
     "query_id": 1,
     "work_id": 0,
     "query_info": {
-    "table_name": [
-      "nation"
-    ],
-    "filtering": [],
-    "projection": [
-      {
-        "select_type": 0,
-        "value": [
-          "n_nationkey"
+        "table_name": [
+            "nation"
         ],
-        "value_type": [
-          10
+        "filtering": [],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "n_nationkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "n_regionkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "n_name"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
         ]
-      },
-      {
-        "select_type": 0,
-        "value": [
-          "n_regionkey"
+    },
+    "schema_info": {
+        "column_list": [
+            {
+                "name": "n_nationkey",
+                "type": 3,
+                "length": 4,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "n_name",
+                "type": 254,
+                "length": 25,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "n_regionkey",
+                "type": 3,
+                "length": 4,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "n_comment",
+                "type": 15,
+                "length": 152,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            }
         ],
-        "value_type": [
-          10
-        ]
-      },
-      {
-        "select_type": 0,
-        "value": [
-          "n_name"
-        ],
-        "value_type": [
-          10
-        ]
-      }
-    ]
-  },
-  "schema_info": {
-    "column_list": [
-      {
-        "name": "n_nationkey",
-        "type": 3,
-        "length": 4,
-        "primary": false,
-        "index": false,
-        "nullable": false
-      },
-      {
-        "name": "n_name",
-        "type": 254,
-        "length": 25,
-        "primary": false,
-        "index": false,
-        "nullable": false
-      },
-      {
-        "name": "n_regionkey",
-        "type": 3,
-        "length": 4,
-        "primary": false,
-        "index": false,
-        "nullable": false
-      },
-      {
-        "name": "n_comment",
-        "type": 15,
-        "length": 152,
-        "primary": false,
-        "index": false,
-        "nullable": false
-      }
-    ],
-    "table_index_number": 300
-  },
-  "index_table_info": {},
+        "table_index_number": 300
+    },
+    "index_table_info": {},
     "sst_info": [
         {
             "sst_name": "001383.sst",
@@ -132,12 +132,12 @@
         }
     ],
     "result_info": {
-      "table_alias": "snippet2-1",
-      "column_alias": [
-        "n_nationkey",
-        "n_regionkey",
-        "n_name"
-      ],
-      "total_block_count":1
+        "table_alias": "snippet2-1",
+        "column_alias": [
+            "n_nationkey",
+            "n_regionkey",
+            "n_name"
+        ],
+        "total_block_count": 1
     }
 }

@@ -4,7 +4,7 @@
     "work_id": 3,
     "query_info": {
         "table_name": [
-            "snipet16-1",
+            "snippet16-1",
             "snippet16-2"
         ],
         "filtering": [
@@ -57,7 +57,7 @@
                 ]
             },
             {
-                "select_type": 5,
+                "select_type": 0,
                 "value": [
                     "ps_suppkey"
                 ],
@@ -76,7 +76,7 @@
             "p_brand",
             "p_type",
             "p_size",
-            "supplier_cnt"
+            "ps_suppkey"
         ]
     }
 }

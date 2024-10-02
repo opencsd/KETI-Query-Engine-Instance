@@ -4,8 +4,8 @@
     "work_id": 8,
     "query_info": {
         "table_name": [
-            "snippet2-1",
-            "snippet2-0"
+            "snippet2-0",
+            "snippet2-1"
         ],
         "filtering": [
             {
@@ -53,9 +53,10 @@
     "index_table_info": {},
     "sst_info": [],
     "result_info": {
-        "table_alias": "snippet2-5",
+        "table_alias": "snippet2-8",
         "column_alias": [
-            "n_nationkey"
+            "n_nationkey",
+            "n_name"
         ]
     }
 }
