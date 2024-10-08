@@ -133,7 +133,7 @@ message SnippetRequest {
   message SstInfo {
     message CSD {
       message Block {
-        int64 offset = 1;
+        repeated int64 offset = 1;
         repeated int32 length = 2;
       }
       string csd_id = 1;
