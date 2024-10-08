@@ -17,7 +17,7 @@
                         "n_nationkey"
                     ]
                 },
-                "operator": 5,
+                "operator": 4,
                 "rv": {
                     "type": [
                         10
@@ -101,7 +101,6 @@
         "table_alias": "snippet10-4",
         "column_alias": [
             "n_name",
-            "c_custkey",
             "c_custkey",
             "c_name",
             "c_acctbal",

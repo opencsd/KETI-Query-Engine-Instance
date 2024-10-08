@@ -4,8 +4,8 @@
     "work_id": 10,
     "query_info": {
         "table_name": [
-            "snippet9-9",
-            "snippet9-4"
+            "snippet9-5",
+            "snippet9-9"
         ],
         "filtering": [
             {
@@ -14,16 +14,16 @@
                         10
                     ],
                     "value": [
-                        "l_orderkey"
+                        "n_nationkey"
                     ]
                 },
-                "operator": 5,
+                "operator": 4,
                 "rv": {
                     "type": [
                         10
                     ],
                     "value": [
-                        "o_orderkey"
+                        "s_nationkey"
                     ]
                 }
             }
@@ -32,7 +32,7 @@
             {
                 "select_type": 0,
                 "value": [
-                    "nation"
+                    "o_year"
                 ],
                 "value_type": [
                     10
@@ -50,7 +50,7 @@
             {
                 "select_type": 0,
                 "value": [
-                    "o_year"
+                    "nation"
                 ],
                 "value_type": [
                     10
@@ -64,9 +64,9 @@
     "result_info": {
         "table_alias": "profit",
         "column_alias": [
-            "nation",
+            "o_year",
             "amount",
-            "o_year"
+            "nation"
         ]
     }
 }

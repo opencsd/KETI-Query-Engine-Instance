@@ -1,0 +1,72 @@
+{
+    "type": 5,
+    "query_id": 8,
+    "work_id": 14,
+    "query_info": {
+        "table_name": [
+            "snippet8-5",
+            "snippet8-13"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "p_partkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_partkey"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "o_year"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "nation"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "volume"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "all_nations",
+        "column_alias": [
+            "o_year",
+            "nation",
+            "volume"
+        ]
+    }
+}

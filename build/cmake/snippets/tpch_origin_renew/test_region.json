@@ -1,58 +1,81 @@
 {
   "type": 0,
-  "query_id": 0,
+  "query_id": 5,
   "work_id": 0,
   "query_info": {
-    "table_name": [
-      "region"
-    ],
-    "filtering": [],
-    "projection": [],
-    "group_by": [
-      "o_orderpriority"
-    ],
-    "order_by": {
-      "ascending": [
-        0
+      "table_name": [
+          "region"
       ],
-      "column_name": [
-        "o_orderpriority"
+      "filtering": [],
+      "projection": [
+          {
+              "select_type": 0,
+              "value": [
+                  "r_regionkey"
+              ],
+              "value_type": [
+                  10
+              ]
+          }
       ]
-    },
-    "limit": {
-      "offset": 0,
-      "length": 200
-    }
   },
-  "schema_info": {},
+  "schema_info": {
+      "column_list": [
+          {
+              "name": "r_regionkey",
+              "type": 3,
+              "length": 4,
+              "primary": false,
+              "index": false,
+              "nullable": false
+          },
+          {
+              "name": "r_name",
+              "type": 254,
+              "length": 25,
+              "primary": false,
+              "index": false,
+              "nullable": false
+          },
+          {
+              "name": "r_comment",
+              "type": 15,
+              "length": 152,
+              "primary": false,
+              "index": false,
+              "nullable": false
+          }
+      ],
+      "table_index_number": 299
+  },
   "index_table_info": {},
   "sst_info": [
-    {
-      "sst_name": "012631.sst",
-      "csd": [
-        {
-          "csd_id": "4",
-          "partition": "/dev/ngd-blk3",
-          "block": [
-            {
-              "offset": 86050557952,
-              "length": 677
-            }
+      {
+          "sst_name": "002005.sst",
+          "csd": [
+              {
+                  "csd_id": "1",
+                  "partition": "/dev/ngd-blk3",
+                  "block": [
+                      {
+                          "offset": [150510985216],
+                          "length": [566]
+                      }
+                  ]
+              }
           ]
-        }
-      ]
-    }
+      }
   ],
   "wal_info": {
-    "deleted_key": [],
-    "inserted_key": [],
-    "inserted_value": []
+      "deleted_key": [],
+      "inserted_key": [],
+      "inserted_value": []
   },
   "result_info": {
-    "table_alias": "snippet0-0",
-    "column_alias": [
-      "r_regionkey"
-    ],
-    "total_block_count":1
+      "table_alias": "snippet5-0",
+      "column_alias": [
+          "r_regionkey"
+      ],
+      "total_block_count": 1
   }
 }

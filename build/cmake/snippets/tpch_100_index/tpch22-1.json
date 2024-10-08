@@ -1,0 +1,31 @@
+{
+    "type": 3,
+    "query_id": 22,
+    "work_id": 1,
+    "query_info": {
+        "table_name": [
+            "snippet22-0"
+        ],
+        "filtering": [],
+        "projection": [
+            {
+                "select_type": 2,
+                "value": [
+                    "c_acctbal"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet22-1",
+        "column_alias": [
+            "avg(c_acctbal)"
+        ]
+    }
+}

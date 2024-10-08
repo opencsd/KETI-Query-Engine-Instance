@@ -1,0 +1,142 @@
+{
+  "type": 0,
+  "query_id": 3,
+  "work_id": 1,
+  "query_info": {
+    "table_name": [
+      "orders"
+    ],
+    "filtering": [],
+    "projection": [
+      {
+        "select_type": 0,
+        "value": [
+          "o_orderdate"
+        ],
+        "value_type": [
+          10
+        ]
+      },
+      {
+        "select_type": 0,
+        "value": [
+          "o_orderkey"
+        ],
+        "value_type": [
+          10
+        ]
+      },
+      {
+        "select_type": 0,
+        "value": [
+          "o_shippriority"
+        ],
+        "value_type": [
+          10
+        ]
+      },
+      {
+        "select_type": 0,
+        "value": [
+          "o_custkey"
+        ],
+        "value_type": [
+          10
+        ]
+      }
+    ]
+  },
+  "schema_info": {
+    "column_list": [
+      {
+        "name": "o_orderkey",
+        "type": 3,
+        "length": 4,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "o_custkey",
+        "type": 3,
+        "length": 4,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "o_orderstatus",
+        "type": 254,
+        "length": 1,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "o_totalprice",
+        "type": 246,
+        "length": 7,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "o_orderdate",
+        "type": 14,
+        "length": 3,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "o_orderpriority",
+        "type": 254,
+        "length": 15,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "o_clerk",
+        "type": 254,
+        "length": 15,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "o_shippriority",
+        "type": 3,
+        "length": 4,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "o_comment",
+        "type": 15,
+        "length": 79,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      }
+    ],
+    "table_index_number": 278
+  },
+  "index_table_info": {},
+  "wal_info": {
+    "deleted_key": [],
+    "inserted_key": [],
+    "inserted_value": []
+  },
+  "result_info": {
+    "table_alias": "snippet3-1",
+    "column_alias": [
+      "o_orderdate",
+      "o_orderkey",
+      "o_shippriority",
+      "o_custkey"
+    ],
+    "total_block_count": 4732506
+  }
+}

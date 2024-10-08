@@ -36,33 +36,32 @@ message SnippetRequest {
     INT32 = 2; //DEFAULT
     INT64 = 3;
     FLOAT32 = 4;
-    FLOAT64 = 5;
-    NUMERIC = 6;
+    DOUBLE = 5;
+    DECIMAL = 6;
     DATE = 7;
     TIMESTAMP = 8;
     STRING = 9;
     COLUMN = 10;
     OPERATOR = 11; //value string으로 연산자 확인
+    BOOLEAN = 12;
   }
   message Filter {
     enum OperType {
-      KETI_DEFAULT = 0; //DEFAULT
-      KETI_GE = 1;
-      KETI_LE = 2;
-      KETI_GT = 3;
-      KETI_LT = 4;
-      KETI_ET = 5;
-      KETI_NE = 6;
-      KETI_LIKE = 7;
-      KETI_BETWEEN = 8;
-      KETI_IN = 9;
-      KETI_IS = 10;
-      KETI_ISNOT = 11;
-      KETI_NOT = 12;
-      KETI_AND = 13;
-      KETI_OR = 14;
-      KETI_ALL = 15;
-      KETI_SUBSTRING = 16;
+      GE = 0;
+      LE = 1;
+      GT = 2;
+      LT = 3;
+      EQ = 4;
+      NE = 5;
+      LIKE = 6;
+      NOTLIKE = 7;
+      BETWEEN = 8;
+      IN = 9;
+      NOTIN = 10;
+      IS = 11;
+      ISNOT = 12;
+      AND = 13;
+      OR = 14;
     }
     message FilterValue {
       repeated ValueType type = 1;

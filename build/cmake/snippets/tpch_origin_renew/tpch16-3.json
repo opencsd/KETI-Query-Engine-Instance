@@ -5,7 +5,7 @@
     "query_info": {
         "table_name": [
             "snippet16-1",
-            "snippet16-2"
+            "snippet16-0"
         ],
         "filtering": [
             {
@@ -17,7 +17,7 @@
                         "p_partkey"
                     ]
                 },
-                "operator": 5,
+                "operator": 4,
                 "rv": {
                     "type": [
                         10

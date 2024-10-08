@@ -1,0 +1,21 @@
+{
+    "type": 5,
+    "query_id": 7,
+    "work_id": 9,
+    "query_info": {
+        "table_name": [
+            "region"
+        ],
+        "filtering": [],
+        "projection": []
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet7-9",
+        "column_alias": [
+            ""
+        ]
+    }
+}

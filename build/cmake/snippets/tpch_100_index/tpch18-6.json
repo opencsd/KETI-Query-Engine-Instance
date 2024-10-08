@@ -1,0 +1,123 @@
+{
+    "type": 10,
+    "query_id": 18,
+    "work_id": 6,
+    "query_info": {
+        "table_name": [
+            "snippet18-5",
+            "snippet18-3"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "o_orderkey"
+                    ]
+                },
+                "operator": 9,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_orderkey"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "c_name"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "c_custkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "o_orderkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "o_orderdate"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "o_totalprice"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 1,
+                "value": [
+                    "l_quantity"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ],
+        "group_by": [
+            "c_name",
+            "c_custkey",
+            "o_orderkey",
+            "o_orderdate",
+            "o_totalprice"
+        ],
+        "order_by": {
+            "ascending": [
+                1,
+                0
+            ],
+            "column_name": [
+                "o_totalprice",
+                "o_orderdate"
+            ]
+        },
+        "limit": {
+            "offset": 0,
+            "length": 100
+        }
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "result18",
+        "column_alias": [
+            "c_name",
+            "c_custkey",
+            "o_orderkey",
+            "o_orderdate",
+            "o_totalprice",
+            "Sum(l_quantity)"
+        ]
+    }
+}

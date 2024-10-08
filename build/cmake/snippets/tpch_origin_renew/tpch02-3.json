@@ -19,7 +19,7 @@
                 "operator": 4,
                 "rv": {
                     "type": [
-                        3
+                        2
                     ],
                     "value": [
                         "30"
@@ -154,10 +154,10 @@
             "csd": [
                 {
                     "csd_id": "6",
-                    "partition": "/dev/nvme6n1p3",
+                    "partition": "/dev/ngd-blk3",
                     "block": [
                         {
-                            "offset": 150487965696,
+                            "offset": [150487965696],
                             "length": [
                                 3961,
                                 4044,
@@ -1065,10 +1065,10 @@
             "csd": [
                 {
                     "csd_id": "7",
-                    "partition": "/dev/nvme7n1p3",
+                    "partition": "/dev/ngd-blk3",
                     "block": [
                         {
-                            "offset": 146183569408,
+                            "offset": [146183569408],
                             "length": [
                                 4081,
                                 4045,
@@ -1976,10 +1976,10 @@
             "csd": [
                 {
                     "csd_id": "5",
-                    "partition": "/dev/nvme5n1p3",
+                    "partition": "/dev/ngd-blk3",
                     "block": [
                         {
-                            "offset": 109797830656,
+                            "offset": [109797830656],
                             "length": [
                                 3985,
                                 4065,
@@ -2887,10 +2887,10 @@
             "csd": [
                 {
                     "csd_id": "1",
-                    "partition": "/dev/nvme1n1p3",
+                    "partition": "/dev/ngd-blk3",
                     "block": [
                         {
-                            "offset": 150514270208,
+                            "offset": [150514270208],
                             "length": [
                                 4007,
                                 4012,
@@ -3797,10 +3797,10 @@
             "csd": [
                 {
                     "csd_id": "3",
-                    "partition": "/dev/nvme3n1p3",
+                    "partition": "/dev/ngd-blk3",
                     "block": [
                         {
-                            "offset": 90348990464,
+                            "offset": [90348990464],
                             "length": [
                                 4065,
                                 4051,
@@ -4708,10 +4708,10 @@
             "csd": [
                 {
                     "csd_id": "8",
-                    "partition": "/dev/nvme8n1p3",
+                    "partition": "/dev/ngd-blk3",
                     "block": [
                         {
-                            "offset": 109683625984,
+                            "offset": [109683625984],
                             "length": [
                                 4053,
                                 4055,
@@ -5619,10 +5619,10 @@
             "csd": [
                 {
                     "csd_id": "4",
-                    "partition": "/dev/nvme4n1p3",
+                    "partition": "/dev/ngd-blk3",
                     "block": [
                         {
-                            "offset": 86061051904,
+                            "offset": [86061051904],
                             "length": [
                                 4078,
                                 4081,
@@ -6530,10 +6530,10 @@
             "csd": [
                 {
                     "csd_id": "2",
-                    "partition": "/dev/nvme2n1p3",
+                    "partition": "/dev/ngd-blk3",
                     "block": [
                         {
-                            "offset": 193491476480,
+                            "offset": [193491476480],
                             "length": [
                                 4056,
                                 4006,

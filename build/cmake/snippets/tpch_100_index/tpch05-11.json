@@ -1,0 +1,52 @@
+{
+    "type": 3,
+    "query_id": 5,
+    "work_id": 11,
+    "query_info": {
+        "table_name": [
+            "snippet5-10"
+        ],
+        "filtering": [],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "n_name"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 1,
+                "value": [
+                    "revenue"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ],
+        "group_by": [
+            "n_name"
+        ],
+        "order_by": {
+            "ascending": [
+                1
+            ],
+            "column_name": [
+                "revenue"
+            ]
+        }
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "result5",
+        "column_alias": [
+            "n_name",
+            "revenue"
+        ]
+    }
+}

@@ -17,7 +17,7 @@
             "ps_suppkey"
           ]
         },
-        "operator": 5,
+        "operator": 4,
         "rv": {
           "type": [
             10
@@ -38,7 +38,7 @@
         ],
         "value_type": [
           10,
-          5,
+          4,
           11
         ]
       }

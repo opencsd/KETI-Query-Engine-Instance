@@ -1,0 +1,44 @@
+{
+    "type": 3,
+    "query_id": 15,
+    "work_id": 1,
+    "query_info": {
+        "table_name": [
+            "snippet15-0"
+        ],
+        "filtering": [],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "l_suppkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 1,
+                "value": [
+                    "snippet15-0-c1"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ],
+        "group_by": [
+            "l_suppkey"
+        ]
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "revenue0",
+        "column_alias": [
+            "supplier_no",
+            "total_revenue"
+        ]
+    }
+}

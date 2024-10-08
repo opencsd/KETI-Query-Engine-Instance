@@ -1,0 +1,72 @@
+{
+    "type": 10,
+    "query_id": 20,
+    "work_id": 5,
+    "query_info": {
+        "table_name": [
+            "snippet20-2",
+            "snippet20-1"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "ps_partkey"
+                    ]
+                },
+                "operator": 9,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "p_partkey"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "ps_suppkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "ps_partkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "ps_availqty"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet20-5",
+        "column_alias": [
+            "ps_suppkey",
+            "ps_partkey",
+            "ps_availqty"
+        ]
+    }
+}

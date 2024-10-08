@@ -17,7 +17,7 @@
                         "ps_supplycost"
                     ]
                 },
-                "operator": 5,
+                "operator": 4,
                 "rv": {}
             }
         ],
@@ -107,7 +107,7 @@
                     ]
                 }
             ],
-            "dependency_filtering": [
+            "dependency_filter": [
                 {
                     "lv": {
                         "type": [
@@ -117,7 +117,7 @@
                             "p_partkey"
                         ]
                     },
-                    "operator": 5,
+                    "operator": 4,
                     "rv": {
                         "type": [
                             10

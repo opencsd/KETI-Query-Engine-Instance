@@ -9,52 +9,43 @@
         ],
         "filtering": [
             {
+
                 "lv": {
-                    "type": [
-                        10
-                    ],
-                    "value": [
-                        "c_nationkey"
-                    ]
+                  "type": [10],
+                  "value": ["l_suppkey"]
                 },
-                "operator": 5,
-                "rv": {
-                    "type": [
-                        10
-                    ],
-                    "value": [
-                        "s_nationkey"
-                    ]
+                "operator" : 4, 
+                "rv" : {
+                    "type": [10],
+                    "value": ["s_suppkey"]
                 }
-            }
+              },
+              {
+                "operator" : 13
+              },
+              {
+        
+                "lv": {
+                  "type": [10],
+                  "value": ["c_nationkey"]
+                },
+                "operator" : 4, 
+                "rv" : {
+                    "type": [10],
+                    "value": ["s_nationkey"]
+                }
+              }     
         ],
         "projection": [
             {
-                "select_type": 0,
-                "value": [
-                    "n_name"
-                ],
-                "value_type": [
-                    10
-                ]
+                "selectType": 0,
+                "value": ["s_nationkey"],
+                "valueType": [10]
             },
             {
-                "select_type": 0,
-                "value": [
-                    "s_suppkey"
-                ],
-                "value_type": [
-                    10
-                ]
-            },
-            {
-                "select_type": 0,
-                "value": [
-                    "c_custkey"
-                ],
-                "value_type": [
-                    10
-                ]
+                "selectType": 0,
+                "value": ["revenue"],
+                "valueType": [10]
             }
         ]
     },
@@ -64,9 +55,8 @@
     "result_info": {
         "table_alias": "snippet5-8",
         "column_alias": [
-            "n_name",
-            "s_suppkey",
-            "c_custkey"
+            "s_nationkey",
+            "revenue"
         ]
     }
 }

@@ -1,0 +1,82 @@
+{
+    "type": 5,
+    "query_id": 8,
+    "work_id": 13,
+    "query_info": {
+        "table_name": [
+            "snippet8-11",
+            "snippet8-12"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_orderkey"
+                    ]
+                },
+                "operator": 5,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "o_orderkey"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "o_year"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "nation"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "volume"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_partkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet8-13",
+        "column_alias": [
+            "o_year",
+            "nation",
+            "volume",
+            "l_partkey"
+        ]
+    }
+}

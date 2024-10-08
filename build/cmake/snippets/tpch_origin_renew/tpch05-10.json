@@ -4,70 +4,32 @@
     "work_id": 10,
     "query_info": {
         "table_name": [
-            "snippet5-5",
-            "snippet5-9"
+            "snippet5-9",
+            "snippet5-5"
         ],
         "filtering": [
             {
                 "lv": {
-                    "type": [
-                        10
-                    ],
-                    "value": [
-                        "l_orderkey"
-                    ]
+                    "type": [10],
+                    "value": ["n_regionkey"]
                 },
-                "operator": 5,
-                "rv": {
-                    "type": [
-                        10
-                    ],
-                    "value": [
-                        "o_orderkey"
-                    ]
-                }
-            },
-            {
-                "operator": 13
-            },
-            {
-                "lv": {
-                    "type": [
-                        10
-                    ],
-                    "value": [
-                        "l_suppkey"
-                    ]
-                },
-                "operator": 5,
-                "rv": {
-                    "type": [
-                        10
-                    ],
-                    "value": [
-                        "s_suppkey"
-                    ]
+                "operator" : 4, 
+                "rv" : {
+                    "type": [10],
+                    "value": ["r_regionkey"]
                 }
             }
         ],
         "projection": [
             {
-                "select_type": 0,
-                "value": [
-                    "n_name"
-                ],
-                "value_type": [
-                    10
-                ]
+                "selectType": 0,
+                "value": ["n_name"],
+                "valueType": [10]
             },
             {
-                "select_type": 1,
-                "value": [
-                    "revenue"
-                ],
-                "value_type": [
-                    10
-                ]
+                "selectType": 1,
+                "value": ["revenue"],
+                "valueType": [10]
             }
         ],
         "group_by": [

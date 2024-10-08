@@ -89,10 +89,10 @@
             "csd": [
                 {
                     "csd_id": "3",
-                    "partition": "/dev/nvme3n1p3",
+                    "partition": "/dev/ngd-blk3",
                     "block": [
                         {
-                            "offset": 3749707776,
+                            "offset": [3749707776],
                             "length": [
                                 3958,
                                 3979,
@@ -2194,7 +2194,7 @@
                             ]
                         },
                         {
-                            "offset": 3763246615,
+                            "offset": [3763246615],
                             "length": [
                                 4012,
                                 3954,
@@ -4052,10 +4052,10 @@
             "csd": [
                 {
                     "csd_id": "2",
-                    "partition": "/dev/nvme2n1p3",
+                    "partition": "/dev/ngd-blk3",
                     "block": [
                         {
-                            "offset": 3212836864,
+                            "offset": [3212836864],
                             "length": [
                                 4055,
                                 3977,
@@ -8009,10 +8009,10 @@
             "csd": [
                 {
                     "csd_id": "4",
-                    "partition": "/dev/nvme4n1p3",
+                    "partition": "/dev/ngd-blk3",
                     "block": [
                         {
-                            "offset": 3481272320,
+                            "offset": [3481272320],
                             "length": [
                                 4028,
                                 4036,
@@ -10113,7 +10113,7 @@
                             ]
                         },
                         {
-                            "offset": 3494797067,
+                            "offset": [3494797067],
                             "length": [
                                 4080,
                                 4060,
@@ -11971,10 +11971,10 @@
             "csd": [
                 {
                     "csd_id": "1",
-                    "partition": "/dev/nvme1n1p3",
+                    "partition": "/dev/ngd-blk3",
                     "block": [
                         {
-                            "offset": 2407530496,
+                            "offset": [2407530496],
                             "length": [
                                 3978,
                                 3920,
@@ -15926,10 +15926,10 @@
             "csd": [
                 {
                     "csd_id": "8",
-                    "partition": "/dev/nvme8n1p3",
+                    "partition": "/dev/ngd-blk3",
                     "block": [
                         {
-                            "offset": 3347054592,
+                            "offset": [3347054592],
                             "length": [
                                 3896,
                                 3909,
@@ -18030,7 +18030,7 @@
                             ]
                         },
                         {
-                            "offset": 3359746563,
+                            "offset": [3359746563],
                             "length": [
                                 3980,
                                 4001,
@@ -19887,10 +19887,10 @@
             "csd": [
                 {
                     "csd_id": "5",
-                    "partition": "/dev/nvme5n1p3",
+                    "partition": "/dev/ngd-blk3",
                     "block": [
                         {
-                            "offset": 1602224128,
+                            "offset": [1602224128],
                             "length": [
                                 4033,
                                 4086,
@@ -23842,10 +23842,10 @@
             "csd": [
                 {
                     "csd_id": "7",
-                    "partition": "/dev/nvme7n1p3",
+                    "partition": "/dev/ngd-blk3",
                     "block": [
                         {
-                            "offset": 3347054592,
+                            "offset": [3347054592],
                             "length": [
                                 3970,
                                 4042,
@@ -25946,7 +25946,7 @@
                             ]
                         },
                         {
-                            "offset": 3359746968,
+                            "offset": [3359746968],
                             "length": [
                                 4037,
                                 3948,
@@ -27807,10 +27807,10 @@
             "csd": [
                 {
                     "csd_id": "6",
-                    "partition": "/dev/nvme6n1p3",
+                    "partition": "/dev/ngd-blk3",
                     "block": [
                         {
-                            "offset": 3078619136,
+                            "offset": [3078619136],
                             "length": [
                                 3912,
                                 3908,

@@ -1,0 +1,100 @@
+{
+  "type": 0,
+  "query_id": 2,
+  "work_id": 4,
+  "query_info": {
+    "table_name": [
+      "partsupp"
+    ],
+    "filtering": [],
+    "projection": [
+      {
+        "select_type": 0,
+        "value": [
+          "ps_partkey"
+        ],
+        "value_type": [
+          10
+        ]
+      },
+      {
+        "select_type": 0,
+        "value": [
+          "ps_suppkey"
+        ],
+        "value_type": [
+          10
+        ]
+      },
+      {
+        "select_type": 0,
+        "value": [
+          "ps_supplycost"
+        ],
+        "value_type": [
+          10
+        ]
+      }
+    ]
+  },
+  "schema_info": {
+    "column_list": [
+      {
+        "name": "ps_partkey",
+        "type": 3,
+        "length": 4,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "ps_suppkey",
+        "type": 3,
+        "length": 4,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "ps_availqty",
+        "type": 3,
+        "length": 4,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "ps_supplycost",
+        "type": 246,
+        "length": 7,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "ps_comment",
+        "type": 15,
+        "length": 199,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      }
+    ],
+    "table_index_number": 280
+  },
+  "index_table_info": {},
+  "wal_info": {
+    "deleted_key": [],
+    "inserted_key": [],
+    "inserted_value": []
+  },
+  "result_info": {
+    "table_alias": "snippet2-4",
+    "column_alias": [
+      "ps_partkey",
+      "ps_suppkey",
+      "ps_supplycost"
+    ],
+    "total_block_count": 3623535
+  }
+}

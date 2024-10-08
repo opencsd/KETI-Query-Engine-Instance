@@ -81,11 +81,11 @@
       "csd": [
         {
           "csd_id": "1",
-          "partition": "/dev/nvme1n1p3",
+          "partition": "/dev/ngd-blk3",
           "block": [
             {
-              "offset": 150514262016,
-              "length": 3053
+              "offset": [150514262016],
+              "length": [3053]
             }
           ]
         }

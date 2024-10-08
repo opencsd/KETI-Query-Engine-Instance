@@ -17,7 +17,7 @@
                         "l_orderkey"
                     ]
                 },
-                "operator": 5,
+                "operator": 4,
                 "rv": {
                     "type": [
                         10
@@ -82,7 +82,7 @@
             ]
         },
         "limit": {
-            "offset": 1,
+            "offset": 0,
             "length": 10
         }
     },

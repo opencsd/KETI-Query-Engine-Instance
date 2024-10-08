@@ -4,7 +4,7 @@
     "work_id": 13,
     "query_info": {
         "table_name": [
-            "snippet8-11",
+            "snippet8-7",
             "snippet8-12"
         ],
         "filtering": [
@@ -14,16 +14,16 @@
                         10
                     ],
                     "value": [
-                        "l_orderkey"
+                        "r_regionkey"
                     ]
                 },
-                "operator": 5,
+                "operator": 4,
                 "rv": {
                     "type": [
                         10
                     ],
                     "value": [
-                        "o_orderkey"
+                        "n1.n_regionkey"
                     ]
                 }
             }
@@ -41,15 +41,6 @@
             {
                 "select_type": 0,
                 "value": [
-                    "nation"
-                ],
-                "value_type": [
-                    10
-                ]
-            },
-            {
-                "select_type": 0,
-                "value": [
                     "volume"
                 ],
                 "value_type": [
@@ -59,7 +50,7 @@
             {
                 "select_type": 0,
                 "value": [
-                    "l_partkey"
+                    "s_nationkey"
                 ],
                 "value_type": [
                     10
@@ -74,9 +65,8 @@
         "table_alias": "snippet8-13",
         "column_alias": [
             "o_year",
-            "nation",
             "volume",
-            "l_partkey"
+            "s_nationkey"
         ]
     }
 }

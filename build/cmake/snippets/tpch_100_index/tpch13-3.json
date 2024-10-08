@@ -1,0 +1,50 @@
+{
+    "type": 3,
+    "query_id": 13,
+    "work_id": 3,
+    "query_info": {
+        "table_name": [
+            "c_orders"
+        ],
+        "filtering": [],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "c_count"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 4,
+                "value": [],
+                "value_type": []
+            }
+        ],
+        "group_by": [
+            "c_count"
+        ],
+        "order_by": {
+            "ascending": [
+                1,
+                1
+            ],
+            "column_name": [
+                "custdist",
+                "c_count"
+            ]
+        }
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "result13",
+        "column_alias": [
+            "c_count",
+            "custdist"
+        ]
+    }
+}

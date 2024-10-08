@@ -17,7 +17,7 @@
                         "s_suppkey"
                     ]
                 },
-                "operator": 5,
+                "operator": 4,
                 "rv": {
                     "type": [
                         10

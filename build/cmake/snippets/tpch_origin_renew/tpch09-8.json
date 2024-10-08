@@ -4,7 +4,7 @@
     "work_id": 8,
     "query_info": {
         "table_name": [
-            "snippet9-3",
+            "snippet9-0",
             "snippet9-7"
         ],
         "filtering": [
@@ -14,32 +14,10 @@
                         10
                     ],
                     "value": [
-                        "ps_suppkey"
+                        "p_partkey"
                     ]
                 },
-                "operator": 5,
-                "rv": {
-                    "type": [
-                        10
-                    ],
-                    "value": [
-                        "l_suppkey"
-                    ]
-                }
-            },
-            {
-                "operator": 13
-            },
-            {
-                "lv": {
-                    "type": [
-                        10
-                    ],
-                    "value": [
-                        "ps_partkey"
-                    ]
-                },
-                "operator": 5,
+                "operator": 4,
                 "rv": {
                     "type": [
                         10
@@ -54,41 +32,7 @@
             {
                 "select_type": 0,
                 "value": [
-                    "nation"
-                ],
-                "value_type": [
-                    10
-                ]
-            },
-            {
-                "select_type": 0,
-                "value": [
-                    "l_extendedprice",
-                    "1",
-                    "l_discount",
-                    "-",
-                    "*",
-                    "ps_supplycost",
-                    "l_quantity",
-                    "*",
-                    "-"
-                ],
-                "value_type": [
-                    10,
-                    2,
-                    10,
-                    11,
-                    11,
-                    10,
-                    10,
-                    11,
-                    11
-                ]
-            },
-            {
-                "select_type": 0,
-                "value": [
-                    "l_partkey"
+                    "s_nationkey"
                 ],
                 "value_type": [
                     10
@@ -102,6 +46,15 @@
                 "value_type": [
                     10
                 ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "amount"
+                ],
+                "value_type": [
+                    10
+                ]
             }
         ]
     },
@@ -111,10 +64,9 @@
     "result_info": {
         "table_alias": "snippet9-8",
         "column_alias": [
-            "nation",
-            "amount",
-            "l_partkey",
-            "l_orderkey"
+            "s_nationkey",
+            "l_orderkey",
+            "amount"
         ]
     }
 }

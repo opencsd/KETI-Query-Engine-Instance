@@ -4,8 +4,8 @@
     "work_id": 7,
     "query_info": {
         "table_name": [
-            "snippet9-6",
-            "snippet9-5"
+            "snippet9-3",
+            "snippet9-6"
         ],
         "filtering": [
             {
@@ -14,10 +14,10 @@
                         10
                     ],
                     "value": [
-                        "s_suppkey"
+                        "ps_suppkey"
                     ]
                 },
-                "operator": 5,
+                "operator": 4,
                 "rv": {
                     "type": [
                         10
@@ -26,13 +26,35 @@
                         "l_suppkey"
                     ]
                 }
+            },
+            {
+                "operator" : 13
+            },
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "ps_partkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_partkey"
+                    ]
+                }
             }
         ],
         "projection": [
             {
                 "select_type": 0,
                 "value": [
-                    "nation"
+                    "s_nationkey"
                 ],
                 "value_type": [
                     10
@@ -41,25 +63,7 @@
             {
                 "select_type": 0,
                 "value": [
-                    "l_extendedprice"
-                ],
-                "value_type": [
-                    10
-                ]
-            },
-            {
-                "select_type": 0,
-                "value": [
-                    "l_discount"
-                ],
-                "value_type": [
-                    10
-                ]
-            },
-            {
-                "select_type": 0,
-                "value": [
-                    "l_quantity"
+                    "l_orderkey"
                 ],
                 "value_type": [
                     10
@@ -77,10 +81,26 @@
             {
                 "select_type": 0,
                 "value": [
-                    "l_orderkey"
+                    "l_extendedprice",
+                    "1",
+                    "l_discount",
+                    "-",
+                    "*",
+                    "ps_supplycost",
+                    "l_quantity",
+                    "*",
+                    "-"
                 ],
                 "value_type": [
-                    10
+                    10,
+                    2,
+                    10,
+                    11,
+                    11,
+                    10,
+                    10,
+                    11,
+                    11
                 ]
             }
         ]
@@ -91,12 +111,10 @@
     "result_info": {
         "table_alias": "snippet9-7",
         "column_alias": [
-            "nation",
-            "l_extendedprice",
-            "l_discount",
-            "l_quantity",
+            "s_nationkey",
+            "l_orderkey",
             "l_partkey",
-            "l_orderkey"
+            "amount"
         ]
     }
 }

@@ -1,0 +1,87 @@
+{
+  "type": 12,
+  "query_id": 17,
+  "work_id": 3,
+  "query_info": {
+    "table_name": [
+      "snippet17-2",
+      "snippet17-1"
+    ],
+    "filtering": [
+      {
+        "lv": {
+          "type": [
+            10
+          ],
+          "value": [
+            "l_quantity"
+          ]
+        },
+        "operator": 4,
+        "rv": {}
+      }
+    ],
+    "projection": [
+      {
+        "select_type": 1,
+        "value": [
+          "l_extendedprice",
+          "7.0",
+          "/"
+        ],
+        "value_type": [
+          10,
+          5,
+          11
+        ]
+      }
+    ],
+    "dependency": {
+      "dependency_projection": [
+        {
+          "select_type": 2,
+          "value": [
+            "0.2",
+            "l_quantity",
+            "*"
+          ],
+          "value_type": [
+            5,
+            10,
+            11
+          ]
+        }
+      ],
+      "dependency_filter": [
+        {
+          "lv": {
+            "type": [
+              10
+            ],
+            "value": [
+              "p_partkey"
+            ]
+          },
+          "operator": 5,
+          "rv": {
+            "type": [
+              10
+            ],
+            "value": [
+              "l_partkey"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "schema_info": {},
+  "index_table_info": {},
+  "sst_info": [],
+  "result_info": {
+    "table_alias": "result17",
+    "column_alias": [
+      "avg_yearly"
+    ]
+  }
+}

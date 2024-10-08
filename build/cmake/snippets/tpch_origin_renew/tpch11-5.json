@@ -4,8 +4,8 @@
     "work_id": 5,
     "query_info": {
         "table_name": [
-            "snippet11-2",
-            "snippet11-3"
+            "snippet11-0",
+            "snippet11-1"
         ],
         "filtering": [
             {
@@ -14,10 +14,10 @@
                         10
                     ],
                     "value": [
-                        "ps_suppkey"
+                        "n_nationkey"
                     ]
                 },
-                "operator": 5,
+                "operator": 4,
                 "rv": {
                     "type": [
                         10
@@ -32,26 +32,12 @@
             {
                 "select_type": 0,
                 "value": [
-                    "ps_partkey"
+                    "s_suppkey"
                 ],
                 "value_type": [
                     10
                 ]
-            },
-            {
-                "select_type": 1,
-                "value": [
-                    "snippet11-2-c1"
-                ],
-                "value_type": [
-                    10,
-                    5,
-                    11
-                ]
             }
-        ],
-        "group_by": [
-            "ps_partkey"
         ]
     },
     "schema_info": {},
@@ -60,8 +46,7 @@
     "result_info": {
         "table_alias": "snippet11-5",
         "column_alias": [
-            "ps_partkey",
-            "value"
+            "s_suppkey"
         ]
     }
 }

@@ -4,8 +4,8 @@
     "work_id": 6,
     "query_info": {
         "table_name": [
-            "snippet5-1",
-            "snippet5-0"
+            "snippet5-0",
+            "snippet5-1"
         ],
         "filtering": [
             {
@@ -14,39 +14,31 @@
                         10
                     ],
                     "value": [
-                        "n_regionkey"
+                        "c_custkey"
                     ]
                 },
-                "operator": 5,
+                "operator": 4,
                 "rv": {
                     "type": [
                         10
                     ],
                     "value": [
-                        "r_regionkey"
+                        "o_custkey"
                     ]
                 }
             }
         ],
         "projection": [
             {
-                "select_type": 0,
-                "value": [
-                    "n_name"
-                ],
-                "value_type": [
-                    10
-                ]
-            },
-            {
-                "select_type": 0,
-                "value": [
-                    "n_nationkey"
-                ],
-                "value_type": [
-                    10
-                ]
-            }
+                "selectType": 0,
+                "value": ["c_nationkey"],
+                "valueType": [10]
+              },
+              {
+                "selectType": 0,
+                "value": ["o_orderkey"],
+                "valueType": [10]
+              }
         ]
     },
     "schema_info": {},
@@ -55,8 +47,8 @@
     "result_info": {
         "table_alias": "snippet5-6",
         "column_alias": [
-            "n_name",
-            "n_nationkey"
+            "c_nationkey",
+            "o_orderkey"
         ]
     }
 }

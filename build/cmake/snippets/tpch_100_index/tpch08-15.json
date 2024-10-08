@@ -1,0 +1,72 @@
+{
+    "type": 3,
+    "query_id": 8,
+    "work_id": 15,
+    "query_info": {
+        "table_name": [
+            "all_nations"
+        ],
+        "filtering": [],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "o_year"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 1,
+                "value": [
+                    "CASE",
+                    "WHEN",
+                    "nation",
+                    "india",
+                    "LIKE",
+                    "THEN",
+                    "volume",
+                    "ELSE",
+                    "0",
+                    "END"
+                ],
+                "value_type": [
+                    11,
+                    11,
+                    10,
+                    9,
+                    11,
+                    11,
+                    10,
+                    11,
+                    2,
+                    11
+                ]
+            },
+            {
+                "select_type": 1,
+                "value": [
+                    "volume"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ],
+        "group_by": [
+            "o_year"
+        ]
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet8-15",
+        "column_alias": [
+            "o_year",
+            "snippet8-15-c1",
+            "snippet8-15-c2"
+        ]
+    }
+}

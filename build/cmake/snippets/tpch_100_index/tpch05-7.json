@@ -1,0 +1,72 @@
+{
+    "type": 5,
+    "query_id": 5,
+    "work_id": 7,
+    "query_info": {
+        "table_name": [
+            "snippet5-2",
+            "snippet5-6"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "s_nationkey"
+                    ]
+                },
+                "operator": 5,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "n_nationkey"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "n_name"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "s_suppkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "s_nationkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet5-7",
+        "column_alias": [
+            "n_name",
+            "s_suppkey",
+            "s_nationkey"
+        ]
+    }
+}

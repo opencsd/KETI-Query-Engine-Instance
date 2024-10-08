@@ -5,12 +5,9 @@
     "query_info": {
         "table_name": [
             "snippet16-3",
-            "snippet16-0"
+            "snippet16-2"
         ],
         "filtering": [
-            {
-                "operator": 12
-            },
             {
                 "lv": {
                     "type": [
@@ -20,7 +17,7 @@
                         "ps_suppkey"
                     ]
                 },
-                "operator": 9,
+                "operator": 10,
                 "rv": {
                     "type": [
                         10
