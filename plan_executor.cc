@@ -329,7 +329,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
 void read_json(std::string& request,std::string snippet_name){
     request = "";
-	std::ifstream openFile("../snippets/tpch_origin_renew/" + snippet_name + ".json");
+	std::ifstream openFile("../snippets/tpch_origin_pba/" + snippet_name + ".json");
 	if(openFile.is_open() ){
 		std::string line;
 		while(getline(openFile, line)){
