@@ -1,71 +1,72 @@
 {
-  "type" : 3,
-  "snippet":
-  {
-    "queryID":7,
-    "workID":9,
-    "tableName": ["ProcessTable7-1","ProcessTable7-8"],
-    "tableCol":[],
-    "tableFilter":[
-      {
-        "LV": {
-            "type": [10],
-            "value": ["s_suppkey"]
-        },
-        "Operator" : 5, 
-        "RV" : {
-            "type": [10],
-            "value": ["l_suppkey"]
-        }
-      } 
-    ],
-    "tableOffset":[],
-    "tableOfflen":[],
-    "tableDatatype":[],
-    "tableAlias": "ProcessTable7-9",
-    "columnAlias": [
-      "s_nationkey",
-      "volume",
-      "l_suppkey",
-      "l_orderkey"
-    ],
-    "columnProjection": [
-      {
-        "selectType": 0,
-        "value": [
-          "s_nationkey"
+    "type": 5,
+    "query_id": 8,
+    "work_id": 9,
+    "query_info": {
+        "table_name": [
+            "snippet8-1",
+            "snippet8-8"
         ],
-        "valueType": [
-          10
-        ]
-      },
-      {
-        "selectType": 0,
-        "value": [
-          "volume"
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "s_suppkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_suppkey"
+                    ]
+                }
+            }
         ],
-        "valueType": [
-          10
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "s_nationkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "volume"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_orderkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
         ]
-      },
-      {
-        "selectType": 0,
-        "value": [
-          "l_suppkey"
-        ],
-        "valueType": [
-          10
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet8-9",
+        "column_alias": [
+            "s_nationkey",
+            "volume",
+            "l_orderkey"
         ]
-      },
-      {
-        "selectType": 0,
-        "value": [
-          "l_orderkey"
-        ],
-        "valueType": [
-          10
-        ]
-      }
-    ]
-  }
+    }
 }

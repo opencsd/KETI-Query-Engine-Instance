@@ -1,0 +1,47 @@
+{
+    "type": 0,
+    "work_id": 4,
+    "query_info": {
+        "table_name": [
+            "nation"
+        ],
+        "filtering": [],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "n_nationkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "n_name"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "n_regionkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet5-4",
+        "column_alias": [
+            "n_nationkey",
+            "n_name",
+            "n_regionkey"
+        ]
+    }
+}

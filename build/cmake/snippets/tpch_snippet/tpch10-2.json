@@ -1,0 +1,79 @@
+{
+    "type": 0,
+        "work_id": 2,
+        "query_info": {
+            "table_name": [
+                "orders"
+            ],
+            "filtering": [
+                {
+                    "lv": {
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "o_orderdate"
+                        ]
+                    },
+                    "operator": 0,
+                    "rv": {
+                        "type": [
+                            7
+                        ],
+                        "value": [
+                            "1020673"
+                        ]
+                    }
+                },
+                {
+                    "operator": 13
+                },
+                {
+                    "lv": {
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "o_orderdate"
+                        ]
+                    },
+                    "operator": 3,
+                    "rv": {
+                        "type": [
+                            7
+                        ],
+                        "value": [
+                            "1020769"
+                        ]
+                    }
+                }
+            ],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": [
+                        "o_custkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "o_orderkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                }
+            ]
+        },
+        "result_info": {
+            "table_alias": "snippet10-2",
+            "column_alias": [
+                "o_custkey",
+                "o_orderkey"
+            ]
+        }
+    }

@@ -1,62 +1,99 @@
 {
-  "type" : 0,
-  "snippet":
-  {
-    "queryID":7,
-    "workID":5,
-    "tableName": ["nation"],
-    "tableCol":[
-      "n_nationkey",  
-      "n_name",
-      "n_regionkey",
-      "n_comment"
-    ],
-    "tableFilter":[],
-    "tableOffset":[
-      0,
-      4,
-      29,
-      33
-    ],
-    "tableOfflen":[
-      4,
-      25,
-      4,
-      152
-    ],
-    "tableDatatype":[
-      3,
-      254,
-      3,
-      15
-    ],
-    "tableAlias": "n1",
-    "columnAlias": [
-      "n1.n_regionkey",
-      "n1.n_nationkey"
-    ],
-    "columnProjection": [
-      {
-        "selectType": 0,
-        "value": [
-          "n_regionkey"
+    "type": 0,
+    "query_id": 8,
+    "work_id": 5,
+    "query_info": {
+        "table_name": [
+            "nation"
         ],
-        "valueType": [
-          10
+        "filtering": [],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "n_regionkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "n_nationkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
         ]
-      },
-      {
-        "selectType": 0,
-        "value": [
-          "n_nationkey"
-        ],
-        "valueType": [
-          10
-        ]
-      }
+    },
+    "schema_info": {
+        "column_list": [
+        {
+            "name": "n_nationkey",
+            "type": 3,
+            "length": 4, 
+            "primary" : false,
+            "index" : false,
+            "nullable" : false
+        },
+        {
+            "name": "n_name",
+            "type": 254,
+            "length": 25,
+            "primary" : false,
+            "index" : false,
+            "nullable" : false
+        },
+        {
+            "name": "n_regionkey",
+            "type": 3,
+            "length": 4,
+            "primary" : false,
+            "index" : false,
+            "nullable" : false
+        },
+        {
+            "name": "n_comment",
+            "type": 15,
+            "length": 152,
+            "primary" : false,
+            "index" : false,
+            "nullable" : false
+        }
     ],
-    "pkNum" : 0
-  },
-  "scanInfo":{"sstList":{"002064.sst":{"csdPbaMap":{"2":{"blockList":[{"offset":8731254784,"length":[3053]}]}},"sstBlockCount":1}},"tableBlockCount":1}
-
+    "table_index_number": 300
+    },
+    "index_table_info": {},
+    "sst_info": [
+        {
+            "sst_name": "002064.sst",
+            "csd": [
+                {
+                    "csd_id": "1",
+                    "partition": "/dev/ngd-blk3",
+                    "block": [
+                        {
+                            "offset": [150514262016],
+                            "length": [3053]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "wal_info": {
+        "deleted_key": [],
+        "inserted_key": [],
+        "inserted_value": []
+    },
+    "result_info": {
+        "table_alias": "n1",
+        "column_alias": [
+            "n1.n_regionkey",
+            "n1.n_nationkey"
+        ],
+        "total_block_count":1
+    }
 }

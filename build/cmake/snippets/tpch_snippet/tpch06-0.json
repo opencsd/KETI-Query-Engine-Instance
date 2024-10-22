@@ -1,0 +1,85 @@
+{
+    "type": 0,
+    "work_id": 0,
+    "query_info": {
+        "table_name": [
+            "lineitem"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [10],
+                    "value": ["l_shipdate"]
+                },
+                "operator": 0,
+                "rv": {
+                    "type": [7],
+                    "value": ["1020961"]
+                }
+            },
+            {
+                "operator": 13
+            },
+            {
+                "lv": {
+                    "type": [10],
+                    "value": ["l_shipdate"]
+                },
+                "operator": 3,
+                "rv": {
+                    "type": [7],
+                    "value": ["1021473"]
+                }
+            },
+            {
+                "operator": 13
+            },
+            {
+                "lv": {
+                    "type": [10],
+                    "value": ["l_discount"]
+                },
+                "operator": 8,
+                "rv": {
+                    "type": [6,6],
+                    "value": ["0.05","0.07"]
+                }
+            },
+            {
+                "operator": 13
+            },
+            {
+                "lv": {
+                    "type": [10],
+                    "value": ["l_quantity"]
+                },
+                "operator": 3,
+                "rv": {
+                    "type": [6],
+                    "value": ["24"]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "l_extendedprice",
+                    "l_discount",
+                    "*"
+                ],
+                "value_type": [
+                    10,
+                    10,
+                    11
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet6-0",
+        "column_alias": [
+            "revenue"
+        ]
+    }
+}

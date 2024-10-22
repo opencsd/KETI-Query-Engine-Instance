@@ -1,0 +1,37 @@
+{
+    "type": 0,
+        "work_id": 4,
+        "query_info": {
+            "table_name": [
+                "customer"
+            ],
+            "filtering": [],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": [
+                        "c_custkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "c_nationkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                }
+            ]
+        },
+        "result_info": {
+            "table_alias": "snippet8-4",
+            "column_alias": [
+                "c_custkey",
+                "c_nationkey"
+            ]
+        }
+    }

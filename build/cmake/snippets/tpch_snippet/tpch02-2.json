@@ -1,0 +1,87 @@
+{
+    "type": 0,
+    "work_id": 2,
+    "query_info": {
+        "table_name": [
+            "supplier"
+        ],
+        "filtering": [],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "s_suppkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "s_nationkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "s_acctbal"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "s_name"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "s_address"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "s_phone"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "s_comment"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet2-2",
+        "column_alias": [
+            "s_suppkey",
+            "s_nationkey",
+            "s_acctbal",
+            "s_name",
+            "s_address",
+            "s_phone",
+            "s_comment"
+        ]
+    }
+}

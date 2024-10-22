@@ -1,0 +1,47 @@
+{
+    "type": 0,
+        "work_id": 0,
+        "query_info": {
+            "table_name": [
+                "nation"
+            ],
+            "filtering": [
+                {
+                    "lv": {
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "n_name"
+                        ]
+                    },
+                    "operator": 4,
+                    "rv": {
+                        "type": [
+                            9
+                        ],
+                        "value": [
+                            "MOZAMBIQUE"
+                        ]
+                    }
+                }
+            ],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": [
+                        "n_nationkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                }
+            ]
+        },
+        "result_info": {
+            "table_alias": "snippet11-0",
+            "column_alias": [
+                "n_nationkey"
+            ]
+        }
+    }

@@ -1,0 +1,47 @@
+{
+    "type": 0,
+    "work_id": 1,
+    "query_info": {
+        "table_name": [
+            "lineitem"
+        ],
+        "filtering": [],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "l_extendedprice"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_partkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_quantity"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet17-1",
+        "column_alias": [
+            "l_extendedprice",
+            "l_partkey",
+            "l_quantity"
+        ]
+    }
+}

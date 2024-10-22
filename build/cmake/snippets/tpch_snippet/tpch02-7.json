@@ -1,0 +1,58 @@
+{
+    "type": 5,
+    "work_id": 7,
+    "query_info": {
+        "table_name": [
+            "snippet2-6",
+            "snippet2-4"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "s_suppkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "ps_suppkey"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "ps_partkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "ps_supplycost"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet2-7",
+        "column_alias": [
+            "ps_partkey",
+            "ps_supplycost"
+        ]
+    }
+}

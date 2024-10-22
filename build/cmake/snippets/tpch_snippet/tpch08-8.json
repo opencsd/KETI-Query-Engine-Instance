@@ -1,0 +1,68 @@
+{
+    "type": 5,
+    "work_id": 8,
+    "query_info": {
+        "table_name": [
+            "snippet8-0",
+            "snippet8-2"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "p_partkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_partkey"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "volume"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_suppkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_orderkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet8-8",
+        "column_alias": [
+            "volume",
+            "l_suppkey",
+            "l_orderkey"
+        ]
+    }
+}

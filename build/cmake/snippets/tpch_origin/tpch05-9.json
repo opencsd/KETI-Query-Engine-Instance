@@ -1,50 +1,52 @@
 {
-  "type" : 3,
-  "snippet":
-  {
-    "queryID":4,
-    "workID":9,
-    "tableName": ["ProcessTable4-8", "ProcessTable4-4"],
-    "tableCol":[],
-    "tableFilter":[
-      {
-        "LV": {
-          "type": [10],
-          "value": ["s_nationkey"]
-        },
-        "Operator" : 5, 
-        "RV" : {
-          "type": [10],
-          "value": ["n_nationkey"]
-        }
-      }        
-    ],
-    "tableOffset":[],
-    "tableOfflen":[],
-    "tableDatatype":[],
-    "tableAlias": "ProcessTable4-9",
-    "columnAlias": [
-        "revenue",
-        "n_regionkey",
-        "n_name"
-      ],
-    "columnProjection": [
-      {
-        "selectType": 0,
-        "value": ["revenue"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["n_regionkey"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["n_name"],
-        "valueType": [10]
-      }
-    ]
-  }
-
+    "type": 5,
+    "query_id": 5,
+    "work_id": 9,
+    "query_info": {
+        "table_name": [
+            "snippet5-8",
+            "snippet5-4"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                  "type": [10],
+                  "value": ["s_nationkey"]
+                },
+                "operator" : 4, 
+                "rv" : {
+                  "type": [10],
+                  "value": ["n_nationkey"]
+                }
+              }        
+        ],
+        "projection": [
+            {
+                "selectType": 0,
+                "value": ["revenue"],
+                "valueType": [10]
+            },
+            {
+                "selectType": 0,
+                "value": ["n_regionkey"],
+                "valueType": [10]
+            },
+            {
+                "selectType": 0,
+                "value": ["n_name"],
+                "valueType": [10]
+            }
+        ]
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet5-9",
+        "column_alias": [
+           "revenue",
+            "n_regionkey",
+            "n_name"
+        ]
+    }
 }

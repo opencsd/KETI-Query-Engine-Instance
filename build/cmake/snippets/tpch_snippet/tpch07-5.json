@@ -1,0 +1,91 @@
+{
+    "type": 0,
+        "work_id": 5,
+        "query_info": {
+            "table_name": [
+                "lineitem"
+            ],
+            "filtering": [
+                {
+                    "lv": {
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "l_shipdate"
+                        ]
+                    },
+                    "operator": 8,
+                    "rv": {
+                        "type": [
+                            7,
+                            7
+                        ],
+                        "value": [
+                            "1021473",
+                            "1022367"
+                        ]
+                    }
+                }
+            ],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": [
+                        "l_suppkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "EXTRACT",
+                        "YEAR",
+                        "l_shipdate"
+                    ],
+                    "value_type": [
+                        11,
+                        11,
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "l_orderkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "l_extendedprice",
+                        "1",
+                        "l_discount",
+                        "-",
+                        "*"
+                    ],
+                    "value_type": [
+                        10,
+                        2,
+                        10,
+                        11,
+                        11
+                    ]
+                }
+            ]
+        },
+        "result_info": {
+            "table_alias": "snippet7-5",
+            "column_alias": [
+                "l_suppkey",
+                "l_year",
+                "l_orderkey",
+                "volume"
+            ]
+        }
+    }

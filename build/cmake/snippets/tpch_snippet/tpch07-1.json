@@ -1,0 +1,79 @@
+{
+    "type": 0,
+        "work_id": 1,
+        "query_info": {
+            "table_name": [
+                "nation"
+            ],
+            "filtering": [
+                {
+                    "lv": {
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "n_name"
+                        ]
+                    },
+                    "operator": 5,
+                    "rv": {
+                        "type": [
+                            9
+                        ],
+                        "value": [
+                            "JAPAN"
+                        ]
+                    }
+                },
+                {
+                    "operator": 14
+                },
+                {
+                    "lv": {
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "n_name"
+                        ]
+                    },
+                    "operator": 5,
+                    "rv": {
+                        "type": [
+                            9
+                        ],
+                        "value": [
+                            "INDIA"
+                        ]
+                    }
+                }
+            ],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": [
+                        "n_name"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "n_nationkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                }
+            ]
+        },
+        "result_info": {
+            "table_alias": "n2",
+            "column_alias": [
+                "n2.n_name",
+                "n2.n_nationkey"
+            ]
+        }
+    }

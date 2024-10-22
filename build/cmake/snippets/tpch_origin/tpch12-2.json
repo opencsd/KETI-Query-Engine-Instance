@@ -1,78 +1,83 @@
 {
-  "type": 3,
-  "snippet": {
-    "queryID": 11,
-    "workID": 2,
-    "tableName": [
-      "ProcessTable11-0",
-      "ProcessTable11-1"
-    ],
-    "tableCol": [ ],
-    "tableFilter": [
-      {
-        "LV": {
-          "type": [
-            10
-          ],
-          "value": [
-            "o_orderkey"
-          ]
-        },
-        "Operator": 5,
-        "RV": {
-          "type": [
-            10
-          ],
-          "value": [
-            "l_orderkey"
-          ]
+    "type": 5,
+    "query_id": 12,
+    "work_id": 2,
+    "query_info": {
+        "table_name": [
+            "snippet12-0",
+            "snippet12-1"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "o_orderkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_orderkey"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "l_shipmode"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 1,
+                "value": [
+                    "high_line_count"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 1,
+                "value": [
+                    "low_line_count"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ],
+        "group_by": [
+            "l_shipmode"
+        ],
+        "order_by": {
+            "ascending": [
+                0
+            ],
+            "column_name": [
+                "l_shipmode"
+            ]
         }
-      }
-    ],
-    "tableOffset": [ ],
-    "tableOfflen": [ ],
-    "tableDatatype": [ ],
-    "tableAlias": "ResultTable11",
-    "columnAlias": [
-      "l_shipmode",
-      "high_line_count",
-      "low_line_count"
-    ],
-    "columnProjection": [
-      {
-        "selectType": 0,
-        "value": [
-          "l_shipmode"
-        ],
-        "valueType": [
-          10
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "result12",
+        "column_alias": [
+            "l_shipmode",
+            "high_line_count",
+            "low_line_count"
         ]
-      },
-      {
-        "selectType": 1,
-        "value": [
-          "high_line_count"
-        ],
-        "valueType": [
-          10
-        ]
-      },
-      {
-        "selectType": 1,
-        "value": [
-          "low_line_count"
-        ],
-        "valueType": [
-          10
-        ]
-      }
-    ],
-    "groupBy": [
-	    "l_shipmode"
-    ],
-    "orderBy": {
-      "ascending" : [0],
-      "columnName" : ["l_shipmode"]
     }
-  }
 }

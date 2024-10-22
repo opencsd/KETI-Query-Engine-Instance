@@ -1,44 +1,57 @@
 {
-    "type" : 3,
-    "snippet":
-    {
-        "queryID":4,
-        "workID":10,
-        "tableName":["ProcessTable4-9", "ProcessTable4-5"],
-        "tableCol":[],
-        "tableFilter":[
+    "type": 5,
+    "query_id": 5,
+    "work_id": 10,
+    "query_info": {
+        "table_name": [
+            "snippet5-9",
+            "snippet5-5"
+        ],
+        "filtering": [
             {
-                "LV": {
+                "lv": {
                     "type": [10],
                     "value": ["n_regionkey"]
                 },
-                "Operator" : 5, 
-                "RV" : {
+                "operator" : 4, 
+                "rv" : {
                     "type": [10],
                     "value": ["r_regionkey"]
                 }
             }
         ],
-        "tableOffset":[],
-        "tableOfflen":[],
-        "tableDatatype":[],
-        "tableAlias": "ProcessTable4-10",
-        "columnAlias": [
-            "n_name",
-            "revenue"
-        ],
-        "columnProjection": [
+        "projection": [
             {
                 "selectType": 0,
                 "value": ["n_name"],
                 "valueType": [10]
             },
             {
-                "selectType": 0,
+                "selectType": 1,
                 "value": ["revenue"],
                 "valueType": [10]
             }
+        ],
+        "group_by": [
+            "n_name"
+        ],
+        "order_by": {
+            "ascending": [
+                1
+            ],
+            "column_name": [
+                "revenue"
+            ]
+        }
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "result5",
+        "column_alias": [
+            "n_name",
+            "revenue"
         ]
     }
-
 }

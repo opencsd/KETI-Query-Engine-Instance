@@ -1,0 +1,51 @@
+{
+    "type": 0,
+    "work_id": 2,
+    "query_info": {
+        "table_name": [
+            "partsupp"
+        ],
+        "filtering": [],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "ps_supplycost",
+                    "ps_availqty",
+                    "*"
+                ],
+                "value_type": [
+                    10,
+                    10,
+                    11
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "ps_suppkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "ps_partkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet11-2",
+        "column_alias": [
+            "snippet11-2-c1",
+            "ps_suppkey",
+            "ps_partkey"
+        ]
+    }
+}

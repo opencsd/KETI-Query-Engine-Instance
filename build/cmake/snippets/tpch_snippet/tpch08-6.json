@@ -1,0 +1,37 @@
+{
+    "type": 0,
+    "work_id": 6,
+    "query_info": {
+        "table_name": [
+            "nation"
+        ],
+        "filtering": [],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "n_name"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "n_nationkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "n2",
+        "column_alias": [
+            "n2.n_name",
+            "n2.n_nationkey"
+        ]
+    }
+}

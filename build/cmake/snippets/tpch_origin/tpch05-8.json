@@ -1,60 +1,62 @@
 {
-  "type" : 3,
-  "snippet":
-  {
-    "queryID":4,
-    "workID":8,
-    "tableName": ["ProcessTable4-7", "ProcessTable4-3"],
-    "tableCol":[],
-    "tableFilter":[
-      {
+    "type": 5,
+    "query_id": 5,
+    "work_id": 8,
+    "query_info": {
+        "table_name": [
+            "snippet5-7",
+            "snippet5-3"
+        ],
+        "filtering": [
+            {
 
-        "LV": {
-          "type": [10],
-          "value": ["l_suppkey"]
-        },
-        "Operator" : 5, 
-        "RV" : {
-            "type": [10],
-            "value": ["s_suppkey"]
-        }
-      },
-      {
-        "Operator" : 13
-      },
-      {
-
-        "LV": {
-          "type": [10],
-          "value": ["c_nationkey"]
-        },
-        "Operator" : 5, 
-        "RV" : {
-            "type": [10],
-            "value": ["s_nationkey"]
-        }
-      }             
-    ],
-    "tableOffset":[],
-    "tableOfflen":[],
-    "tableDatatype":[],
-    "tableAlias": "ProcessTable4-8",
-    "columnAlias": [
-        "s_nationkey",
-        "revenue"
-      ],
-    "columnProjection": [
-      {
-        "selectType": 0,
-        "value": ["s_nationkey"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["revenue"],
-        "valueType": [10]
-      }
-    ]
-  }
-
+                "lv": {
+                  "type": [10],
+                  "value": ["l_suppkey"]
+                },
+                "operator" : 4, 
+                "rv" : {
+                    "type": [10],
+                    "value": ["s_suppkey"]
+                }
+              },
+              {
+                "operator" : 13
+              },
+              {
+        
+                "lv": {
+                  "type": [10],
+                  "value": ["c_nationkey"]
+                },
+                "operator" : 4, 
+                "rv" : {
+                    "type": [10],
+                    "value": ["s_nationkey"]
+                }
+              }     
+        ],
+        "projection": [
+            {
+                "selectType": 0,
+                "value": ["s_nationkey"],
+                "valueType": [10]
+            },
+            {
+                "selectType": 0,
+                "value": ["revenue"],
+                "valueType": [10]
+            }
+        ]
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet5-8",
+        "column_alias": [
+            "s_nationkey",
+            "revenue"
+        ]
+    }
 }

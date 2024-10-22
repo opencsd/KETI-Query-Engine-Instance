@@ -1,7 +1,7 @@
 {
   "type": 0,
-  "query_id": 2,
-  "work_id": 1,
+  "query_id": 23,
+  "work_id": 0,
   "query_info": {
     "table_name": [
       "nation"
@@ -72,9 +72,20 @@
         "nullable": false
       }
     ],
-    "table_index_number": 300
+    "table_index_number": 1294
   },
   "index_table_info": {},
+  "sst_info": [
+    {
+      "sst_name": "046281.sst",
+      "csd": [
+        {
+          "csd_id": "1",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    }
+  ],
   "wal_info": {
     "deleted_key": [],
     "inserted_key": [],
@@ -86,7 +97,6 @@
       "n_nationkey",
       "n_regionkey",
       "n_name"
-    ],
-    "total_block_count": 1
+    ]
   }
 }

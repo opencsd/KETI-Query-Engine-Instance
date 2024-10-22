@@ -1,0 +1,41 @@
+{
+    "type": 0,
+        "work_id": 4,
+        "query_info": {
+            "table_name": [
+                "orders"
+            ],
+            "filtering": [],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": [
+                        "EXTRACT",
+                        "YEAR",
+                        "o_orderdate"
+                    ],
+                    "value_type": [
+                        11,
+                        11,
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "o_orderkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                }
+            ]
+        },
+        "result_info": {
+            "table_alias": "snippet9-4",
+            "column_alias": [
+                "o_year",
+                "o_orderkey"
+            ]
+        }
+    }

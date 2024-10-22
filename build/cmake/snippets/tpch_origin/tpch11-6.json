@@ -1,64 +1,65 @@
 {
-  "type": 3,
-  "snippet": {
-    "queryID": 10,
-    "workID": 6,
-    "tableName": [
-      "ProcessTable10-5",
-      "ProcessTable10-2"
-    ],
-    "tableCol": [ ],
-    "tableFilter": [
-      {
-        "LV": {
-          "type": [
-            10
-          ],
-          "value": [
-            "s_nationkey"
-          ]
-        },
-        "Operator": 5,
-        "RV": {
-          "type": [
-            10
-          ],
-          "value": [
-            "n_nationkey"
-          ]
-        }
-      }
-    ],
-    "tableOffset": [ ],
-    "tableOfflen": [ ],
-    "tableDatatype": [ ],
-    "tableAlias": "ProcessTable10-6",
-    "columnAlias": [
-      "ProcessTable10-6-c1",
-      "ps_partkey"
-    ],
-    "columnProjection": [
-      {
-        "selectType":1,
-        "value": [
-          "ProcessTable10-5-c1"
+    "type": 5,
+    "query_id": 11,
+    "work_id": 6,
+    "query_info": {
+        "table_name": [
+            "snippet11-2",
+            "snippet11-5"
         ],
-        "valueType": [
-          10
-        ]
-      },
-      {
-        "selectType": 0,
-        "value": [
-          "ps_partkey"
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "ps_suppkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "s_suppkey"
+                    ]
+                }
+            }
         ],
-        "valueType": [
-          10
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "ps_partkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 1,
+                "value": [
+                    "snippet11-2-c1"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ],
+        "group_by": [
+            "ps_partkey"
         ]
-      }
-    ],
-    "groupBy": [ 
-        "ps_partkey"
-    ]
-  }
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet11-6",
+        "column_alias": [
+            "ps_partkey",
+            "value"
+        ]
+    }
 }

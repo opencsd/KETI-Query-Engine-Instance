@@ -1,0 +1,27 @@
+{
+  "type": 0,
+      "work_id": 1,
+      "query_info": {
+          "table_name": [
+              "customer"
+          ],
+          "filtering": [],
+          "projection": [
+              {
+                  "select_type": 0,
+                  "value": [
+                      "c_custkey"
+                  ],
+                  "value_type": [
+                      10
+                  ]
+              }
+          ]
+      },
+      "result_info": {
+          "table_alias": "snippet13-1",
+          "column_alias": [
+              "c_custkey"
+          ]
+      }
+  }

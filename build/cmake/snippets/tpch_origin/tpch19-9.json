@@ -1,30 +1,57 @@
 {
-  "type": 7,
-  "snippet": {
-    "queryID": 18,
-    "workID": 9,
-    "tableName": [
-      "ProcessTable19-2", "ProcessTable19-5"
+    "type": 0,
+    "query_id": 0,
+    "work_id": 0,
+    "query_info": {
+        "table_name": [
+            "region"
+        ],
+        "filtering": [],
+        "projection": [],
+        "group_by": [
+            "o_orderpriority"
+        ],
+        "order_by": {
+            "ascending": [
+                0
+            ],
+            "column_name": [
+                "o_orderpriority"
+            ]
+        },
+        "limit": {
+            "offset": 0,
+            "length": 200
+        }
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [
+        {
+            "sst_name": "012631.sst",
+            "csd": [
+                {
+                    "csd_id": "4",
+                    "partition": "/dev/ngd-blk3",
+                    "block": [
+                        {
+                            "offset": 86050557952,
+                            "length": 677
+                        }
+                    ]
+                }
+            ]
+        }
     ],
-    "tableCol": [],
-    "tableFilter": [
-      {
-        "Operator": 15
-      }
-    ],
-    "tableOffset": [],
-    "tableOfflen": [],
-    "tableDatatype": [],
-    "tableAlias": "ProcessTable19-9",
-    "columnAlias": [
-      "revenue"
-    ],
-    "columnProjection": [
-      {
-          "selectType": 0,
-          "value": ["revenue"],
-          "valueType": [10]
-      }
-    ]
-  }
+    "wal_info": {
+        "deleted_key": [],
+        "inserted_key": [],
+        "inserted_value": []
+    },
+    "result_info": {
+        "table_alias": "snippet0-0",
+        "column_alias": [
+            "r_regionkey"
+        ]
+    }
 }

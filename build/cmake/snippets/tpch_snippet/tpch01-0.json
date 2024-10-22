@@ -1,0 +1,151 @@
+{
+    "type": 0,
+    "work_id": 0,
+    "query_info": {
+        "table_name": [
+            "lineitem"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_shipdate"
+                    ]
+                },
+                "operator": 1,
+                "rv": {
+                    "type": [
+                        7
+                    ],
+                    "value": [
+                        "1023247"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "l_returnflag"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_linestatus"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_quantity"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_extendedprice"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_extendedprice",
+                    "1",
+                    "l_discount",
+                    "-",
+                    "*"
+                ],
+                "value_type": [
+                    10,
+                    2,
+                    10,
+                    11,
+                    11
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_extendedprice",
+                    "1",
+                    "l_discount",
+                    "-",
+                    "*",
+                    "1",
+                    "l_tax",
+                    "+",
+                    "*"
+                ],
+                "value_type": [
+                    10,
+                    2,
+                    10,
+                    11,
+                    11,
+                    2,
+                    10,
+                    11,
+                    11
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_quantity"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_extendedprice"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_discount"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet1-0",
+        "column_alias": [
+            "l_returnflag",
+            "l_linestatus",
+            "sum_qty",
+            "sum_base_price",
+            "sum_disc_price",
+            "sum_charge",
+            "avg_qty",
+            "avg_price",
+            "avg_disc"
+        ]
+    }
+}

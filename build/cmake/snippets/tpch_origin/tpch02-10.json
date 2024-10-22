@@ -1,85 +1,122 @@
 {
-  "type" : 3,
-  "snippet":
-  {
-    "queryID":1,
-    "workID":10,
-    "tableName": ["ProcessTable1-3","ProcessTable1-9"],
-    "tableCol":[],
-    "tableFilter":[
-      {
-        "LV": {
-          "type": [10],
-          "value": ["r_regionkey"]
-      },
-      "Operator" : 5, 
-      "RV" : {
-          "type": [10],
-          "value": ["n_regionkey"]
-        }
-      }
-    ],
-    "tableOffset":[],
-    "tableOfflen":[],
-    "tableDatatype":[],
-    "tableAlias": "ProcessTable1-10",
-    "columnAlias": [
-      "s_acctbal",
-      "s_name",
-      "s_address",
-      "s_phone",
-      "s_comment",
-      "ps_partkey", 
-      "ps_supplycost",
-      "n_regionkey",
-      "n_name"
-    ],
-    "columnProjection": [
-      {
-        "selectType": 0,
-        "value": ["s_acctbal"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["s_name"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["s_address"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["s_phone"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["s_comment"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["ps_partkey"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["ps_supplycost"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["n_regionkey"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["n_name"],
-        "valueType": [10]
-      }
-    ]
-  }
+    "type": 5,
+    "query_id": 2,
+    "work_id": 10,
+    "query_info": {
+        "table_name": [
+            "snippet2-9",
+            "snippet2-4"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "s_suppkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "ps_suppkey"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "s_acctbal"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "s_name"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "s_address"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "s_phone"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "s_comment"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "ps_partkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "ps_supplycost"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "n_name"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet2-10",
+        "column_alias": [
+            "s_acctbal",
+            "s_name",
+            "s_address",
+            "s_phone",
+            "s_comment",
+            "ps_partkey",
+            "ps_supplycost",
+            "n_name"
+        ]
+    }
 }

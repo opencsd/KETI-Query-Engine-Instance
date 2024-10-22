@@ -1,0 +1,105 @@
+{
+    "type": 0,
+        "work_id": 1,
+        "query_info": {
+            "table_name": [
+                "lineitem"
+            ],
+            "filtering": [
+                {
+                    "lv": {
+                        "type": [10],
+                        "value": ["l_shipmode"]
+                    },
+                    "operator": 9, 
+                    "rv": {
+                        "type": [9,9],
+                        "value": ["RAIL","FOB"]
+                    }
+                },
+                {
+                    "operator" : 13
+                },
+                {
+                    "lv": {
+                        "type": [10],
+                        "value": ["l_commitdate"]
+                    },
+                    "operator": 3,
+                    "rv": {
+                        "type": [10],
+                        "value": ["l_receiptdate"]
+                    }
+                },
+                {
+                    "operator" : 13
+                },
+                {
+                    "lv": {
+                        "type": [10],
+                        "value": ["l_shipdate"]
+                    },
+                    "operator": 3,
+                    "rv": {
+                        "type": [10],
+                        "value": ["l_commitdate"]
+                    }
+                },
+                {
+                    "operator" : 13
+                },
+                {
+                    "lv": {
+                        "type": [10],
+                        "value": ["l_receiptdate"]
+                    },
+                    "operator": 0, 
+                    "rv": {
+                        "type": [7],
+                        "value": ["1022497"]
+                    }
+                },
+                {
+                    "operator" : 13
+                },
+                {
+                    "lv": {
+                        "type": [10],
+                        "value": ["l_receiptdate"]
+                    },
+                    "operator": 3,
+                    "rv": {
+                        "type": [7],
+                        "value": ["1023009"]
+                    }
+                }
+            ],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": [
+                        "l_orderkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "l_shipmode"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                }
+            ]
+        },
+        "result_info": {
+            "table_alias": "snippet12-1",
+            "column_alias": [
+                "l_orderkey",
+                "l_shipmode"
+            ]
+        }
+    }

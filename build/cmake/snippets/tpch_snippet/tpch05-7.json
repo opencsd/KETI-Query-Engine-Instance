@@ -1,0 +1,48 @@
+{
+    "type": 5,
+    "work_id": 7,
+    "query_info": {
+        "table_name": [
+            "snippet5-6",
+            "snippet5-2"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [10],
+                    "value": ["o_orderkey"]
+                },
+                "operator" : 4, 
+                "rv" : {
+                    "type": [10],
+                    "value": ["l_orderkey"]
+                }
+              }   
+        ],
+        "projection": [
+            {
+                "selectType": 0,
+                "value": ["l_suppkey"],
+                "valueType": [10]
+              },
+              {
+                "selectType": 0,
+                "value": ["revenue"],
+                "valueType": [10]
+              },
+              {
+                "selectType": 0,
+                "value": ["c_nationkey"],
+                "valueType": [10]
+              }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet5-7",
+        "column_alias": [
+            "l_suppkey",
+            "revenue",
+            "c_nationkey"
+        ]
+    }
+}

@@ -1,51 +1,56 @@
 {
-  "type": 3,
-  "snippet": {
-    "queryID": 10,
-    "workID": 4,
-    "tableName": [
-      "ProcessTable10-2",
-      "ProcessTable10-3"
+  "type": 5,
+  "query_id": 11,
+  "work_id": 4,
+  "query_info": {
+    "table_name": [
+      "snippet11-2",
+      "snippet11-3"
     ],
-    "tableCol": [ ],
-    "tableFilter": [
+    "filtering": [
       {
-        "LV": {
+        "lv": {
           "type": [
             10
           ],
           "value": [
-            "n_nationkey"
+            "ps_suppkey"
           ]
         },
-        "Operator": 5,
-        "RV": {
+        "operator": 4,
+        "rv": {
           "type": [
             10
           ],
           "value": [
-            "s_nationkey"
+            "s_suppkey"
           ]
         }
       }
     ],
-    "tableOffset": [ ],
-    "tableOfflen": [ ],
-    "tableDatatype": [ ],
-    "tableAlias": "ProcessTable10-4",
-    "columnAlias": [
-      "ProcessTable10-4-c1"
-    ],
-    "columnProjection": [
+    "projection": [
       {
-        "selectType":1,
+        "select_type": 1,
         "value": [
-          "ProcessTable10-3-c1","0.0001000000","*"
+          "snippet11-2-c1",
+          "0.0001000000",
+          "*"
         ],
-        "valueType": [
-          10,5,11
+        "value_type": [
+          10,
+          4,
+          11
         ]
       }
+    ]
+  },
+  "schema_info": {},
+  "index_table_info": {},
+  "sst_info": [],
+  "result_info": {
+    "table_alias": "snippet11-4",
+    "column_alias": [
+      "snippet11-4-c1"
     ]
   }
 }

@@ -1,0 +1,77 @@
+{
+    "type": 0,
+    "work_id": 1,
+    "query_info": {
+        "table_name": [
+            "orders"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "o_orderdate"
+                    ]
+                },
+                "operator": 3,
+                "rv": {
+                    "type": [
+                        7
+                    ],
+                    "value": [
+                        "1021549"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "o_orderdate"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "o_orderkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "o_shippriority"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "o_custkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet3-1",
+        "column_alias": [
+            "o_orderdate",
+            "o_orderkey",
+            "o_shippriority",
+            "o_custkey"
+        ]
+    }
+}

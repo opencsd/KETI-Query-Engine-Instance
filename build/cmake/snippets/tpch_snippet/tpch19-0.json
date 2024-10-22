@@ -1,0 +1,32 @@
+{
+    "type": 0,
+    "work_id": 0,
+    "query_info": {
+        "table_name": [
+            "region"
+        ],
+        "filtering": [],
+        "projection": [],
+        "group_by": [
+            "o_orderpriority"
+        ],
+        "order_by": {
+            "ascending": [
+                0
+            ],
+            "column_name": [
+                "o_orderpriority"
+            ]
+        },
+        "limit": {
+            "offset": 0,
+            "length": 200
+        }
+    },
+    "result_info": {
+        "table_alias": "snippet0-0",
+        "column_alias": [
+            "r_regionkey"
+        ]
+    }
+}

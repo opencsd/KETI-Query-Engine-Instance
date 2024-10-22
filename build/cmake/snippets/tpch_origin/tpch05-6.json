@@ -1,45 +1,54 @@
 {
-  "type" : 3,
-  "snippet":
-  {
-    "queryID":4,
-    "workID":6,
-    "tableName": ["ProcessTable4-0", "ProcessTable4-1"],
-    "tableCol":[],
-    "tableFilter":[
-      {
-
-        "LV": {
-          "type": [10],
-          "value": ["c_custkey"]
-        },
-        "Operator" : 5, 
-        "RV" : {
-            "type": [10],
-            "value": ["o_custkey"]
-        }
-      }        
-    ],
-    "tableOffset":[],
-    "tableOfflen":[],
-    "tableDatatype":[],
-    "tableAlias": "ProcessTable4-6",
-    "columnAlias": [
-        "c_nationkey",
-        "o_orderkey"
-      ],
-    "columnProjection": [
-      {
-        "selectType": 0,
-        "value": ["c_nationkey"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["o_orderkey"],
-        "valueType": [10]
-      }
-    ]
-  }
-
+    "type": 5,
+    "query_id": 5,
+    "work_id": 6,
+    "query_info": {
+        "table_name": [
+            "snippet5-0",
+            "snippet5-1"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "c_custkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "o_custkey"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "selectType": 0,
+                "value": ["c_nationkey"],
+                "valueType": [10]
+              },
+              {
+                "selectType": 0,
+                "value": ["o_orderkey"],
+                "valueType": [10]
+              }
+        ]
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet5-6",
+        "column_alias": [
+            "c_nationkey",
+            "o_orderkey"
+        ]
+    }
 }

@@ -1,0 +1,27 @@
+{
+    "type": 3,
+    "work_id": 3,
+    "query_info": {
+        "table_name": [
+            "revenue0"
+        ],
+        "filtering": [],
+        "projection": [
+            {
+                "select_type": 7,
+                "value": [
+                    "total_revenue"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet15-3",
+        "column_alias": [
+            "snippet15-3-c1"
+        ]
+    }
+}

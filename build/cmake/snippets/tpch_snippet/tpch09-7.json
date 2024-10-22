@@ -1,0 +1,116 @@
+{
+    "type": 5,
+    "work_id": 7,
+    "query_info": {
+        "table_name": [
+            "snippet9-3",
+            "snippet9-6"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "ps_suppkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_suppkey"
+                    ]
+                }
+            },
+            {
+                "operator" : 13
+            },
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "ps_partkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_partkey"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "s_nationkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_orderkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_partkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_extendedprice",
+                    "1",
+                    "l_discount",
+                    "-",
+                    "*",
+                    "ps_supplycost",
+                    "l_quantity",
+                    "*",
+                    "-"
+                ],
+                "value_type": [
+                    10,
+                    2,
+                    10,
+                    11,
+                    11,
+                    10,
+                    10,
+                    11,
+                    11
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet9-7",
+        "column_alias": [
+            "s_nationkey",
+            "l_orderkey",
+            "l_partkey",
+            "amount"
+        ]
+    }
+}

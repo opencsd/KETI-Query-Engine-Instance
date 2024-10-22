@@ -1,54 +1,82 @@
 {
-  "type" : 8,
-  "snippet":
-  {
-    "queryID":15,
-    "workID":3,
-    "tableName": ["ProcessTable15-1", "ProcessTable15-0"],
-    "tableCol":[],
-    "tableFilter":[
-      {
-          "Operator": 12
-      },
-      {
-        "LV": {
-            "type": [10],
-            "value": ["ps_suppkey"]
-        },
-        "Operator" : 9, 
-        "RV" : {
-            "type": [10],
-            "value": ["s_suppkey"]
-        }
-      }   
-    ],
-    "tableOffset":[],
-    "tableOfflen":[],
-    "tableDatatype":[],
-    "tableAlias": "ProcessTable15-3",
-    "columnAlias": [
-      "ps_suppkey",
-      "ps_partkey"
-    ],
-    "columnProjection": [
-      {
-        "selectType": 0,
-        "value": [
-          "ps_suppkey"
+    "type": 5,
+    "query_id": 16,
+    "work_id": 3,
+    "query_info": {
+        "table_name": [
+            "snippet16-1",
+            "snippet16-0"
         ],
-        "valueType": [
-          10
-        ]
-      },
-      {
-        "selectType": 0,
-        "value": [
-          "ps_partkey"
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "p_partkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "ps_partkey"
+                    ]
+                }
+            }
         ],
-        "valueType": [
-          10
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "p_brand"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "p_type"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "p_size"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "ps_suppkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
         ]
-      }
-    ]
-  }
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet16-3",
+        "column_alias": [
+            "p_brand",
+            "p_type",
+            "p_size",
+            "ps_suppkey"
+        ]
+    }
 }

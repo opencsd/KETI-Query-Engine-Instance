@@ -1,0 +1,276 @@
+{
+  "type": 0,
+  "query_id": 1,
+  "work_id": 0,
+  "query_info": {
+    "table_name": [
+      "lineitem"
+    ],
+    "filtering": [],
+    "projection": [
+      {
+        "select_type": 0,
+        "value": [
+          "l_partkey"
+        ],
+        "value_type": [
+          10
+        ]
+      }
+    ]
+  },
+  "schema_info": {
+    "column_list": [
+      {
+        "name": "l_orderkey",
+        "type": 3,
+        "length": 4,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "l_partkey",
+        "type": 3,
+        "length": 4,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "l_suppkey",
+        "type": 3,
+        "length": 4,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "l_linenumber",
+        "type": 3,
+        "length": 4,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "l_quantity",
+        "type": 246,
+        "length": 7,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "l_extendedprice",
+        "type": 246,
+        "length": 7,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "l_discount",
+        "type": 246,
+        "length": 7,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "l_tax",
+        "type": 246,
+        "length": 7,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "l_returnflag",
+        "type": 254,
+        "length": 1,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "l_linestatus",
+        "type": 254,
+        "length": 1,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "l_shipdate",
+        "type": 14,
+        "length": 3,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "l_commitdate",
+        "type": 14,
+        "length": 3,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "l_receiptdate",
+        "type": 14,
+        "length": 3,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "l_shipinstruct",
+        "type": 254,
+        "length": 25,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "l_shipmode",
+        "type": 254,
+        "length": 10,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "l_comment",
+        "type": 15,
+        "length": 44,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      }
+    ],
+    "table_index_number": 1188
+  },
+  "sst_info": [
+    {
+      "sst_name": "021484.sst",
+      "csd": [
+        {
+          "csd_id": "2",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    },
+    {
+      "sst_name": "021465.sst",
+      "csd": [
+        {
+          "csd_id": "6",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    },
+    {
+      "sst_name": "021438.sst",
+      "csd": [
+        {
+          "csd_id": "2",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    },
+    {
+      "sst_name": "021464.sst",
+      "csd": [
+        {
+          "csd_id": "5",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    },
+    {
+      "sst_name": "021485.sst",
+      "csd": [
+        {
+          "csd_id": "3",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    },
+    {
+      "sst_name": "021437.sst",
+      "csd": [
+        {
+          "csd_id": "1",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    },
+    {
+      "sst_name": "021583.sst",
+      "csd": [
+        {
+          "csd_id": "8",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    },
+    {
+      "sst_name": "021584.sst",
+      "csd": [
+        {
+          "csd_id": "1",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    },
+    {
+      "sst_name": "021450.sst",
+      "csd": [
+        {
+          "csd_id": "4",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    },
+    {
+      "sst_name": "021483.sst",
+      "csd": [
+        {
+          "csd_id": "1",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    },
+    {
+      "sst_name": "021579.sst",
+      "csd": [
+        {
+          "csd_id": "7",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    },
+    {
+      "sst_name": "021449.sst",
+      "csd": [
+        {
+          "csd_id": "3",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    }
+  ],
+  "wal_info": {
+    "deleted_key": [],
+    "inserted_key": [],
+    "inserted_value": []
+  },
+  "result_info": {
+    "table_alias": "snippet1-0",
+    "column_alias": [
+      "l_partkey"
+    ]
+  }
+}

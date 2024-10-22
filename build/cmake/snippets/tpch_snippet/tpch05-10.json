@@ -1,0 +1,53 @@
+{
+    "type": 5,
+    "work_id": 10,
+    "query_info": {
+        "table_name": [
+            "snippet5-9",
+            "snippet5-5"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [10],
+                    "value": ["n_regionkey"]
+                },
+                "operator" : 4, 
+                "rv" : {
+                    "type": [10],
+                    "value": ["r_regionkey"]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "selectType": 0,
+                "value": ["n_name"],
+                "valueType": [10]
+            },
+            {
+                "selectType": 1,
+                "value": ["revenue"],
+                "valueType": [10]
+            }
+        ],
+        "group_by": [
+            "n_name"
+        ],
+        "order_by": {
+            "ascending": [
+                1
+            ],
+            "column_name": [
+                "revenue"
+            ]
+        }
+    },
+    "result_info": {
+        "table_alias": "result5",
+        "column_alias": [
+            "n_name",
+            "revenue"
+        ]
+    }
+}

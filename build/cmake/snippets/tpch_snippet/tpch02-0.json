@@ -1,0 +1,47 @@
+{
+    "type": 0,
+    "work_id": 0,
+    "query_info": {
+        "table_name": [
+            "region"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "r_name"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        9
+                    ],
+                    "value": [
+                        "ASIA"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "r_regionkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet2-0",
+        "column_alias": [
+            "r_regionkey"
+        ]
+    }
+}

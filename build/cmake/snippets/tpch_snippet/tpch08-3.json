@@ -1,0 +1,73 @@
+{
+    "type": 0,
+        "work_id": 3,
+        "query_info": {
+            "table_name": [
+                "orders"
+            ],
+            "filtering": [
+                {
+                    "lv": {
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "o_orderdate"
+                        ]
+                    },
+                    "operator": 8,
+                    "rv": {
+                        "type": [
+                            7,
+                            7
+                        ],
+                        "value": [
+                            "1021473",
+                            "1022367"
+                        ]
+                    }
+                }
+            ],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": [
+                        "EXTRACT",
+                        "YEAR",
+                        "o_orderdate"
+                    ],
+                    "value_type": [
+                        11,
+                        11,
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "o_orderkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "o_custkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                }
+            ]
+        },
+        "result_info": {
+            "table_alias": "snippet8-3",
+            "column_alias": [
+                "o_year",
+                "o_orderkey",
+                "o_custkey"
+            ]
+        }
+    }

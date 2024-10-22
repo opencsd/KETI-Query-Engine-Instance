@@ -1,0 +1,47 @@
+{
+    "type": 0,
+    "work_id": 0,
+    "query_info": {
+        "table_name": [
+            "part"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "p_name"
+                    ]
+                },
+                "operator": 6,
+                "rv": {
+                    "type": [
+                        9
+                    ],
+                    "value": [
+                        "%dim%"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "p_partkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet9-0",
+        "column_alias": [
+            "p_partkey"
+        ]
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "type": 5,
+    "work_id": 0,
+    "query_info": {
+        "table_name": [
+            ""
+        ],
+        "filtering": [],
+        "projection": []
+    },
+    "result_info": {
+        "table_alias": "snippet7-7",
+        "column_alias": [
+            ""
+        ]
+    }
+}

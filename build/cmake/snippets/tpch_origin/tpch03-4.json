@@ -1,55 +1,101 @@
 {
-  "type" : 3,
-  "snippet":
-  {
-    "queryID":2,
-    "workID":4,
-    "tableName": ["ProcessTable2-2","ProcessTable2-3"],
-    "tableCol":[],
-    "tableFilter":[
-      {
-        "LV": {
-          "type": [10],
-          "value": ["l_orderkey"]
-      },
-      "Operator" : 5, 
-      "RV" : {
-          "type": [10],
-          "value": ["o_orderkey"]
+    "type": 5,
+    "query_id": 3,
+    "work_id": 4,
+    "query_info": {
+        "table_name": [
+            "snippet3-3",
+            "snippet3-2"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "o_orderkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_orderkey"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "l_orderkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 1,
+                "value": [
+                    "snippet3-2-c1"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "o_orderdate"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "o_shippriority"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ],
+        "group_by": [
+            "l_orderkey",
+            "o_orderdate",
+            "o_shippriority"
+        ],
+        "order_by": {
+            "ascending": [
+                1,
+                0
+            ],
+            "column_name": [
+                "revenue",
+                "o_orderdate"
+            ]
+        },
+        "limit": {
+            "offset": 0,
+            "length": 10
         }
-      }
-    ],
-    "tableOffset":[],
-    "tableOfflen":[],
-    "tableDatatype":[],
-    "tableAlias": "ProcessTable2-4",
-    "columnAlias": [
-      "o_orderdate", 
-      "o_shippriority",
-      "l_orderkey", 
-      "ProcessTable2-4-c1"
-    ],
-    "columnProjection": [
-      {
-        "selectType": 0,
-        "value": ["o_orderdate"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["o_shippriority"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["l_orderkey"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["ProcessTable2-2-c1"],
-        "valueType": [10]
-      }
-    ]
-  }
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "result3",
+        "column_alias": [
+            "l_orderkey",
+            "revenue",
+            "o_orderdate",
+            "o_shippriority"
+        ]
+    }
 }

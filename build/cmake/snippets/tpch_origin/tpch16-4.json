@@ -1,70 +1,105 @@
-
 {
-  "type" : 3,
-  "snippet":
-  {
-    "queryID":15,
-    "workID":4,
-    "tableName": ["ProcessTable15-2", "ProcessTable15-3"],
-    "tableCol":[],
-    "tableFilter":[
-      {
-        "LV": {
-            "type": [10],
-            "value": ["p_partkey"]
+    "type": 10,
+    "query_id": 16,
+    "work_id": 4,
+    "query_info": {
+        "table_name": [
+            "snippet16-3",
+            "snippet16-2"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "ps_suppkey"
+                    ]
+                },
+                "operator": 10,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "s_suppkey"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "p_brand"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "p_type"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "p_size"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 5,
+                "value": [
+                    "ps_suppkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ],
+        "group_by": [
+            "p_brand",
+            "p_type",
+            "p_size"
+        ],
+        "order_by": {
+            "ascending": [
+                1,
+                0,
+                0,
+                0
+            ],
+            "column_name": [
+                "supplier_cnt",
+                "p_brand",
+                "p_type",
+                "p_size"
+            ]
         },
-        "Operator" : 5, 
-        "RV" : {
-            "type": [10],
-            "value": ["ps_partkey"]
+        "limit": {
+            "offset": 0,
+            "length": 5
         }
-      }   
-    ],
-    "tableOffset":[],
-    "tableOfflen":[],
-    "tableDatatype":[],
-    "tableAlias": "ResultTable15",
-    "columnAlias": [
-        "p_brand",
-        "p_type",
-        "p_size",
-        "supplier_cnt"
-    ],
-    "columnProjection": [
-      {
-        "selectType": 0,
-        "value": ["p_brand"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["p_type"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["p_size"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 5,
-        "value": ["ps_suppkey"],
-        "valueType": [10]
-      }
-    ],
-    "groupBy": [
-      "p_brand",
-      "p_type",
-      "p_size"
-    ],
-    "orderBy":
-    {
-        "ascending": [1,0,0,0],
-        "columnName": ["supplier_cnt","p_brand","p_type","p_size"]
-    }   ,
-    "limit" : {
-      "offset" : 0,
-      "length" : 5
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "result16",
+        "column_alias": [
+            "p_brand",
+            "p_type",
+            "p_size",
+            "supplier_cnt"
+        ]
     }
-  }
 }

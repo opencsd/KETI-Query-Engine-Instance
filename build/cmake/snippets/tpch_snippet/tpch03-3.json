@@ -1,0 +1,68 @@
+{
+    "type": 5,
+    "work_id": 3,
+    "query_info": {
+        "table_name": [
+            "snippet3-0",
+            "snippet3-1"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "c_custkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "o_custkey"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "o_orderdate"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "o_orderkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "o_shippriority"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet3-3",
+        "column_alias": [
+            "o_orderdate",
+            "o_orderkey",
+            "o_shippriority"
+        ]
+    }
+}

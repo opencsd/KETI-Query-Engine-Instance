@@ -1,0 +1,61 @@
+{
+    "type": 5,
+    "work_id": 6,
+    "query_info": {
+        "table_name": [
+            "snippet11-2",
+            "snippet11-5"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "ps_suppkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "s_suppkey"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "ps_partkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 1,
+                "value": [
+                    "snippet11-2-c1"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ],
+        "group_by": [
+            "ps_partkey"
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet11-6",
+        "column_alias": [
+            "ps_partkey",
+            "value"
+        ]
+    }
+}

@@ -1,52 +1,73 @@
 {
-  "type" : 10,
-  "snippet":
-  {
-    "queryID":3,
-    "workID":2,
-    "tableName": ["ProcessTable3-1","ProcessTable3-0"],
-    "tableCol":[],
-    "tableFilter":[],
-    "tableOffset":[],
-    "tableOfflen":[],
-    "tableDatatype":[],
-    "tableAlias": "ResultTable4",
-    "columnAlias": [
-      "order_count",
-      "o_orderpriority"
-    ],
-    "columnProjection": [
-      {
-        "selectType": 4,
-        "value": [],
-        "valueType": []
-      },
-      {
-        "selectType": 0,
-        "value": ["o_orderpriority"],
-        "valueType": [10]
-      }
-    ],
-    "dependency":{
-      "dependencyProjection":[],
-      "dependencyFilter" : [
-        {
-          "LV": {
-            "type": [10],
-            "value": ["o_orderkey"]
+    "type": 13,
+    "query_id": 4,
+    "work_id": 2,
+    "query_info": {
+        "table_name": [
+            "snippet4-0",
+            "snippet4-1"
+        ],
+        "filtering": [],
+        "projection": [
+            {
+                "select_type": 4,
+                "value": [],
+                "value_type": []
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "o_orderpriority"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ],
+        "dependency": {
+            "dependency_projection": [],
+            "dependency_filter": [
+                {
+                    "lv": {
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "o_orderkey"
+                        ]
+                    },
+                    "operator": 4,
+                    "rv": {
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "l_orderkey"
+                        ]
+                    }
+                }
+            ]
         },
-        "Operator" : 5, 
-        "RV" : {
-            "type": [10],
-            "value": ["l_orderkey"]
-          }
+        "group_by": [
+            "o_orderpriority"
+        ],
+        "order_by": {
+            "ascending": [
+                0
+            ],
+            "column_name": [
+                "o_orderpriority"
+            ]
         }
-      ]
     },
-    "groupBy": ["o_orderpriority"],
-    "orderBy": {
-      "ascending" : [0],
-      "columnName" : ["o_orderpriority"]
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "result4",
+        "column_alias": [
+            "order_count",
+            "o_orderpriority"
+        ]
     }
-  }
 }

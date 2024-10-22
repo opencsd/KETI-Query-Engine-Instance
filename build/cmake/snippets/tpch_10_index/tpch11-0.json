@@ -1,0 +1,102 @@
+{
+    "type": 0,
+    "query_id": 11,
+    "work_id": 0,
+    "query_info": {
+        "table_name": [
+            "nation"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "n_name"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        9
+                    ],
+                    "value": [
+                        "MOZAMBIQUE"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "n_nationkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "schema_info": {
+        "column_list": [
+            {
+                "name": "n_nationkey",
+                "type": 3,
+                "length": 4,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "n_name",
+                "type": 254,
+                "length": 25,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "n_regionkey",
+                "type": 3,
+                "length": 4,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "n_comment",
+                "type": 15,
+                "length": 152,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            }
+        ],
+        "table_index_number": 300
+    },
+    "index_table_info": {},
+    "wal_info": {
+        "deleted_key": [],
+        "inserted_key": [],
+        "inserted_value": []
+    },
+    "result_info": {
+        "table_alias": "snippet11-0",
+        "column_alias": [
+            "n_nationkey"
+        ]
+    },
+    "sst_info": [
+        {
+            "sst_name": "025105.sst",
+            "csd": [
+                {
+                    "csd_id": "1",
+                    "partition": "/dev/ngd-blk3"
+                }
+            ]
+        }
+    ]
+}

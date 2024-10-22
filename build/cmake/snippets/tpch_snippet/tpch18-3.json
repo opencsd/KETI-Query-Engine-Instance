@@ -1,0 +1,61 @@
+{
+    "type": 3,
+    "work_id": 3,
+    "query_info": {
+        "table_name": [
+            "snippet18-2"
+        ],
+        "filtering": [],
+        "projection": [
+            {
+                "select_type": 1,
+                "value": [
+                    "l_quantity"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_orderkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ],
+        "having": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "snippet18-3-c1"
+                    ]
+                },
+                "operator": 2,
+                "rv": {
+                    "type": [
+                        4
+                    ],
+                    "value": [
+                        "314"
+                    ]
+                }
+            }
+        ],
+        "group_by": [
+            "l_orderkey"
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet18-3",
+        "column_alias": [
+            "snippet18-3-c1",
+            "l_orderkey"
+        ]
+    }
+}

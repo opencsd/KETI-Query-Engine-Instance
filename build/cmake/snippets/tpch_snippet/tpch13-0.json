@@ -1,0 +1,51 @@
+
+
+  {
+  "type": 0,
+      "work_id": 0,
+      "query_info": {
+          "table_name": [
+              "orders"
+          ],
+          "filtering": [
+              {
+                  "lv": {
+                      "type": [10],
+                      "value": ["o_comment"]
+                  },
+                  "operator": 7, 
+                  "rv": {
+                      "type": [9],
+                      "value": ["%PENDING%DEPOSITS%"]
+                  }
+              }
+          ],
+          "projection": [
+              {
+                  "select_type": 0,
+                  "value": [
+                      "o_custkey"
+                  ],
+                  "value_type": [
+                      10
+                  ]
+              },
+              {
+                  "select_type": 0,
+                  "value": [
+                      "o_orderkey"
+                  ],
+                  "value_type": [
+                      10
+                  ]
+              }
+          ]
+      },
+      "result_info": {
+          "table_alias": "snippet13-0",
+          "column_alias": [
+              "o_custkey",
+              "o_orderkey"
+          ]
+      }
+  }

@@ -1,0 +1,87 @@
+{
+    "type": 0,
+        "work_id": 0,
+        "query_info": {
+            "table_name": [
+                "lineitem"
+            ],
+            "filtering": [
+                {
+                    "lv": {
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "l_shipdate"
+                        ]
+                    },
+                    "operator": 0,
+                    "rv": {
+                        "type": [
+                            7
+                        ],
+                        "value": [
+                            "1022689"
+                        ]
+                    }
+                },
+                {
+                    "operator": 13
+                },
+                {
+                    "lv": {
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "l_shipdate"
+                        ]
+                    },
+                    "operator": 3,
+                    "rv": {
+                        "type": [
+                            7
+                        ],
+                        "value": [
+                            "1022785"
+                        ]
+                    }
+                }
+            ],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": [
+                        "l_suppkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "l_extendedprice",
+                        "1",
+                        "l_discount",
+                        "-",
+                        "*"
+                    ],
+                    "value_type": [
+                        10,
+                        2,
+                        10,
+                        11,
+                        11
+                    ]
+                }
+            ]
+        },
+        "result_info": {
+            "table_alias": "snippet15-0",
+            "column_alias": [
+                "l_suppkey",
+                "snippet15-0-c1"
+            ]
+        }
+    }

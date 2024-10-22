@@ -1,0 +1,37 @@
+{
+    "type": 0,
+        "work_id": 2,
+        "query_info": {
+            "table_name": [
+                "lineitem"
+            ],
+            "filtering": [],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": [
+                        "l_orderkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "l_quantity"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                }
+            ]
+        },
+        "result_info": {
+            "table_alias": "snippet18-2",
+            "column_alias": [
+                "l_orderkey",
+                "l_quantity"
+            ]
+        }
+    }

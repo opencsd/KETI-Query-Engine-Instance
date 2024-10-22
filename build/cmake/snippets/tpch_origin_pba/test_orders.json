@@ -1,0 +1,170 @@
+{
+  "type": 0,
+  "query_id": 3,
+  "work_id": 1,
+  "query_info": {
+    "table_name": [
+      "orders"
+    ],
+    "filtering": [],
+    "projection": [
+      {
+        "select_type": 0,
+        "value": ["CASE","WHEN","o_orderpriority","1-urgent","=","OR","o_orderpriority","2-high","=","THEN","1","ELSE","0","END"],
+        "value_type": [11,11,10,9,11,11,10,9,11,11,2,11,2,11]
+      }
+    ]
+  },
+  "schema_info": {
+    "column_list": [
+      {
+        "name": "o_orderkey",
+        "type": 3,
+        "length": 4,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "o_custkey",
+        "type": 3,
+        "length": 4,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "o_orderstatus",
+        "type": 254,
+        "length": 1,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "o_totalprice",
+        "type": 246,
+        "length": 7,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "o_orderdate",
+        "type": 14,
+        "length": 3,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "o_orderpriority",
+        "type": 254,
+        "length": 15,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "o_clerk",
+        "type": 254,
+        "length": 15,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "o_shippriority",
+        "type": 3,
+        "length": 4,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "o_comment",
+        "type": 15,
+        "length": 79,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      }
+    ],
+    "table_index_number": 1391
+  },
+  "index_table_info": {},
+  "wal_info": {
+    "deleted_key": [],
+    "inserted_key": [],
+    "inserted_value": []
+  },
+  "result_info": {
+    "table_alias": "snippet3-1",
+    "column_alias": [
+      "o_orderpriority"
+    ],
+    "total_block_count": 42
+  },
+  "sst_info": [
+    {
+      "sst_name": "050031.sst",
+      "csd": [
+        {
+          "csd_id": "1",
+          "partition": "/dev/ngd-blk3",
+          "block": [
+            {
+              "offset": [
+                150519214080
+              ],
+              "length": [
+                4005,
+                4013,
+                4046,
+                4050,
+                4077,
+                4089,
+                3996,
+                4082,
+                4053,
+                4049,
+                4074,
+                3984,
+                3989,
+                3958,
+                4074,
+                3981,
+                4002,
+                3994,
+                4029,
+                4073,
+                4017,
+                3992,
+                4083,
+                4091,
+                3995,
+                4006,
+                4090,
+                4060,
+                4051,
+                4085,
+                4072,
+                3964,
+                4013,
+                3994,
+                3981,
+                4043,
+                3984,
+                4022,
+                4050,
+                4041,
+                4027,
+                4079
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,78 +1,111 @@
 {
-  "type" : 0,
-  "snippet":
-  {
-    "queryID":7,
-    "workID":7,
-    "tableName": ["region"],
-    "tableCol":[
-      "r_regionkey",  
-      "r_name",
-      "r_comment"
-    ],
-    "tableFilter":[
-      {
-        "LV": {
-          "type": [
-            10
-          ],
-          "value": [
-            "r_name"
-          ]
-        },
-        "Operator": 5,
-        "RV": {
-          "type": [
-            9
-          ],
-          "value": [
-            "ASIA"
-          ]
+    "type": 0,
+    "query_id": 8,
+    "work_id": 7,
+    "query_info": {
+        "table_name": [
+            "region"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "r_name"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        9
+                    ],
+                    "value": [
+                        "ASIA"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "r_regionkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "r_name"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "schema_info": {
+        "column_list": [
+            {
+                "name": "r_regionkey",
+                "type": 3,
+                "length": 4,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "r_name",
+                "type": 254,
+                "length": 25,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "r_comment",
+                "type": 15,
+                "length": 152,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            }
+        ],
+        "table_index_number": 299
+    },
+    "index_table_info": {},
+    "sst_info": [
+        {
+            "sst_name": "002005.sst",
+            "csd": [
+                {
+                    "csd_id": "1",
+                    "partition": "/dev/ngd-blk3",
+                    "block": [
+                        {
+                            "offset": [150510985216],
+                            "length": [566]
+                        }
+                    ]
+                }
+            ]
         }
-      }
     ],
-    "tableOffset":[
-      0,
-      4,
-      29
-    ],
-    "tableOfflen":[
-      4,
-      25,
-      152
-    ],
-    "tableDatatype":[
-      3,
-      254,
-      15
-    ],
-    "tableAlias": "ProcessTable7-7",
-    "columnAlias": [
-      "r_regionkey",
-      "r_name"
-    ],
-    "columnProjection": [
-      {
-        "selectType": 0,
-        "value": [
-          "r_regionkey"
+    "wal_info": {
+        "deleted_key": [],
+        "inserted_key": [],
+        "inserted_value": []
+    },
+    "result_info": {
+        "table_alias": "snippet8-7",
+        "column_alias": [
+            "r_regionkey",
+            "r_name"
         ],
-        "valueType": [
-          10
-        ]
-      },
-      {
-        "selectType": 0,
-        "value": [
-          "r_name"
-        ],
-        "valueType": [
-          10
-        ]
-      }
-    ],
-    "pkNum" : 0
-  },
-  "scanInfo":{"sstList":{"002005.sst":{"csdPbaMap":{"1":{"blockList":[{"offset":150470418432,"length":[566]}]}},"sstBlockCount":1}},"tableBlockCount":1}
-
+        "total_block_count": 1
+    }
 }

@@ -1,0 +1,47 @@
+{
+    "type": 0,
+    "work_id": 1,
+    "query_info": {
+        "table_name": [
+            "lineitem"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_commitdate"
+                    ]
+                },
+                "operator": 3,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_receiptdate"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "l_orderkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet4-1",
+        "column_alias": [
+            "l_orderkey"
+        ]
+    }
+}

@@ -1,72 +1,82 @@
 {
-  "type" : 3,
-  "snippet":
-  {
-    "queryID":7,
-    "workID":12,
-    "tableName": ["ProcessTable7-11","n1"],
-    "tableCol":[],
-    "tableFilter":[
-      {
-        "LV": {
-            "type": [10],
-            "value": ["c_nationkey"]
-        },
-        "Operator" : 5, 
-        "RV" : {
-            "type": [10],
-            "value": ["n1.n_nationkey"]
-        }
-      } 
-    ],
-    "tableOffset":[],
-    "tableOfflen":[],
-    "tableDatatype":[],
-    "tableAlias": "ProcessTable7-12",
-    "columnAlias": [
-      "o_year",
-      "volume",
-      "s_nationkey",
-      "n1.n_regionkey"
-    ],
-    "columnProjection": [
-      {
-        "selectType": 0,
-        "value": [
-          "o_year"
+    "type": 5,
+    "query_id": 8,
+    "work_id": 12,
+    "query_info": {
+        "table_name": [
+            "n1",
+            "snippet8-11"
         ],
-        "valueType": [
-          10
-        ]
-      },
-      {
-        "selectType": 0,
-        "value": [
-          "volume"
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "n1.n_nationkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "c_nationkey"
+                    ]
+                }
+            }
         ],
-        "valueType": [
-          10
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "o_year"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "volume"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "s_nationkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "n1.n_regionkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
         ]
-      },
-      {
-        "selectType": 0,
-        "value": [
-          "s_nationkey"
-        ],
-        "valueType": [
-          10
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet8-12",
+        "column_alias": [
+            "o_year",
+            "volume",
+            "s_nationkey",
+            "n1.n_regionkey"
         ]
-      },
-      {
-        "selectType": 0,
-        "value": [
-          "n1.n_regionkey"
-        ],
-        "valueType": [
-          10
-        ]
-      }
-    ]
-  }
-
+    }
 }

@@ -95,8 +95,8 @@
                         "partition": "/dev/ngd-blk3",
                         "block": [
                             {
-                                "offset": 150514262016,
-                                "length": 3053
+                                "offset": [150514262016],
+                                "length": [3053]
                             }
                         ]
                     }

@@ -1,0 +1,47 @@
+{
+    "type": 0,
+    "work_id": 2,
+    "query_info": {
+        "table_name": [
+            "supplier"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "s_comment"
+                    ]
+                },
+                "operator": 6,
+                "rv": {
+                    "type": [
+                        9
+                    ],
+                    "value": [
+                        "%CUSTOMER%COMPLAINTS%"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "s_suppkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet16-2",
+        "column_alias": [
+            "s_suppkey"
+        ]
+    }
+}

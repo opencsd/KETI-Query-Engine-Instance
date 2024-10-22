@@ -1,0 +1,89 @@
+{
+    "type": 0,
+        "work_id": 0,
+        "query_info": {
+            "table_name": [
+                "lineitem"
+            ],
+            "filtering": [
+                {
+                    "lv": {
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "l_shipdate"
+                        ]
+                    },
+                    "operator": 0,
+                    "rv": {
+                        "type": [
+                            7
+                        ],
+                        "value": [
+                            "1020449"
+                        ]
+                    }
+                },
+                {
+                    "operator": 13
+                },
+                {
+                    "lv": {
+                        "type": [
+                            10
+                        ],
+                        "value": [
+                            "l_shipdate"
+                        ]
+                    },
+                    "operator": 3,
+                    "rv": {
+                        "type": [
+                            7
+                        ],
+                        "value": [
+                            "1020961"
+                        ]
+                    }
+                }
+            ],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": [
+                        "l_quantity"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "l_partkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "l_suppkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                }
+            ]
+        },
+        "result_info": {
+            "table_alias": "snippet20-0",
+            "column_alias": [
+                "l_quantity",
+                "l_partkey",
+                "l_suppkey"
+            ]
+        }
+    }

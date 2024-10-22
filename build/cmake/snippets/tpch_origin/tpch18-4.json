@@ -1,50 +1,92 @@
 {
-  "type": 8,
-  "snippet": {
-    "queryID": 17,
-    "workID": 4,
-    "tableName": [
-      "ProcessTable17-3", "ProcessTable17-1"
-    ],
-    "tableCol": [],
-    "tableFilter": [
-      {
-          "LV": {
-              "type": [10],
-              "value": ["o_orderkey"]
-          },
-          "Operator" : 9, 
-          "RV" : {
-              "type": [10],
-              "value": ["ProcessTable17-1-c1"]
-          }
-      }
-    ],
-    "tableOffset": [],
-    "tableOfflen": [],
-    "tableDatatype": [],
-    "tableAlias": "ProcessTable17-4",
-    "columnAlias": [
-      "o_orderkey",
-      "o_orderdate",
-      "o_totalprice"
-    ],
-    "columnProjection": [
-      {
-          "selectType": 0,
-          "value": ["o_orderkey"],
-          "valueType": [10]
-      },
-      {
-          "selectType": 0,
-          "value": ["o_orderdate"],
-          "valueType": [10]
-      },
-      {
-          "selectType": 0,
-          "value": ["o_totalprice"],
-          "valueType": [10]
-      }
-    ]
-  }
+    "type": 5,
+    "query_id": 18,
+    "work_id": 4,
+    "query_info": {
+        "table_name": [
+            "snippet18-0",
+            "snippet18-1"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "c_custkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "o_custkey"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "c_name"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "c_custkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "o_orderkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "o_orderdate"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "o_totalprice"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet18-4",
+        "column_alias": [
+            "c_name",
+            "c_custkey",
+            "o_orderkey",
+            "o_orderdate",
+            "o_totalprice"
+        ]
+    }
 }

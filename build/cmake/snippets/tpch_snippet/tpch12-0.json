@@ -1,0 +1,39 @@
+{
+    "type": 0,
+        "work_id": 0,
+        "query_info": {
+            "table_name": [
+                "orders"
+            ],
+            "filtering": [],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": [
+                        "o_orderkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["CASE","WHEN","o_orderpriority","1-urgent","=","OR","o_orderpriority","2-high","=","THEN","1","ELSE","0","END"],
+                    "value_type": [11,11,10,9,11,11,10,9,11,11,2,11,2,11]
+                },
+                {
+                    "select_type": 0,
+                    "value": ["CASE","WHEN","o_orderpriority","1-urgent","<>","AND","o_orderpriority","2-high","<>","THEN","1","ELSE","0","END"],
+                    "value_type": [11,11,10,9,11,11,10,9,11,11,2,11,2,11]
+                }
+            ]
+        },
+        "result_info": {
+            "table_alias": "snippet12-0",
+            "column_alias": [
+                "o_orderkey",
+                "high_line_count",
+                "low_line_count"
+            ]
+        }
+    }

@@ -1,0 +1,47 @@
+{
+    "type": 0,
+    "work_id": 0,
+    "query_info": {
+        "table_name": [
+            "part"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "p_type"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        9
+                    ],
+                    "value": [
+                        "SMALL PLATED COPPER"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "p_partkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet8-0",
+        "column_alias": [
+            "p_partkey"
+        ]
+    }
+}

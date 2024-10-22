@@ -1,0 +1,168 @@
+{
+  "type": 0,
+  "query_id": 2,
+  "work_id": 3,
+  "query_info": {
+    "table_name": [
+      "part"
+    ],
+    "filtering": [],
+    "projection": [
+      {
+        "select_type": 0,
+        "value": [
+          "p_partkey"
+        ],
+        "value_type": [
+          10
+        ]
+      },
+      {
+        "select_type": 0,
+        "value": [
+          "p_mfgr"
+        ],
+        "value_type": [
+          10
+        ]
+      }
+    ]
+  },
+  "schema_info": {
+    "column_list": [
+      {
+        "name": "p_partkey",
+        "type": 3,
+        "length": 4,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "p_name",
+        "type": 15,
+        "length": 55,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "p_mfgr",
+        "type": 254,
+        "length": 25,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "p_brand",
+        "type": 254,
+        "length": 10,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "p_type",
+        "type": 15,
+        "length": 25,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "p_size",
+        "type": 3,
+        "length": 4,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "p_container",
+        "type": 254,
+        "length": 10,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "p_retailprice",
+        "type": 246,
+        "length": 7,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      },
+      {
+        "name": "p_comment",
+        "type": 15,
+        "length": 23,
+        "primary": false,
+        "index": false,
+        "nullable": false
+      }
+    ],
+    "table_index_number": 1251
+  },
+  "index_table_info": {},
+  "wal_info": {
+    "deleted_key": [],
+    "inserted_key": [],
+    "inserted_value": []
+  },
+  "result_info": {
+    "table_alias": "snippet2-3",
+    "column_alias": [
+      "p_partkey",
+      "p_mfgr"
+    ]
+  },
+  "sst_info": [
+    {
+      "sst_name": "025283.sst",
+      "csd": [
+        {
+          "csd_id": "1",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    },
+    {
+      "sst_name": "025286.sst",
+      "csd": [
+        {
+          "csd_id": "4",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    },
+    {
+      "sst_name": "025285.sst",
+      "csd": [
+        {
+          "csd_id": "3",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    },
+    {
+      "sst_name": "025293.sst",
+      "csd": [
+        {
+          "csd_id": "5",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    },
+    {
+      "sst_name": "025284.sst",
+      "csd": [
+        {
+          "csd_id": "2",
+          "partition": "/dev/ngd-blk3"
+        }
+      ]
+    }
+  ]
+}

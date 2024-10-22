@@ -1,0 +1,65 @@
+{
+    "type": 0,
+        "work_id": 2,
+        "query_info": {
+            "table_name": [
+                "lineitem"
+            ],
+            "filtering": [],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": [
+                        "l_extendedprice",
+                        "1",
+                        "l_discount",
+                        "-",
+                        "*"
+                    ],
+                    "value_type": [
+                        10,
+                        2,
+                        10,
+                        11,
+                        11
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "l_partkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "l_suppkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "l_orderkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                }
+            ]
+        },
+        "result_info": {
+            "table_alias": "snippet8-2",
+            "column_alias": [
+                "volume",
+                "l_partkey",
+                "l_suppkey",
+                "l_orderkey"
+            ]
+        }
+    }

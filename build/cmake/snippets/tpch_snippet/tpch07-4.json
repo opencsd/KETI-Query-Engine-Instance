@@ -1,0 +1,37 @@
+{
+    "type": 0,
+        "work_id": 4,
+        "query_info": {
+            "table_name": [
+                "orders"
+            ],
+            "filtering": [],
+            "projection": [
+                {
+                    "select_type": 0,
+                    "value": [
+                        "o_orderkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                },
+                {
+                    "select_type": 0,
+                    "value": [
+                        "o_custkey"
+                    ],
+                    "value_type": [
+                        10
+                    ]
+                }
+            ]
+        },
+        "result_info": {
+            "table_alias": "snippet7-4",
+            "column_alias": [
+                "o_orderkey",
+                "o_custkey"
+            ]
+        }
+    }

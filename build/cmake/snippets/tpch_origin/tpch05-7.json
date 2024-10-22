@@ -1,50 +1,52 @@
 {
-  "type" : 3,
-  "snippet":
-  {
-    "queryID":4,
-    "workID":7,
-    "tableName": ["ProcessTable4-2", "ProcessTable4-6"],
-    "tableCol":[],
-    "tableFilter":[
-      {
-        "LV": {
-            "type": [10],
-            "value": ["l_orderkey"]
-        },
-        "Operator" : 5, 
-        "RV" : {
-            "type": [10],
-            "value": ["o_orderkey"]
-        }
-      }      
-    ],
-    "tableOffset":[],
-    "tableOfflen":[],
-    "tableDatatype":[],
-    "tableAlias": "ProcessTable4-7",
-    "columnAlias": [
-        "l_suppkey",
-        "revenue",
-        "c_nationkey"
-      ],
-    "columnProjection": [
-      {
-        "selectType": 0,
-        "value": ["l_suppkey"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["revenue"],
-        "valueType": [10]
-      },
-      {
-        "selectType": 0,
-        "value": ["c_nationkey"],
-        "valueType": [10]
-      }
-    ]
-  }
-
+    "type": 5,
+    "query_id": 5,
+    "work_id": 7,
+    "query_info": {
+        "table_name": [
+            "snippet5-6",
+            "snippet5-2"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [10],
+                    "value": ["o_orderkey"]
+                },
+                "operator" : 4, 
+                "rv" : {
+                    "type": [10],
+                    "value": ["l_orderkey"]
+                }
+              }   
+        ],
+        "projection": [
+            {
+                "selectType": 0,
+                "value": ["l_suppkey"],
+                "valueType": [10]
+              },
+              {
+                "selectType": 0,
+                "value": ["revenue"],
+                "valueType": [10]
+              },
+              {
+                "selectType": 0,
+                "value": ["c_nationkey"],
+                "valueType": [10]
+              }
+        ]
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet5-7",
+        "column_alias": [
+            "l_suppkey",
+            "revenue",
+            "c_nationkey"
+        ]
+    }
 }

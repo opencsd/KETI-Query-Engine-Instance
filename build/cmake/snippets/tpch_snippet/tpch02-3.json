@@ -1,0 +1,79 @@
+{
+    "type": 0,
+    "work_id": 3,
+    "query_info": {
+        "table_name": [
+            "part"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "p_size"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        2
+                    ],
+                    "value": [
+                        "30"
+                    ]
+                }
+            },
+            {
+                "operator": 13
+            },
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "p_type"
+                    ]
+                },
+                "operator": 6,
+                "rv": {
+                    "type": [
+                        9
+                    ],
+                    "value": [
+                        "%STEEL"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "p_partkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "p_mfgr"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet2-3",
+        "column_alias": [
+            "p_partkey",
+            "p_mfgr"
+        ]
+    }
+}

@@ -1,62 +1,72 @@
 {
-  "type" : 3,
-  "snippet":
-  {
-    "queryID":8,
-    "workID":9,
-    "tableName": ["ProcessTable8-4","ProcessTable8-8"],
-    "tableCol":[],
-    "tableFilter":[
-      {
-        "LV": {
-            "type": [10],
-            "value": ["o_orderkey"]
-        },
-        "Operator" : 5, 
-        "RV" : {
-            "type": [10],
-            "value": ["l_orderkey"]
-        }
-      } 
-    ],
-    "tableOffset":[],
-    "tableOfflen":[],
-    "tableDatatype":[],
-    "tableAlias": "ProcessTable8-9",
-    "columnAlias": [
-      "o_year",
-      "s_nationkey",
-      "amount"
-    ],
-    "columnProjection": [
-      {
-        "selectType": 0,
-        "value": [
-          "o_year"
+    "type": 5,
+    "query_id": 9,
+    "work_id": 9,
+    "query_info": {
+        "table_name": [
+            "snippet9-4",
+            "snippet9-8"
         ],
-        "valueType": [
-          10
-        ]
-      },
-      {
-        "selectType": 0,
-        "value": [
-          "s_nationkey"
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "o_orderkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_orderkey"
+                    ]
+                }
+            }
         ],
-        "valueType": [
-          10
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "o_year"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "s_nationkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "amount"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
         ]
-      },
-      {
-        "selectType": 0,
-        "value": [
-          "amount"
-        ],
-        "valueType": [
-          10
+    },
+    "schema_info": {},
+    "index_table_info": {},
+    "sst_info": [],
+    "result_info": {
+        "table_alias": "snippet9-9",
+        "column_alias": [
+            "o_year",
+            "s_nationkey",
+            "amount"
         ]
-      }
-    ]
-  }
-
+    }
 }

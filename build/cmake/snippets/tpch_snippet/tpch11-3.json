@@ -1,0 +1,48 @@
+{
+    "type": 5,
+    "work_id": 3,
+    "query_info": {
+        "table_name": [
+            "snippet11-0",
+            "snippet11-1"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "n_nationkey"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "s_nationkey"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "s_suppkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet11-3",
+        "column_alias": [
+            "s_suppkey"
+        ]
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "type": 0,
+    "work_id": 0,
+    "query_info": {
+        "table_name": [
+            "customer"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "c_mktsegment"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        9
+                    ],
+                    "value": [
+                        "AUTOMOBILE"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "c_custkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet3-0",
+        "column_alias": [
+            "c_custkey"
+        ]
+    }
+}

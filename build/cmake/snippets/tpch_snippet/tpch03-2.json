@@ -1,0 +1,65 @@
+{
+    "type": 0,
+    "work_id": 2,
+    "query_info": {
+        "table_name": [
+            "lineitem"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "l_shipdate"
+                    ]
+                },
+                "operator": 2,
+                "rv": {
+                    "type": [
+                        7
+                    ],
+                    "value": [
+                        "1021549"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "l_orderkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "l_extendedprice",
+                    "1",
+                    "l_discount",
+                    "-",
+                    "*"
+                ],
+                "value_type": [
+                    10,
+                    2,
+                    10,
+                    11,
+                    11
+                ]
+            }
+        ]
+    },
+    "result_info": {
+        "table_alias": "snippet3-2",
+        "column_alias": [
+            "l_orderkey",
+            "snippet3-2-c1"
+        ]
+    }
+}
