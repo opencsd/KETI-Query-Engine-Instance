@@ -1,6 +1,6 @@
 registry="ketidevit2"
 image_name="query-engine-instance"
-version="v1.4"
+version="v3.0"
 
 (
     cd cmake/build
