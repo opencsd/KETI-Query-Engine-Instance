@@ -10,6 +10,8 @@
 #include "kodbc.h"
 #include "keti_log.h"
 
+#include "log_to_file.h"
+
 void load_snippet(std::list<SnippetRequest> &list,std::string snippet_name);
 
 std::string PlanExecutor::ExecuteQuery(StorageEngineConnector &storageEngineInterface, ParsedQuery &parsed_query, QueryLog &query_log){
@@ -66,9 +68,14 @@ std::string PlanExecutor::ExecuteQuery(StorageEngineConnector &storageEngineInte
 
         query_log.AddSnippetInfo(query_id, *snippet_list);
 
+        logToFile(">Query Analysis and Make Snippet Complete");
+
         result = queryOffload(storageEngineInterface,*snippet_list,query_id);
 
         query_log.AddResultInfo(result.scanned_row_count(),result.filtered_row_count(), result.query_result());
+
+        string message = ">Query ID:" + to_string(query_id) + " Complete";
+        logToFile(message);
 
         DB_Monitoring_Manager::UpdateScanRowCount(result.scanned_row_count());
         DB_Monitoring_Manager::UpdateFilterRowCount(result.filtered_row_count());
@@ -183,8 +190,8 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
         load_snippet(*ret,"tpch08-12");
         load_snippet(*ret,"tpch08-13");
         load_snippet(*ret,"tpch08-14");
-        load_snippet(*ret,"tpch08-15");
-        load_snippet(*ret,"tpch08-16");
+        // load_snippet(*ret,"tpch08-15");
+        // load_snippet(*ret,"tpch08-16");
     } else if(query_str == "TPC-H_09"){ //TPC-H Query 9
         load_snippet(*ret,"tpch09-0");
         load_snippet(*ret,"tpch09-1");
@@ -312,16 +319,8 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
         load_snippet(*ret,"test_region");
     } else if (query_str == "test_supplier"){ 
         load_snippet(*ret,"test_supplier");
-    } else if (query_str == "test_tpch08-0"){ 
-        load_snippet(*ret,"test_tpch08-0");
-    } else if (query_str == "test_orders_block_filtering1"){ 
-        load_snippet(*ret,"test_orders_block_filtering1");
-    } else if (query_str == "test_orders_block_filtering2"){ 
-        load_snippet(*ret,"test_orders_block_filtering2");
-    } else if (query_str == "test_orders_block_filtering3"){ 
-        load_snippet(*ret,"test_orders_block_filtering3");
-    } else if (query_str == "test"){ 
-        load_snippet(*ret,"tmp");
+    } else if (query_str == "test_snippet"){ 
+        load_snippet(*ret,"test_snippet");
     } 
 	
     return ret;
