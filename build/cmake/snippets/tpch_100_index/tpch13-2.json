@@ -14,7 +14,7 @@
                         10
                     ],
                     "value": [
-                        "c_custkey"
+                        "o_custkey"
                     ]
                 },
                 "operator": 4,
@@ -23,7 +23,7 @@
                         10
                     ],
                     "value": [
-                        "o_custkey"
+                        "c_custkey"
                     ]
                 }
             }
@@ -52,9 +52,6 @@
             "c_custkey"
         ]
     },
-    "schema_info": {},
-    "index_table_info": {},
-    "sst_info": [],
     "result_info": {
         "table_alias": "c_orders",
         "column_alias": [

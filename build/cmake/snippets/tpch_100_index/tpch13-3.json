@@ -37,9 +37,6 @@
             ]
         }
     },
-    "schema_info": {},
-    "index_table_info": {},
-    "sst_info": [],
     "result_info": {
         "table_alias": "result13",
         "column_alias": [

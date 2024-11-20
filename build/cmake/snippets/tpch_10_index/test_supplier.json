@@ -79,7 +79,7 @@
         "name": "s_suppkey",
         "type": 3,
         "length": 4,
-        "primary": false,
+        "primary": true,
         "index": false,
         "nullable": false
       },
@@ -134,7 +134,6 @@
     ],
     "table_index_number": 1256
   },
-  "index_table_info": {},
   "sst_info": [
     {
       "sst_name": "031051.sst",
@@ -143,7 +142,8 @@
           "csd_id": "1",
           "partition": "/dev/ngd-blk3"
         }
-      ]
+      ],
+      "sst_block_count":4164
     }
   ],
   "wal_info": {
@@ -161,6 +161,7 @@
       "s_address",
       "s_phone",
       "s_comment"
-    ]
+    ],
+    "total_block_count":4164
   }
 }

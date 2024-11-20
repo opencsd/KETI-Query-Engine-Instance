@@ -107,29 +107,18 @@
         ],
         "table_index_number": 300
         },
-        "index_table_info": {},
         "sst_info": [
-            {
-                "sst_name": "002064.sst",
-                "csd": [
-                    {
-                        "csd_id": "1",
-                        "partition": "/dev/ngd-blk3",
-                        "block": [
-                            {
-                                "offset": [150514262016],
-                                "length": [3053]
-                            }
-                        ]
-                    }
-                ]
-            }
+      {
+        "sst_name": "002064.sst",
+        "csd": [
+          {
+            "csd_id": "1",
+            "partition": "/dev/ngd-blk3"
+          }
         ],
-        "wal_info": {
-            "deleted_key": [],
-            "inserted_key": [],
-            "inserted_value": []
-        },
+        "sst_block_count": 1
+      }
+    ],
         "result_info": {
             "table_alias": "n2",
             "column_alias": [

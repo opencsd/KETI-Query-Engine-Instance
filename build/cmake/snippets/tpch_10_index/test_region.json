@@ -48,7 +48,6 @@
         ],
         "table_index_number": 1255
     },
-    "index_table_info": {},
     "sst_info": [
         {
             "sst_name": "031050.sst",
@@ -57,7 +56,8 @@
                     "csd_id": "1",
                     "partition": "/dev/ngd-blk3"
                 }
-            ]
+            ],
+            "sst_block_count" : 1
         }
     ],
     "wal_info": {
@@ -69,6 +69,7 @@
         "table_alias": "snippet5-0",
         "column_alias": [
             "r_regionkey"
-        ]
+        ],
+        "total_block_count" : 1
     }
 }

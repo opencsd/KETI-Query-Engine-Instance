@@ -153,160 +153,172 @@
     "table_index_number": 294
   },
   "sst_info": [
-    {
-      "sst_name": "001379.sst",
-      "csd": [
-        {
-          "csd_id": "1",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "001382.sst",
-      "csd": [
-        {
-          "csd_id": "1",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "001383.sst",
-      "csd": [
-        {
-          "csd_id": "2",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "001384.sst",
-      "csd": [
-        {
-          "csd_id": "2",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "001400.sst",
-      "csd": [
-        {
-          "csd_id": "3",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "001434.sst",
-      "csd": [
-        {
-          "csd_id": "3",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "001435.sst",
-      "csd": [
-        {
-          "csd_id": "4",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "001436.sst",
-      "csd": [
-        {
-          "csd_id": "4",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "001437.sst",
-      "csd": [
-        {
-          "csd_id": "5",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "001471.sst",
-      "csd": [
-        {
-          "csd_id": "6",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "001472.sst",
-      "csd": [
-        {
-          "csd_id": "6",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "001473.sst",
-      "csd": [
-        {
-          "csd_id": "7",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "001474.sst",
-      "csd": [
-        {
-          "csd_id": "7",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "001506.sst",
-      "csd": [
-        {
-          "csd_id": "8",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "001507.sst",
-      "csd": [
-        {
-          "csd_id": "8",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "001508.sst",
-      "csd": [
-        {
-          "csd_id": "5",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    }
-  ],
-  "wal_info": {
-    "deleted_key": [],
-    "inserted_key": [],
-    "inserted_value": []
-  },
+      {
+        "sst_name": "001379.sst",
+        "csd": [
+          {
+            "csd_id": "1",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 13949
+      },
+      {
+        "sst_name": "001382.sst",
+        "csd": [
+          {
+            "csd_id": "1",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 10476
+      },
+      {
+        "sst_name": "001383.sst",
+        "csd": [
+          {
+            "csd_id": "2",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 13886
+      },
+      {
+        "sst_name": "001384.sst",
+        "csd": [
+          {
+            "csd_id": "2",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 10536
+      },
+      {
+        "sst_name": "001400.sst",
+        "csd": [
+          {
+            "csd_id": "3",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 13827
+      },
+      {
+        "sst_name": "001434.sst",
+        "csd": [
+          {
+            "csd_id": "3",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 10591
+      },
+      {
+        "sst_name": "001435.sst",
+        "csd": [
+          {
+            "csd_id": "4",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 13831
+      },
+      {
+        "sst_name": "001436.sst",
+        "csd": [
+          {
+            "csd_id": "4",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 10595
+      },
+      {
+        "sst_name": "001437.sst",
+        "csd": [
+          {
+            "csd_id": "5",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 13828
+      },
+      {
+        "sst_name": "001471.sst",
+        "csd": [
+          {
+            "csd_id": "6",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 10591
+      },
+      {
+        "sst_name": "001472.sst",
+        "csd": [
+          {
+            "csd_id": "6",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 13829
+      },
+      {
+        "sst_name": "001473.sst",
+        "csd": [
+          {
+            "csd_id": "7",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 10593
+      },
+      {
+        "sst_name": "001474.sst",
+        "csd": [
+          {
+            "csd_id": "7",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 13830
+      },
+      {
+        "sst_name": "001506.sst",
+        "csd": [
+          {
+            "csd_id": "8",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 10589
+      },
+      {
+        "sst_name": "001507.sst",
+        "csd": [
+          {
+            "csd_id": "8",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 13829
+      },
+      {
+        "sst_name": "001508.sst",
+        "csd": [
+          {
+            "csd_id": "5",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 10594
+      }
+    ],
   "result_info": {
     "table_alias": "snippet1-0",
     "column_alias": [
       "l_partkey"
-    ]
+    ],
+    "total_block_count":195374
   }
 }

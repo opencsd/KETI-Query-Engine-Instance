@@ -79,7 +79,7 @@
         "name": "s_suppkey",
         "type": 3,
         "length": 4,
-        "primary": false,
+        "primary": true,
         "index": false,
         "nullable": false
       },
@@ -134,45 +134,7 @@
     ],
     "table_index_number": 1303
   },
-  "index_table_info": {},
-  "sst_info": [
-    {
-      "sst_name": "049741.sst",
-      "csd": [
-        {
-          "csd_id": "3",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "049745.sst",
-      "csd": [
-        {
-          "csd_id": "4",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "049646.sst",
-      "csd": [
-        {
-          "csd_id": "1",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    },
-    {
-      "sst_name": "049706.sst",
-      "csd": [
-        {
-          "csd_id": "2",
-          "partition": "/dev/ngd-blk3"
-        }
-      ]
-    }
-  ],
+  "sst_info":[{"sst_name":"049741.sst","csd":[{"csd_id":"3","partition":"/dev/ngd-blk3"}],"sst_block_count":16725},{"sst_name":"049745.sst","csd":[{"csd_id":"4","partition":"/dev/ngd-blk3"}],"sst_block_count":5919},{"sst_name":"049646.sst","csd":[{"csd_id":"1","partition":"/dev/ngd-blk3"}],"sst_block_count":2305},{"sst_name":"049706.sst","csd":[{"csd_id":"2","partition":"/dev/ngd-blk3"}],"sst_block_count":16725}],
   "wal_info": {
     "deleted_key": [],
     "inserted_key": [],
@@ -188,6 +150,7 @@
       "s_address",
       "s_phone",
       "s_comment"
-    ]
+    ],
+    "total_block_count":41674
   }
 }

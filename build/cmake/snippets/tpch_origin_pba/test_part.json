@@ -1,7 +1,7 @@
 {
   "type": 0,
-  "query_id": 2,
-  "work_id": 3,
+  "query_id": 0,
+  "work_id": 0,
   "query_info": {
     "table_name": [
       "part"

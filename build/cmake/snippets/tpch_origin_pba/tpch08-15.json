@@ -23,7 +23,7 @@
                     "CASE",
                     "WHEN",
                     "nation",
-                    "india",
+                    "INDIA",
                     "LIKE",
                     "THEN",
                     "volume",

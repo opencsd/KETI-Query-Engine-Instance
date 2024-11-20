@@ -70,27 +70,17 @@
     },
     "index_table_info": {},
     "sst_info": [
-        {
-            "sst_name": "002005.sst",
-            "csd": [
-                {
-                    "csd_id": "1",
-                    "partition": "/dev/ngd-blk3",
-                    "block": [
-                        {
-                            "offset": [150510985216],
-                            "length": [566]
-                        }
-                    ]
-                }
-            ]
-        }
+      {
+        "sst_name": "002005.sst",
+        "csd": [
+          {
+            "csd_id": "1",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 1
+      }
     ],
-    "wal_info": {
-        "deleted_key": [],
-        "inserted_key": [],
-        "inserted_value": []
-    },
     "result_info": {
         "table_alias": "snippet2-0",
         "column_alias": [
