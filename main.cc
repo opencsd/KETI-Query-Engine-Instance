@@ -14,12 +14,12 @@ std::unique_ptr<DBConnectorInstance> g_httpHandler;
 
 void on_initialize(){
     string query_engine_address;
-    query_engine_address = "http://" + (string)LOCALHOST + ":" + (string)QUERY_ENGINE_PORT;
+    query_engine_address = "http://" + (string)LOCALHOST + ":" + to_string(QUERY_ENGINE_PORT);
     web::uri_builder query_engine_address_uri(query_engine_address);
     auto query_engine_address_ = query_engine_address_uri.to_uri().to_string();
 
     string storage_engine_address;
-    storage_engine_address = (string)STORAGE_ENGINE_IP + ":" + (string)SE_INTERFACE_PORT;
+    storage_engine_address = (string)STORAGE_ENGINE_DNS + ":" + to_string(SE_INTERFACE_PORT);
 
     grpc::ChannelArguments channel_args;
     channel_args.SetMaxSendMessageSize(-1);
