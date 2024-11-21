@@ -19,7 +19,7 @@ void on_initialize(){
     auto query_engine_address_ = query_engine_address_uri.to_uri().to_string();
 
     string storage_engine_address;
-    storage_engine_address = (string)STORAGE_ENGINE_DNS + ":" + to_string(SE_INTERFACE_PORT);
+    storage_engine_address = (string)STORAGE_ENGINE_DNS;
 
     grpc::ChannelArguments channel_args;
     channel_args.SetMaxSendMessageSize(-1);
@@ -64,7 +64,7 @@ int main(int argc, char** argv){
         KETILOG::SetDefaultLogLevel();
     }
 
-    MetaDataManager::InitMetaDataManager();
+    // MetaDataManager::InitMetaDataManager();
 
     on_initialize();
 
