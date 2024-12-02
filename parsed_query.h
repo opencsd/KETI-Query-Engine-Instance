@@ -137,105 +137,106 @@ public:
         join_columns.clear();
         parsed_custom_query_.db_name = db_name;
         parseFromClause(parsed_query); 
-        cout << "hj :: From 파싱 완료 " << endl;
-
         parseWhereConditions(parsed_query);
-        cout << "hj :: Where 파싱 완료 " << endl;
-        parseOrderByFields(parsed_query);
         parseSelectFields(parsed_query);
-        parseGroupByFields(parsed_query);
-
-        cout << "hj :: Select 파싱 완료 " << endl;
-        
-        
+        parseGroupByFields(parsed_query);        
+        parseOrderByFields(parsed_query);
         parseLimitClause(parsed_query);
              
     }
 
     
     ParsedCustomQuery GetParsedCustomQuery() const {
-        std::cout << "Parse Custom Query" << std::endl;
-        cout<< "쿼리 테이블 수 : " << parsed_custom_query_.query_tables.size() << endl; 
-        cout << "사용한 논리 연산자 : " << parsed_custom_query_.logical << endl;
+        KETILOG::DEBUGLOG(LOGTAG, "Parse Custom Query");
+        KETILOG::DEBUGLOG(LOGTAG, "쿼리 테이블 수: " + std::to_string(parsed_custom_query_.query_tables.size()));
+        KETILOG::DEBUGLOG(LOGTAG, "사용한 논리 연산자: " + parsed_custom_query_.logical);
+
         for (const auto& table_entry : parsed_custom_query_.query_tables) {
-            cout << "-----------Snippet Name----------" << table_entry.first << endl;
+            KETILOG::DEBUGLOG(LOGTAG, "-----------Snippet Name---------- " + table_entry.first);
             const QueryTable& query_table = table_entry.second;
 
-            std::cout << "Query Type: " << query_table.query_type << std::endl;
+            KETILOG::DEBUGLOG(LOGTAG, "Query Type: " + query_table.query_type);
+            KETILOG::DEBUGLOG(LOGTAG, "Table Names: " + query_table.table_name1 + " " + query_table.table_name2);
+            KETILOG::DEBUGLOG(LOGTAG, "Table Aliases: " + query_table.table_alias1 + " " + query_table.table_alias2);
 
-            std::cout << "Table Names: " << query_table.table_name1 << " " << query_table.table_name2 << std::endl;
-
-            std::cout << "Table Aliases: " << query_table.table_alias1 << " " << query_table.table_alias2 << std::endl;
-
-            std::cout << "Select Columns: ";
+            std::string select_columns_log = "Select Columns: ";
             for (const auto& entry : query_table.select_columns) {
-                std::cout << entry << " ";
+                select_columns_log += entry + " ";
             }
-            std::cout << std::endl;
+            KETILOG::DEBUGLOG(LOGTAG, select_columns_log);
 
-
-            std::cout << "Aggregaion: ";
+            std::string aggregation_log = "Aggregation: ";
             for (const auto& entry : parsed_custom_query_.aggregation_column_map) {
-                std::cout << entry.first << " " << entry.second << " ";
+                aggregation_log += entry.first + " " + entry.second + " ";
             }
-            std::cout << std::endl;
+            KETILOG::DEBUGLOG(LOGTAG, aggregation_log);
 
-            std::cout << "Where Conditions:" << std::endl;
+            KETILOG::DEBUGLOG(LOGTAG, "Where Conditions:");
             for (const auto& condition : query_table.where_conditions) {
-                std::cout << "  Left Value: " 
-                        << condition.left_values.at(0).value_type  
-                        << ", Table: " << condition.left_values.at(0).table_name 
-                        << ", Alias: " << condition.left_values.at(0).table_alias 
-                        << ", Value: " << condition.left_values.at(0).value << std::endl;
+                KETILOG::DEBUGLOG(LOGTAG,
+                    "  Left Value: " +
+                    std::to_string(condition.left_values.at(0).value_type) +
+                    ", Table: " + condition.left_values.at(0).table_name +
+                    ", Alias: " + condition.left_values.at(0).table_alias +
+                    ", Value: " + condition.left_values.at(0).value);
 
-                std::cout << "  Operator: " << condition.op << std::endl;
+                KETILOG::DEBUGLOG(LOGTAG, "  Operator: " + condition.op);
 
-                std::cout << "  Right Value: " 
-                        << ", Value: " << std::endl;  
-                        for(auto & iter : condition.right_values)   {
-                            cout << iter.value << " "; 
-                        }       
+                std::string right_values_log = "  Right Values: ";
+                for (const auto& iter : condition.right_values) {
+                    right_values_log += iter.value + " ";
+                }
+                KETILOG::DEBUGLOG(LOGTAG, right_values_log);
             }
 
-            std::cout << "Join Condition:" << std::endl;
-            std::cout << "  <Left> Table: " << query_table.join_condition.left_table_name 
-                    << ", Alias: " << query_table.join_condition.left_table_alias 
-                    << ", Column: " << query_table.join_condition.left_column << std::endl;
-            std::cout << "  <Right> Table: " << query_table.join_condition.right_table_name 
-                    << ", Alias: " << query_table.join_condition.right_table_alias 
-                    << ", Column: " << query_table.join_condition.right_column << std::endl;
+            KETILOG::DEBUGLOG(LOGTAG, "Join Condition:");
+            KETILOG::DEBUGLOG(LOGTAG,
+                "  <Left> Table: " + query_table.join_condition.left_table_name +
+                ", Alias: " + query_table.join_condition.left_table_alias +
+                ", Column: " + query_table.join_condition.left_column);
+            KETILOG::DEBUGLOG(LOGTAG,
+                "  <Right> Table: " + query_table.join_condition.right_table_name +
+                ", Alias: " + query_table.join_condition.right_table_alias +
+                ", Column: " + query_table.join_condition.right_column);
 
-            std::cout << "Group By Fields: ";
+            std::string group_by_log = "Group By Fields: ";
             for (const auto& entry : parsed_custom_query_.group_by_fields) {
-                std::cout << entry << " ";
+                group_by_log += entry + " ";
             }
-            std::cout << std::endl;
+            KETILOG::DEBUGLOG(LOGTAG, group_by_log);
 
-            std::cout << "Order By Fields:" << std::endl;
+            KETILOG::DEBUGLOG(LOGTAG, "Order By Fields:");
             for (const auto& entry : parsed_custom_query_.order_by_fields) {
-                std::cout << "  Column: " << entry.first << ", Order: " << (entry.second ? "ASC" : "DESC") << std::endl;
+                KETILOG::DEBUGLOG(LOGTAG,
+                    "  Column: " + entry.first + ", Order: " + (entry.second ? "ASC" : "DESC"));
             }
 
-            std::cout << "Limit Offset: " << parsed_custom_query_.limit.offset << std::endl;
-            std::cout << "Limit Length: " << parsed_custom_query_.limit.length << std::endl;
+            KETILOG::DEBUGLOG(LOGTAG, "Limit Offset: " + std::to_string(parsed_custom_query_.limit.offset));
+            KETILOG::DEBUGLOG(LOGTAG, "Limit Length: " + std::to_string(parsed_custom_query_.limit.length));
 
-            std::cout << "Result Table Alias: " << query_table.result_table_alias << std::endl;
-            std::cout << "Result Columns: ";
-            for(auto & entry : parsed_custom_query_.result_columns){
-                cout << entry << " ";
+            KETILOG::DEBUGLOG(LOGTAG, "Result Table Alias: " + query_table.result_table_alias);
+
+            std::string result_columns_log = "Result Columns: ";
+            for (const auto& entry : parsed_custom_query_.result_columns) {
+                result_columns_log += entry + " ";
             }
-            std::cout << std::endl;
-            std::cout << "Result Columns Aliases: ";
-            for(auto & entry : parsed_custom_query_.result_columns_columns_alias_map){
-                cout << entry.second << " ";
+            KETILOG::DEBUGLOG(LOGTAG, result_columns_log);
+
+            std::string result_columns_alias_log = "Result Columns Aliases: ";
+            for (const auto& entry : parsed_custom_query_.result_columns_columns_alias_map) {
+                result_columns_alias_log += entry.second + " ";
             }
-            std::cout << std::endl << std::endl;
+            KETILOG::DEBUGLOG(LOGTAG, result_columns_alias_log);
+
+            KETILOG::DEBUGLOG(LOGTAG, "");
         }
 
         return parsed_custom_query_;
     }
+
   
 private:
+    const std::string LOGTAG = "Query Engine::Parsed Query";
     std::vector <JoinCondition> join_conditions;
     std::unordered_set<std::string> join_columns;
     std::map<std::string, std::vector<std::string>> meta_table_columns_map; // key - table_name, value - columns 
@@ -275,7 +276,7 @@ private:
 
                 if (field == "*") { // 선택한 테이블 전체 컬럼 저장
                     if(parsed_custom_query_.from_table_map.size()!=1){
-                        cout << "COUNT(*) 여러개 테이블 지원 안함!" << endl;
+                        KETILOG::ERRORLOG(LOGTAG, "COUNT(*) 여러개 테이블 지원 안함!");
                         parsed_custom_query_.is_parsing_custom_query = false;
                         return;
                     }
@@ -305,7 +306,6 @@ private:
                     } else {
                         column_alias = field;
                     }
-                    cout << "select field " << field << ",별칭 " <<  column_alias << endl;
                     parsed_custom_query_.result_columns_columns_alias_map[field] = column_alias;
                     // 집계 함수 및 CASE WHEN 구문 탐지
                     std::regex case_when_regex(R"(CASE\s+WHEN\s+.*?\s+THEN\s+.*?\s+END)", std::regex::icase);
@@ -315,7 +315,7 @@ private:
                     
                     // CASE WHEN 구문을 먼저 검사
                     if (std::regex_search(field, agg_match, case_when_regex)) {
-                        std::cout << "CASE 지원 안함!" << std::endl;
+                        KETILOG::ERRORLOG(LOGTAG, "CASE 지원 안함!");
                         parsed_custom_query_.is_parsing_custom_query = false;
                         return;
                     } 
@@ -325,13 +325,9 @@ private:
                         std::string func_name = agg_match[1].str();  // 집계 함수 이름
                         std::string inner_value = agg_match[2].str(); // 괄호 안의 값
                         trim(inner_value);
-                        cout << "field, 집계함수 " << func_name << ",사용 컬럼 " << inner_value <<endl;
-
-                        std::cout << endl <<"func_name: " << func_name << ", inner_value: "  << inner_value << std::endl;
                         
                         if (func_name == "COUNT" || func_name == "count") {
                             if (inner_value == "*") {
-                                
                                 parsed_custom_query_.aggregation_column_map[field] = inner_value;
 
 
@@ -352,13 +348,13 @@ private:
                                 }
 
                                 if(parsed_custom_query_.column_table_map.find(column_name) != parsed_custom_query_.column_table_map.end()){
-                                    cout << column_name << "은 컬럼" << endl;
+                                    KETILOG::DEBUGLOG(LOGTAG, column_name + " 은 컬럼");
                                     
                                 }else{
-                                    cout << column_name << "select에서 컬럼이 아니라 지원 안함!" << endl;
+                                    KETILOG::ERRORLOG(LOGTAG, "SELECT 컬럼이 아니라 지원 안함!");
                                     parsed_custom_query_.is_parsing_custom_query = false;
                                 }
-                                cout << "distinct column_name" << column_name<< endl;
+                                KETILOG::DEBUGLOG(LOGTAG, "DISTINCT " + column_name);
                                 
                                 parsed_custom_query_.result_columns.insert(column_name);  
                                 field = "COUNT(DISTINCT)";
@@ -379,13 +375,13 @@ private:
                                     table_alias = parsed_custom_query_.column_table_map[column_name];
                                 }
                                 if(parsed_custom_query_.column_table_map.find(column_name) != parsed_custom_query_.column_table_map.end()){
-                                    cout << column_name << "은 컬럼" << endl;
+                                    KETILOG::DEBUGLOG(LOGTAG, column_name + " 은 컬럼");
                                     
                                 }else{
-                                    cout << column_name << "select에서 컬럼이 아니라 지원 안함!" << endl;
+                                    KETILOG::ERRORLOG(LOGTAG, "SELECT 컬럼이 아니라 지원 안함!");
                                     parsed_custom_query_.is_parsing_custom_query = false;
                                 }
-                                cout << "COUNT column_name " << column_name<< endl;
+                                KETILOG::DEBUGLOG(LOGTAG, "COUNT column_name " +  column_name);
                                 field = "COUNT";
                                 parsed_custom_query_.aggregation_column_map[field] = column_name;
                                 parsed_custom_query_.result_columns.insert(column_name);
@@ -408,13 +404,13 @@ private:
                                 table_alias = parsed_custom_query_.column_table_map[column_name];
                             }
                             if(parsed_custom_query_.column_table_map.find(column_name) != parsed_custom_query_.column_table_map.end()){
-                                cout << column_name << "은 컬럼" << endl;
+                                KETILOG::DEBUGLOG(LOGTAG, column_name + " 은 컬럼");
                                 
                             }else{
-                                cout << column_name << "select에서 컬럼이 아니라 지원 안함!" << endl;
+                                KETILOG::ERRORLOG(LOGTAG, "SELECT 컬럼이 아니라 지원 안함!");
                                 parsed_custom_query_.is_parsing_custom_query = false;
                             }
-                            cout << "집계함수 column_name " << column_name<< endl;
+                            KETILOG::DEBUGLOG(LOGTAG, "집계함수 column_name " +  column_name);
                             parsed_custom_query_.aggregation_column_map[func_name] = column_name;
                             parsed_custom_query_.result_columns.insert(column_name);
                             
@@ -446,23 +442,20 @@ private:
                 std::string snippet_name = query_table_entry.first;
                 
                 if(query_table_entry.second.table_name2 == ""){
-                    cout << "scan 스니펫 : " << snippet_name << endl;
                     std::string scan_table_name = parsed_custom_query_.query_tables[snippet_name].table_name1;
-                    cout << "스캔 테이블 이름 " << scan_table_name << endl; 
+                    KETILOG::DEBUGLOG(LOGTAG, "scan 스니펫" + snippet_name +" 테이블 이름 " + scan_table_name);
+
                     for(auto &col :  parsed_custom_query_.result_columns){ //result columns alias 에서
                         string temp_col_table_name = parsed_custom_query_.column_table_map[col]; // col이 어디 테이블에 있는지  
                         if(scan_table_name == temp_col_table_name){
-                            cout << col << " ";
+                            // cout << col << " ";
                             parsed_custom_query_.query_tables[snippet_name].select_columns.insert(col);
                         }
                         
                     }
-                    cout << endl;
                 }else{
-                    cout << endl <<"join 스니펫 : " << snippet_name << endl; 
                     std::string snippet_name1 = parsed_custom_query_.query_tables[snippet_name].table_name1; 
                     std::string snippet_name2 = parsed_custom_query_.query_tables[snippet_name].table_name2; 
-                    cout << "s1: " <<snippet_name1 << ", s2: " << snippet_name2 << endl;
 
                     //set에 추가하고
                     std::string table_name1 = parsed_custom_query_.query_tables[snippet_name1].table_name1;  
@@ -470,15 +463,15 @@ private:
 
                     std::string table_alias1 = parsed_custom_query_.query_tables[snippet_name1].table_alias1;  
                     std::string table_alias2 = parsed_custom_query_.query_tables[snippet_name2].table_alias1; 
-                    cout << "왼쪽 t1: " << table_name1 << " 오른쪽, t1: " << table_name2 <<endl;
-                    cout << "테이블 맵 확인" <<endl;
+                    
                     
                     auto is_table1 = parsed_custom_query_.from_table_map.find(table_alias1);
                     auto is_table2 = parsed_custom_query_.from_table_map.find(table_alias2);
 
                     if(is_table1 != parsed_custom_query_.from_table_map.end() && 
                             is_table2 != parsed_custom_query_.from_table_map.end()){ //양쪽 다 테이블 스캔일때 (조인 처음 시작) 
-                        cout << "양쪽 Scan 테이블 스니펫" << endl;
+                        KETILOG::DEBUGLOG(LOGTAG, "양쪽 Scan 테이블 스니펫" + table_name1 +" , " + table_name2);
+
                         for(auto &result_col_iter: parsed_custom_query_.result_columns){ //select 결과에 추가 
                             if(table_name1 == parsed_custom_query_.column_table_map[result_col_iter]){ 
                                 parsed_custom_query_.query_tables[snippet_name].select_columns.insert(result_col_iter);
@@ -493,8 +486,8 @@ private:
                         }
                     }else if(is_table1 == parsed_custom_query_.from_table_map.end() && 
                             is_table2 != parsed_custom_query_.from_table_map.end()){  //왼쪽이 조인 스니펫, 오른쪽이 스캔 스니펫일 경우
-                        cout << "왼쪽이 Join 오른쪽이 Scan 테이블 스니펫" << endl;
-                        cout << "조인 스니펫 : " << snippet_name1 << endl; 
+                        KETILOG::DEBUGLOG(LOGTAG, "왼쪽이 Join 오른쪽이 Scan 테이블 스니펫, 오른쪽 스캔 스니펫 테이블 이름 " + table_name2);
+
                         for(auto &col : parsed_custom_query_.query_tables[snippet_name1].select_columns){ //snippet 결과 컬럼 가져오고 
                             parsed_custom_query_.query_tables[snippet_name].select_columns.insert(col);
                            
@@ -513,7 +506,6 @@ private:
                             parsed_custom_query_.query_tables[snippet_name].select_columns.erase(join_condition.right_column);
                         }
 
-                        cout << "스캔 스니펫 : " << snippet_name2 << ", table 명 : " << table_name2 << endl;
                         for(auto &result_col_iter: parsed_custom_query_.result_columns){
                             if(table_name2 == parsed_custom_query_.column_table_map[result_col_iter]){
                                 parsed_custom_query_.query_tables[snippet_name].select_columns.insert(result_col_iter);
@@ -538,15 +530,14 @@ private:
                         }
                     }else if(is_table1 != parsed_custom_query_.from_table_map.end() && 
                                 is_table2 == parsed_custom_query_.from_table_map.end()){// 왼쪽이 스캔 스니펫, 오른쪽이 조인 스니펫
-                        cout << "왼쪽이 Scan 오른쪽이 Join 테이블 스니펫" << endl;
-                        cout << "스캔 스니펫 : " << snippet_name1 << ", table 명 : " << table_name1 << endl;
+                        KETILOG::DEBUGLOG(LOGTAG, "왼쪽이 Scan 오른쪽이 Join 테이블 스니펫, 왼쪽 스캔 스니펫 테이블 이름 " + table_name1);
+
                         for(auto &result_col_iter: parsed_custom_query_.result_columns){
                             if(table_name1 == parsed_custom_query_.column_table_map[result_col_iter]){
                                 parsed_custom_query_.query_tables[snippet_name].select_columns.insert(result_col_iter);
                                 
                             }
                         }
-                        cout << "조인 스니펫 : " << snippet_name2 << endl;
                         for(auto &col : parsed_custom_query_.query_tables[snippet_name2].select_columns){
                             parsed_custom_query_.query_tables[snippet_name].select_columns.insert(col);
 
@@ -579,18 +570,18 @@ private:
                             }
                         }
                     }else{  
-                        cout << "양쪽 다 스니펫 이름, 지원 안함! : " << parsed_custom_query_.query_tables[snippet_name].table_name1 << " " << parsed_custom_query_.query_tables[snippet_name].table_name2 << endl;
+                        KETILOG::ERRORLOG(LOGTAG, "양쪽 다 스니펫 이름, 지원 안함! " + parsed_custom_query_.query_tables[snippet_name].table_name1 + " " + parsed_custom_query_.query_tables[snippet_name].table_name2);
+
                         parsed_custom_query_.is_parsing_custom_query = false;
                     }
                     
-                    cout << endl;
                 }
                 
                 
             }
                  
             if(is_aggregation == true){ 
-                cout << "hj :: 집계함수 테이블 생성" << endl;
+                KETILOG::DEBUGLOG(LOGTAG, "집계함수 스니펫 생성");
                 QueryTable query_table;
                 query_table.query_type = QueryType::AGGREGATION;
                 int aggregation_snippet_i = parsed_custom_query_.query_tables.size();
@@ -607,7 +598,7 @@ private:
                 parsed_custom_query_.query_tables[snippet_name] = query_table;
             }
         } else {
-            std::cout << "Query Parsing Failed in Select" << std::endl;
+            KETILOG::ERRORLOG(LOGTAG, "Query Parsing Failed in Select");
             parsed_custom_query_.is_parsing_custom_query = false;
         }
     }
@@ -652,7 +643,7 @@ private:
                 }
             }*/
         } else {
-            cout << "From Clause does not have a Table" << endl;
+            KETILOG::ERRORLOG(LOGTAG, "From Clause does not have a Table " );
             parsed_custom_query_.is_parsing_custom_query = false;
         }
 
@@ -674,10 +665,10 @@ private:
             std::string right_column = (*iter)[5].str();      // JOIN 조건의 오른쪽 컬럼
 
             // 디버깅 출력
-            std::cout << "join_type_string: " << join_type_string << std::endl;
-            std::cout << "table: " << table << std::endl;
-            std::cout << "left_column: " << left_column << std::endl;
-            std::cout << "right_column: " << right_column << std::endl;
+            // std::cout << "join_type_string: " << join_type_string << std::endl;
+            // std::cout << "table: " << table << std::endl;
+            // std::cout << "left_column: " << left_column << std::endl;
+            // std::cout << "right_column: " << right_column << std::endl;
             std::istringstream iss(table);
             std::string table_name, table_alias;
 
@@ -722,7 +713,6 @@ private:
             dot_pos = right_column.find('.');
             if (dot_pos != std::string::npos) {
                 r_table_alias = right_column.substr(0, dot_pos);
-                cout << "확인 " << r_table_alias <<endl; 
                 if(parsed_custom_query_.from_table_map.find(r_table_alias) != parsed_custom_query_.from_table_map.end()){
                     r_value_type = static_cast<int>(ValueType::COLUMN);                            
                     r_table_name = parsed_custom_query_.from_table_map[r_table_alias];
@@ -743,13 +733,12 @@ private:
         for(auto &table_iter : meta_table_priority){
             auto item = table_map.find(table_iter);
             if(item != table_map.end()){
-                cout << "<스캔 테이블 생성>" << endl;
+                KETILOG::DEBUGLOG(LOGTAG, "<스캔 테이블 생성>");
                 QueryTable query_table;
                 query_table.query_type = QueryType::FULL_SCAN;
                 query_table.table_name1 = table_iter;
                 query_table.table_alias1 = table_map[table_iter];
                 std::string snippet_name = "snippet-" + to_string(i);
-                cout << "result table 명 : " << snippet_name << ", 테이블 : " << table_iter << endl;
                 query_table.result_table_alias = snippet_name;
 
                 parsed_custom_query_.query_tables[snippet_name] = query_table;
@@ -934,7 +923,7 @@ private:
                         } else if (std::regex_match(inner_token, std::regex(R"(\b\d{4}-\d{2}-\d{2}\b)"))) {
                             parsed_token.value_type = static_cast<int>(ValueType::DATE);
                         } else {
-                            cout << "Value 지원 안함!" << inner_token << endl;
+                            KETILOG::ERRORLOG(LOGTAG, "Value 지원 안함!" + inner_token);
                             parsed_custom_query_.is_parsing_custom_query = false;
                         }
 
@@ -952,7 +941,7 @@ private:
 
         // 수식 처리 (예: 3 * 4 + 5)
         if (!matched) {
-            cout << "where 파싱 실패" << endl;
+            KETILOG::ERRORLOG(LOGTAG, "Value 지원 안함!" );
             parsed_custom_query_.is_parsing_custom_query = false;
             std::regex expr_regex(R"((\d+)|([\+\-\*/]))");
             while (std::regex_search(expr, match, expr_regex)) {
@@ -972,11 +961,11 @@ private:
                 expr = match.suffix().str();
             }
         }
-        cout << "parseValues 확인 : " << " "; 
-        for(auto &token_iter : tokens){
-            cout << token_iter.value << ", type " << token_iter.value_type  << endl;
-        }
-        cout << endl;
+        // cout << "parseValues 확인 : " << " "; 
+        // for(auto &token_iter : tokens){
+        //     cout << token_iter.value << ", type " << token_iter.value_type  << endl;
+        // }
+        // cout << endl;
         return tokens;
     }
     void parseWhereConditions(const std::string& query) { 
@@ -1017,7 +1006,7 @@ private:
 
             }
         }else{
-            cout << "Where 없음" << endl;
+            KETILOG::DEBUGLOG(LOGTAG, "Where 없음");
             return;
         }
         
@@ -1037,8 +1026,6 @@ private:
         std::string table_alias;
         std::string talbe_name; 
         std::string column_name;
-        
-       
 
         vector<OperValue> temp_right_values;
 
@@ -1061,26 +1048,25 @@ private:
                     column_name = column_name.substr(dot_pos + 1);
                     
                     if(parsed_custom_query_.column_table_map.find(column_name) != parsed_custom_query_.column_table_map.end()){
-                        cout << column_name << "은 컬럼" << endl;
+                        KETILOG::DEBUGLOG(LOGTAG, column_name + " 은 컬럼");
                         l_value.setOperValue(value_type,table_name, table_alias, column_name);
                     }else{
-                        cout << column_name << "왼쪽 연산자가 컬럼이 아니라 지원 안함!" << endl;
+                        KETILOG::ERRORLOG(LOGTAG, "왼쪽 연산자가 컬럼이 아니라 지원 안함!");
                         parsed_custom_query_.is_parsing_custom_query = false;
 
                     }
                     
                 }else{
                     if(parsed_custom_query_.column_table_map.find(column_name) != parsed_custom_query_.column_table_map.end()){
-                        cout << column_name << "은 컬럼" << endl;
+                        KETILOG::DEBUGLOG(LOGTAG, column_name + " 은 컬럼");
                         table_name = parsed_custom_query_.column_table_map[column_name];
                         table_alias = table_name;
                         l_value.setOperValue(value_type,table_name, table_alias, column_name);
                     }else{
-                        cout << column_name << "왼쪽 연산자가 컬럼이 아니라 지원 안함!" << endl;
+                        KETILOG::ERRORLOG(LOGTAG, "왼쪽 연산자가 컬럼이 아니라 지원 안함!");
                         parsed_custom_query_.is_parsing_custom_query = false;
                     }
                 }
-                cout << "between 테이블 확인 " << table_name << endl;
                 //오른쪽 set
                 
                 if (std::regex_match(start_value, std::regex(R"(\d+)"))) {
@@ -1132,8 +1118,7 @@ private:
                 where_condition.op = static_cast<int>(OperType::BETWEEN); 
                 where_condition.right_values.push_back(inner_left_value);
                 where_condition.right_values.push_back(inner_right_value);
-                cout << "between 확인 ";
-                cout << inner_right_value.value << " " << inner_right_value.value_type <<endl;
+
                 if(l_value.value_type == static_cast<int>(ValueType::COLUMN)){ // 왼쪽 컬럼만 추가 테이블 1개
                                             
                     //왼쪽 컬럼에 해당하는 스캔 스니펫 추가ㅣ
@@ -1162,7 +1147,7 @@ private:
                 std::string operand1 = match[1].str();
                 std::string operator_str = match[2].str();
                 std::string operand2 = match[3].str();
-                cout << "연산자는 ? " << operator_str << endl;
+                
                 OperValue l_value, r_value;
                 size_t dot_pos = operand1.find('.');
                 //왼쪽 연산자 처리
@@ -1173,19 +1158,19 @@ private:
                     table_name = parsed_custom_query_.from_table_map[table_alias];                    
                     column_name = operand1.substr(dot_pos + 1);
                     if(parsed_custom_query_.column_table_map.find(column_name) != parsed_custom_query_.column_table_map.end()){
-                        cout << column_name << "은 컬럼" << endl;
+                        KETILOG::DEBUGLOG(LOGTAG, column_name + " 은 컬럼");
                     }
                     
                 } else { //아니면 컬럼명이 있는지 없는지 확인
                     if(parsed_custom_query_.column_table_map.find(operand1) != parsed_custom_query_.column_table_map.end()){
-                        cout << operand1 << "은 컬럼" << endl;
+                        KETILOG::DEBUGLOG(LOGTAG, column_name + " 은 컬럼");
                         value_type = static_cast<int>(ValueType::COLUMN);
                         table_name = parsed_custom_query_.column_table_map[operand1];
                         table_alias = table_name;
                         column_name = operand1;
 
                     }else{
-                        cout << "왼쪽 연산자가 컬럼이 아니라 지원 안함!" << endl;
+                        KETILOG::ERRORLOG(LOGTAG, "왼쪽 연산자가 컬럼이 아니라 지원 안함!");
                         parsed_custom_query_.is_parsing_custom_query = false;
                         return;
 
@@ -1193,7 +1178,6 @@ private:
                 }
                 
                 l_value.setOperValue(value_type,table_name, table_alias, column_name);
-                cout << "왼쪽 연산자 처리 완료" << endl;
 
                 //오른쪽 연산자 처리
                 if(operator_str == "="){ //암묵적 조인이 있을경우
@@ -1210,7 +1194,7 @@ private:
                             r_value.setOperValue(value_type, table_name, table_alias, column_name);
 
                         }else{//오른쪽이 별칭있고 값일때
-                            cout << "<c1 = vn인 경우>" << endl;
+                            // cout << "<c1 = vn인 경우>" << endl;
                             temp_right_values = parseValues(operand2);
                             value_type = static_cast<int>(ValueType::STRING); 
                             
@@ -1227,7 +1211,7 @@ private:
                             r_value.setOperValue(value_type,table_name, table_alias, column_name);
                             
                         }else{//오른쪽이 값일때
-                            cout << "<c1 = vn인 경우>" << endl;
+                            // cout << "<c1 = vn인 경우>" << endl;
                             temp_right_values = parseValues(operand2);
                             value_type = static_cast<int>(ValueType::STRING); 
                             
@@ -1292,7 +1276,7 @@ private:
                             r_value.setOperValue(value_type, table_name, table_alias, column_name);
 
                         }else{
-                            cout << "<c1 비교 vn인 경우>" << endl;
+                            // cout << "<c1 비교 vn인 경우>" << endl;
                         
                             temp_right_values = parseValues(operand2);
                                                                                  
@@ -1309,7 +1293,7 @@ private:
                             r_value.setOperValue(value_type,table_name, table_alias, column_name);
                             
                         }else{
-                            cout << "<c1 비교 vn인 경우>" << endl;                           
+                            // cout << "<c1 비교 vn인 경우>" << endl;                           
                             temp_right_values = parseValues(operand2);
                                                             
                         }
@@ -1332,7 +1316,7 @@ private:
                             }
                             for(auto &value:  where_condition.right_values){
                                 if(value.value_type == static_cast<int>(ValueType::COLUMN)){
-                                    cout << "조건절 오른쪽에 컬럼 존재, 지원 안함! " << r_value.value << endl;
+                                    KETILOG::ERRORLOG(LOGTAG, "조건절 오른쪽에 컬럼 존재, 지원 안함!");
                                     parsed_custom_query_.is_parsing_custom_query=false;
                                     return;
                                 }
@@ -1346,7 +1330,7 @@ private:
                     
                 }else{
                     if(condition == "NOT" || condition == "not"){
-                        cout << "지원 안함!" << endl;
+                        KETILOG::ERRORLOG(LOGTAG, "NOT 조건절 지원 안함!");
                         parsed_custom_query_.is_parsing_custom_query = false;
                     }else if(condition == "AND" || condition == "and"){
 
@@ -1362,12 +1346,11 @@ private:
                 
             }
         }
-        cout << "hj :: temp_condition 확인 " << endl;
-        for(auto &iter : temp_condition){
-            cout << iter << endl; 
-        }
-
-        cout << endl;
+        // cout << "hj :: temp_condition 확인 " << endl;
+        // for(auto &iter : temp_condition){
+        //     cout << iter << endl; 
+        // }
+        // cout << endl;
         if(and_count == 0 && or_count == 0) {
             parsed_custom_query_.logical = -1;
         }else if(and_count > 0 && or_count == 0){
@@ -1375,21 +1358,21 @@ private:
         }else if(and_count == 0 && or_count > 0){
             parsed_custom_query_.logical =  static_cast<int>(OperType::OR);
         }else{
-            cout << "and_count : " << and_count << ", or_count : " << or_count << endl;
-            cout << "and랑 or랑 섞여있음!" << endl;
+            
+            KETILOG::ERRORLOG(LOGTAG, "and랑 or랑 섞여있음! 지원 안함!");
             parsed_custom_query_.is_parsing_custom_query = false;
         }
         //join순서 처리 및 조인 snippet 생성
         sortJoinConditions(join_conditions, table_priority);
 
         // 정렬된 결과 출력
-        std::cout << "Sorted Join Conditions:" << std::endl;
-        for (const auto& join : join_conditions) {
-            std::cout << "Left Table: " << join.left_table_name << ", Column: " << join.left_column
-                    << " | Right Table: " << join.right_table_name << ", Column: " << join.right_column
-                    << std::endl;
-        }
-        cout << endl;
+        // std::cout << "Sorted Join Conditions:" << std::endl;
+        // for (const auto& join : join_conditions) {
+        //     std::cout << "Left Table: " << join.left_table_name << ", Column: " << join.left_column
+        //             << " | Right Table: " << join.right_table_name << ", Column: " << join.right_column
+        //             << std::endl;
+        // }
+        // cout << endl;
         //join에 사용된 column들을 각 scan 테이블에다가 추가
         for(auto &join_condition : join_conditions){
             for(auto &query_table_entry : parsed_custom_query_.query_tables){
@@ -1505,7 +1488,7 @@ private:
         std::smatch match;
         if (std::regex_search(query, match, group_by_regex)) {
             if(is_aggregation == false){
-                cout << "집계합수 없이 group by 사용, 지원 안함! " << endl;
+                KETILOG::ERRORLOG(LOGTAG, "집계합수 없이 group by 사용, 지원 안함! ");
                 parsed_custom_query_.is_parsing_custom_query = false;
                 return;
             }
@@ -1537,11 +1520,11 @@ private:
                 }
 
                 std::string table_name = parsed_custom_query_.column_table_map[column_name];
-                cout << "hj :: Group_by에서 사용하는 table : " << table_name << endl;
+
                 //scan 스니펫에 컬럼 추가 
                 auto item = find(parsed_custom_query_.result_columns.begin(),parsed_custom_query_.result_columns.end(),column_name);
                 if(item == parsed_custom_query_.result_columns.end()){
-                    cout << "Group By::Select에 없는 컬럼 사용 불가" << endl;
+                    KETILOG::ERRORLOG(LOGTAG, "Group By::Select에 없는 컬럼 사용 불가 ");
                     parsed_custom_query_.is_parsing_custom_query = false;
                     return;
                 }
@@ -1566,7 +1549,7 @@ private:
             //     trim(condition);
             //     cout << "hj :: Having : " << condition <<  " ";
             // }
-            cout << "having 절 지원 안 함!" << endl;
+            KETILOG::ERRORLOG(LOGTAG, "having 절 지원 안 함!");
             parsed_custom_query_.is_parsing_custom_query = false;
         }
     
@@ -1577,48 +1560,104 @@ private:
         std::regex order_by_regex(R"(ORDER BY\s+(.+?)(?=\s+LIMIT|$))", std::regex::icase);
         std::smatch match;
         if (std::regex_search(query, match, order_by_regex)) {
-            std::string order_by_fields(match[1].str());
-
-            if (!order_by_fields.empty() && order_by_fields.back() == ';') {
-                order_by_fields.pop_back();  // 마지막 문자가 ';'이면 제거
-            }
-
-            std::istringstream fields_stream(order_by_fields);
-            std::string field;
-            std::string snippet_name;
-            int snippet_i = parsed_custom_query_.query_tables.size()-1;
-            cout << "hj :: Order_by : " << snippet_i << endl;
-            snippet_name = "snippet-" + to_string(snippet_i);
-
-            while (std::getline(fields_stream, field, ',')) {
-                trim(field);
-                cout << field << " ";
-                size_t dot_pos = field.find('.');
-                std::string column_name;
-                if (dot_pos != std::string::npos) {
-                    // `.`가 존재하면 테이블 별칭과 컬럼명으로 나눔
-                    column_name = field.substr(dot_pos + 1);
-
-                }else{
-                    column_name = field;
-                }
-                bool is_asc = field.find("DESC") == std::string::npos;  // DESC가 없으면 오름차순(ASC)으로 간주
-                field = std::regex_replace(field, std::regex(R"(\s+(ASC|DESC)\b)", std::regex::icase), "");
+            if(is_aggregation == false){ 
+                is_aggregation = true;
+                KETILOG::DEBUGLOG(LOGTAG, "Order 집계함수 테이블 생성");
+                QueryTable query_table;
+                query_table.query_type = QueryType::AGGREGATION;
+                int aggregation_snippet_i = parsed_custom_query_.query_tables.size();
+                std::string snippet_name = "snippet-" + to_string(aggregation_snippet_i);
+                query_table.table_name1 = "snippet-" + to_string(aggregation_snippet_i-1);
                 
-                std::string table_name = parsed_custom_query_.column_table_map[column_name];
-                cout << "hj :: Order_by에서 사용하는 table : " << table_name << endl;
-                //scan 스니펫에 컬럼 추가 
-                for(auto &query_table_entry : parsed_custom_query_.query_tables){
-                    std::string temp_snippet_name = query_table_entry.first;
-                    std::string temp_table_name = query_table_entry.second.table_name1;
-                    if(table_name == temp_table_name){
-                        parsed_custom_query_.query_tables[temp_snippet_name].select_columns.insert(column_name);
-                    }
+                query_table.result_table_alias = snippet_name;
+                for(auto&i : parsed_custom_query_.result_columns){
+                    // cout<< i << " ";
+                    query_table.select_columns.insert(i);
+                        
                 }
-                // order_by_fields에 필드와 정렬 순서 추가
-                parsed_custom_query_.order_by_fields.insert({column_name, is_asc});
+                
+                parsed_custom_query_.query_tables[snippet_name] = query_table;
+
+                std::string order_by_fields(match[1].str());
+
+                if (!order_by_fields.empty() && order_by_fields.back() == ';') {
+                    order_by_fields.pop_back();  // 마지막 문자가 ';'이면 제거
+                }
+
+                std::istringstream fields_stream(order_by_fields);
+                std::string field;
+                int snippet_i = parsed_custom_query_.query_tables.size();
+                snippet_name = "snippet-" + to_string(snippet_i);
+
+                while (std::getline(fields_stream, field, ',')) {
+                    trim(field);
+                    // cout << field << " ";
+                    size_t dot_pos = field.find('.');
+                    std::string column_name;
+                    if (dot_pos != std::string::npos) {
+                        // `.`가 존재하면 테이블 별칭과 컬럼명으로 나눔
+                        column_name = field.substr(dot_pos + 1);
+
+                    }else{
+                        column_name = field;
+                    }
+                    bool is_asc = field.find("DESC") == std::string::npos;  // DESC가 없으면 오름차순(ASC)으로 간주
+                    column_name = std::regex_replace(field, std::regex(R"(\s+(ASC|DESC)\b)", std::regex::icase), "");
+                    
+                    std::string table_name = parsed_custom_query_.column_table_map[column_name];
+                    // cout << "hj :: Order_by에서 사용하는 table : " << table_name << " column_name : " << column_name <<endl;
+                    //scan 스니펫에 컬럼 추가 
+                    for(auto &query_table_entry : parsed_custom_query_.query_tables){
+                        std::string temp_snippet_name = query_table_entry.first;
+                        std::string temp_table_name = query_table_entry.second.table_name1;
+                        if(table_name == temp_table_name){
+                            parsed_custom_query_.query_tables[temp_snippet_name].select_columns.insert(column_name);
+                        }
+                    }
+                    // order_by_fields에 필드와 정렬 순서 추가
+                    parsed_custom_query_.order_by_fields.insert({column_name, is_asc});
+                }
+            }else{
+                std::string order_by_fields(match[1].str());
+
+                if (!order_by_fields.empty() && order_by_fields.back() == ';') {
+                    order_by_fields.pop_back();  // 마지막 문자가 ';'이면 제거
+                }
+
+                std::istringstream fields_stream(order_by_fields);
+                std::string field;
+                int snippet_i = parsed_custom_query_.query_tables.size();
+                string snippet_name = "snippet-" + to_string(snippet_i);
+
+                while (std::getline(fields_stream, field, ',')) {
+                    trim(field);
+                    cout << field << " ";
+                    size_t dot_pos = field.find('.');
+                    std::string column_name;
+                    if (dot_pos != std::string::npos) {
+                        // `.`가 존재하면 테이블 별칭과 컬럼명으로 나눔
+                        column_name = field.substr(dot_pos + 1);
+
+                    }else{
+                        column_name = field;
+                    }
+                    bool is_asc = field.find("DESC") == std::string::npos;  // DESC가 없으면 오름차순(ASC)으로 간주
+                    field = std::regex_replace(field, std::regex(R"(\s+(ASC|DESC)\b)", std::regex::icase), "");
+                    
+                    std::string table_name = parsed_custom_query_.column_table_map[column_name];
+                    //scan 스니펫에 컬럼 추가 
+                    for(auto &query_table_entry : parsed_custom_query_.query_tables){
+                        std::string temp_snippet_name = query_table_entry.first;
+                        std::string temp_table_name = query_table_entry.second.table_name1;
+                        if(table_name == temp_table_name){
+                            parsed_custom_query_.query_tables[temp_snippet_name].select_columns.insert(column_name);
+                        }
+                    }
+                    // order_by_fields에 필드와 정렬 순서 추가
+                    parsed_custom_query_.order_by_fields.insert({column_name, is_asc});
+                }
             }
-            cout << endl;
+
         }
     }
     void parseLimitClause(const std::string& query) {
@@ -1627,18 +1666,50 @@ private:
         std::smatch match;
         Limit limit;
         if (std::regex_search(query, match, limit_offset_regex)) {
-            if (match[2].matched) {
-                // LIMIT offset, length 형태인 경우
-                limit.offset = std::stoi(match[1].str());
-                limit.length = std::stoi(match[2].str());
-            } else if (match[3].matched) {
-                // LIMIT length OFFSET offset 형태인 경우
-                limit.offset = std::stoi(match[3].str());
-                limit.length = std::stoi(match[1].str());
-            } else {
-                // LIMIT length 형태인 경우 (offset은 0으로 간주)
-                limit.offset = 0;
-                limit.length = std::stoi(match[1].str());
+            if(is_aggregation == false){ 
+                is_aggregation = true;
+                KETILOG::DEBUGLOG(LOGTAG, "Limit 집계함수 테이블 생성");
+                QueryTable query_table;
+                query_table.query_type = QueryType::AGGREGATION;
+                int aggregation_snippet_i = parsed_custom_query_.query_tables.size();
+                std::string snippet_name = "snippet-" + to_string(aggregation_snippet_i);
+                query_table.table_name1 = "snippet-" + to_string(aggregation_snippet_i-1);
+                
+                query_table.result_table_alias = snippet_name;
+                for(auto&i : parsed_custom_query_.result_columns){
+                    // cout<< i << " ";
+                    query_table.select_columns.insert(i);
+                        
+                }
+                
+                parsed_custom_query_.query_tables[snippet_name] = query_table;
+                if (match[2].matched) {
+                    // LIMIT offset, length 형태인 경우
+                    limit.offset = std::stoi(match[1].str());
+                    limit.length = std::stoi(match[2].str());
+                } else if (match[3].matched) {
+                    // LIMIT length OFFSET offset 형태인 경우
+                    limit.offset = std::stoi(match[3].str());
+                    limit.length = std::stoi(match[1].str());
+                } else {
+                    // LIMIT length 형태인 경우 (offset은 0으로 간주)
+                    limit.offset = 0;
+                    limit.length = std::stoi(match[1].str());
+                }
+            }else{
+                if (match[2].matched) {
+                    // LIMIT offset, length 형태인 경우
+                    limit.offset = std::stoi(match[1].str());
+                    limit.length = std::stoi(match[2].str());
+                } else if (match[3].matched) {
+                    // LIMIT length OFFSET offset 형태인 경우
+                    limit.offset = std::stoi(match[3].str());
+                    limit.length = std::stoi(match[1].str());
+                } else {
+                    // LIMIT length 형태인 경우 (offset은 0으로 간주)
+                    limit.offset = 0;
+                    limit.length = std::stoi(match[1].str());
+                }
             }
         } else {
             // LIMIT 절이 없을 경우 기본값 설정

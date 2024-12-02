@@ -128,7 +128,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -148,7 +148,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -167,7 +167,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -187,7 +187,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -206,7 +206,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -225,7 +225,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -243,7 +243,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -261,7 +261,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -279,7 +279,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -297,7 +297,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -315,7 +315,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -333,7 +333,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -351,7 +351,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -369,7 +369,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -390,7 +390,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
         scan_snippet_name_list.push_back(scan_snippet_name);
 
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -408,7 +408,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -426,7 +426,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -444,7 +444,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -474,7 +474,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -492,7 +492,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -517,7 +517,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
         tpch_snippets.push_back(tpch_snippet);
         scan_snippet_name_list.push_back(scan_snippet_name);
         for(int i=0;i<tpch_snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
@@ -596,13 +596,12 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
             //Database Close
             CloseDatabase(hEnv, hDbc);
         } 
-        cout << "hj :: create_snippet_init_info ";
+        KETILOG::DEBUGLOG(LOGTAG,"Create Snippet Init Info...");
         
         //***Set MetaData of Snippet (query_id, work_id, schema_info, sst_info, result_info - total_block_count)***
-        cout << "hj :: snippets.size  : " << snippets.size() <<endl;
 
         for(int i=0;i<snippets.size();i++){
-            cout << "Setting MetaData of Query..." << endl;
+            KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(snippets.at(i),db_name);
         }
         vector <string> empty_snippet;
@@ -610,6 +609,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
         string snippet_name;
         for(int i = 0; i < snippets.size();i++){
             snippet_name = "custom_snippet" + to_string(i) ;
+            KETILOG::DEBUGLOG(LOGTAG,"Custom Snippet Name : " +  snippet_name);
             load_snippet(*ret, snippet_name, db_name);
 
         }
@@ -620,8 +620,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
 void read_json(std::string& request,std::string snippet_name, const string &db_name){
     request = "";
-    cout << "hj :: snippet path : " << "../snippets/"+ db_name + "/" + snippet_name + ".json" << endl;
-	std::ifstream openFile("../snippets/"+ db_name + "/" + snippet_name + ".json");
+     	std::ifstream openFile("../snippets/"+ db_name + "/" + snippet_name + ".json");
 	if(openFile.is_open() ){
 		std::string line;
 		while(getline(openFile, line)){
@@ -678,8 +677,7 @@ ValueType determineType(const std::string& value) {
 //1. custom-create_snippet_init_info type, query_info, result_info 생성
 //type, query_info, result_info
 void PlanExecutor::create_snippet_init_info(const string &db_name,ParsedCustomQuery &parsed_custom_query, vector<Snippet> &snippets){
-    cout << "hj :: snippet type 수: " << parsed_custom_query.query_tables.size ()<< endl;
-    cout << "hj :: snippet type : " ;
+    
     int snippet_i = 0;
     for(auto &query_table_entry : parsed_custom_query.query_tables){
         Snippet snippet;
@@ -700,19 +698,15 @@ void PlanExecutor::create_snippet_init_info(const string &db_name,ParsedCustomQu
 
         /*query_info - filtering*/
         setFilterToSnippet(parsed_custom_query, query_table, snippet);
-        cout << "hj :: setFilterToSnippet()" << endl;
         
         /*query_info - projection*/
         setProjectionToSnippet(db_name, parsed_custom_query, query_table, snippet);
-        cout << "hj :: setProjectionToSnippet()" << endl;
         
         /*query_info - order by*/
         setOrderByToSnippet(parsed_custom_query, snippet);
-        cout << "hj :: setOrderByToSnippet()" << endl;
 
         /*query_info - limit*/
         setLimitToSnippet(parsed_custom_query, snippet);
-        cout << "hj :: setLimitToSnippet()" << endl;
 
         /*result_info - table_alias, column_alias */
         if(snippet.type == QueryType::AGGREGATION){
@@ -739,7 +733,6 @@ void PlanExecutor::create_snippet_init_info(const string &db_name,ParsedCustomQu
 }
 
 void PlanExecutor::generate_snippet_json(vector<Snippet> &snippets, const string &db_name, vector<string> &tpch_scan_snippet_name) {
-    cout << "hj :: generate_snippet_json" << endl;
 
     for (int i = 0; i < snippets.size(); i++) {
         Document snippet_obj;
@@ -860,40 +853,45 @@ void PlanExecutor::generate_snippet_json(vector<Snippet> &snippets, const string
 
         // "order by" array
         if (snippets[i].query_info.order_by.size() > 0) {
-            Value ascending_array(kArrayType);
-            Value column_name_array(kArrayType);
+            if(snippets[i].type == QueryType::AGGREGATION){
+                Value ascending_array(kArrayType);
+                Value column_name_array(kArrayType);
 
-            for (const auto& order_by_field : snippets[i].query_info.order_by) {
-                // order_by_field는 {column_name, is_asc} 형태의 std::pair
-                const std::string& column_name = order_by_field.first;
-                cout << "hj :: order by : 컬럼 이름 :" << column_name <<endl; 
-                bool is_asc = order_by_field.second;
+                for (const auto& order_by_field : snippets[i].query_info.order_by) {
+                    // order_by_field는 {column_name, is_asc} 형태의 std::pair
+                    const std::string& column_name = order_by_field.first;
+                    bool is_asc = order_by_field.second;
 
-                Value column_name_value;
-                column_name_value.SetString(column_name.c_str(), allocator);
-                column_name_array.PushBack(column_name_value, allocator);
+                    Value column_name_value;
+                    column_name_value.SetString(column_name.c_str(), allocator);
+                    column_name_array.PushBack(column_name_value, allocator);
 
-                ascending_array.PushBack(is_asc ? 0 : 1, allocator);
+                    ascending_array.PushBack(is_asc ? 0 : 1, allocator);
+                }
+
+                Value order_by_obj(kObjectType);
+                order_by_obj.AddMember("ascending", ascending_array, allocator);
+                order_by_obj.AddMember("column_name", column_name_array, allocator);
+
+                query_info.AddMember("order_by", order_by_obj, allocator);
             }
-
-            Value order_by_obj(kObjectType);
-            order_by_obj.AddMember("ascending", ascending_array, allocator);
-            order_by_obj.AddMember("column_name", column_name_array, allocator);
-
-            query_info.AddMember("order_by", order_by_obj, allocator);
+            
         }
 
         // "limit" object
         if(snippets[i].query_info.limit.offset != -1 && snippets[i].query_info.limit.length != -1){
-            Value limit_object(kObjectType);
-            Value offset_value;
-            Value length_value;
+            if(snippets[i].type == QueryType::AGGREGATION){
+                Value limit_object(kObjectType);
+                Value offset_value;
+                Value length_value;
 
-            offset_value.SetInt(snippets[i].query_info.limit.offset);
-            length_value.SetInt(snippets[i].query_info.limit.length);
-            limit_object.AddMember("offset", offset_value, allocator);
-            limit_object.AddMember("length", length_value, allocator);
-            query_info.AddMember("limit", limit_object, allocator);
+                offset_value.SetInt(snippets[i].query_info.limit.offset);
+                length_value.SetInt(snippets[i].query_info.limit.length);
+                limit_object.AddMember("offset", offset_value, allocator);
+                limit_object.AddMember("length", length_value, allocator);
+                query_info.AddMember("limit", limit_object, allocator);
+            }
+            
 
         }
 
@@ -990,11 +988,9 @@ void PlanExecutor::generate_snippet_json(vector<Snippet> &snippets, const string
     }
 }
 
-void PlanExecutor::setFilterToSnippet(const ParsedCustomQuery& parsed_custom_query, const QueryTable &query_table, Snippet& snippet) {
-    cout << "hj :: where conditions 수 : " << query_table.where_conditions.size() << endl;
-    
+void PlanExecutor::setFilterToSnippet(const ParsedCustomQuery& parsed_custom_query, const QueryTable &query_table, Snippet& snippet) {    
     if(query_table.where_conditions.size() == 0){
-        cout << "where 없음" <<endl;
+        KETILOG::DEBUGLOG(LOGTAG,"where 없음" );
         
     }else{
         for (const auto& condition_unit : query_table.where_conditions) { //condition 수만큼 Filtering 만들어야함
@@ -1073,11 +1069,9 @@ void PlanExecutor::setFilterToSnippet(const ParsedCustomQuery& parsed_custom_que
 
 void PlanExecutor::setProjectionToSnippet(const string &db_name, const ParsedCustomQuery& parsed_custom_query, const QueryTable &query_table, Snippet& snippet) {
     
-
-    cout << endl << "aggregation 확인" <<endl;
     if(snippet.type == QueryType::AGGREGATION){
         for(auto &col_entry : parsed_custom_query.result_columns_columns_alias_map){
-            //c_nationkey:c~ c_acctbal:c~ COUNT(*):c~ SUM:c~
+            
             //1. 그냥 컬럼일때
             if(parsed_custom_query.column_table_map.find(col_entry.first) != parsed_custom_query.column_table_map.end()) {
                 Projection projection;
@@ -1094,7 +1088,7 @@ void PlanExecutor::setProjectionToSnippet(const string &db_name, const ParsedCus
             Projection projection;
             string func = agg_col_entry.first;
             string col = agg_col_entry.second;
-            cout << "func " << func << " col " << col << endl;
+            
             if (func == "SUM") {
                 projection.select_type = static_cast<int>(SelectType::SUM);
                 // Projectioning 구조체에 표현식 추가
@@ -1138,9 +1132,9 @@ void PlanExecutor::setProjectionToSnippet(const string &db_name, const ParsedCus
         }
             
     }else{
-        cout << "hj :: select_field 확인 : " ;
+        // cout << "hj :: select_field 확인 : " ;
         for(auto &col : query_table.select_columns){
-            cout << col << " " ;
+            // cout << col << " " ;
             
             Projection projection;
             projection.select_type = static_cast<int>(SelectType::COLUMNNAME);
@@ -1156,7 +1150,7 @@ void PlanExecutor::setProjectionToSnippet(const string &db_name, const ParsedCus
 }
 void PlanExecutor::setGroupByToSnippet(const ParsedCustomQuery& parsed_custom_query, Snippet& snippet){
     if(parsed_custom_query.group_by_fields.size()==0){
-        cout << "group by 없음" <<endl;
+        KETILOG::DEBUGLOG(LOGTAG,"group by 없음" );
     }else{
         for(auto &item : parsed_custom_query.group_by_fields){
             snippet.query_info.group_by.push_back(item);
@@ -1170,7 +1164,7 @@ void PlanExecutor::setGroupByToSnippet(const ParsedCustomQuery& parsed_custom_qu
 }
 void PlanExecutor::setOrderByToSnippet(const ParsedCustomQuery& parsed_custom_query, Snippet& snippet){
     if(parsed_custom_query.order_by_fields.size()==0){
-        cout << "order 없음" <<endl;
+        KETILOG::DEBUGLOG(LOGTAG,"order 없음" );
     }else{
         snippet.query_info.order_by = parsed_custom_query.order_by_fields;
 
@@ -1179,7 +1173,7 @@ void PlanExecutor::setOrderByToSnippet(const ParsedCustomQuery& parsed_custom_qu
 }
 void PlanExecutor::setLimitToSnippet(const ParsedCustomQuery& parsed_custom_query, Snippet& snippet){
     if( parsed_custom_query.limit.offset == -1){
-        cout << "limit 없음" <<endl;
+        KETILOG::DEBUGLOG(LOGTAG,"limit 없음" );
     }else{
             snippet.query_info.limit = parsed_custom_query.limit;
 

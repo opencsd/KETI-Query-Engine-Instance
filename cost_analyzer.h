@@ -28,7 +28,6 @@ public:
         if (!remaining_query.empty()) {
             queries.push_back(remaining_query);
         }
-        cout << "hj :: query 수 : " << queries.size() << endl;
     }
     void Query_Scoring(ParsedQuery &parsed_query) {
         // 쿼리 점수화 함수 추가
@@ -43,13 +42,10 @@ public:
         if (queries.size() > 1) { 
             execution_mode_ = EXECUTION_MODE::GENERIC;  // Set GENERIC if there are multiple subqueries
             KETILOG::DEBUGLOG(LOGTAG, "Execution mode set to GENERIC due to multiple subqueries.");
-            cout << "hj :: query scoring, 실행 모드 Gen"<< endl;
         } else {
             execution_mode_ = EXECUTION_MODE::OFFLOADING;  // Set OFFLOADING if only one query
             parsed_query.SetQueryTypeAsOffloading();
-
             KETILOG::DEBUGLOG(LOGTAG, "Execution mode set to OFFLOADING due to single query.");
-            cout << "hj :: query scoring, 실행 모드 Off" << endl;
         }
            
     }

@@ -63,7 +63,7 @@ target_link_libraries(ss_grpc_proto
   ${_PROTOBUF_LIBPROTOBUF})
 
 # Query_Engine_Instance
-add_executable(hj_query_engine_instance "main.cc" "plan_executor.cc" "db_connector_instance.cc")
+add_executable(hj_query_engine_instance "main.cc" "plan_executor.cc" "db_connector_instance.cc" "meta_data_manager.cc")
 
 set(Casablanca_LIBRARIES "-lboost_system -lcrypto -lssl -lcpprest")
 set(KODBC_LLIBRARIES "-lodbc")

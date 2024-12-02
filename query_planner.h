@@ -14,7 +14,6 @@ public:
 
     }
     void Parse(ParsedQuery &parsed_query, const string &db_name){
-        cout << "Parse :: parsed_query.GetOriginalQuery()" << parsed_query.GetOriginalQuery() << endl;
 
         if(parsed_query.GetOriginalQuery() == "TPC-H_01") { //TPC-H Query 1
             parsed_query.SetParsedQuery("SELECT l_returnflag,\n\
@@ -602,8 +601,7 @@ ORDER  BY cntrycode;");
         } else { //Other Query
 
             parsed_query.SetCustomParsedQuery(parsed_query.GetOriginalQuery(),db_name);
-            cout << "hj:: mode : " << parsed_query.isGenericQuery() << endl;
-            
+            KETILOG::DEBUGLOG(LOGTAG, "Query Mode : " + parsed_query.isGenericQuery()); //여기 안탐;          
 
         }
     } 
