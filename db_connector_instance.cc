@@ -68,21 +68,25 @@ void DBConnectorInstance::handle_get(http_request message)
         ParsedQuery parsed_query(document["query"].GetString());
         string user_id = document["user_id"].GetString();
 
+        string db_name = document["db_name"].GetString();
         if(document.HasMember("debug_mode")){
-          bool is_debug_mode = document["debugMode"].GetBool();
+          bool is_debug_mode = document["debug_mode"].GetBool();
         }
-
-        // 쿼리 점수화 함수 실행
-        cost_analyzer_.Query_Scoring(parsed_query);
+        // string db_type = document["dbms_type"].GetString();
         
-        // Query Explain 기반 쿼리 수행 계획 함수 실행
+        // 쿼리 파싱 -> 쿼리 타입 , tpch 쿼리인지 
+        query_planner_.Parse(parsed_query, db_name);
+        // 쿼리 점수화 함수 실행->  쿼리 2개 이상이면 Generic
+        cost_analyzer_.Query_Scoring(parsed_query); 
+        cout << "쿼리 점수화 완료" << endl;
+
+        // Query Explain 기반 쿼리 수행 계획 함수 실행  
         query_planner_.Planning_Query(parsed_query);
         
-        query_planner_.Parse(parsed_query);
 
         QueryLog query_log(user_id, parsed_query.GetParsedQuery(), begin, parsed_query.GetExecutionMode(), parsed_query.GetQueryType());
 
-        std::string rep = plan_executor_.ExecuteQuery(storage_engine_connector_,parsed_query,query_log) + "\n";
+        std::string rep = plan_executor_.ExecuteQuery(storage_engine_connector_,parsed_query, db_name, query_log) + "\n";
 
         cout << rep << endl;
         
@@ -121,6 +125,40 @@ void DBConnectorInstance::handle_get(http_request message)
             KETILOG::INFOLOG("Handle Set Log Level", e.what());
             message.reply(status_codes::NotImplemented,"");
         }
+    }else if(url == "/db/status"){
+        auto body_json = message.extract_string();
+        std::string json = utility::conversions::to_utf8string(body_json.get());
+        Document document;
+        document.Parse(json.c_str());
+
+        std::string response ="";
+        message.reply(status_codes::OK,response);
+
+    }else if(url == "/metadata/schema"){ //db 스키마 요청
+        auto body_json = message.extract_string();
+        std::string json = utility::conversions::to_utf8string(body_json.get());
+        cout << json <<endl;
+
+        Document document;
+        document.Parse(json.c_str());
+        string user_id = document["user_id"].GetString();
+        cout << user_id <<endl;
+        map<string, map<string, MetaDataManager::Table>> temp_db_map = MetaDataManager::GetInstance().GetMetaData();
+        
+        std::string response = MetaDataManager::GetInstance().convertToJson(temp_db_map);
+
+        message.reply(status_codes::OK,response);
+
+    }else if(url == "/metadata/sst-info"){ //sst-csd 정보
+        auto body_json = message.extract_string();
+        std::string json = utility::conversions::to_utf8string(body_json.get());
+        Document document;
+        document.Parse(json.c_str());
+
+        map<string, vector<string>> temp_sst_info = MetaDataManager::GetInstance().GetSstInfo();
+        //json으로 반환해주기
+        std::string response = MetaDataManager::GetInstance().convertToJson(temp_sst_info);
+        message.reply(status_codes::OK,response);
     }else{
         KETILOG::FATALLOG(LOGTAG, "error:invalid url");
         return;
@@ -133,7 +171,59 @@ void DBConnectorInstance::handle_get(http_request message)
 void DBConnectorInstance::handle_post(http_request message)
 {    
     ucout <<  message.to_string() << endl;
-    message.reply(status_codes::NotFound,U("SUPPORT ONLY GET API"));
+    utility::string_t url = message.relative_uri().path();
+    if(url == "/query/snippet"){ // 스니펫 생성 요청
+        auto body_json = message.extract_string();
+        std::string json = utility::conversions::to_utf8string(body_json.get());
+        Document document;
+        document.Parse(json.c_str());
+        
+        cout << "json " << json <<endl;
+        
+        string query = document["query"].GetString();
+
+        string user_id = document["user_id"].GetString();
+
+        string db_name = document["db_name"].GetString();
+        ParsedQuery parsed_query(query);
+        parsed_query.SetCustomParsedQuery(query,db_name);
+        vector <Snippet> snippets;
+        ParsedCustomQuery parsed_custom_query = parsed_query.GetParsedCustomQuery();
+        plan_executor_.create_snippet_init_info(db_name, parsed_custom_query, snippets);
+
+        for(int i=0;i<snippets.size();i++){
+            cout << "Setting MetaData of Query..." << endl;
+            MetaDataManager::SetMetaData(snippets.at(i),db_name);
+        }
+        vector <string> empty_snippet;
+        plan_executor_.generate_snippet_json(snippets, db_name, empty_snippet);
+        
+        std::string response = "";
+        for(int i=0;i<snippets.size();i++){
+            string snippet_name = "custom_snippet" + to_string(i) ;
+            std::ifstream openFile("../snippets/"+ db_name + "/" + snippet_name + ".json");
+            if(openFile.is_open() ){
+                std::string line;
+                while(getline(openFile, line)){
+                    response += line;
+                }
+                openFile.close();
+            }
+        }
+        
+        message.reply(status_codes::OK,response);
+    }else if(url == "/query/offload-cost"){ //비용 분석 요청 
+        auto body_json = message.extract_string();
+        std::string json = utility::conversions::to_utf8string(body_json.get());
+        Document document;
+        document.Parse(json.c_str());
+
+        std::string response = "";
+        message.reply(status_codes::OK,response);
+    }else{
+        message.reply(status_codes::NotFound,U("SUPPORT ONLY GET API"));
+
+    }
     return;
 };
 
@@ -154,6 +244,19 @@ void DBConnectorInstance::handle_delete(http_request message)
 void DBConnectorInstance::handle_put(http_request message)
 {
     ucout <<  message.to_string() << endl;
-    message.reply(status_codes::NotFound,U("SUPPORT ONLY GET API"));
+    utility::string_t url = message.relative_uri().path();
+
+    if(url == "/db/alter"){ //db type 변경
+        auto body_json = message.extract_string();
+        std::string json = utility::conversions::to_utf8string(body_json.get());
+        Document document;
+        document.Parse(json.c_str());
+
+        std::string response = "";
+        message.reply(status_codes::OK,response);
+    }else{
+        message.reply(status_codes::NotFound,U("SUPPORT ONLY GET API"));
+
+    }
     return;
 };

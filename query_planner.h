@@ -9,12 +9,12 @@ public:
     void Planning_Query(ParsedQuery &parsed_query){
         // 쿼리 수행 계획 함수
         // Query Explain 기반
-        KETILOG::DEBUGLOG(LOGTAG,"Start Query Planning");
-        KETILOG::DEBUGLOG(LOGTAG,"Planning Query ...");
+        KETILOG::DEBUGLOG(LOGTAG,"Start Query Processing");
+        KETILOG::DEBUGLOG(LOGTAG,"Parsing Query ...");
+
     }
-    void Parse(ParsedQuery &parsed_query){
-    KETILOG::DEBUGLOG(LOGTAG,"Start Query Processing");
-    KETILOG::DEBUGLOG(LOGTAG,"Parsing Query ...");
+    void Parse(ParsedQuery &parsed_query, const string &db_name){
+        cout << "Parse :: parsed_query.GetOriginalQuery()" << parsed_query.GetOriginalQuery() << endl;
 
         if(parsed_query.GetOriginalQuery() == "TPC-H_01") { //TPC-H Query 1
             parsed_query.SetParsedQuery("SELECT l_returnflag,\n\
@@ -600,7 +600,11 @@ ORDER  BY cntrycode;");
             parsed_query.SetParsedQuery("");
             parsed_query.SetQueryTypeAsOffloading();
         } else { //Other Query
-            parsed_query.SetParsedQuery(parsed_query.GetOriginalQuery().c_str());
+
+            parsed_query.SetCustomParsedQuery(parsed_query.GetOriginalQuery(),db_name);
+            cout << "hj:: mode : " << parsed_query.isGenericQuery() << endl;
+            
+
         }
     } 
 

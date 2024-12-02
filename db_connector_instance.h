@@ -7,6 +7,7 @@
 #include "query_planner.h"
 #include "plan_executor.h"
 #include "cost_analyzer.h"
+#include "meta_data_manager.h"
 
 using namespace std;
 using namespace web;
