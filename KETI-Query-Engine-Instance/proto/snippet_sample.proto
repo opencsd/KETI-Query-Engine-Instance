@@ -1,0 +1,171 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.snippet_sample";
+option java_outer_classname = "snippet_sample_Proto";
+option objc_class_prefix = "SSP";
+
+package StorageEngineInstance;
+
+service StorageEngineInterface {
+  rpc OffloadingQueryInterface (stream SnippetRequest) returns (QueryStringResult) {}
+}
+
+message SnippetRequest {
+  enum SnippetType {
+    FULL_SCAN = 0;
+    INDEX_SCAN = 1;
+    INDEX_TABLE_SCAN = 2;
+    AGGREGATION = 3;
+    FILTER = 4;
+    INNER_JOIN = 5;
+    LEFT_OUTER_JOIN = 6;
+    RIGHT_OUTER_JOIN = 7;
+    CROSS_JOIN = 8;
+    UNION = 9;
+    IN = 10;
+    EXIST = 11;
+    DEPENDENCY_INNER_JOIN = 12;
+    DEPENDENCY_EXIST = 13;
+    DEPENDENCY_IN = 14;
+    TMAX_SNIPPET = 15;
+  }
+  enum ValueType {
+    INT8 = 0;
+    INT16 = 1;
+    INT32 = 2; //DEFAULT
+    INT64 = 3;
+    FLOAT32 = 4;
+    DOUBLE = 5;
+    DECIMAL = 6;
+    DATE = 7;
+    TIMESTAMP = 8;
+    STRING = 9;
+    COLUMN = 10;
+    OPERATOR = 11; //value string으로 연산자 확인
+    BOOLEAN = 12;
+  }
+  message Filter {
+    enum OperType {
+      GE = 0;
+      LE = 1;
+      GT = 2;
+      LT = 3;
+      EQ = 4;
+      NE = 5;
+      LIKE = 6;
+      NOTLIKE = 7;
+      BETWEEN = 8;
+      IN = 9;
+      NOTIN = 10;
+      IS = 11;
+      ISNOT = 12;
+      AND = 13;
+      OR = 14;
+    }
+    message FilterValue {
+      repeated ValueType type = 1;
+      repeated string value = 2;
+    }
+    FilterValue lv = 1;
+    OperType operator = 2;
+    FilterValue rv = 3;
+  }
+  message Projection {
+    enum SelectType{
+      COLUMNNAME = 0; //DEFAULT
+      SUM = 1;
+      AVG = 2;
+      COUNT = 3;
+      COUNTSTAR = 4;
+      COUNTDISTINCT = 5;
+      TOP = 6;
+      MIN = 7;
+      MAX = 8;
+    }
+    SelectType select_type = 1;
+    repeated string value = 2;
+    repeated ValueType value_type = 3;    
+  }
+  message Order {
+    enum OrderDirection {
+      ASC = 0; //DEFAULT
+      DESC = 1;
+    }
+    repeated OrderDirection ascending = 1;
+    repeated string column_name = 2;
+  }
+  message Dependency {
+    repeated Projection dependency_projection = 1;
+    repeated Filter dependency_filter = 2;
+  }
+  message Limit {
+    int32 offset = 1;
+    int32 length = 2;
+  }
+  message Ref {
+    string table_name = 1;
+    string column_name = 2;
+  }
+  message QueryInfo {
+    repeated string table_name = 1;
+    repeated Filter filtering = 2;
+    repeated Projection projection = 3;
+    repeated Filter having = 4;
+    repeated string group_by = 5;
+    Order order_by = 6;
+    Limit limit = 7;
+    Dependency dependency = 8;
+    Ref ref = 9;
+  }
+  message SchemaInfo {
+    message Column {
+      string name = 1;
+      int32 type = 3;
+      int32 length = 2;
+      bool primary = 4; 
+      bool index = 5; 
+      bool nullable = 6;
+    }
+    repeated Column column_list = 1;
+    int32 table_index_number = 2;
+  }
+  message SstInfo {
+    message CSD {
+      message Block {
+        repeated int64 offset = 1;
+        repeated int32 length = 2;
+      }
+      string csd_id = 1;
+      string partition = 2;
+      repeated Block block = 3;
+    } 
+    string sst_name = 1;
+    repeated CSD csd = 2;
+    int32 sst_block_count = 3;
+  }
+  message WalInfo {
+    repeated string deleted_key = 1;
+    repeated string inserted_key = 2;
+    repeated string inserted_value = 3;
+  }
+  message ResultInfo {
+    string table_alias = 1;
+    repeated string column_alias = 2;
+    int32 total_block_count = 3;
+  }
+  SnippetType type = 1;
+  int32 query_id = 2;
+  int32 work_id = 3;
+  QueryInfo query_info = 4;
+  SchemaInfo schema_info = 5;
+  repeated SstInfo sst_info = 6;
+  WalInfo wal_info = 7;
+  ResultInfo result_info = 8;
+}
+
+message QueryStringResult {
+  string query_result = 1;
+  int32 scanned_row_count = 2;
+  int32 filtered_row_count = 3; 
+}
