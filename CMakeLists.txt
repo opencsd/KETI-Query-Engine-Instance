@@ -21,6 +21,10 @@ cmake_minimum_required(VERSION 3.5.1)
 
 project(snippet_sample C CXX)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED true)
+
+#set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(./build/cmake/common.cmake)
 
 # find_package(MySQLConnectorCPP REQUIRED)
@@ -59,7 +63,7 @@ target_link_libraries(ss_grpc_proto
   ${_PROTOBUF_LIBPROTOBUF})
 
 # Query_Engine_Instance
-add_executable(query_engine_instance "main.cc" "plan_executor.cc" "db_connector_instance.cc")
+add_executable(hj_query_engine_instance "main.cc" "plan_executor.cc" "db_connector_instance.cc" "meta_data_manager.cc")
 
 set(Casablanca_LIBRARIES "-lboost_system -lcrypto -lssl -lcpprest")
 set(KODBC_LLIBRARIES "-lodbc")
@@ -74,10 +78,11 @@ endif (UNIX)
 
 # target_include_directories(query_engine_instance PRIVATE ${MySQLConnectorCPP_INCLUDE_DIRS})
 
-target_link_libraries(query_engine_instance
+target_link_libraries(hj_query_engine_instance
   ss_grpc_proto
   ${MySQLConnectorCPP_INCLUDE_DIRS}
   ${LINKING_LIBRARIES}
   ${_REFLECTION}
   ${_GRPC_GRPCPP}
-  ${_PROTOBUF_LIBPROTOBUF})
+  ${_PROTOBUF_LIBPROTOBUF}
+  stdc++fs)
