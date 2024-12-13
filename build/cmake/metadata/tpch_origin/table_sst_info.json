@@ -1,0 +1,118 @@
+{
+    "tableList": [
+        {
+            "tableName": "customer",
+            "tableIndexNumber": 283,
+            "indexType": 1,
+            "sstList": [
+                "000664.sst",
+                "000723.sst",
+                "000724.sst",
+                "000725.sst",
+                "000726.sst",
+                "000785.sst",
+                "000786.sst",
+                "000787.sst"
+            ]
+        },
+        {
+            "tableName": "lineitem",
+            "tableIndexNumber": 294,
+            "indexType": 1,
+            "sstList": [
+                "001379.sst",
+                "001382.sst",
+                "001383.sst",
+                "001384.sst",
+                "001400.sst",
+                "001434.sst",
+                "001435.sst",
+                "001436.sst",
+                "001437.sst",
+                "001471.sst",
+                "001472.sst",
+                "001473.sst",
+                "001474.sst",
+                "001506.sst",
+                "001507.sst",
+                "001508.sst"
+            ]
+        },
+        {
+            "tableName": "nation",
+            "tableIndexNumber": 300,
+            "indexType": 1,
+            "sstList": [
+                "002064.sst"
+            ]
+        },
+        {
+            "tableName": "orders",
+            "tableIndexNumber": 278,
+            "indexType": 1,
+            "sstList": [
+                "000290.sst",
+                "000291.sst",
+                "000292.sst",
+                "000351.sst",
+                "000352.sst",
+                "000353.sst",
+                "000354.sst",
+                "000413.sst"
+            ]
+        },
+        {
+            "tableName": "part",
+            "tableIndexNumber": 279,
+            "indexType": 1,
+            "sstList": [
+                "003805.sst",
+                "003806.sst",
+                "003807.sst",
+                "003808.sst",
+                "003809.sst",
+                "003810.sst",
+                "003811.sst",
+                "003812.sst"
+            ]
+        },
+        {
+            "tableName": "partsupp",
+            "tableIndexNumber": 280,
+            "indexType": 1,
+            "sstList": [
+                "000538.sst",
+                "000539.sst",
+                "000540.sst",
+                "000599.sst",
+                "000600.sst",
+                "000601.sst",
+                "000602.sst",
+                "000661.sst"
+            ]
+        },
+        {
+            "tableName": "region",
+            "tableIndexNumber": 299,
+            "indexType": 1,
+            "sstList": [
+                "002005.sst"
+            ]
+        },
+        {
+            "tableName": "supplier",
+            "tableIndexNumber": 284,
+            "indexType": 1,
+            "sstList": [
+                "000788.sst",
+                "000847.sst",
+                "000848.sst",
+                "000849.sst",
+                "000850.sst",
+                "000923.sst",
+                "000924.sst",
+                "000925.sst"
+            ]
+        }
+    ]
+}

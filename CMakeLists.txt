@@ -63,12 +63,11 @@ target_link_libraries(ss_grpc_proto
   ${_PROTOBUF_LIBPROTOBUF})
 
 # Query_Engine_Instance
-add_executable(hj_query_engine_instance "main.cc" "plan_executor.cc" "db_connector_instance.cc" "meta_data_manager.cc")
+add_executable(query_engine_instance "main.cc" "plan_executor.cc" "db_connector_instance.cc" "meta_data_manager.cc")
 
 set(Casablanca_LIBRARIES "-lboost_system -lcrypto -lssl -lcpprest")
 set(KODBC_LLIBRARIES "-lodbc")
 set(LINKING_LIBRARIES ${Casablanca_LIBRARIES} ${KODBC_LLIBRARIES})
-set(MySQLConnectorCPP_INCLUDE_DIRS "-lmysqlcppconn")
 
 if (UNIX)
 	# Linking POSIX threads
@@ -76,11 +75,9 @@ if (UNIX)
 	set(LINKING_LIBRARIES ${LINKING_LIBRARIES} Threads::Threads)
 endif (UNIX)
 
-# target_include_directories(query_engine_instance PRIVATE ${MySQLConnectorCPP_INCLUDE_DIRS})
-
-target_link_libraries(hj_query_engine_instance
+target_link_libraries(query_engine_instance
   ss_grpc_proto
-  ${MySQLConnectorCPP_INCLUDE_DIRS}
+  mysqlcppconn
   ${LINKING_LIBRARIES}
   ${_REFLECTION}
   ${_GRPC_GRPCPP}

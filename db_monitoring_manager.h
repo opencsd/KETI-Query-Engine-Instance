@@ -90,7 +90,7 @@ private:
         unique_lock<mutex> lock(safe_mutex);
 
         try {
-            influxdb_cpp::server_info server_info("10.0.4.87", 30701, "keti_opencsd", "keti", "ketilinux");
+            influxdb_cpp::server_info server_info("10.0.4.87", 30701, "keti_opencsd", "root", "ketilinux");
             string resp;
 
             int ret = influxdb_cpp::builder()

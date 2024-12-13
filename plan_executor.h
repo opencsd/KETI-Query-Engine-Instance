@@ -8,13 +8,14 @@ class PlanExecutor {
 public:
 
 	PlanExecutor(){
-        // setQueryID();
+        string temp = INSTANCE_NAME;
+        std::replace(temp.begin(), temp.end(), '-', '_');
+        instance_name_ = temp;
+        setQueryID();
     }
     int GetQueryID(){
         std::lock_guard<std::mutex> lock(mutex);
-        // return ++queryID_;
-        return 0;
-
+        return queryID_++;
     }
 
     std::string ExecuteQuery(StorageEngineConnector &storageEngineInterface, ParsedQuery &parsed_query, const string &db_name, QueryLog &query_log);
@@ -28,6 +29,7 @@ public:
     Snippet parsing_tpch_snippet(const string &file_name, const std::string &db_name);
 
 private:
+    string instance_name_;
     std::mutex gRPC_mutex;
     std::mutex mutex;
     vector<Snippet> snippets;
@@ -38,6 +40,5 @@ private:
     QueryStringResult queryOffload(StorageEngineConnector &storageEngineInterface,std::list<SnippetRequest> &snippet_list, int query_id);
     const std::string LOGTAG = "Query Engine::Plan Executor";
     void trim(std::string& s);
-
 };
 

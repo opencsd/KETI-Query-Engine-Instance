@@ -84,6 +84,68 @@ string MetaDataManager::convertToJson(map<string, map<string, Table>> &db_map){
     return buffer.GetString();
 
 }
+
+string MetaDataManager::convertToJson(map<string, Table> &table_map){
+    KETILOG::DEBUGLOG(LOGTAG, "convertToJson() : table_map");
+
+    Document json_document;
+    json_document.SetObject();
+    auto& allocator = json_document.GetAllocator();
+
+    for (const auto& table_entry : table_map) {
+        const string& table_name = table_entry.first;           // 테이블 이름
+        const Table& table = table_entry.second;                // Table 객체
+
+        cout << table_name << endl;
+
+        Value table_value(kObjectType);
+
+        // 테이블 메타데이터 추가
+        table_value.AddMember("table_name", Value(table.table_name.c_str(), allocator), allocator);
+        table_value.AddMember("table_index_number", table.table_index_number, allocator);
+        table_value.AddMember("index_type", table.index_type, allocator);
+        table_value.AddMember("total_block_count", table.total_block_count, allocator);
+
+        // 컬럼 리스트 추가
+        Value column_array(kArrayType);
+        for (const auto& column : table.column_list) {
+            Value column_value(kObjectType);
+            column_value.AddMember("column_name", Value(column.name.c_str(), allocator), allocator);
+            column_value.AddMember("column_type", column.type, allocator);
+            column_value.AddMember("primary", column.primary, allocator);
+            column_value.AddMember("index", column.index, allocator);
+            column_value.AddMember("nullable", column.nullable, allocator);
+
+            column_array.PushBack(column_value, allocator);
+        }
+        table_value.AddMember("column_list", column_array, allocator);
+        json_document.AddMember(Value(table_name.c_str(), allocator), table_value, allocator);
+    }
+
+    // JSON 직렬화
+    StringBuffer buffer;
+    Writer<StringBuffer> writer(buffer);
+    json_document.Accept(writer);
+
+    return buffer.GetString();
+}
+
+string MetaDataManager::getEnvInfoJson(string db_name) {
+    Document document;
+    document.SetObject();
+    auto& allocator = document.GetAllocator();
+
+    document.AddMember("scheduling_algorithm", Value().SetString(environment_info.scheduling_algorithm.c_str(), allocator), allocator);
+    document.AddMember("block_count", environment_info.block_count, allocator);
+    document.AddMember("using_index", environment_info.using_index, allocator);
+    document.AddMember("db_size", environment_info.db_size_map[db_name], allocator);
+    StringBuffer buffer;
+    Writer<StringBuffer> writer(buffer);
+    document.Accept(writer);
+
+    return buffer.GetString();
+}
+
 string MetaDataManager::convertToJson(map<string, vector<string>> &sst_csd_map) {
     KETILOG::DEBUGLOG(LOGTAG, "convertToJson() : sst_csd_map");
     Document document;
@@ -262,10 +324,11 @@ void MetaDataManager::load_schema_info(const string &json, const string &db_name
 
     for (SizeType i = 0; i < tableList.Size(); ++i) {
         Table table;
+
         const Value& tableData = tableList[i];
         
         table.table_name = tableData["tableName"].GetString();
-        table.table_index_number = tableData["table_index_number"].GetInt();
+        table.table_index_number = tableData["tableIndexNumber"].GetInt();
 
         const Value& columnList = tableData["columnList"];
         for (SizeType j = 0; j < columnList.Size(); ++j) {
@@ -278,33 +341,75 @@ void MetaDataManager::load_schema_info(const string &json, const string &db_name
             column.primary = columnData["primary"].GetBool();
             column.index = columnData["index"].GetBool();
             column.nullable = columnData["nullable"].GetBool();
-
-            // table.table_schema[column.name] = column;
             table.column_list.push_back(column);
+            
         }
 
         db_map[db_name][table.table_name] = table;
     }
+    Value &dbSizeData = document["dbSize"];
+    environment_info.db_size_map[db_name] = dbSizeData.GetFloat();
 
 }
 
 void MetaDataManager::db_info_generate(const string &db_name){    
-    if(db_name == "tpch_origin"){
-        //파일 8개로 다 나눈 버전이라 일단 이렇게 해놨음
-    }else{
-        
-        string command = "mysql -D INFORMATION_SCHEMA"  
-        " -e \"select d.TABLE_NAME, i.SST_NAME, d.INDEX_NUMBER, d.INDEX_TYPE from ROCKSDB_DDL d "
-        "INNER JOIN ROCKSDB_INDEX_FILE_MAP i ON d.INDEX_NUMBER = i.INDEX_NUMBER "
-        "WHERE d.TABLE_SCHEMA = '" + db_name + "'\" > ../metadata/" + db_name + "/table_sst_info.txt";
+    // if(db_name == "tpch_origin"){
+    //     //파일 8개로 다 나눈 버전이라 일단 이렇게 해놨음
+    // }else{
+    //     //sql 결과가 정확하지 않음
+    //     // string command = "mysql -D INFORMATION_SCHEMA"  
+    //     // " -e \"select d.TABLE_NAME, i.SST_NAME, d.INDEX_NUMBER, d.INDEX_TYPE from ROCKSDB_DDL d "
+    //     // "INNER JOIN ROCKSDB_INDEX_FILE_MAP i ON d.INDEX_NUMBER = i.INDEX_NUMBER "
+    //     // "WHERE d.TABLE_SCHEMA = '" + db_name + "'\" > ../metadata/" + db_name + "/table_sst_info.txt";
 
-        int result = system(command.c_str());
-    }
+    //     // int result = system(command.c_str());
+    // }
 
     string table_sst_info_path = "../metadata/" + db_name + "/table_sst_info.txt";
     ifstream inputFile(table_sst_info_path);
-    if (!inputFile.is_open()) {
-        cerr << "Failed to open table_sst_info.txt" << endl;
+    if (!inputFile.is_open()) { 
+        
+        string table_sst_info_path = "../metadata/" + db_name + "/table_sst_info.json";
+        KETILOG::DEBUGLOG(LOGTAG, "Open table sst info.json " + table_sst_info_path);
+
+        ifstream inputJsonFile(table_sst_info_path);
+        IStreamWrapper isw(inputJsonFile);
+        Document doc;
+        doc.ParseStream(isw);
+
+        if (!doc.IsObject() || !doc.HasMember("tableList") || !doc["tableList"].IsArray()) {
+            cerr << "Invalid JSON format or missing 'tableList' field." << endl;
+            return;
+        }
+
+        const Value& tableList = doc["tableList"];
+        for (const auto& tableEntry : tableList.GetArray()) {
+            if (!tableEntry.HasMember("tableName") || !tableEntry.HasMember("indexType") || !tableEntry.HasMember("sstList")) {
+                cerr << "Missing required fields in table entry." << endl;
+                continue;
+            }
+
+            string table_name = tableEntry["tableName"].GetString();
+            int index_type = tableEntry["indexType"].GetInt();
+            const Value& sstList = tableEntry["sstList"];
+
+            if (!sstList.IsArray()) {
+                cerr << "Invalid 'sstList' format for table: " << table_name << endl;
+                continue;
+            }
+            auto &table_map = db_map[db_name];
+
+            if (table_map.find(table_name) != table_map.end()) {
+                for (const auto& sst : sstList.GetArray()) {
+                    string sst_name = sst.GetString();
+                    table_map[table_name].sst_block_map[sst_name] = -1;
+                }
+                table_map[table_name].index_type = index_type;
+            } else {
+                cerr << "Table not found in database: " << table_name << endl;
+            }
+        }
+
         return ;
     }
 
@@ -317,12 +422,10 @@ void MetaDataManager::db_info_generate(const string &db_name){
         std::string table_name, sst_name;
         int index_number, index_type;
 
-        // 파싱 수행 (탭을 구분자로 사용)
         getline(iss, table_name, '\t');
         getline(iss, sst_name, '\t');
 
         iss >> index_number >> index_type;
-        // `db_map`에 해당 테이블 정보 업데이트
         auto &table_map = db_map[db_name];
         if (table_map.find(table_name) != table_map.end()) {
             table_map[table_name].sst_block_map[sst_name] = -1; 
@@ -422,11 +525,21 @@ void MetaDataManager::load_sst_block_count(const std::string& jsonFilePath, cons
             Table& table_data = table_map_entry.second; // Table 객체
 
             // sst_block_map에서 sst_name이 존재하는지 확인
-            if (table_data.sst_block_map.find(sst_name) != table_data.sst_block_map.end()) {                    
-                table_data.sst_block_map[sst_name] = sst_block_count; // sst_block_count 업데이트
-                db_map[db_name][table_name].sst_block_map[sst_name] = sst_block_count;
-                db_map[db_name][table_name].total_block_count += sst_block_count;
+            if (table_data.sst_block_map.find(sst_name) != table_data.sst_block_map.end()) {    
+                if(sst_csd_map[sst_name].size() > 1 ){
+                    KETILOG::DEBUGLOG(LOGTAG," 레플리카 존재! " + sst_name);
+                    table_data.sst_block_map[sst_name] = sst_block_count; // sst_block_count 업데이트
+                    db_map[db_name][table_name].sst_block_map[sst_name] = sst_block_count;
+                    
+                }else{
+                    // KETILOG::DEBUGLOG(LOGTAG, sst_name);
+                    table_data.sst_block_map[sst_name] = sst_block_count; // sst_block_count 업데이트
+                    db_map[db_name][table_name].sst_block_map[sst_name] = sst_block_count;
+                    db_map[db_name][table_name].total_block_count += sst_block_count;
+                }
+                
             }
+        
         }
     }
 }
@@ -466,7 +579,7 @@ void  MetaDataManager::initMetaDataManager(){
             generate_sst_csd_map("../metadata/" + db_name + "/sst_csd_info.txt");
             
             //4. total_block_count
-            load_sst_block_count("../metadata/" + db_name + "/sst_block_info.json", db_name);
+            load_sst_block_count("../metadata/sst_block_info.json", db_name);
         }
         // for (const auto& iter : sst_csd_map) {
         //     cout << "SST File: " << iter.first << " -> CSD Numbers: ";
@@ -476,5 +589,5 @@ void  MetaDataManager::initMetaDataManager(){
         //     cout << endl; 
         // }
     }
-    // print_databases();
+    print_databases();
 }

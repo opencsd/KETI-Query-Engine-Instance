@@ -21,10 +21,25 @@ DBConnectorInstance::DBConnectorInstance(utility::string_t url, string storage_e
     m_listener.support(methods::PUT, std::bind(&DBConnectorInstance::handle_put, this, std::placeholders::_1));
     m_listener.support(methods::POST, std::bind(&DBConnectorInstance::handle_post, this, std::placeholders::_1));
     m_listener.support(methods::DEL, std::bind(&DBConnectorInstance::handle_delete, this, std::placeholders::_1));
+     m_listener.support(methods::OPTIONS, std::bind(&DBConnectorInstance::handle_options, this, std::placeholders::_1));
 }
 DBConnectorInstance::~DBConnectorInstance()
 {
     /*dtor*/
+}
+
+void DBConnectorInstance::add_cors_headers(http_response response) {
+    response.headers().add(U("Access-Control-Allow-Origin"), U("*")); // 모든 도메인 허용
+    response.headers().add(U("Access-Control-Allow-Methods"), U("GET, POST, PUT, DELETE, OPTIONS"));
+    response.headers().add(U("Access-Control-Allow-Headers"), U("Content-Type, Authorization"));
+    response.headers().add(U("Access-Control-Allow-Credentials"), U("true")); // 인증정보 사용 허용
+}
+
+
+void DBConnectorInstance::handle_options(http_request message) {
+    http_response response(status_codes::OK);
+    add_cors_headers(response); // CORS 헤더 추가
+    message.reply(response);
 }
 
 void DBConnectorInstance::handle_error(pplx::task<void>& t)
@@ -39,15 +54,107 @@ void DBConnectorInstance::handle_error(pplx::task<void>& t)
     }
 }
 
-
 //
 // Get Request 
 //
 void DBConnectorInstance::handle_get(http_request message)
 {
+    http_response response;
     utility::string_t url = message.relative_uri().path();
 
-    if(url == "/query/run"){
+    if(url == "/log-level"){
+        try{
+            utility::string_t query =  message.relative_uri().query();
+            int equalPos = query.find("=");
+            std::string logLevelStr = query.substr(equalPos + 1);
+            int log_level = std::stoi(logLevelStr);
+
+            KETILOG::SetLogLevel(log_level);
+
+            KETILOG::FATALLOG(LOGTAG, "changed log level" + to_string(log_level));
+
+            message.reply(status_codes::OK,"");
+        }catch (std::exception &e) {
+            KETILOG::INFOLOG("Handle Set Log Level", e.what());
+            message.reply(status_codes::NotImplemented,"");
+        }
+
+    }else if(url == "/db/status"){ // 처리필요
+        auto body_json = message.extract_string();
+        std::string json = utility::conversions::to_utf8string(body_json.get());
+        Document document;
+        document.Parse(json.c_str());
+
+        std::string response_body = "";
+        response.set_status_code(status_codes::OK);
+        response.set_body(response_body);
+        
+    }else if(url == "/metadata/schema"){
+        auto query = message.request_uri().query();
+        auto query_map = uri::split_query(query);
+        auto it = query_map.find(U("db-name"));
+
+        if (it != query_map.end()) {
+            auto db_name = uri::decode(it->second);
+            map<string, MetaDataManager::Table> temp_db_map = MetaDataManager::GetInstance().GetMetaData(db_name);
+            std::string response_body = MetaDataManager::GetInstance().convertToJson(temp_db_map);
+            response.set_status_code(status_codes::OK);
+            response.set_body(response_body);
+        } else {
+            response.set_status_code(status_codes::BadRequest);
+            response.set_body(U("Missing db-name parameter"));
+        }
+
+    }else if(url == "/metadata/sst-info"){ // 인자에 따른 처리 필요 (없을때, db지정, table지정)
+        auto query = message.request_uri().query();
+        auto query_map = uri::split_query(query);
+        auto db_name = query_map.find(U("db-name"));
+        auto table_name = query_map.find(U("table-name"));
+
+        map<string, vector<string>> temp_sst_info = MetaDataManager::GetInstance().GetSstInfo();
+        std::string response_body = MetaDataManager::GetInstance().convertToJson(temp_sst_info);
+        response.set_status_code(status_codes::OK);
+        response.set_body(response_body);
+
+    }else if(url == "/metadata/environment-info"){ // 하드코딩 환경정보 처리 필요
+        auto query = message.request_uri().query();
+        auto query_map = uri::split_query(query);
+        auto it = query_map.find(U("db-name"));
+
+        if (it != query_map.end()) {
+            auto db_name = uri::decode(it->second);
+            std::string response_body = MetaDataManager::GetEnvInfoJson(db_name);
+            response.set_status_code(status_codes::OK);
+            response.set_body(response_body);
+        }
+
+    }else{
+        response.set_status_code(status_codes::NotFound);
+        response.set_body(U("NOT SUPPORT URL"));
+    }
+
+    add_cors_headers(response);
+    message.reply(response);
+};
+
+//
+// A POST request
+//
+void DBConnectorInstance::handle_post(http_request message)
+{    
+    utility::string_t url = message.relative_uri().path();
+    if(url == "/metadata/environment-edit"){ // 하드코딩 환경정보 처리 필요
+        auto body_json = message.extract_string();
+        std::string json = utility::conversions::to_utf8string(body_json.get());
+        Document document;
+        document.Parse(json.c_str());
+        
+        int block_count = document["block_count"].GetInt();
+        string scheduling_algorithm = document["scheduling_algorithm"].GetString();
+        bool using_index = document["using_index"].GetBool();
+        
+        message.reply(status_codes::OK);
+    } else if(url == "/query/run"){
         string begin, end;
         double execution;
 
@@ -66,25 +173,21 @@ void DBConnectorInstance::handle_get(http_request message)
         begin = startTimeStringStream.str();
         
         ParsedQuery parsed_query(document["query"].GetString());
-        string user_id = document["user_id"].GetString();
-
+        string user_name = document["user_name"].GetString();
         string db_name = document["db_name"].GetString();
         if(document.HasMember("debug_mode")){
           bool is_debug_mode = document["debug_mode"].GetBool();
         }
-        // string db_type = document["dbms_type"].GetString();
         
         // 쿼리 파싱 -> 쿼리 타입 , tpch 쿼리인지 
         query_planner_.Parse(parsed_query, db_name);
         // 쿼리 점수화 함수 실행->  쿼리 2개 이상이면 Generic
         cost_analyzer_.Query_Scoring(parsed_query); 
-        cout << "쿼리 점수화 완료" << endl;
 
         // Query Explain 기반 쿼리 수행 계획 함수 실행  
         query_planner_.Planning_Query(parsed_query);
-        
 
-        QueryLog query_log(user_id, parsed_query.GetParsedQuery(), begin, parsed_query.GetExecutionMode(), parsed_query.GetQueryType());
+        QueryLog query_log(user_name, parsed_query.GetParsedQuery(), begin, parsed_query.GetExecutionMode(), parsed_query.GetQueryType(), db_name);
 
         std::string rep = plan_executor_.ExecuteQuery(storage_engine_connector_,parsed_query, db_name, query_log) + "\n";
 
@@ -101,7 +204,7 @@ void DBConnectorInstance::handle_get(http_request message)
         execution = elapsed_seconds.count();
 
         query_log.AddTimeInfo(end,execution);
-        // query_log.InsertQueryLog();
+        query_log.InsertQueryLog();
 
         std::string response = query_log.QueryLog2Json();
 
@@ -109,82 +212,17 @@ void DBConnectorInstance::handle_get(http_request message)
         
         KETILOG::INFOLOG(LOGTAG,"End Query time : " + to_string(execution) + " sec");
         return;
-    }else if(url == "/log-level"){
-        try{
-            utility::string_t query =  message.relative_uri().query();
-            int equalPos = query.find("=");
-            std::string logLevelStr = query.substr(equalPos + 1);
-            int log_level = std::stoi(logLevelStr);
 
-            KETILOG::SetLogLevel(log_level);
-
-            KETILOG::FATALLOG(LOGTAG, "changed log level" + to_string(log_level));
-
-            message.reply(status_codes::OK,"");
-        }catch (std::exception &e) {
-            KETILOG::INFOLOG("Handle Set Log Level", e.what());
-            message.reply(status_codes::NotImplemented,"");
-        }
-    }else if(url == "/db/status"){
+    }else if(url == "/query/snippet"){ // 스니펫 생성 요청
         auto body_json = message.extract_string();
         std::string json = utility::conversions::to_utf8string(body_json.get());
         Document document;
         document.Parse(json.c_str());
-
-        std::string response ="";
-        message.reply(status_codes::OK,response);
-
-    }else if(url == "/metadata/schema"){ //db 스키마 요청
-        auto body_json = message.extract_string();
-        std::string json = utility::conversions::to_utf8string(body_json.get());
-        cout << json <<endl;
-
-        Document document;
-        document.Parse(json.c_str());
-        string user_id = document["user_id"].GetString();
-        cout << user_id <<endl;
-        map<string, map<string, MetaDataManager::Table>> temp_db_map = MetaDataManager::GetInstance().GetMetaData();
-        
-        std::string response = MetaDataManager::GetInstance().convertToJson(temp_db_map);
-
-        message.reply(status_codes::OK,response);
-
-    }else if(url == "/metadata/sst-info"){ //sst-csd 정보
-        auto body_json = message.extract_string();
-        std::string json = utility::conversions::to_utf8string(body_json.get());
-        Document document;
-        document.Parse(json.c_str());
-
-        map<string, vector<string>> temp_sst_info = MetaDataManager::GetInstance().GetSstInfo();
-        //json으로 반환해주기
-        std::string response = MetaDataManager::GetInstance().convertToJson(temp_sst_info);
-        message.reply(status_codes::OK,response);
-    }else{
-        KETILOG::FATALLOG(LOGTAG, "error:invalid url");
-        return;
-    }
-};
-
-//
-// A POST request
-//
-void DBConnectorInstance::handle_post(http_request message)
-{    
-    ucout <<  message.to_string() << endl;
-    utility::string_t url = message.relative_uri().path();
-    if(url == "/query/snippet"){ // 스니펫 생성 요청
-        auto body_json = message.extract_string();
-        std::string json = utility::conversions::to_utf8string(body_json.get());
-        Document document;
-        document.Parse(json.c_str());
-        
-        cout << "json " << json <<endl;
         
         string query = document["query"].GetString();
-
         string user_id = document["user_id"].GetString();
-
         string db_name = document["db_name"].GetString();
+
         ParsedQuery parsed_query(query);
         parsed_query.SetCustomParsedQuery(query,db_name);
         vector <Snippet> snippets;
@@ -212,6 +250,7 @@ void DBConnectorInstance::handle_post(http_request message)
         }
         
         message.reply(status_codes::OK,response);
+
     }else if(url == "/query/offload-cost"){ //비용 분석 요청 
         auto body_json = message.extract_string();
         std::string json = utility::conversions::to_utf8string(body_json.get());
@@ -220,10 +259,11 @@ void DBConnectorInstance::handle_post(http_request message)
 
         std::string response = "";
         message.reply(status_codes::OK,response);
-    }else{
-        message.reply(status_codes::NotFound,U("SUPPORT ONLY GET API"));
 
+    } else {
+        message.reply(status_codes::NotFound,U("NOT SUPPORT URL"));
     }
+
     return;
 };
 
@@ -233,7 +273,7 @@ void DBConnectorInstance::handle_post(http_request message)
 void DBConnectorInstance::handle_delete(http_request message)
 {
     ucout <<  message.to_string() << endl;
-    message.reply(status_codes::NotFound,U("SUPPORT ONLY GET API"));
+    message.reply(status_codes::NotFound,U("SUPPORT ONLY GET/POST API"));
     return;
 };
 
@@ -255,7 +295,7 @@ void DBConnectorInstance::handle_put(http_request message)
         std::string response = "";
         message.reply(status_codes::OK,response);
     }else{
-        message.reply(status_codes::NotFound,U("SUPPORT ONLY GET API"));
+        message.reply(status_codes::NotFound,U("SUPPORT ONLY GET/POST API"));
 
     }
     return;

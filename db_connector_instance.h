@@ -33,6 +33,8 @@ class DBConnectorInstance
         void handle_post(http_request message);
         void handle_delete(http_request message);
         void handle_error(pplx::task<void>& t);
+        void handle_options(http_request message);
+        void add_cors_headers(http_response response);
         http_listener m_listener;
         
 	CostAnalyzer cost_analyzer_; // 쿼리 점수화 모듈

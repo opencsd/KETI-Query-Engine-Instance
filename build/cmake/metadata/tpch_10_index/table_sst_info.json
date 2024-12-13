@@ -1,0 +1,341 @@
+{
+    "tableList": [
+        {
+            "tableName": "lineitem",
+            "tableIndexNumber": 1242,
+            "indexType": 1,
+            "sstList": [
+                "024919.sst",
+                "024539.sst",
+                "024462.sst",
+                "024483.sst",
+                "024301.sst",
+                "024653.sst",
+                "024979.sst",
+                "024959.sst",
+                "024939.sst",
+                "024918.sst",
+                "024843.sst",
+                "024842.sst",
+                "024822.sst",
+                "024803.sst",
+                "024785.sst",
+                "024784.sst",
+                "024743.sst",
+                "024727.sst",
+                "024725.sst",
+                "024709.sst",
+                "024556.sst",
+                "025048.sst",
+                "024671.sst",
+                "025000.sst",
+                "024632.sst",
+                "024595.sst",
+                "024670.sst",
+                "024576.sst",
+                "024573.sst",
+                "024555.sst",
+                "024523.sst",
+                "024520.sst",
+                "024940.sst",
+                "024444.sst",
+                "024443.sst",
+                "024802.sst",
+                "024425.sst",
+                "024406.sst",
+                "024387.sst",
+                "024371.sst",
+                "024354.sst",
+                "024300.sst",
+                "024231.sst",
+                "024199.sst",
+                "024185.sst",
+                "025017.sst",
+                "024171.sst",
+                "024141.sst",
+                "024130.sst",
+                "024129.sst",
+                "024692.sst",
+                "024744.sst",
+                "024388.sst",
+                "024978.sst",
+                "024334.sst",
+                "024902.sst",
+                "024232.sst",
+                "024540.sst",
+                "024594.sst",
+                "024765.sst",
+                "025018.sst",
+                "024616.sst",
+                "024861.sst",
+                "024958.sst",
+                "025051.sst",
+                "024215.sst",
+                "024168.sst",
+                "024975.sst",
+                "024246.sst",
+                "024708.sst",
+                "024214.sst",
+                "024284.sst",
+                "024332.sst",
+                "024283.sst",
+                "024118.sst",
+                "024407.sst",
+                "024901.sst",
+                "024486.sst",
+                "024764.sst",
+                "024184.sst",
+                "024461.sst",
+                "024879.sst",
+                "024249.sst",
+                "024880.sst",
+                "024821.sst",
+                "024170.sst",
+                "024615.sst",
+                "024999.sst",
+                "024264.sst",
+                "024654.sst",
+                "024119.sst",
+                "024352.sst",
+                "024726.sst",
+                "024335.sst",
+                "024635.sst",
+                "024862.sst",
+                "024689.sst",
+                "024142.sst",
+                "024265.sst",
+                "024333.sst",
+                "024200.sst",
+                "024503.sst",
+                "024426.sst",
+                "024596.sst",
+                "024841.sst",
+                "024482.sst",
+                "024169.sst",
+                "024230.sst",
+                "024370.sst",
+                "024504.sst",
+                "024353.sst"
+            ]
+        },
+        {
+            "tableName": "lineitem",
+            "tableIndexNumber": 1243,
+            "indexType": 2,
+            "sstList": [
+                "024337.sst",
+                "025118.sst",
+                "024944.sst",
+                "024749.sst",
+                "024428.sst",
+                "024304.sst",
+                "024466.sst",
+                "024525.sst",
+                "024303.sst",
+                "025051.sst",
+                "024598.sst",
+                "024807.sst",
+                "024694.sst",
+                "024305.sst",
+                "024429.sst",
+                "024981.sst"
+            ]
+        },
+        {
+            "tableName": "lineitem",
+            "tableIndexNumber": 1244,
+            "indexType": 2,
+            "sstList": [
+                "025046.sst",
+                "024767.sst",
+                "025023.sst",
+                "024637.sst",
+                "024848.sst",
+                "024846.sst",
+                "025118.sst",
+                "024983.sst",
+                "024748.sst",
+                "025047.sst",
+                "024923.sst",
+                "025044.sst",
+                "024847.sst",
+                "024985.sst",
+                "024845.sst",
+                "024924.sst",
+                "025119.sst",
+                "024771.sst",
+                "024770.sst",
+                "024984.sst",
+                "024925.sst",
+                "025022.sst",
+                "025045.sst"
+            ]
+        },
+        {
+            "tableName": "customer",
+            "tableIndexNumber": 1245,
+            "indexType": 1,
+            "sstList": [
+                "025096.sst",
+                "025093.sst",
+                "025095.sst",
+                "025094.sst"
+            ]
+        },
+        {
+            "tableName": "customer",
+            "tableIndexNumber": 1246,
+            "indexType": 2,
+            "sstList": [
+                "025097.sst",
+                "025096.sst",
+                "025098.sst"
+            ]
+        },
+        {
+            "tableName": "nation",
+            "tableIndexNumber": 1247,
+            "indexType": 1,
+            "sstList": [
+                "025105.sst"
+            ]
+        },
+        {
+            "tableName": "nation",
+            "tableIndexNumber": 1248,
+            "indexType": 2,
+            "sstList": [
+                "025105.sst"
+            ]
+        },
+        {
+            "tableName": "orders",
+            "tableIndexNumber": 1249,
+            "indexType": 1,
+            "sstList": [
+                "025230.sst",
+                "025258.sst",
+                "025211.sst",
+                "025210.sst",
+                "025209.sst",
+                "025161.sst",
+                "025160.sst",
+                "025127.sst",
+                "025126.sst",
+                "025229.sst",
+                "025179.sst",
+                "025257.sst",
+                "025193.sst",
+                "025128.sst",
+                "025255.sst",
+                "025194.sst",
+                "025177.sst",
+                "025178.sst",
+                "025142.sst",
+                "025231.sst",
+                "025125.sst",
+                "025162.sst",
+                "025143.sst",
+                "025195.sst",
+                "025259.sst",
+                "025110.sst"
+            ]
+        },
+        {
+            "tableName": "orders",
+            "tableIndexNumber": 1250,
+            "indexType": 2,
+            "sstList": [
+                "025213.sst",
+                "025214.sst",
+                "025217.sst",
+                "025255.sst",
+                "025256.sst",
+                "025259.sst"
+            ]
+        },
+        {
+            "tableName": "part",
+            "tableIndexNumber": 1251,
+            "indexType": 1,
+            "sstList": [
+                "025283.sst",
+                "025286.sst",
+                "025285.sst",
+                "025293.sst",
+                "025284.sst"
+            ]
+        },
+        {
+            "tableName": "partsupp",
+            "tableIndexNumber": 1252,
+            "indexType": 1,
+            "sstList": [
+                "025437.sst",
+                "025436.sst",
+                "025434.sst",
+                "025300.sst",
+                "025299.sst",
+                "025358.sst",
+                "025310.sst",
+                "025373.sst",
+                "025329.sst",
+                "025359.sst",
+                "025357.sst",
+                "025435.sst",
+                "025374.sst",
+                "025328.sst",
+                "025311.sst",
+                "025298.sst",
+                "025343.sst",
+                "025344.sst",
+                "025327.sst"
+            ]
+        },
+        {
+            "tableName": "partsupp",
+            "tableIndexNumber": 1253,
+            "indexType": 2,
+            "sstList": [
+                "025313.sst",
+                "025437.sst",
+                "025331.sst",
+                "025432.sst",
+                "025361.sst"
+            ]
+        },
+        {
+            "tableName": "partsupp",
+            "tableIndexNumber": 1254,
+            "indexType": 2,
+            "sstList": [
+                "025313.sst",
+                "025432.sst"
+            ]
+        },
+        {
+            "tableName": "region",
+            "tableIndexNumber": 1255,
+            "indexType": 1,
+            "sstList": [
+                "031050.sst"
+            ]
+        },
+        {
+            "tableName": "supplier",
+            "tableIndexNumber": 1256,
+            "indexType": 1,
+            "sstList": [
+                "031051.sst"
+            ]
+        },
+        {
+            "tableName": "supplier",
+            "tableIndexNumber": 1257,
+            "indexType": 2,
+            "sstList": [
+                "031051.sst"
+            ]
+        }
+    ]
+}

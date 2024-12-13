@@ -601,7 +601,7 @@ ORDER  BY cntrycode;");
         } else { //Other Query
 
             parsed_query.SetCustomParsedQuery(parsed_query.GetOriginalQuery(),db_name);
-            KETILOG::DEBUGLOG(LOGTAG, "Query Mode : " + parsed_query.isGenericQuery()); //여기 안탐;          
+            KETILOG::DEBUGLOG(LOGTAG, "Query Mode : " + parsed_query.isGenericQuery());        
 
         }
     } 

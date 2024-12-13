@@ -17,6 +17,7 @@
 #include "rapidjson/prettywriter.h" 
 
 #include "keti_log.h"
+#include "ip_config.h"
 
 using namespace rapidjson;
 using namespace std;
@@ -39,19 +40,29 @@ typedef enum QUERY_TYPE {
 
 class QueryLog {
 public:
-    QueryLog(){}
+    QueryLog(){
+        string temp = INSTANCE_NAME;
+        std::replace(temp.begin(), temp.end(), '-', '_');
+        instance_name_ = temp;
+    }
 
-    QueryLog(string user_id, string query_statement, string start_time, EXECUTION_MODE execution_mode, QUERY_TYPE query_type){
+    QueryLog(string user_id, string query_statement, string start_time, EXECUTION_MODE execution_mode, QUERY_TYPE query_type, string database_name){
         user_id_ = user_id;
         query_statement_ = query_statement;
         start_time_ = start_time;
         execution_mode_ = execution_mode;
         query_type_ = query_type;
+        database_name_ = database_name;
+
+        string temp = INSTANCE_NAME;
+        std::replace(temp.begin(), temp.end(), '-', '_');
+        instance_name_ = temp;
     }
 
     void AddSnippetInfo(int query_id,list<SnippetRequest> snippet_request){
         query_id_ = query_id;
         snippet_count_ = snippet_request.size();
+        table_count_ = 0;
 
         for (const auto& snippet : snippet_request) {
             Snippet_Log snippet_log;
@@ -63,7 +74,12 @@ public:
             snippet_log.group_by_count_ = snippet.query_info().group_by_size();
             snippet_log.order_by_count_ = snippet.query_info().order_by().column_name_size();
             snippet_log.limit_exist_ = snippet.query_info().has_limit() ? true : false;
+            snippet_log.having_count_ = snippet.query_info().having_size();
             snippet_log_.push_back(snippet_log);
+
+            if(snippet.type() == 0){
+                table_count_++;
+            }
         }
     }
 
@@ -81,13 +97,13 @@ public:
     bool InsertQueryLog(){
         try {
             sql::mysql::MySQL_Driver *driver = sql::mysql::get_mysql_driver_instance();
-            sql::Connection *con = driver->connect("tcp://10.0.4.87:30702", "keti", "ketilinux");
-            con->setSchema("keti_opencsd");
+            sql::Connection *con = driver->connect("tcp://10.0.4.80:40806", "root", "ketilinux");
+            con->setSchema(instance_name_);
 
-            string log_statement = "INSERT INTO query_log (query_id, user_id, query_statement, query_result, \
+            string log_statement = "INSERT INTO query_log (query_id, user_name, query_statement, query_result, \
                                 execution_mode, query_type, start_time, end_time, execution_time, \
-                                scanned_row_count, filtered_row_count, snippet_count) \
-                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                                scanned_row_count, filtered_row_count, snippet_count, database_name, table_count) \
+                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             
             sql::PreparedStatement *log_pstmt = con->prepareStatement(log_statement);
 
@@ -103,12 +119,14 @@ public:
             log_pstmt->setInt(10, scanned_row_count_);
             log_pstmt->setInt(11, filtered_row_count_);
             log_pstmt->setInt(12, snippet_count_);
+            log_pstmt->setString(13, database_name_);
+            log_pstmt->setInt(14, table_count_);
             log_pstmt->executeUpdate();
 
             for(int i=0; i<snippet_log_.size(); i++){
-                string snippet_statement = "INSERT INTO query_snippet (query_id, work_id, snippet_type, \
-                                projection_count, filter_count, group_by_count, order_by_count, limit_exist) \
-                                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                string snippet_statement = "INSERT INTO snippet (query_id, work_id, snippet_type, \
+                                projection, filter, group_by, order_by, limit_exist, `having`) \
+                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             
                 sql::PreparedStatement *snippet_pstmt = con->prepareStatement(snippet_statement);
 
@@ -120,6 +138,7 @@ public:
                 snippet_pstmt->setInt(6, snippet_log_[i].group_by_count_);
                 snippet_pstmt->setInt(7, snippet_log_[i].order_by_count_);
                 snippet_pstmt->setBoolean(8, snippet_log_[i].limit_exist_);
+                snippet_pstmt->setInt(9, snippet_log_[i].having_count_);
                 snippet_pstmt->executeUpdate();
 
                 delete snippet_pstmt;
@@ -208,6 +227,7 @@ public:
         int group_by_count_;
         int order_by_count_;
         bool limit_exist_;
+        int having_count_;
     };
 
 private:
@@ -223,5 +243,8 @@ private:
     int scanned_row_count_;
     int filtered_row_count_;
     int snippet_count_;
+    string database_name_;
+    int table_count_;
     vector<QueryLog::Snippet_Log> snippet_log_;
+    string instance_name_;
 };

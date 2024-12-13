@@ -329,7 +329,12 @@ private:
                         if (func_name == "COUNT" || func_name == "count") {
                             if (inner_value == "*") {
                                 parsed_custom_query_.aggregation_column_map[field] = inner_value;
-
+                                for(auto &entry : parsed_custom_query_.column_table_map ){
+                                    column_name = entry.first;
+                                    parsed_custom_query_.result_columns.insert(column_name);
+                                    parsed_custom_query_.aggregation_column_map[field] = column_name;
+                                    break; 
+                                }
 
                             } else if (inner_value.find("DISTINCT") == 0 || inner_value.find("distinct") == 0) {  // DISTINCT가 포함된 경우
                                 inner_value = inner_value.substr(9);  // "DISTINCT " 뒤의 문자열 추출

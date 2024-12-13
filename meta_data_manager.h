@@ -30,8 +30,14 @@ class MetaDataManager { /* modify as singleton class */
 
 /* Methods */
 public:
-
     const string LOGTAG = "Query Engine::Meta Data Manager";
+
+    struct EnvironmentInfo {
+        string scheduling_algorithm;
+        int block_count;
+        bool using_index;
+        map<string, float> db_size_map; // key - db_name, value db_size
+    };
     
 	struct Table {
 		string table_name;
@@ -40,11 +46,14 @@ public:
 		vector<Column> column_list;
         map<string,int> sst_block_map ; //key - sst_name, value - sst_block_count
         int total_block_count = 0;
-
 	};
 
-    static map<string, map<string, Table>> GetMetaData(){
-        return GetInstance().getMetaData();
+    static map<string, map<string, Table>> GetMetaDataAll(){
+        return GetInstance().getMetaDataAll();
+    }
+
+    static map<string, Table> GetMetaData(string db_name){
+        return GetInstance().getMetaData(db_name);
     }
 
     static void SetMetaData(Snippet &snippet, const string &db_name){
@@ -56,9 +65,9 @@ public:
         static MetaDataManager _instance;
         return _instance;
     }
+
     static vector<string> GetTableColumns(const string& db_name, const string& table_name){
         return GetInstance().getTableColumns(db_name, table_name);
-        
     }
 
     static vector<string> GetTablePriority(const string& db_name){
@@ -70,20 +79,33 @@ public:
 	}
 
     static map<string, vector<string>> GetSstInfo(){
-        return GetInstance().getSstInfo();
-        
+        return GetInstance().getSstInfo(); 
     }
+
+    static string GetEnvInfoJson(string db_name){
+        return GetInstance().getEnvInfoJson(db_name);
+    }
+
+    static void UpdateEnvInfoJson(){
+        return GetInstance().updateEnvInfoJson();
+    }
+
     // static void InsertDB(string db_name, DB db){
 	// 	GetInstance().insertDB(db_name, db);
 	// }
     void print_databases();
 
-
     string convertToJson(map<string, map<string, Table>> &db_map);
+    string convertToJson(map<string, Table> &table_map);
     string convertToJson(map<string, vector<string>> &sst_csd_map);
 private:
     
-	MetaDataManager() {};
+	MetaDataManager() {
+        environment_info.scheduling_algorithm = "DCS";
+        environment_info.block_count = 100;
+        environment_info.using_index = true;
+    };
+
     MetaDataManager(const MetaDataManager&);
     MetaDataManager& operator=(const MetaDataManager&){
         return *this;
@@ -95,8 +117,11 @@ private:
     map<string, vector<string>> getSstInfo(){
         return sst_csd_map;
     }
-    map<string, map<string, Table>> getMetaData(){
+    map<string, map<string, Table>> getMetaDataAll(){
         return db_map;
+    }
+    map<string, Table> getMetaData(string db_name){
+        return db_map[db_name];
     }
 
     vector<string> getTableColumns(const string& db_name, const string& table_name);
@@ -112,7 +137,8 @@ private:
     void generate_sst_csd_map(const string &sst_csd_info_path);
     void load_sst_block_count(const std::string& jsonFilePath, const std::string& db_name);
 	void initMetaDataManager();
-    
+    string getEnvInfoJson(string db_name);
+    void updateEnvInfoJson();
     
 private:
     std::vector<std::string> scan_priority; 
@@ -120,5 +146,6 @@ private:
     map<string, vector<string>> sst_csd_map;
     mutex mutex_;
     struct Snippet snippet;
+    struct EnvironmentInfo environment_info;
 	// unordered_map<string,struct DB> MetaDataManager_;
 };

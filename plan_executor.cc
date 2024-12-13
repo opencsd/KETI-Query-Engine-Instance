@@ -17,7 +17,7 @@ std::string PlanExecutor::ExecuteQuery(StorageEngineConnector &storageEngineInte
     string res = "";
     KETILOG::DEBUGLOG(LOGTAG,"Analyzing Query ...");
 
-     // opencsd offloading O -> Offloading Query
+    // opencsd offloading O -> Offloading Query
     // opencsd offloading X -> Generic Query
     // use other dbms -> K-ODBC
 
@@ -52,7 +52,7 @@ std::string PlanExecutor::ExecuteQuery(StorageEngineConnector &storageEngineInte
         ExecuteSQL( hDbc, szSQL, res);
         delete[] szSQL;
 
-        query_log.AddResultInfo(/*table totla row count*/0,0,/*query result*/"");
+        query_log.AddResultInfo(/*table total row count*/0,0,/*query result*/"");
 
         //Database Close
         CloseDatabase(hEnv, hDbc);
@@ -92,22 +92,32 @@ void PlanExecutor::setQueryID(){
     std::lock_guard<std::mutex> lock(mutex);
     try {
         sql::mysql::MySQL_Driver *driver = sql::mysql::get_mysql_driver_instance();
-        sql::Connection *con = driver->connect("tcp://10.0.4.87:30702", "keti", "ketilinux");
-        con->setSchema("keti_opencsd");
+        sql::Connection *con = driver->connect("tcp://10.0.4.80:40806", "root", "ketilinux");
+        con->setSchema(instance_name_);
 
         sql::Statement *stmt = con->createStatement();
         sql::ResultSet  *res = stmt->executeQuery("SELECT MAX(query_id) FROM query_log");
-        res->next();
 
-        queryID_ = res->getInt(1);
+        if (res->next()) {
+            int max_query_id = res->getInt(1); 
+            queryID_ = max_query_id + 1;
+        } else {
+            queryID_ = 0;
+        }
 
         delete res;
         delete stmt;
         delete con;
     } catch (sql::SQLException &e) {
         KETILOG::INFOLOG(LOGTAG," failed to get max query_id in log database");
+        std::cerr << "SQL Error: " << e.what() << std::endl;          // 오류 메시지
+        std::cerr << "Error Code: " << e.getErrorCode() << std::endl; // MySQL 오류 코드
+        std::cerr << "SQL State: " << e.getSQLState() << std::endl;   // SQL 상태 코드
+
         queryID_ = 0;
     }
+
+    cout << "start query id from " << queryID_ << endl;
 }
 
 std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery &parsed_query, const string &db_name){ // test code
@@ -217,7 +227,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
         }
         
     } else if (query_str == "TPC-H_06"){ //TPC-H Query 6
-        for(int i = 0; i < 6 ;i++){ // scan snippet 수
+        for(int i = 0; i < 1 ;i++){ // scan snippet 수
             string scan_snippet_name = "tpch06-" + to_string(i);
             tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
             tpch_snippets.push_back(tpch_snippet);

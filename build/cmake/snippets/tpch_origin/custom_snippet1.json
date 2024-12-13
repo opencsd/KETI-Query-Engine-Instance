@@ -1,0 +1,1 @@
+{"type":3,"query_id":0,"work_id":1,"query_info":{"table_name":["snippet-0"],"filtering":[],"projection":[],"limit":{"offset":0,"length":10}},"schema_info":{},"wal_info":{"deleted_key":[],"inserted_key":[],"inserted_value":[]},"result_info":{"table_alias":"snippet-1","column_alias":[]},"sst_info":[]}
