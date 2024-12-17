@@ -143,6 +143,7 @@ void DBConnectorInstance::handle_get(http_request message)
 void DBConnectorInstance::handle_post(http_request message)
 {    
     utility::string_t url = message.relative_uri().path();
+    http_response response;
     if(url == "/metadata/environment-edit"){ // 하드코딩 환경정보 처리 필요
         auto body_json = message.extract_string();
         std::string json = utility::conversions::to_utf8string(body_json.get());
@@ -153,7 +154,7 @@ void DBConnectorInstance::handle_post(http_request message)
         string scheduling_algorithm = document["scheduling_algorithm"].GetString();
         bool using_index = document["using_index"].GetBool();
         
-        message.reply(status_codes::OK);
+        response.set_status_code(status_codes::OK);
     } else if(url == "/query/run"){
         string begin, end;
         double execution;
@@ -206,12 +207,12 @@ void DBConnectorInstance::handle_post(http_request message)
         query_log.AddTimeInfo(end,execution);
         query_log.InsertQueryLog();
 
-        std::string response = query_log.QueryLog2Json();
+        std::string response_body = query_log.QueryLog2Json();
 
-        message.reply(status_codes::OK,response);
+        response.set_status_code(status_codes::OK);
+        response.set_body(response_body);
         
         KETILOG::INFOLOG(LOGTAG,"End Query time : " + to_string(execution) + " sec");
-        return;
 
     }else if(url == "/query/snippet"){ // 스니펫 생성 요청
         auto body_json = message.extract_string();
@@ -236,20 +237,21 @@ void DBConnectorInstance::handle_post(http_request message)
         vector <string> empty_snippet;
         plan_executor_.generate_snippet_json(snippets, db_name, empty_snippet);
         
-        std::string response = "";
+        std::string response_body = "";
         for(int i=0;i<snippets.size();i++){
             string snippet_name = "custom_snippet" + to_string(i) ;
             std::ifstream openFile("../snippets/"+ db_name + "/" + snippet_name + ".json");
             if(openFile.is_open() ){
                 std::string line;
                 while(getline(openFile, line)){
-                    response += line;
+                    response_body += line;
                 }
                 openFile.close();
             }
         }
         
-        message.reply(status_codes::OK,response);
+        response.set_status_code(status_codes::OK);
+        response.set_body(response_body);
 
     }else if(url == "/query/offload-cost"){ //비용 분석 요청 
         auto body_json = message.extract_string();
@@ -257,12 +259,27 @@ void DBConnectorInstance::handle_post(http_request message)
         Document document;
         document.Parse(json.c_str());
 
-        std::string response = "";
-        message.reply(status_codes::OK,response);
+        std::string response_body = "";
+        response.set_status_code(status_codes::OK);
+        response.set_body(response_body);
 
     } else {
-        message.reply(status_codes::NotFound,U("NOT SUPPORT URL"));
+        response.set_status_code(status_codes::NotFound);
     }
+
+    std::ostringstream logStream;
+logStream << "Response Status Code: " << response.status_code() << "\n"
+          << "Headers:\n";
+
+for (const auto &header : response.headers()) {
+    logStream << header.first << ": " << header.second << "\n";
+}
+
+KETILOG::DEBUGLOG(LOGTAG, logStream.str());
+
+    add_cors_headers(response);
+    message.reply(response);
+    
 
     return;
 };
