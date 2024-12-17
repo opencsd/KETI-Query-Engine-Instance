@@ -149,7 +149,7 @@ order by \n\
           parsed_query.SetQueryTypeAsOffloading();
         } else if(parsed_query.GetOriginalQuery() == "TPC-H_06"){ //TPC-H Query 6
             parsed_query.SetParsedQuery("select\n\
-	sum(l_extendedprice * l_discount) as revenue\n\
+	count(l_extendedprice * l_discount) as revenue\n\
 from\n\
 	lineitem\n\
 where\n\
