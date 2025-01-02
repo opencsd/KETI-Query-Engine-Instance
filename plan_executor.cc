@@ -132,7 +132,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     if (query_str == "TPC-H_01"){ //TPC-H Query 1
         for(int i = 0; i < 1;i++){ // scan snippet 수
             string scan_snippet_name = "tpch01-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -152,7 +152,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if (query_str == "TPC-H_02"){ //TPC-H Query 2
         for(int i = 0; i < 5 ;i++){ // scan snippet 수
             string scan_snippet_name = "tpch02-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -171,7 +171,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if (query_str == "TPC-H_03"){ //TPC-H Query 3
         for(int i = 0; i < 3 ;i++){ // scan snippet 수
             string scan_snippet_name = "tpch03-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -191,7 +191,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if (query_str == "TPC-H_04"){ //TPC-H Query 4
         for(int i = 0; i < 2 ;i++){ // scan snippet 수
             string scan_snippet_name = "tpch04-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -210,7 +210,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if(query_str == "TPC-H_05"){ //TPC-H Query 5
         for(int i = 0; i < 6 ;i++){ // scan snippet 수
             string scan_snippet_name = "tpch05-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -229,7 +229,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if (query_str == "TPC-H_06"){ //TPC-H Query 6
         for(int i = 0; i < 1 ;i++){ // scan snippet 수
             string scan_snippet_name = "tpch06-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -247,7 +247,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if(query_str == "TPC-H_07"){ //TPC-H Query 7
         for(int i = 0; i < 6 ;i++){ // scan snippet 수
             string scan_snippet_name = "tpch07-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -265,7 +265,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if(query_str == "TPC-H_08"){ //TPC-H Query 8
         for(int i = 0; i < 8 ;i++){ // scan snippet 수
             string scan_snippet_name = "tpch08-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -283,7 +283,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if(query_str == "TPC-H_09"){ //TPC-H Query 9
         for(int i = 0; i < 6 ;i++){ // scan snippet 수
             string scan_snippet_name = "tpch09-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -301,7 +301,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if(query_str == "TPC-H_10"){ //TPC-H Query 10
         for(int i = 0; i < 4 ;i++){ // scan snippet 수
             string scan_snippet_name = "tpch10-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -319,7 +319,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if(query_str == "TPC-H_11"){ //TPC-H Query 11
         for(int i = 0; i < 3 ;i++){ // scan snippet 수
             string scan_snippet_name = "tpch11-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -337,7 +337,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if(query_str == "TPC-H_12"){ //TPC-H Query 12
         for(int i = 0; i < 2 ;i++){ // scan snippet 수
             string scan_snippet_name = "tpch12-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -355,7 +355,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if(query_str == "TPC-H_13"){ //TPC-H Query 13
         for(int i = 0; i < 2 ;i++){ // scan snippet 수
             string scan_snippet_name = "tpch13-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -373,7 +373,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if(query_str == "TPC-H_14"){ //TPC-H Query 14
         for(int i = 0; i < 2;i++ ){ // scan snippet 수
             string scan_snippet_name = "tpch14-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -390,12 +390,12 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
         }
     } else if(query_str == "TPC-H_15"){ //TPC-H Query 15
         string scan_snippet_name = "tpch15-" + to_string(0);
-        tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+        tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
         tpch_snippets.push_back(tpch_snippet);
         scan_snippet_name_list.push_back(scan_snippet_name);
 
         scan_snippet_name = "tpch15-" + to_string(2);
-        tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+        tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
         tpch_snippets.push_back(tpch_snippet);
         scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -412,7 +412,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if(query_str == "TPC-H_16"){ //TPC-H Query 16
         for(int i = 0; i < 3 ;i++){ // scan snippet 수
             string scan_snippet_name = "tpch16-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -430,7 +430,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if(query_str == "TPC-H_17"){ //TPC-H Query 17
         for(int i = 0; i < 2;i++ ){ // scan snippet 수
             string scan_snippet_name = "tpch17-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -448,7 +448,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if(query_str == "TPC-H_18"){ //TPC-H Query 18
         for(int i = 0; i < 3 ;i++){ // scan snippet 수
             string scan_snippet_name = "tpch18-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -478,7 +478,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if(query_str == "TPC-H_20"){ //TPC-H Query 20
         for(int i = 0; i < 5 ;i++){ // scan snippet 수
             string scan_snippet_name = "tpch20-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -496,7 +496,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
     } else if(query_str == "TPC-H_21"){ //TPC-H Query 21
         for(int i = 0; i < 6 ;i++){ // scan snippet 수
             string scan_snippet_name = "tpch21-" + to_string(i);
-            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+            tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
 
@@ -513,17 +513,17 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
         }
     } else if(query_str == "TPC-H_22"){ //TPC-H Query 22
         string scan_snippet_name = "tpch22-" + to_string(0);
-        tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+        tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
         tpch_snippets.push_back(tpch_snippet);
         scan_snippet_name_list.push_back(scan_snippet_name);
 
         scan_snippet_name = "tpch22-" + to_string(2);
-        tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+        tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
         tpch_snippets.push_back(tpch_snippet);
         scan_snippet_name_list.push_back(scan_snippet_name);
 
         scan_snippet_name = "tpch22-" + to_string(3);
-        tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); // 기존 tpch_파일을 읽어서 파싱 후 snippet에 저장, 파일에 다시 저장
+        tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
         tpch_snippets.push_back(tpch_snippet);
         scan_snippet_name_list.push_back(scan_snippet_name);
         for(int i=0;i<tpch_snippets.size();i++){

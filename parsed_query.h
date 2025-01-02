@@ -655,7 +655,7 @@ private:
 
         // JOIN 유형 및 테이블, 조건을 포함한 정규식
         std::regex join_regex(
-            R"((\b(LEFT OUTER|RIGHT OUTER|INNER|CROSS)?\s*JOIN)\s+([a-zA-Z_][\w]*\s*[a-zA-Z_]*)\s+ON\s+([a-zA-Z_][\w]*\.[a-zA-Z_][\w]*)\s*=\s*([a-zA-Z_][\w]*\.[a-zA-Z_][\w]*))",
+            R"((\b(LEFT OUTER|RIGHT OUTER|FULL OUTER|INNER|CROSS)?\s*JOIN)\s+([a-zA-Z_][\w]*\s*[a-zA-Z_]*)\s+ON\s+([a-zA-Z_][\w]*\.[a-zA-Z_][\w]*)\s*=\s*([a-zA-Z_][\w]*\.[a-zA-Z_][\w]*))",
             std::regex::icase
         );
         std::sregex_iterator iter(query.begin(), query.end(), join_regex);
@@ -670,10 +670,10 @@ private:
             std::string right_column = (*iter)[5].str();      // JOIN 조건의 오른쪽 컬럼
 
             // 디버깅 출력
-            // std::cout << "join_type_string: " << join_type_string << std::endl;
-            // std::cout << "table: " << table << std::endl;
-            // std::cout << "left_column: " << left_column << std::endl;
-            // std::cout << "right_column: " << right_column << std::endl;
+            std::cout << "join_type_string: " << join_type_string << std::endl;
+            std::cout << "table: " << table << std::endl;
+            std::cout << "left_column: " << left_column << std::endl;
+            std::cout << "right_column: " << right_column << std::endl;
             std::istringstream iss(table);
             std::string table_name, table_alias;
 
@@ -696,6 +696,8 @@ private:
                 join_type = QueryType::LEFT_OUTER_JOIN;
             } else if (join_type_string == "RIGHT OUTER") {
                 join_type = QueryType::RIGHT_OUTER_JOIN;
+            } else if (join_type_string == "FULL OUTER") {
+                KETILOG::ERRORLOG(LOGTAG, "FULL OUTER 지원 안함!" );
             } else if (join_type_string == "CROSS") {
                 join_type = QueryType::CROSS_JOIN;
             } else {
