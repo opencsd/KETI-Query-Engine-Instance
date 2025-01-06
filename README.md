@@ -12,15 +12,15 @@ Developed by KETI
 
 ## Contents
 -------------
-[1. Requirement](#1.requirement)
+[1. Requirement](#requirement)
 
-[2. How To Install](#2.how-to-build)
+[2. How To Install](#how-to-install)
 
-[3. Modules](#3.modules)
+[3. Modules](#modules)
 
 [4. Governance](#governance)
 
-## 1. Requirement
+## Requirement
 >   gcc-11
 
 >   g++-11
@@ -34,7 +34,7 @@ Developed by KETI
 >   ODBC
 
 
-## 2. How To Build
+## How To Install
 1. Install gcc-11 & g++-11
 ```bash
 add-apt-repository ppa:ubuntu-toolchain-r/test
@@ -135,7 +135,7 @@ enum SnippetType {
   }
 ```
 
-## 3. Modules
+## Modules
 
 ### Cost Analyzer
 - Analyzes the execution cost of the input query and determines whether it is a generic query or an offloading query.
