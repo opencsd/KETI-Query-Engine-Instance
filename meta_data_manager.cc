@@ -544,7 +544,7 @@ void MetaDataManager::load_sst_block_count(const std::string& jsonFilePath, cons
     }
 }
 
-void  MetaDataManager::initMetaDataManager(){
+void MetaDataManager::initMetaDataManager(){
     KETILOG::DEBUGLOG(LOGTAG,"initMetaDataManager()");
 
     string metaDirPath = "../metadata/";

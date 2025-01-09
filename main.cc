@@ -65,6 +65,7 @@ int main(int argc, char** argv){
     }else{
         KETILOG::SetDefaultLogLevel();
     }
+    
     MetaDataManager::InitMetaDataManager();
 
     on_initialize();
