@@ -214,65 +214,6 @@ void DBConnectorInstance::handle_post(http_request message)
         
         KETILOG::INFOLOG(LOGTAG,"End Query time : " + to_string(execution) + " sec");
 
-    }else if(url == "/workbench/query/run"){//리턴 형식 수정, node power/cpu 추가
-        string begin, end;
-        double execution;
-
-        auto body_json = message.extract_string();
-        std::string json = utility::conversions::to_utf8string(body_json.get());
-        KETILOG::DEBUGLOG(LOGTAG, json);
-        
-        Document document;
-        document.Parse(json.c_str());
-
-        auto startTime = std::chrono::system_clock::now();
-        std::time_t startTimeT = std::chrono::system_clock::to_time_t(startTime);
-        std::tm *startLocalTime = std::localtime(&startTimeT);
-        std::ostringstream startTimeStringStream;
-        startTimeStringStream << std::put_time(startLocalTime, "%Y-%m-%d %H:%M:%S");
-        begin = startTimeStringStream.str();
-        
-        ParsedQuery parsed_query(document["query"].GetString());
-        string user_name = document["user_name"].GetString();
-        string db_name = document["db_name"].GetString();
-        if(document.HasMember("debug_mode")){
-          bool is_debug_mode = document["debug_mode"].GetBool();
-        }
-        
-        // 쿼리 파싱 -> 쿼리 타입 , tpch 쿼리인지 
-        query_planner_.Parse(parsed_query, db_name);
-        // 쿼리 점수화 함수 실행->  쿼리 2개 이상이면 Generic
-        cost_analyzer_.Query_Scoring(parsed_query); 
-
-        // Query Explain 기반 쿼리 수행 계획 함수 실행  
-        query_planner_.Planning_Query(parsed_query);
-
-        QueryLog query_log(user_name, parsed_query.GetParsedQuery(), begin, parsed_query.GetExecutionMode(), parsed_query.GetQueryType(), db_name);
-
-        std::string rep = plan_executor_.ExecuteQuery(storage_engine_connector_,parsed_query, db_name, query_log) + "\n";
-
-        cout << rep << endl;
-        
-        auto endTime = std::chrono::system_clock::now();
-        std::time_t endTimeT = std::chrono::system_clock::to_time_t(endTime);
-        std::tm *endLocalTime = std::localtime(&endTimeT);
-        std::ostringstream endTimeStringStream;
-        endTimeStringStream << std::put_time(endLocalTime, "%Y-%m-%d %H:%M:%S");
-        end = endTimeStringStream.str();
-
-        auto elapsed_seconds = std::chrono::duration_cast<std::chrono::duration<double>>(endTime - startTime);
-        execution = elapsed_seconds.count();
-
-        query_log.AddTimeInfo(end,execution);
-        query_log.InsertQueryLog();
-
-        std::string response_body = query_log.QueryLog2Json();
-
-        response.set_status_code(status_codes::OK);
-        response.set_body(response_body);
-        
-        KETILOG::INFOLOG(LOGTAG,"End Query time : " + to_string(execution) + " sec");
-
     }else if(url == "/query/snippet"){ // 스니펫 생성 요청
         auto body_json = message.extract_string();
         std::string json = utility::conversions::to_utf8string(body_json.get());
