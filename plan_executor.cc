@@ -404,7 +404,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
-        for(int i = 0; i < 4;i++){ //전체 스니펫 수
+        for(int i = 0; i < 6;i++){ //전체 스니펫 수
             string snippet_name = "tpch15-" + to_string(i);
             load_snippet(*ret,snippet_name,db_name);
 
@@ -534,7 +534,6 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
         for(int i = 0; i < 6 ;i++){ //전체 스니펫 수
             string snippet_name = "tpch22-" + to_string(i);
             load_snippet(*ret,snippet_name,db_name);
-
         }
     } else if (query_str == "test_lineitem"){ 
         load_snippet(*ret,"test_lineitem",db_name);
@@ -552,16 +551,9 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
         load_snippet(*ret,"test_region",db_name);
     } else if (query_str == "test_supplier"){ 
         load_snippet(*ret,"test_supplier",db_name);
-    } else if (query_str == "test_tpch08-0"){ 
-        load_snippet(*ret,"test_tpch08-0",db_name);
-    } else if (query_str == "test_orders_block_filtering1"){ 
-        load_snippet(*ret,"test_orders_block_filtering1",db_name);
-    } else if (query_str == "test_orders_block_filtering2"){ 
-        load_snippet(*ret,"test_orders_block_filtering2",db_name);
-    } else if (query_str == "test_orders_block_filtering3"){ 
-        load_snippet(*ret,"test_orders_block_filtering3",db_name);
     } else if (query_str == "test"){ 
-        load_snippet(*ret,"tmp",db_name);
+        load_snippet(*ret,"test1",db_name);
+        load_snippet(*ret,"test2",db_name);
     } else{
         cout << "Custom Query: " << query_str << ", DB Name : " << db_name << endl;
         //***Create Snippet (type, query_info, result_info)***

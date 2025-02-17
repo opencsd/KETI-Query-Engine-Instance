@@ -150,21 +150,21 @@ public:
             KETILOG::ERRORLOG("DB Connector Instance::Query Log Assistant::SQL Error", e.what());
         }
 
-        cout << "-------------------------" << endl;
-        cout << "Insert Query Log" << endl;
-        cout << "- query id: " << query_id_ << endl;
-        cout << "- user id: " << user_id_ << endl;
-        cout << "- query statement: " << query_statement_ << endl;
-        cout << "- query result: " << query_result_ << endl;
-        cout << "- execution mode: " << execution_mode_ << endl;
-        cout << "- query type: " << query_type_ << endl;
-        cout << "- start time: " << start_time_ << endl;
-        cout << "- end time: " << end_time_ << endl;
-        cout << "- execution time: " << execution_time_ << endl; 
-        cout << "- scanned row count: " << scanned_row_count_ << endl;
-        cout << "- filtered row count: " << filtered_row_count_ << endl;
-        cout << "- snippet count: " << snippet_count_ << endl;
-        cout << "-------------------------" << endl;
+        // cout << "-------------------------" << endl;
+        // cout << "Insert Query Log" << endl;
+        // cout << "- query id: " << query_id_ << endl;
+        // cout << "- user id: " << user_id_ << endl;
+        // cout << "- query statement: " << query_statement_ << endl;
+        // cout << "- query result: " << query_result_ << endl;
+        // cout << "- execution mode: " << execution_mode_ << endl;
+        // cout << "- query type: " << query_type_ << endl;
+        // cout << "- start time: " << start_time_ << endl;
+        // cout << "- end time: " << end_time_ << endl;
+        // cout << "- execution time: " << execution_time_ << endl; 
+        // cout << "- scanned row count: " << scanned_row_count_ << endl;
+        // cout << "- filtered row count: " << filtered_row_count_ << endl;
+        // cout << "- snippet count: " << snippet_count_ << endl;
+        // cout << "-------------------------" << endl;
 
         return 0;
     }

@@ -48,12 +48,6 @@ public:
         int total_block_count = 0;
 	};
 
-    struct DB { 
-        string db_name;
-        float db_size;
-        map<string, Table> table_list;
-    }
-
     static map<string, map<string, Table>> GetMetaDataAll(){
         return GetInstance().getMetaDataAll();
     }
