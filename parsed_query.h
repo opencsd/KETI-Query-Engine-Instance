@@ -1,11 +1,20 @@
 #pragma once
 
-#include "query_log_assistant.h"
-#include "db_monitoring_manager.h"
-#include "snippet.h"
 #include <regex>
 #include <unordered_map>
 #include <algorithm>
+#include <iostream>
+#include <string.h>
+#include <sstream>
+#include <stdio.h>
+#include <vector>
+
+#include "snippet_sample.grpc.pb.h"
+#include "keti_type.h"
+#include "db_monitoring_manager.h"
+#include "snippet.h"
+
+using namespace std;
 
 struct JoinCondition {
     std::string left_table_name = "";     
@@ -29,6 +38,7 @@ struct JoinCondition {
         right_table_alias = r_table_alias;
         right_column = r_column;
     }
+    
 };
 
 struct OperValue{
@@ -155,7 +165,7 @@ public:
             KETILOG::DEBUGLOG(LOGTAG, "-----------Snippet Name---------- " + table_entry.first);
             const QueryTable& query_table = table_entry.second;
 
-            KETILOG::DEBUGLOG(LOGTAG, "Query Type: " + query_table.query_type);
+            KETILOG::DEBUGLOG(LOGTAG, "Query Type: " + std::to_string(query_table.query_type));
             KETILOG::DEBUGLOG(LOGTAG, "Table Names: " + query_table.table_name1 + " " + query_table.table_name2);
             KETILOG::DEBUGLOG(LOGTAG, "Table Aliases: " + query_table.table_alias1 + " " + query_table.table_alias2);
 
@@ -670,10 +680,10 @@ private:
             std::string right_column = (*iter)[5].str();      // JOIN 조건의 오른쪽 컬럼
 
             // 디버깅 출력
-            std::cout << "join_type_string: " << join_type_string << std::endl;
-            std::cout << "table: " << table << std::endl;
-            std::cout << "left_column: " << left_column << std::endl;
-            std::cout << "right_column: " << right_column << std::endl;
+            // std::cout << "join_type_string: " << join_type_string << std::endl;
+            // std::cout << "table: " << table << std::endl;
+            // std::cout << "left_column: " << left_column << std::endl;
+            // std::cout << "right_column: " << right_column << std::endl;
             std::istringstream iss(table);
             std::string table_name, table_alias;
 
@@ -690,6 +700,7 @@ private:
             if (join_type_string.empty()) {
                 join_type_string = "INNER";
             }
+
             if (join_type_string == "INNER") {
                 join_type = QueryType::INNER_JOIN;
             } else if (join_type_string == "LEFT OUTER") {
@@ -797,40 +808,11 @@ private:
         str.erase(std::remove(str.begin(), str.end(), '('), str.end());
         str.erase(std::remove(str.begin(), str.end(), ')'), str.end());
     }
-    void sortJoinConditions(
-        std::vector<JoinCondition>& join_conditions,
-        const std::vector<std::pair<std::string, std::string>>& table_priority) {
-        
-        // 테이블 이름 → 우선순위 매핑
-        std::unordered_map<std::string, int> priority_map;
-        for (size_t i = 0; i < table_priority.size(); ++i) {
-            priority_map[table_priority[i].second] = i;
-        }
-
-        // 정렬 기준 정의
-        auto compare = [&](const JoinCondition& a, const JoinCondition& b) {
-            // 왼쪽, 오른쪽 테이블의 우선순위
-            int a_min_priority = std::min(priority_map[a.left_table_name], priority_map[a.right_table_name]);
-            int b_min_priority = std::min(priority_map[b.left_table_name], priority_map[b.right_table_name]);
-
-            if (a_min_priority != b_min_priority) {
-                return a_min_priority < b_min_priority;
-            }
-
-            // 우선순위가 같다면 다른 쪽 테이블 비교
-            int a_max_priority = std::max(priority_map[a.left_table_name], priority_map[a.right_table_name]);
-            int b_max_priority = std::max(priority_map[b.left_table_name], priority_map[b.right_table_name]);
-
-            return a_max_priority < b_max_priority;
-        };
-
-        // 정렬 수행
-        std::sort(join_conditions.begin(), join_conditions.end(), compare);
-    }
+    
     std::vector<OperValue> parseValues(const std::string& input) {
         std::vector<OperValue> tokens;
         std::regex token_regex(
-        R"((\d+\.\d+)|(\d+)|('.*?')|(\b\d{4}-\d{2}-\d{2}\b)|(\b\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\b)|([A-Za-z_][A-Za-z0-9_]*)|([\+\-\*/])|(\bIN\b)|(\([^)]*\)))"
+            R"((\d+\.\d+)|(\d+)|('.*?')|(\b\d{4}-\d{2}-\d{2}\b)|(\b\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\b)|([A-Za-z0-9_!_@_#_$_%_&][A-Za-z0-9_!_@_#_$_%_&]*)|([\+\-\*/])|(\bIN\b)|(\([^)]*\)))"
         );
 
         std::smatch match;
@@ -940,6 +922,9 @@ private:
                         content = value_match.suffix().str(); // 나머지 문자열로 이동
                     }
                 }
+            }else{
+                parsed_token.value_type = static_cast<int>(ValueType::STRING);
+                parsed_token.value = token;
             }
 
             tokens.push_back(parsed_token);
@@ -1229,16 +1214,38 @@ private:
                         std::string snippet_name, snippet_name1 ,snippet_name2, join_snippet_name;
                         int snippet_i, pre_snippet_i;
                         
-                        JoinCondition join_condition;
-                                                
+                        JoinCondition join_condition;                
                         //join snippet set
-                        join_condition.setJoinCondition(l_value.table_name,
-                                                        l_value.table_alias,
-                                                        l_value.value,
-                                                        r_value.table_name,
-                                                        r_value.table_alias,
-                                                        r_value.value);
+                        if(table_priority.size() < 2){
+                            KETILOG::ERRORLOG(LOGTAG, "Join Condition에 r_value를 채울수 없음!");
+                            parsed_custom_query_.is_parsing_custom_query = false;
+                            return;
+                        }else {
+                            if (table_priority.front().second == l_value.table_name){
+                                join_condition.setJoinCondition(l_value.table_name,
+                                                            l_value.table_alias,
+                                                            l_value.value,
+                                                            r_value.table_name,
+                                                            r_value.table_alias,
+                                                            r_value.value);
+                            }else{
+                                join_condition.setJoinCondition(r_value.table_name,
+                                                            r_value.table_alias,
+                                                            r_value.value,
+                                                            l_value.table_name,
+                                                            l_value.table_alias,
+                                                            l_value.value);
+                            }
+                            if(table_priority.size() > 2){
+                                table_priority.erase(table_priority.begin());
 
+                            }
+                            
+                        }
+                        // for (const auto& pair : table_priority) {
+                        //     std::cout << "Table: " << pair.first << ", Priority: " << pair.second << std::endl;
+                            
+                        // }
                         
                         join_conditions.push_back(join_condition);
                         
@@ -1288,7 +1295,6 @@ private:
                             temp_right_values = parseValues(operand2);
                                                                                  
                         }
-                        cout << endl;
 
                     } else {
                         // `.`가 없으면 컬럼명인지 아닌지 확인
@@ -1369,11 +1375,9 @@ private:
             KETILOG::ERRORLOG(LOGTAG, "and랑 or랑 섞여있음! 지원 안함!");
             parsed_custom_query_.is_parsing_custom_query = false;
         }
-        //join순서 처리 및 조인 snippet 생성
-        sortJoinConditions(join_conditions, table_priority);
 
         // 정렬된 결과 출력
-        // std::cout << "Sorted Join Conditions:" << std::endl;
+        // std::cout << "Join Conditions:" << std::endl;
         // for (const auto& join : join_conditions) {
         //     std::cout << "Left Table: " << join.left_table_name << ", Column: " << join.left_column
         //             << " | Right Table: " << join.right_table_name << ", Column: " << join.right_column
@@ -1510,7 +1514,7 @@ private:
             int aggregation_snippet_i = parsed_custom_query_.query_tables.size()-1;
             std::string snippet_name = "snippet-" + to_string(aggregation_snippet_i);
             std::string scan_snippet_name ;
-            cout << snippet_name << endl;
+            // cout << snippet_name << endl;
             // group_by_fields 처리, projection , result_info - column_alias set, column으로 
             while (std::getline(fields_stream, field, ',')) {
                 trim(field); 
@@ -1567,104 +1571,46 @@ private:
         std::regex order_by_regex(R"(ORDER BY\s+(.+?)(?=\s+LIMIT|$))", std::regex::icase);
         std::smatch match;
         if (std::regex_search(query, match, order_by_regex)) {
-            if(is_aggregation == false){ 
-                is_aggregation = true;
-                KETILOG::DEBUGLOG(LOGTAG, "Order 집계함수 테이블 생성");
-                QueryTable query_table;
-                query_table.query_type = QueryType::AGGREGATION;
-                int aggregation_snippet_i = parsed_custom_query_.query_tables.size();
-                std::string snippet_name = "snippet-" + to_string(aggregation_snippet_i);
-                query_table.table_name1 = "snippet-" + to_string(aggregation_snippet_i-1);
-                
-                query_table.result_table_alias = snippet_name;
-                for(auto&i : parsed_custom_query_.result_columns){
-                    // cout<< i << " ";
-                    query_table.select_columns.insert(i);
-                        
-                }
-                
-                parsed_custom_query_.query_tables[snippet_name] = query_table;
+            
+            std::string order_by_fields(match[1].str());
 
-                std::string order_by_fields(match[1].str());
-
-                if (!order_by_fields.empty() && order_by_fields.back() == ';') {
-                    order_by_fields.pop_back();  // 마지막 문자가 ';'이면 제거
-                }
-
-                std::istringstream fields_stream(order_by_fields);
-                std::string field;
-                int snippet_i = parsed_custom_query_.query_tables.size();
-                snippet_name = "snippet-" + to_string(snippet_i);
-
-                while (std::getline(fields_stream, field, ',')) {
-                    trim(field);
-                    // cout << field << " ";
-                    size_t dot_pos = field.find('.');
-                    std::string column_name;
-                    if (dot_pos != std::string::npos) {
-                        // `.`가 존재하면 테이블 별칭과 컬럼명으로 나눔
-                        column_name = field.substr(dot_pos + 1);
-
-                    }else{
-                        column_name = field;
-                    }
-                    bool is_asc = field.find("DESC") == std::string::npos;  // DESC가 없으면 오름차순(ASC)으로 간주
-                    column_name = std::regex_replace(field, std::regex(R"(\s+(ASC|DESC)\b)", std::regex::icase), "");
-                    
-                    std::string table_name = parsed_custom_query_.column_table_map[column_name];
-                    // cout << "hj :: Order_by에서 사용하는 table : " << table_name << " column_name : " << column_name <<endl;
-                    //scan 스니펫에 컬럼 추가 
-                    for(auto &query_table_entry : parsed_custom_query_.query_tables){
-                        std::string temp_snippet_name = query_table_entry.first;
-                        std::string temp_table_name = query_table_entry.second.table_name1;
-                        if(table_name == temp_table_name){
-                            parsed_custom_query_.query_tables[temp_snippet_name].select_columns.insert(column_name);
-                        }
-                    }
-                    // order_by_fields에 필드와 정렬 순서 추가
-                    parsed_custom_query_.order_by_fields.insert({column_name, is_asc});
-                }
-            }else{
-                std::string order_by_fields(match[1].str());
-
-                if (!order_by_fields.empty() && order_by_fields.back() == ';') {
-                    order_by_fields.pop_back();  // 마지막 문자가 ';'이면 제거
-                }
-
-                std::istringstream fields_stream(order_by_fields);
-                std::string field;
-                int snippet_i = parsed_custom_query_.query_tables.size();
-                string snippet_name = "snippet-" + to_string(snippet_i);
-
-                while (std::getline(fields_stream, field, ',')) {
-                    trim(field);
-                    cout << field << " ";
-                    size_t dot_pos = field.find('.');
-                    std::string column_name;
-                    if (dot_pos != std::string::npos) {
-                        // `.`가 존재하면 테이블 별칭과 컬럼명으로 나눔
-                        column_name = field.substr(dot_pos + 1);
-
-                    }else{
-                        column_name = field;
-                    }
-                    bool is_asc = field.find("DESC") == std::string::npos;  // DESC가 없으면 오름차순(ASC)으로 간주
-                    field = std::regex_replace(field, std::regex(R"(\s+(ASC|DESC)\b)", std::regex::icase), "");
-                    
-                    std::string table_name = parsed_custom_query_.column_table_map[column_name];
-                    //scan 스니펫에 컬럼 추가 
-                    for(auto &query_table_entry : parsed_custom_query_.query_tables){
-                        std::string temp_snippet_name = query_table_entry.first;
-                        std::string temp_table_name = query_table_entry.second.table_name1;
-                        if(table_name == temp_table_name){
-                            parsed_custom_query_.query_tables[temp_snippet_name].select_columns.insert(column_name);
-                        }
-                    }
-                    // order_by_fields에 필드와 정렬 순서 추가
-                    parsed_custom_query_.order_by_fields.insert({column_name, is_asc});
-                }
+            if (!order_by_fields.empty() && order_by_fields.back() == ';') {
+                order_by_fields.pop_back();  // 마지막 문자가 ';'이면 제거
             }
 
+            std::istringstream fields_stream(order_by_fields);
+            std::string field;
+            int snippet_i = parsed_custom_query_.query_tables.size();
+            string snippet_name = "snippet-" + to_string(snippet_i);
+
+            while (std::getline(fields_stream, field, ',')) {
+                trim(field);
+                // cout << field << " ";
+                size_t dot_pos = field.find('.');
+                std::string column_name;
+                if (dot_pos != std::string::npos) {
+                    // `.`가 존재하면 테이블 별칭과 컬럼명으로 나눔
+                    column_name = field.substr(dot_pos + 1);
+
+                }else{
+                    column_name = field;
+                }
+                bool is_asc = field.find("DESC") == std::string::npos;  // DESC가 없으면 오름차순(ASC)으로 간주
+                column_name = std::regex_replace(field, std::regex(R"(\s+(ASC|DESC)\b)", std::regex::icase), "");
+                
+                std::string table_name = parsed_custom_query_.column_table_map[column_name];
+                // cout << "hj :: Order_by에서 사용하는 table : " << table_name << " column_name : " << column_name <<endl;
+                //scan 스니펫에 컬럼 추가 
+                for(auto &query_table_entry : parsed_custom_query_.query_tables){
+                    std::string temp_snippet_name = query_table_entry.first;
+                    std::string temp_table_name = query_table_entry.second.table_name1;
+                    if(table_name == temp_table_name){
+                        parsed_custom_query_.query_tables[temp_snippet_name].select_columns.insert(column_name);
+                    }
+                }
+                // order_by_fields에 필드와 정렬 순서 추가
+                parsed_custom_query_.order_by_fields.insert({column_name, is_asc});
+            }
         }
     }
     void parseLimitClause(const std::string& query) {
@@ -1673,51 +1619,21 @@ private:
         std::smatch match;
         Limit limit;
         if (std::regex_search(query, match, limit_offset_regex)) {
-            if(is_aggregation == false){ 
-                is_aggregation = true;
-                KETILOG::DEBUGLOG(LOGTAG, "Limit 집계함수 테이블 생성");
-                QueryTable query_table;
-                query_table.query_type = QueryType::AGGREGATION;
-                int aggregation_snippet_i = parsed_custom_query_.query_tables.size();
-                std::string snippet_name = "snippet-" + to_string(aggregation_snippet_i);
-                query_table.table_name1 = "snippet-" + to_string(aggregation_snippet_i-1);
-                
-                query_table.result_table_alias = snippet_name;
-                for(auto&i : parsed_custom_query_.result_columns){
-                    // cout<< i << " ";
-                    query_table.select_columns.insert(i);
-                        
-                }
-                
-                parsed_custom_query_.query_tables[snippet_name] = query_table;
-                if (match[2].matched) {
-                    // LIMIT offset, length 형태인 경우
-                    limit.offset = std::stoi(match[1].str());
-                    limit.length = std::stoi(match[2].str());
-                } else if (match[3].matched) {
-                    // LIMIT length OFFSET offset 형태인 경우
-                    limit.offset = std::stoi(match[3].str());
-                    limit.length = std::stoi(match[1].str());
-                } else {
-                    // LIMIT length 형태인 경우 (offset은 0으로 간주)
-                    limit.offset = 0;
-                    limit.length = std::stoi(match[1].str());
-                }
-            }else{
-                if (match[2].matched) {
-                    // LIMIT offset, length 형태인 경우
-                    limit.offset = std::stoi(match[1].str());
-                    limit.length = std::stoi(match[2].str());
-                } else if (match[3].matched) {
-                    // LIMIT length OFFSET offset 형태인 경우
-                    limit.offset = std::stoi(match[3].str());
-                    limit.length = std::stoi(match[1].str());
-                } else {
-                    // LIMIT length 형태인 경우 (offset은 0으로 간주)
-                    limit.offset = 0;
-                    limit.length = std::stoi(match[1].str());
-                }
+        
+            if (match[2].matched) {
+                // LIMIT offset, length 형태인 경우
+                limit.offset = std::stoi(match[1].str());
+                limit.length = std::stoi(match[2].str());
+            } else if (match[3].matched) {
+                // LIMIT length OFFSET offset 형태인 경우
+                limit.offset = std::stoi(match[3].str());
+                limit.length = std::stoi(match[1].str());
+            } else {
+                // LIMIT length 형태인 경우 (offset은 0으로 간주)
+                limit.offset = 0;
+                limit.length = std::stoi(match[1].str());
             }
+            
         } else {
             // LIMIT 절이 없을 경우 기본값 설정
             limit.offset = -1;
@@ -1725,6 +1641,7 @@ private:
         }
         parsed_custom_query_.limit = limit;
     }
+
 
     void trim(std::string& s) {
         s.erase(0, s.find_first_not_of(" \t\n\r\f\v"));

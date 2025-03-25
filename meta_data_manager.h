@@ -23,6 +23,8 @@ namespace fs = std::experimental::filesystem;
 
 #include "keti_log.h"
 #include "snippet.h"
+#include "ip_config.h"
+
 using namespace std;
 using namespace rapidjson;
 
@@ -46,6 +48,7 @@ public:
 		vector<Column> column_list;
         map<string,int> sst_block_map ; //key - sst_name, value - sst_block_count
         int total_block_count = 0;
+        float table_size = 0;
 	};
 
     static map<string, map<string, Table>> GetMetaDataAll(){
@@ -86,8 +89,12 @@ public:
         return GetInstance().getEnvInfoJson(db_name);
     }
 
-    static void UpdateEnvInfoJson(){
-        return GetInstance().updateEnvInfoJson();
+    static void UpdateEnvInfo(int block_count, string scheduling_algorithm){
+        return GetInstance().updateEnvInfo(block_count, scheduling_algorithm);
+    }
+
+    static float GetTableSize(string db_name, string table_name){
+        return GetInstance().getTableSize(db_name, table_name);
     }
 
     // static void InsertDB(string db_name, DB db){
@@ -128,6 +135,10 @@ private:
 
     std::vector<std::string> getTablePriority(const std::string& db_name);
 
+    float getTableSize(string db_name, string table_name){
+        return db_map[db_name][table_name].table_size;
+    }
+
     // void insertDB(string db_name, DB db){
     //     GetInstance().MetaDataManager_[db_name] = db;
     // }
@@ -137,8 +148,9 @@ private:
     void generate_sst_csd_map(const string &sst_csd_info_path);
     void load_sst_block_count(const std::string& jsonFilePath, const std::string& db_name);
 	void initMetaDataManager();
+    void initMySQLMetadata();
     string getEnvInfoJson(string db_name);
-    void updateEnvInfoJson();
+    void updateEnvInfo(int block_count, string scheduling_algorithm);
     
 private:
     std::vector<std::string> scan_priority; 

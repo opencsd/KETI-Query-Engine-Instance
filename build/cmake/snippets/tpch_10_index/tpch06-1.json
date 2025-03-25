@@ -9,7 +9,7 @@
         "filtering": [],
         "projection": [
             {
-                "select_type": 3,
+                "select_type": 1,
                 "value": [
                     "revenue"
                 ],

@@ -68,7 +68,8 @@
                     "nullable": false
                 }
             ],
-            "tableIndexNumber": 1292
+            "tableIndexNumber": 1292,
+            "tableSize": 2411.83
         },
         {
             "tableName": "lineitem",
@@ -202,7 +203,8 @@
                     "nullable": false
                 }
             ],
-            "tableIndexNumber": 1289
+            "tableIndexNumber": 1289,
+            "tableSize": 70882.30
         },
         {
             "tableName": "nation",
@@ -240,7 +242,8 @@
                     "nullable": false
                 }
             ],
-            "tableIndexNumber": 1294
+            "tableIndexNumber": 1294,
+            "tableSize": 0.0
         },
         {
             "tableName": "orders",
@@ -318,7 +321,8 @@
                     "nullable": false
                 }
             ],
-            "tableIndexNumber": 1296
+            "tableIndexNumber": 1296,
+            "tableSize": 15977.92
         },
         {
             "tableName": "part",
@@ -396,7 +400,8 @@
                     "nullable": false
                 }
             ],
-            "tableIndexNumber": 1298
+            "tableIndexNumber": 1298,
+            "tableSize": 2657.48
         },
         {
             "tableName": "partsupp",
@@ -442,7 +447,8 @@
                     "nullable": false
                 }
             ],
-            "tableIndexNumber": 1299
+            "tableIndexNumber": 1299,
+            "tableSize": 11584.67
         },
         {
             "tableName": "region",
@@ -472,7 +478,8 @@
                     "nullable": false
                 }
             ],
-            "tableIndexNumber": 1302
+            "tableIndexNumber": 1302,
+            "tableSize": 0.0
         },
         {
             "tableName": "supplier",
@@ -534,7 +541,8 @@
                     "nullable": false
                 }
             ],
-            "tableIndexNumber": 1303
+            "tableIndexNumber": 1303,
+            "tableSize": 147.21
         }
     ],
     "dbSize": 128083.7

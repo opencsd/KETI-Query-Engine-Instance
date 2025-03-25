@@ -2,12 +2,9 @@
 
 #include <iostream>
 #include "stdafx.h"
-
-// db connect instance include
 #include "query_planner.h"
 #include "plan_executor.h"
 #include "cost_analyzer.h"
-#include "meta_data_manager.h"
 
 using namespace std;
 using namespace web;
@@ -44,4 +41,63 @@ class DBConnectorInstance
     const std::string LOGTAG = "Query Engine";
 };
 
+inline string formatTable(sql::ResultSet* res) {
+    if (!res) return "No data.\n";
+
+    map<string, size_t> max_col_width;
+    vector<string> column_names;
+
+    sql::ResultSetMetaData* meta = res->getMetaData();
+    int column_count = meta->getColumnCount();
+
+    for (int i = 1; i <= column_count; i++) {
+        string col_name = meta->getColumnLabel(i);
+        column_names.push_back(col_name);
+        max_col_width[col_name] = col_name.length();
+    }
+
+    vector<vector<string>> table_data;
+    while (res->next()) {
+        vector<string> row_data;
+        for (int i = 1; i <= column_count; i++) {
+            string cell_value = res->getString(i);
+            row_data.push_back(cell_value);
+            max_col_width[column_names[i - 1]] = max(max_col_width[column_names[i - 1]], cell_value.length());
+        }
+        table_data.push_back(row_data);
+    }
+
+    ostringstream table;
+    
+    table << "+";
+    for (const auto& col_name : column_names) {
+        table << string(max_col_width[col_name] + 2, '-') << "+";
+    }
+    table << "\n|";
+
+    for (const auto& col_name : column_names) {
+        table << " " << setw(max_col_width[col_name]) << left << col_name << " |";
+    }
+    table << "\n+";
+    for (const auto& col_name : column_names) {
+        table << string(max_col_width[col_name] + 2, '-') << "+";
+    }
+    table << "\n";
+
+    for (const auto& row : table_data) {
+        table << "|";
+        for (size_t i = 0; i < row.size(); i++) {
+            table << " " << setw(max_col_width[column_names[i]]) << left << row[i] << " |";
+        }
+        table << "\n";
+    }
+
+    table << "+";
+    for (const auto& col_name : column_names) {
+        table << string(max_col_width[col_name] + 2, '-') << "+";
+    }
+    table << "\n";
+
+    return table.str();
+}
 

@@ -16,7 +16,7 @@
                   "operator": 7, 
                   "rv": {
                       "type": [9],
-                      "value": ["%PENDING%DEPOSITS%"]
+                      "value": ["%pending%deposits%"]
                   }
               }
           ],

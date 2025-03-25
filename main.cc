@@ -4,10 +4,7 @@
 #include <string>
 
 // db connect instance include
-#include "stdafx.h"
 #include "db_connector_instance.h"
-#include "meta_data_manager.h"
-#include "keti_log.h"
 #include "ip_config.h"
 
 std::unique_ptr<DBConnectorInstance> g_httpHandler;

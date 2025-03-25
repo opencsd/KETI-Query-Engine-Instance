@@ -1,12 +1,24 @@
 #pragma once
+#include <list>
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <stdio.h>
+#include <stdlib.h>
+#include <cstring>
+#include <sql.h>
+#include <sqlext.h>
+#include <regex>
+#include <rapidjson/error/en.h>
+
 #include "storage_engine_connector.h"
 #include "parsed_query.h"
 #include "snippet.h"
-#include <list>
+#include "keti_log.h"
+#include "query_log_assistant.h"
 
 class PlanExecutor {
 public:
-
 	PlanExecutor(){
         string temp = INSTANCE_NAME;
         std::replace(temp.begin(), temp.end(), '-', '_');
@@ -33,7 +45,7 @@ private:
     std::mutex gRPC_mutex;
     std::mutex mutex;
     vector<Snippet> snippets;
-    int queryID_;
+    int queryID_ = 0;
     std::string db_name_;
     void setQueryID();
     std::unique_ptr<std::list<SnippetRequest>> genSnippet(ParsedQuery &parsed_query, const string &db_name);

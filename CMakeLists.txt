@@ -78,8 +78,8 @@ endif (UNIX)
 target_link_libraries(query_engine_instance
   ss_grpc_proto
   mysqlcppconn
+  stdc++fs
   ${LINKING_LIBRARIES}
   ${_REFLECTION}
   ${_GRPC_GRPCPP}
-  ${_PROTOBUF_LIBPROTOBUF}
-  stdc++fs)
+  ${_PROTOBUF_LIBPROTOBUF})

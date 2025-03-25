@@ -146,6 +146,18 @@ string MetaDataManager::getEnvInfoJson(string db_name) {
     return buffer.GetString();
 }
 
+void MetaDataManager::updateEnvInfo(int block_count, string scheduling_algorithm) {
+    environment_info.block_count = block_count;
+    environment_info.scheduling_algorithm = scheduling_algorithm;
+
+    char message[256];
+    std::snprintf(message, sizeof(message), "update info (block count: %d), (scheduling algorithm: %s)", block_count, scheduling_algorithm.c_str());
+
+    KETILOG::INFOLOG(LOGTAG, message);
+
+    return;
+}
+
 string MetaDataManager::convertToJson(map<string, vector<string>> &sst_csd_map) {
     KETILOG::DEBUGLOG(LOGTAG, "convertToJson() : sst_csd_map");
     Document document;
@@ -177,6 +189,8 @@ string MetaDataManager::convertToJson(map<string, vector<string>> &sst_csd_map) 
 
 void MetaDataManager::setMetaData(Snippet &snippet, const std::string &db_name) {
     KETILOG::DEBUGLOG(LOGTAG, "setMetaData()");
+    cout << "[MetaDataManager] add snippet metadata {WorkID:" << to_string(snippet.work_id) << "}" << endl;
+    
     if (snippet.type != QueryType::FULL_SCAN && 
         snippet.type != QueryType::INDEX_SCAN && 
         snippet.type != QueryType::INDEX_TABLE_SCAN) {
@@ -312,8 +326,16 @@ std::vector<std::string> MetaDataManager::getTablePriority(const std::string& db
             table_names.push_back(table_name);
         }
     }
-    
-
+    if(table_names.size() == 0){
+        table_names.push_back("nation");
+        table_names.push_back("region");
+        table_names.push_back("supplier");
+        table_names.push_back("customer");
+        table_names.push_back("part");
+        table_names.push_back("partsupp");
+        table_names.push_back("orders");
+        table_names.push_back("lineitem");
+    }
     return table_names;
 }
 
@@ -329,6 +351,7 @@ void MetaDataManager::load_schema_info(const string &json, const string &db_name
         
         table.table_name = tableData["tableName"].GetString();
         table.table_index_number = tableData["tableIndexNumber"].GetInt();
+        table.table_size = tableData["tableSize"].GetFloat();
 
         const Value& columnList = tableData["columnList"];
         for (SizeType j = 0; j < columnList.Size(); ++j) {
@@ -479,9 +502,9 @@ void MetaDataManager::db_info_generate(const string &db_name){
         KETILOG::DEBUGLOG(LOGTAG, db_name + "table_sst_info.json created successfully.");
     } else {
         KETILOG::ERRORLOG(LOGTAG, "Failed to create table_sst_info JSON file." );
-
     }        
 }
+
 void MetaDataManager::generate_sst_csd_map(const string &sst_csd_info_path){
     ifstream inputFile(sst_csd_info_path);
     if (!inputFile.is_open()) {
@@ -547,47 +570,96 @@ void MetaDataManager::load_sst_block_count(const std::string& jsonFilePath, cons
 void MetaDataManager::initMetaDataManager(){
     KETILOG::DEBUGLOG(LOGTAG,"initMetaDataManager()");
 
-    string metaDirPath = "../metadata/";
-    string json = "";
-    string schema_info_json = "";
-    string table_sst_info_json = "";
-    for (const auto& entry : fs::directory_iterator(metaDirPath)) { // 디렉토리 순회
-        if (fs::is_directory(entry.path())) {  
-            std::string db_name = entry.path().filename().string();
-            
-            schema_info_json = "";
-            table_sst_info_json = "";
+    if (strcmp(INSTANCE_TYPE, "MYSQL") == 0) {
+        initMySQLMetadata();
+    }else{
+        string metaDirPath = "../metadata/";
+        string json = "";
+        string schema_info_json = "";
+        string table_sst_info_json = "";
 
-            std::ifstream openFile1("../metadata/" + db_name + "/schema_info.json");
-            if (openFile1.is_open()) {
-                std::string line;
-                while (std::getline(openFile1, line)) {
-                    schema_info_json += line;
-                }
-                openFile1.close();
-            } else {
-                KETILOG::ERRORLOG(LOGTAG, "MetaData: file open error for: schema_info.json" );
+        for (const auto& entry : fs::directory_iterator(metaDirPath)) { // 디렉토리 순회
+            if (fs::is_directory(entry.path())) {  
+                std::string db_name = entry.path().filename().string();
 
-            }     
-            //1. schema mapping
-            load_schema_info(schema_info_json,db_name);
-                            
-            //2. 테이블이 어디 sst에 저장되어있는지 -> information_schema.ROCKSDB_DDL, information_schema.ROCKSDB_INDEX_FILE_MAP
-            db_info_generate(db_name);
+                if (db_name == "mysql") continue;
+                
+                schema_info_json = "";
+                table_sst_info_json = "";
 
-            //3. sst 파일이 어디 csd에 저장되어있는지
-            generate_sst_csd_map("../metadata/" + db_name + "/sst_csd_info.txt");
-            
-            //4. total_block_count
-            load_sst_block_count("../metadata/sst_block_info.json", db_name);
+                std::ifstream openFile1("../metadata/" + db_name + "/schema_info.json");
+                if (openFile1.is_open()) {
+                    std::string line;
+                    while (std::getline(openFile1, line)) {
+                        schema_info_json += line;
+                    }
+                    openFile1.close();
+                } else {
+                    KETILOG::ERRORLOG(LOGTAG, "MetaData: file open error for: schema_info.json" );
+
+                }     
+                //1. schema mapping
+                load_schema_info(schema_info_json,db_name);
+                                
+                //2. 테이블이 어디 sst에 저장되어있는지 -> information_schema.ROCKSDB_DDL, information_schema.ROCKSDB_INDEX_FILE_MAP
+                db_info_generate(db_name);
+
+                //3. sst 파일이 어디 csd에 저장되어있는지
+                generate_sst_csd_map("../metadata/" + db_name + "/sst_csd_info.txt");
+                
+                //4. total_block_count
+                load_sst_block_count("../metadata/sst_block_info.json", db_name);
+            }
+            // for (const auto& iter : sst_csd_map) {
+            //     cout << "SST File: " << iter.first << " -> CSD Numbers: ";
+            //     for (const auto& csd_num : iter.second) {
+            //         cout << csd_num << ", ";
+            //     }
+            //     cout << endl; 
+            // }
         }
-        // for (const auto& iter : sst_csd_map) {
-        //     cout << "SST File: " << iter.first << " -> CSD Numbers: ";
-        //     for (const auto& csd_num : iter.second) {
-        //         cout << csd_num << ", ";
-        //     }
-        //     cout << endl; 
-        // }
+
+        print_databases();
+
     }
-    print_databases();
+}
+
+void MetaDataManager::initMySQLMetadata(){
+    std::ifstream openFile("../metadata/mysql/init.json");
+
+    if (openFile.is_open()) {
+        rapidjson::IStreamWrapper isw(openFile);
+        rapidjson::Document document;
+        document.ParseStream(isw);
+        openFile.close();
+
+        if (document.HasParseError()) {
+            KETILOG::ERRORLOG(LOGTAG, "MetaData: JSON parsing error in init.json");
+            return;
+        }
+
+        for (const auto& db_entry : document["db_list"].GetArray()) {
+            string db_name = db_entry["db_name"].GetString();
+            float db_size = db_entry["db_size"].GetFloat();
+            environment_info.db_size_map[db_name] = db_size;
+
+            std::map<std::string, Table> table_map;
+
+            for (const auto& table_entry : db_entry["table_list"].GetArray()) {
+                std::string table_name = table_entry["table_name"].GetString();
+                float table_size = table_entry["table_size"].GetFloat();
+
+                Table table;
+                table.table_name = table_name;
+                table.table_size = table_size;
+
+                table_map[table_name] = table;
+            }
+
+            db_map[db_name] = table_map;
+        }
+    } else {
+        KETILOG::ERRORLOG(LOGTAG, "MetaData: file open error for: init.json");
+    }
+
 }

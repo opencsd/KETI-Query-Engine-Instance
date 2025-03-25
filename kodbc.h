@@ -1,3 +1,5 @@
+#pragma once
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -16,10 +18,9 @@
 #define min( a, b ) (((a) < (b)) ? (a) : (b))
 #endif
 
-
-int     version3                    = 0;
-SQLUSMALLINT    has_moreresults     = 1;
-int     max_col_size                = MAX_DATA_WIDTH;
+int version3 = 0;
+SQLUSMALLINT has_moreresults = 1;
+int max_col_size  = MAX_DATA_WIDTH;
 int nUserWidth = 0;
 int bQuote = 0;
 

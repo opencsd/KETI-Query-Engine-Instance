@@ -1,16 +1,6 @@
 #include "plan_executor.h"
-#include <iostream>
-#include <fstream>
-#include <algorithm>
-#include <stdio.h>
-#include <stdlib.h>
-#include <cstring>
-#include <sql.h>
-#include <sqlext.h>
-#include <regex>
 #include "kodbc.h"
-#include "keti_log.h"
-#include <rapidjson/error/en.h>
+
 void load_snippet(std::list<SnippetRequest> &list,std::string snippet_name,const string &db_name);
 
 std::string PlanExecutor::ExecuteQuery(StorageEngineConnector &storageEngineInterface, ParsedQuery &parsed_query, const string &db_name, QueryLog &query_log){
@@ -67,6 +57,9 @@ std::string PlanExecutor::ExecuteQuery(StorageEngineConnector &storageEngineInte
         int query_id = GetQueryID();
 
         auto snippet_list = genSnippet(parsed_query, db_name);
+        std::size_t length = snippet_list->size();
+
+        cout << "[PlanExecutor] generated snippet {ID:" << to_string(query_id) << "} count: " << to_string(length) << endl;
 
         query_log.AddSnippetInfo(query_id, *snippet_list);
 
@@ -84,7 +77,7 @@ std::string PlanExecutor::ExecuteQuery(StorageEngineConnector &storageEngineInte
 
 QueryStringResult PlanExecutor::queryOffload(StorageEngineConnector &storageEngineInterface,std::list<SnippetRequest> &snippet_list, int query_id){
     std::lock_guard<std::mutex> lock(gRPC_mutex);
-    std::cout << "[Query Engine] Query Offloading Initiated" << std::endl;
+	cout << "[PlanExecutor] send snippet to storage engine interface {ID:" << to_string(query_id) << "}" << endl;
     return storageEngineInterface.OffloadingQuery(snippet_list, query_id);
 }
 
@@ -117,7 +110,7 @@ void PlanExecutor::setQueryID(){
         queryID_ = 0;
     }
 
-    cout << "start query id from " << queryID_ << endl;
+    cout << "[QueryEngine] start query id from " << queryID_ << endl;
 }
 
 std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery &parsed_query, const string &db_name){ // test code
@@ -135,8 +128,8 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
             tpch_snippet = parsing_tpch_snippet(scan_snippet_name, db_name); 
             tpch_snippets.push_back(tpch_snippet);
             scan_snippet_name_list.push_back(scan_snippet_name);
-
         }
+
         for(int i=0;i<tpch_snippets.size();i++){
             KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
@@ -403,6 +396,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
             KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
         }
+        cout << "[PlanExecutor] generate snippet..." << endl;
         generate_snippet_json(tpch_snippets, db_name, scan_snippet_name_list);
         for(int i = 0; i < 6;i++){ //전체 스니펫 수
             string snippet_name = "tpch15-" + to_string(i);
@@ -417,6 +411,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
             scan_snippet_name_list.push_back(scan_snippet_name);
 
         }
+        cout << "[PlanExecutor] generate snippet..." << endl;
         for(int i=0;i<tpch_snippets.size();i++){
             KETILOG::DEBUGLOG(LOGTAG,"Setting MetaData of Query...");
             MetaDataManager::SetMetaData(tpch_snippets.at(i),db_name);
@@ -616,6 +611,7 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
 
         }
     }
+
 	return ret;
     
 }
@@ -704,11 +700,13 @@ void PlanExecutor::create_snippet_init_info(const string &db_name,ParsedCustomQu
         /*query_info - projection*/
         setProjectionToSnippet(db_name, parsed_custom_query, query_table, snippet);
         
-        /*query_info - order by*/
-        setOrderByToSnippet(parsed_custom_query, snippet);
+        if(snippet_i == parsed_custom_query.query_tables.size()-1){
+            /*query_info - order by*/
+            setOrderByToSnippet(parsed_custom_query, snippet);
 
-        /*query_info - limit*/
-        setLimitToSnippet(parsed_custom_query, snippet);
+            /*query_info - limit*/
+            setLimitToSnippet(parsed_custom_query, snippet);
+        }  
 
         /*result_info - table_alias, column_alias */
         if(snippet.type == QueryType::AGGREGATION){
@@ -735,7 +733,6 @@ void PlanExecutor::create_snippet_init_info(const string &db_name,ParsedCustomQu
 }
 
 void PlanExecutor::generate_snippet_json(vector<Snippet> &snippets, const string &db_name, vector<string> &tpch_scan_snippet_name) {
-
     for (int i = 0; i < snippets.size(); i++) {
         Document snippet_obj;
         snippet_obj.SetObject();  // 매 반복마다 새로운 JSON 문서 시작
@@ -751,14 +748,14 @@ void PlanExecutor::generate_snippet_json(vector<Snippet> &snippets, const string
         Value table_name(kArrayType);
         
         Value t1, t2;
+        // cout  << snippets[i].query_info.table_name1.c_str() << endl;
         t1.SetString(snippets[i].query_info.table_name1.c_str(), allocator);
+        table_name.PushBack(t1, allocator);
         if(snippets[i].query_info.table_name2 != ""){
             t2.SetString(snippets[i].query_info.table_name2.c_str(), allocator);
             table_name.PushBack(t2, allocator);
 
         }
-        table_name.PushBack(t1, allocator);
-
         // Step 3: Add "table_name" array to query_info
         query_info.AddMember("table_name", table_name, allocator);
 
@@ -845,7 +842,6 @@ void PlanExecutor::generate_snippet_json(vector<Snippet> &snippets, const string
             Value group_array(kArrayType);
 
             for(const auto& group_by_column : snippets[i].query_info.group_by){
-                cout << "hj :: group by column : " <<  group_by_column << endl;
                 Value group_by_column_value;
                 group_by_column_value.SetString(group_by_column.c_str(), allocator);
                 group_array.PushBack(group_by_column_value, allocator);
@@ -854,47 +850,42 @@ void PlanExecutor::generate_snippet_json(vector<Snippet> &snippets, const string
         }
 
         // "order by" array
-        if (snippets[i].query_info.order_by.size() > 0) {
-            if(snippets[i].type == QueryType::AGGREGATION){
-                Value ascending_array(kArrayType);
-                Value column_name_array(kArrayType);
+        if(i == snippets.size()-1){
+            Value ascending_array(kArrayType);
+            Value column_name_array(kArrayType);
 
-                for (const auto& order_by_field : snippets[i].query_info.order_by) {
-                    // order_by_field는 {column_name, is_asc} 형태의 std::pair
-                    const std::string& column_name = order_by_field.first;
-                    bool is_asc = order_by_field.second;
+            for (const auto& order_by_field : snippets[i].query_info.order_by) {
+                // order_by_field는 {column_name, is_asc} 형태의 std::pair
+                const std::string& column_name = order_by_field.first;
+                bool is_asc = order_by_field.second;
 
-                    Value column_name_value;
-                    column_name_value.SetString(column_name.c_str(), allocator);
-                    column_name_array.PushBack(column_name_value, allocator);
+                Value column_name_value;
+                column_name_value.SetString(column_name.c_str(), allocator);
+                column_name_array.PushBack(column_name_value, allocator);
 
-                    ascending_array.PushBack(is_asc ? 0 : 1, allocator);
-                }
-
-                Value order_by_obj(kObjectType);
-                order_by_obj.AddMember("ascending", ascending_array, allocator);
-                order_by_obj.AddMember("column_name", column_name_array, allocator);
-
-                query_info.AddMember("order_by", order_by_obj, allocator);
+                ascending_array.PushBack(is_asc ? 0 : 1, allocator);
             }
-            
+
+            Value order_by_obj(kObjectType);
+            order_by_obj.AddMember("ascending", ascending_array, allocator);
+            order_by_obj.AddMember("column_name", column_name_array, allocator);
+
+            query_info.AddMember("order_by", order_by_obj, allocator);
         }
+            
 
         // "limit" object
         if(snippets[i].query_info.limit.offset != -1 && snippets[i].query_info.limit.length != -1){
-            if(snippets[i].type == QueryType::AGGREGATION){
-                Value limit_object(kObjectType);
-                Value offset_value;
-                Value length_value;
+            Value limit_object(kObjectType);
+            Value offset_value;
+            Value length_value;
 
-                offset_value.SetInt(snippets[i].query_info.limit.offset);
-                length_value.SetInt(snippets[i].query_info.limit.length);
-                limit_object.AddMember("offset", offset_value, allocator);
-                limit_object.AddMember("length", length_value, allocator);
-                query_info.AddMember("limit", limit_object, allocator);
-            }
+            offset_value.SetInt(snippets[i].query_info.limit.offset);
+            length_value.SetInt(snippets[i].query_info.limit.length);
+            limit_object.AddMember("offset", offset_value, allocator);
+            limit_object.AddMember("length", length_value, allocator);
+            query_info.AddMember("limit", limit_object, allocator);
             
-
         }
 
         snippet_obj.AddMember("query_info", query_info, allocator);
@@ -1091,39 +1082,39 @@ void PlanExecutor::setProjectionToSnippet(const string &db_name, const ParsedCus
             string func = agg_col_entry.first;
             string col = agg_col_entry.second;
             
-            if (func == "SUM") {
+            if (func == "SUM" || func == "sum") {
                 projection.select_type = static_cast<int>(SelectType::SUM);
                 // Projectioning 구조체에 표현식 추가
                 projection.expression.types.push_back(static_cast<int>(ValueType::COLUMN));
                 projection.expression.values.push_back(col);
-            } else if (func == "AVG") {
+            } else if (func == "AVG" || func == "avg") {
                 projection.select_type = static_cast<int>(SelectType::AVG);
                 // Projectioning 구조체에 표현식 추가
                 projection.expression.types.push_back(static_cast<int>(ValueType::COLUMN));
                 projection.expression.values.push_back(col);
-            } else if (func == "COUNT(*)" ) {
+            } else if (func == "COUNT(*)" ||func == "count(*)") {
                 projection.select_type = static_cast<int>(SelectType::COUNTSTAR);  // COUNT(*)
-            } else if (func == "COUNT(DISTINCT)" ) {
+            } else if (func == "COUNT(DISTINCT)" || func == "count(distinct)") {
                 projection.select_type = static_cast<int>(SelectType::COUNTDISTINCT);  // COUNT(DISTINCT)
                 // Projectioning 구조체에 표현식 추가
                 projection.expression.types.push_back(static_cast<int>(ValueType::COLUMN));
                 projection.expression.values.push_back(col);
-            }  else if (func == "COUNT" ) {
+            }  else if (func == "COUNT" || func == "count") {
                 projection.select_type = static_cast<int>(SelectType::COUNT);  // COUNT()
                 // Projectioning 구조체에 표현식 추가
                 projection.expression.types.push_back(static_cast<int>(ValueType::COLUMN));
                 projection.expression.values.push_back(col);
-            } else if (func == "MIN") {
+            } else if (func == "MIN" || func == "min") {
                 projection.select_type = static_cast<int>(SelectType::MIN);
                 // Projectioning 구조체에 표현식 추가
                 projection.expression.types.push_back(static_cast<int>(ValueType::COLUMN));
                 projection.expression.values.push_back(col);
-            } else if (func == "MAX") {
+            } else if (func == "MAX" || func == "max") {
                 projection.select_type = static_cast<int>(SelectType::MAX);
                 // Projectioning 구조체에 표현식 추가
                 projection.expression.types.push_back(static_cast<int>(ValueType::COLUMN));
                 projection.expression.values.push_back(col);
-            } else if (func == "TOP") {
+            } else if (func == "TOP" || func == "top") {
                 projection.select_type = static_cast<int>(SelectType::TOP);
                 // Projectioning 구조체에 표현식 추가
                 projection.expression.types.push_back(static_cast<int>(ValueType::COLUMN));
@@ -1273,6 +1264,12 @@ Snippet PlanExecutor::parsing_tpch_snippet(const string &file_name, const std::s
             }
         }
 
+        cout << "[QueryPlanner] snippet {WorkID:" << to_string(snippet.work_id) << "}" << endl;
+        cout << "[QueryPlanner] L work_type: " << to_string(snippet.type) << endl;
+        cout << "[QueryPlanner] L table_name: " << snippet.query_info.table_name1 << " " << snippet.query_info.table_name2 << endl;
+        cout << "[QueryPlanner] L filter_count: " << snippet.query_info.filtering.size() << endl;
+        cout << "[QueryPlanner] L projection: ";
+
         if (query_info.HasMember("projection") && query_info["projection"].IsArray()) {
             for (const auto& projection_entry : query_info["projection"].GetArray()) {
                 Projection projection;
@@ -1281,8 +1278,10 @@ Snippet PlanExecutor::parsing_tpch_snippet(const string &file_name, const std::s
                     projection.select_type = projection_entry["select_type"].GetInt();
 
                 if (projection_entry.HasMember("value") && projection_entry["value"].IsArray()) {
-                    for (const auto& value : projection_entry["value"].GetArray())
+                    for (const auto& value : projection_entry["value"].GetArray()){
                         projection.expression.values.push_back(value.GetString());
+                        cout << value.GetString() << " ";
+                    }
                 }
 
                 if (projection_entry.HasMember("value_type") && projection_entry["value_type"].IsArray()) {
@@ -1294,5 +1293,8 @@ Snippet PlanExecutor::parsing_tpch_snippet(const string &file_name, const std::s
             }
         }
     }
+    
+    cout << endl;
+    
     return snippet;
 }

@@ -3,7 +3,6 @@
 #include <google/protobuf/empty.pb.h>
 #include "snippet_sample.grpc.pb.h"
 
-#include "keti_log.h"
 #include "meta_data_manager.h"
 
 using grpc::Channel;

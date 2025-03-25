@@ -4,8 +4,8 @@
     "work_id": 2,
     "query_info": {
         "table_name": [
-            "snippet14-1",
-            "snippet14-0"
+            "snippet14-0",
+            "snippet14-1"
         ],
         "filtering": [
             {
@@ -14,7 +14,7 @@
                         10
                     ],
                     "value": [
-                        "l_partkey"
+                        "p_partkey"
                     ]
                 },
                 "operator": 4,
@@ -23,7 +23,7 @@
                         10
                     ],
                     "value": [
-                        "p_partkey"
+                        "l_partkey"
                     ]
                 }
             }

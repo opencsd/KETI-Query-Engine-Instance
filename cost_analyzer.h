@@ -1,6 +1,6 @@
 #pragma once
 #include "storage_engine_connector.h"
-#include "parsed_query.h"
+#include "keti_type.h"
 #include "regex"
 #include <list>
 
@@ -33,11 +33,10 @@ public:
         // 쿼리 점수화 함수 추가
         KETILOG::DEBUGLOG(LOGTAG,"Start Query Scoring");
         KETILOG::DEBUGLOG(LOGTAG,"Scoring Query ...");
+        cout << "[CostAnalyzer] start query cost analysis..." << endl;
         std::string query = parsed_query.GetOriginalQuery();
 
         extractQueries(query, queries);
-
-        
 
         if (queries.size() > 1) { 
             execution_mode_ = EXECUTION_MODE::GENERIC;  // Set GENERIC if there are multiple subqueries
@@ -46,6 +45,7 @@ public:
             execution_mode_ = EXECUTION_MODE::OFFLOADING;  // Set OFFLOADING if only one query
             parsed_query.SetQueryTypeAsOffloading();
             KETILOG::DEBUGLOG(LOGTAG, "Execution mode set to OFFLOADING due to single query.");
+            cout << "[CostAnalyzer] query execution mode : OFFLOADING" << endl;
         }
            
     }

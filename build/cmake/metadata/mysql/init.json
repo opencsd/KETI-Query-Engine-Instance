@@ -1,0 +1,118 @@
+{
+    "db_list" :[
+        {
+            "db_name" : "tpch_origin",
+            "db_size" : 1273.27,
+            "table_list" : [
+                {
+                    "table_name" : "lineitem",
+                    "table_size" : 927.10
+                },
+                {
+                    "table_name" : "customer",
+                    "table_size" : 27.76
+                },
+                {
+                    "table_name" : "nation",
+                    "table_size" : 0.00
+                },
+                {
+                    "table_name" : "orders",
+                    "table_size" : 204.80
+                },
+                {
+                    "table_name" : "part",
+                    "table_size" : 35.32
+                },
+                {
+                    "table_name" : "partsupp",
+                    "table_size" : 116.18
+                },
+                {
+                    "table_name" : "region",
+                    "table_size" : 0.00
+                },
+                {
+                    "table_name" : "supplier",
+                    "table_size" : 1.84
+                }
+            ]
+        },
+        {
+            "db_name" : "tpch_10_index",
+            "db_size" : 12756.52,
+            "table_list" : [
+                {
+                    "table_name" : "lineitem",
+                    "table_size" : 7086.22
+                },
+                {
+                    "table_name" : "customer",
+                    "table_size" : 241.18
+                },
+                {
+                    "table_name" : "nation",
+                    "table_size" : 0.00
+                },
+                {
+                    "table_name" : "orders",
+                    "table_size" : 1597.67
+                },
+                {
+                    "table_name" : "part",
+                    "table_size" : 265.76
+                },
+                {
+                    "table_name" : "partsupp",
+                    "table_size" : 1154.84
+                },
+                {
+                    "table_name" : "region",
+                    "table_size" : 0.00
+                },
+                {
+                    "table_name" : "supplier",
+                    "table_size" : 14.71
+                }
+            ]
+        },
+        {
+            "db_name" : "tpch_100_index",
+            "db_size" : 128083.67,
+            "table_list" : [
+                {
+                    "table_name" : "lineitem",
+                    "table_size" : 70882.30
+                },
+                {
+                    "table_name" : "customer",
+                    "table_size" : 2411.83
+                },
+                {
+                    "table_name" : "nation",
+                    "table_size" : 0.00
+                },
+                {
+                    "table_name" : "orders",
+                    "table_size" : 15977.92
+                },
+                {
+                    "table_name" : "part",
+                    "table_size" : 2657.48
+                },
+                {
+                    "table_name" : "partsupp",
+                    "table_size" : 11584.67
+                },
+                {
+                    "table_name" : "region",
+                    "table_size" : 0.00
+                },
+                {
+                    "table_name" : "supplier",
+                    "table_size" : 147.21
+                }
+            ]
+        }
+    ]
+}

@@ -69,7 +69,7 @@
                 }
             ],
             "tableIndexNumber": 283,
-            "tableSize": 1
+            "tableSize": 27.76
         },
         {
             "tableName": "lineitem",
@@ -203,7 +203,8 @@
                     "nullable": false
                 }
             ],
-            "tableIndexNumber": 294
+            "tableIndexNumber": 294,
+            "tableSize": 927.1
         },
         {
             "tableName": "nation",
@@ -241,7 +242,8 @@
                     "nullable": false
                 }
             ],
-            "tableIndexNumber": 300
+            "tableIndexNumber": 300,
+            "tableSize": 0.0
         },
         {
             "tableName": "orders",
@@ -319,7 +321,8 @@
                     "nullable": false
                 }
             ],
-            "tableIndexNumber": 278
+            "tableIndexNumber": 278,
+            "tableSize": 204.8
         },
         {
             "tableName": "part",
@@ -397,7 +400,8 @@
                     "nullable": false
                 }
             ],
-            "tableIndexNumber": 279
+            "tableIndexNumber": 279,
+            "tableSize": 35.32
         },
         {
             "tableName": "partsupp",
@@ -443,7 +447,8 @@
                     "nullable": false
                 }
             ],
-            "tableIndexNumber": 280
+            "tableIndexNumber": 280,
+            "tableSize": 116.18
         },
         {
             "tableName": "region",
@@ -473,7 +478,8 @@
                     "nullable": false
                 }
             ],
-            "tableIndexNumber": 299
+            "tableIndexNumber": 299,
+            "tableSize": 0.0
         },
         {
             "tableName": "supplier",
@@ -535,7 +541,8 @@
                     "nullable": false
                 }
             ],
-            "tableIndexNumber": 284
+            "tableIndexNumber": 284,
+            "tableSize": 1.84
         }
     ],
     "dbSize": 1366.7

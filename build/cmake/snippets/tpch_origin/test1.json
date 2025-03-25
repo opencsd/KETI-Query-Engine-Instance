@@ -1,0 +1,303 @@
+{
+    "type": 0,
+    "query_id": 1,
+    "work_id": 0,
+    "query_info": {
+      "table_name": [
+        "lineitem"
+      ],
+      "filtering": [
+        {
+          "lv": {
+            "type": [
+              10
+            ],
+            "value": [
+              "l_shipdate"
+            ]
+          },
+          "operator": 1,
+          "rv": {
+            "type": [
+              7
+            ],
+            "value": [
+              "1023247"
+            ]
+          }
+        }
+      ],
+      "projection": [
+        {
+          "select_type": 0,
+          "value": [
+            "l_returnflag"
+          ],
+          "value_type": [
+            10
+          ]
+        },
+        {
+          "select_type": 0,
+          "value": [
+            "l_linestatus"
+          ],
+          "value_type": [
+            10
+          ]
+        },
+        {
+          "select_type": 0,
+          "value": [
+            "l_quantity"
+          ],
+          "value_type": [
+            10
+          ]
+        },
+        {
+          "select_type": 0,
+          "value": [
+            "l_extendedprice"
+          ],
+          "value_type": [
+            10
+          ]
+        },
+        {
+          "select_type": 0,
+          "value": [
+            "l_extendedprice",
+            "1",
+            "l_discount",
+            "-",
+            "*"
+          ],
+          "value_type": [
+            10,
+            2,
+            10,
+            11,
+            11
+          ]
+        },
+        {
+          "select_type": 0,
+          "value": [
+            "l_extendedprice",
+            "1",
+            "l_discount",
+            "-",
+            "*",
+            "1",
+            "l_tax",
+            "+",
+            "*"
+          ],
+          "value_type": [
+            10,
+            2,
+            10,
+            11,
+            11,
+            2,
+            10,
+            11,
+            11
+          ]
+        },
+        {
+          "select_type": 0,
+          "value": [
+            "l_quantity"
+          ],
+          "value_type": [
+            10
+          ]
+        },
+        {
+          "select_type": 0,
+          "value": [
+            "l_extendedprice"
+          ],
+          "value_type": [
+            10
+          ]
+        },
+        {
+          "select_type": 0,
+          "value": [
+            "l_discount"
+          ],
+          "value_type": [
+            10
+          ]
+        }
+      ]
+    },
+    "schema_info": {
+      "column_list": [
+        {
+          "name": "l_orderkey",
+          "type": 3,
+          "length": 4,
+          "primary": false,
+          "index": false,
+          "nullable": false
+        },
+        {
+          "name": "l_partkey",
+          "type": 3,
+          "length": 4,
+          "primary": false,
+          "index": false,
+          "nullable": false
+        },
+        {
+          "name": "l_suppkey",
+          "type": 3,
+          "length": 4,
+          "primary": false,
+          "index": false,
+          "nullable": false
+        },
+        {
+          "name": "l_linenumber",
+          "type": 3,
+          "length": 4,
+          "primary": false,
+          "index": false,
+          "nullable": false
+        },
+        {
+          "name": "l_quantity",
+          "type": 246,
+          "length": 7,
+          "primary": false,
+          "index": false,
+          "nullable": false
+        },
+        {
+          "name": "l_extendedprice",
+          "type": 246,
+          "length": 7,
+          "primary": false,
+          "index": false,
+          "nullable": false
+        },
+        {
+          "name": "l_discount",
+          "type": 246,
+          "length": 7,
+          "primary": false,
+          "index": false,
+          "nullable": false
+        },
+        {
+          "name": "l_tax",
+          "type": 246,
+          "length": 7,
+          "primary": false,
+          "index": false,
+          "nullable": false
+        },
+        {
+          "name": "l_returnflag",
+          "type": 254,
+          "length": 1,
+          "primary": false,
+          "index": false,
+          "nullable": false
+        },
+        {
+          "name": "l_linestatus",
+          "type": 254,
+          "length": 1,
+          "primary": false,
+          "index": false,
+          "nullable": false
+        },
+        {
+          "name": "l_shipdate",
+          "type": 14,
+          "length": 3,
+          "primary": false,
+          "index": false,
+          "nullable": false
+        },
+        {
+          "name": "l_commitdate",
+          "type": 14,
+          "length": 3,
+          "primary": false,
+          "index": false,
+          "nullable": false
+        },
+        {
+          "name": "l_receiptdate",
+          "type": 14,
+          "length": 3,
+          "primary": false,
+          "index": false,
+          "nullable": false
+        },
+        {
+          "name": "l_shipinstruct",
+          "type": 254,
+          "length": 25,
+          "primary": false,
+          "index": false,
+          "nullable": false
+        },
+        {
+          "name": "l_shipmode",
+          "type": 254,
+          "length": 10,
+          "primary": false,
+          "index": false,
+          "nullable": false
+        },
+        {
+          "name": "l_comment",
+          "type": 15,
+          "length": 44,
+          "primary": false,
+          "index": false,
+          "nullable": false
+        }
+      ],
+      "table_index_number": 1406
+    },
+    "wal_info": {
+      "deleted_key": [],
+      "inserted_key": [],
+      "inserted_value": []
+    },
+    "result_info": {
+      "table_alias": "test1",
+      "column_alias": [
+        "l_returnflag",
+        "l_linestatus",
+        "sum_qty",
+        "sum_base_price",
+        "sum_disc_price",
+        "sum_charge",
+        "avg_qty",
+        "avg_price",
+        "avg_disc"
+      ],
+      "total_block_count": 6
+    },
+    "sst_info": [
+      {
+        "sst_name": "058383.sst",
+        "csd": [
+          {
+            "csd_id": "1",
+            "partition": "/dev/ngd-blk3"
+          }
+        ],
+        "sst_block_count": 6
+      }
+    ]
+  }

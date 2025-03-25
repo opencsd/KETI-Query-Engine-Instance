@@ -12,6 +12,7 @@ public:
         KETILOG::DEBUGLOG(LOGTAG,"Start Query Processing");
         KETILOG::DEBUGLOG(LOGTAG,"Parsing Query ...");
 
+        cout << "[QueryPlanner] parsing work unit..." << endl;
     }
     void Parse(ParsedQuery &parsed_query, const string &db_name){
 
@@ -370,16 +371,7 @@ WHERE  l_partkey = p_partkey\n\
        AND l_shipdate < DATE '1996-12-01' + interval '1' month;");
           parsed_query.SetQueryTypeAsOffloading();
         } else if(parsed_query.GetOriginalQuery() == "TPC-H_15"){ //TPC-H Query 15
-            parsed_query.SetParsedQuery("CREATE VIEW revenue0\n\
-(supplier_no, total_revenue)\n\
-AS\n\
-  SELECT l_suppkey,\n\
-         SUM(l_extendedprice * ( 1 - l_discount ))\n\
-  FROM   lineitem\n\
-  WHERE  l_shipdate >= DATE '1997-07-01'\n\
-         AND l_shipdate < DATE '1997-07-01' + interval '3' month\n\
-  GROUP  BY l_suppkey;\n\
-SELECT s_suppkey,\n\
+            parsed_query.SetParsedQuery("SELECT s_suppkey,\n\
        s_name,\n\
        s_address,\n\
        s_phone,\n\
@@ -389,8 +381,7 @@ FROM   supplier,\n\
 WHERE  s_suppkey = supplier_no\n\
        AND total_revenue = (SELECT Max(total_revenue)\n\
                             FROM   revenue0)\n\
-ORDER  BY s_suppkey;\n\
-DROP VIEW revenue0;");
+ORDER  BY s_suppkey;");
           parsed_query.SetQueryTypeAsOffloading();
         } else if(parsed_query.GetOriginalQuery() == "TPC-H_16"){ //TPC-H Query 16
             parsed_query.SetParsedQuery("SELECT p_brand,\n\
@@ -599,7 +590,7 @@ ORDER  BY cntrycode;");
             parsed_query.SetParsedQuery("");
             parsed_query.SetQueryTypeAsOffloading();
         } else { //Other Query
-
+            parsed_query.SetParsedQuery(parsed_query.GetOriginalQuery());
             parsed_query.SetCustomParsedQuery(parsed_query.GetOriginalQuery(),db_name);
             KETILOG::DEBUGLOG(LOGTAG, "Query Mode : " + parsed_query.isGenericQuery());        
 

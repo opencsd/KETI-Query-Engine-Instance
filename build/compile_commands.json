@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/build",
+  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/build -isystem /include -g -std=gnu++11 -o CMakeFiles/ss_grpc_proto.dir/snippet_sample.grpc.pb.cc.o -c /root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/build/snippet_sample.grpc.pb.cc",
+  "file": "/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/build/snippet_sample.grpc.pb.cc"
+},
+{
+  "directory": "/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/build",
+  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/build -isystem /include -g -std=gnu++11 -o CMakeFiles/ss_grpc_proto.dir/snippet_sample.pb.cc.o -c /root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/build/snippet_sample.pb.cc",
+  "file": "/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/build/snippet_sample.pb.cc"
+},
+{
+  "directory": "/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/build",
+  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/build -isystem /include -g -std=gnu++11 -o CMakeFiles/query_engine_instance.dir/main.cc.o -c /root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/main.cc",
+  "file": "/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/main.cc"
+},
+{
+  "directory": "/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/build",
+  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/build -isystem /include -g -std=gnu++11 -o CMakeFiles/query_engine_instance.dir/plan_executor.cc.o -c /root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/plan_executor.cc",
+  "file": "/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/plan_executor.cc"
+},
+{
+  "directory": "/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/build",
+  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/build -isystem /include -g -std=gnu++11 -o CMakeFiles/query_engine_instance.dir/db_connector_instance.cc.o -c /root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/db_connector_instance.cc",
+  "file": "/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/db_connector_instance.cc"
+},
+{
+  "directory": "/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/build",
+  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/build -isystem /include -g -std=gnu++11 -o CMakeFiles/query_engine_instance.dir/meta_data_manager.cc.o -c /root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/meta_data_manager.cc",
+  "file": "/root/workspace/keti/Query-Engine-Instance/KETI-Query-Engine-Instance/meta_data_manager.cc"
+}
+]
