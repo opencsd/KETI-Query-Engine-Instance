@@ -530,7 +530,8 @@ std::unique_ptr<std::list<SnippetRequest>> PlanExecutor::genSnippet(ParsedQuery 
             string snippet_name = "tpch22-" + to_string(i);
             load_snippet(*ret,snippet_name,db_name);
         }
-    } else if (query_str == "test_lineitem"){ 
+    }
+    else if (query_str == "test_lineitem"){ 
         load_snippet(*ret,"test_lineitem",db_name);
     } else if (query_str == "test_customer"){ 
         load_snippet(*ret,"test_customer",db_name);
@@ -761,8 +762,12 @@ void PlanExecutor::generate_snippet_json(vector<Snippet> &snippets, const string
 
         // "filtering" array
         Value filtering_array(kArrayType);
+        int and_flag = 0;
+
         for (const auto& filter : snippets[i].query_info.filtering) {
             Value filter_obj(kObjectType);
+
+            // 빈 값이 없으면 바로 처리
             if (filter.lv.values.size() == 0 && filter.rv.values.size() == 0) {
                 Value operator_value;
                 operator_value.SetInt(filter.operator_);
@@ -770,13 +775,13 @@ void PlanExecutor::generate_snippet_json(vector<Snippet> &snippets, const string
                 filtering_array.PushBack(filter_obj, allocator);
                 continue;
             }
-
+            
+            // lv 처리
             Value lv_obj(kObjectType);
-
             Value lv_type_array(kArrayType);
             for(const auto& lv_type : filter.lv.types){
                 Value lv_type_val;
-                lv_type_val.SetInt(lv_type);  // Assuming lv.type is an integer array   
+                lv_type_val.SetInt(lv_type);
                 lv_type_array.PushBack(lv_type_val, allocator);
             }
             Value lv_value_array(kArrayType);
@@ -789,14 +794,15 @@ void PlanExecutor::generate_snippet_json(vector<Snippet> &snippets, const string
             lv_obj.AddMember("value",lv_value_array,allocator);
             filter_obj.AddMember("lv", lv_obj, allocator);
 
+            // operator 추가
             filter_obj.AddMember("operator", filter.operator_, allocator);
 
+            // rv 처리
             Value rv_obj(kObjectType);
-
             Value rv_type_array(kArrayType);
             for(const auto& rv_type : filter.rv.types){
                 Value rv_type_val;
-                rv_type_val.SetInt(rv_type);  // Assuming rv.type is an integer array   
+                rv_type_val.SetInt(rv_type);
                 rv_type_array.PushBack(rv_type_val, allocator);
             }
             Value rv_value_array(kArrayType);
@@ -809,8 +815,21 @@ void PlanExecutor::generate_snippet_json(vector<Snippet> &snippets, const string
             rv_obj.AddMember("value",rv_value_array,allocator);
             filter_obj.AddMember("rv", rv_obj, allocator);
 
+            // filtering array에 필터 추가
             filtering_array.PushBack(filter_obj, allocator);
+
+            // 마지막이 아니면 "AND" 추가
+            if (and_flag < snippets[i].query_info.filtering.size() - 1) {
+                Value filetring_and_value;
+                filetring_and_value.SetInt(13);  // "AND"를 나타내는 값
+                Value and_operator(kObjectType);
+                and_operator.AddMember("operator", filetring_and_value, allocator);
+                filtering_array.PushBack(and_operator, allocator);
+            }
+            and_flag++;
         }
+
+        // filtering array를 query_info에 추가
         query_info.AddMember("filtering", filtering_array, allocator);
 
         // "projection" array

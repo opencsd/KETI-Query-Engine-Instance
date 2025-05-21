@@ -37,6 +37,24 @@
                 "value_type": [
                     10
                 ]
+            },
+            {
+                "select_type": 1,
+                "value": [
+                    "high_line_count"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 1,
+                "value": [
+                    "low_line_count"
+                ],
+                "value_type": [
+                    10
+                ]
             }
         ],
         "group_by": [
@@ -57,7 +75,9 @@
     "result_info": {
         "table_alias": "result12",
         "column_alias": [
-            "l_shipmode"
+            "l_shipmode",
+            "high_line_count",
+            "low_line_count"
         ]
     }
 }

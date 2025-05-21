@@ -13,7 +13,6 @@
 #include <sstream>
 #include <cstring>
 #include <cstdio>
-
 #ifdef _WIN32
     #define NOMINMAX
     #include <windows.h>

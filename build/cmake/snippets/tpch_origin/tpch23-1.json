@@ -1,17 +1,59 @@
 {
     "type": 0,
-    "query_id": 12,
-    "work_id": 0,
+    "query_id": 0,
+    "work_id": 1,
     "query_info": {
         "table_name": [
             "orders"
         ],
-        "filtering": [],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "o_orderdate"
+                    ]
+                },
+                "operator": 1,
+                "rv": {
+                    "type": [
+                        7
+                    ],
+                    "value": [
+                        1021473
+                    ]
+                }
+            },
+            {
+                "operator": 13
+            },
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "o_orderdate"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        7
+                    ],
+                    "value": [
+                        1023903
+                    ]
+                }
+            }
+        ],
         "projection": [
             {
                 "select_type": 0,
                 "value": [
-                    "o_orderkey"
+                    "o_custkey"
                 ],
                 "value_type": [
                     10
@@ -102,9 +144,9 @@
         "inserted_value": []
     },
     "result_info": {
-        "table_alias": "snippet12-0",
+        "table_alias": "snippet-1",
         "column_alias": [
-            "o_orderkey"
+            "o_custkey"
         ],
         "total_block_count": 43247
     },

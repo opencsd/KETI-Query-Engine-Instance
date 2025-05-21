@@ -58,7 +58,7 @@ inline long getCpuTimeForPid(const std::string &statPath, string uid) {
         std::cerr << "Filesystem error: " << e.what() << std::endl;
     }
 
-    return cpu_total / (1000000000 / 100);
+    return cpu_total / 1e7; // cpu(ns) -> 10ms(0.01sec) 환산 (100HZ=tick단위)
 }
 
 inline long long readRaplEnergy(const std::string &filePath) {
@@ -173,20 +173,31 @@ public:
 
     void CheckMetricBefore(){
         metric_.cpu_before = getCpuTimeForPid(statPath, pod_uid_);
-        metric_.power_before += readRaplEnergy(raplPath1);
-        metric_.power_before += readRaplEnergy(raplPath2);
+        metric_.power_before1 = readRaplEnergy(raplPath1);
+        metric_.power_before2 = readRaplEnergy(raplPath2);
     }
 
     void AddMetricInfo(){
         metric_.cpu_after = getCpuTimeForPid(statPath, pod_uid_);
-        metric_.power_after += readRaplEnergy(raplPath1);
-        metric_.power_after += readRaplEnergy(raplPath2);
+        metric_.power_after1 = readRaplEnergy(raplPath1);
+        metric_.power_after2 = readRaplEnergy(raplPath2);
 
         cpu_usage_ = metric_.cpu_after - metric_.cpu_before;
-        // cout << "%% " << metric_.cpu_after << "-" << metric_.cpu_before << "=" << cpu_usage_ << endl;
-        long long power_usage = metric_.power_after - metric_.power_before;
-        // cout << "%% " << metric_.power_after << "-" << metric_.power_before << "=" << power_usage << endl;
-        power_usage_ = power_usage / 1e6;
+        cpu_utilization_ = std::round((cpu_usage_ * 100.0) / ((execution_time_ / 0.01) * 40) * 100.0) / 100.0;
+
+        long long power_usage1 = metric_.power_after1 - metric_.power_before1;
+        if(power_usage1 < 0){
+            power_usage1 = 262143328850 - metric_.power_before1 + metric_.power_after1;
+            cout << "%% " << power_usage1 << "=" << "262143328850-" << metric_.power_before1 << "+" << metric_.power_after1 << endl;
+        }
+
+        long long power_usage2 = metric_.power_after2 - metric_.power_before2;
+        if(power_usage2 < 0){
+            power_usage2 = 262143328850 - metric_.power_before2 + metric_.power_after2;
+            cout << "%% " << power_usage2 << "=" << "262143328850-" << metric_.power_before2 << "+" << metric_.power_after2 << endl;
+        }
+
+        power_usage_ = (power_usage1 + power_usage2) / 1e6;
     }
 
     void AddResultInfo(string query_result){
@@ -329,6 +340,9 @@ public:
         writer.Key("cpu_usage");
         writer.Int(cpu_usage_);
 
+        writer.Key("cpu_utilization");
+        writer.Double(cpu_utilization_);
+
         writer.Key("power_usage");
         writer.Int(power_usage_);
 
@@ -373,6 +387,9 @@ public:
         writer.Key("cpu_usage");
         writer.Int(cpu_usage_);
 
+        writer.Key("cpu_utilization");
+        writer.Double(cpu_utilization_);
+
         writer.Key("power_usage");
         writer.Int(power_usage_);
 
@@ -405,8 +422,10 @@ public:
     struct Metric{
         long cpu_before = 0;
         long cpu_after = 0;
-        long long power_before = 0;
-        long long power_after = 0;
+        long long power_before1 = 0;
+        long long power_before2 = 0;
+        long long power_after1 = 0;
+        long long power_after2 = 0;
     };
 
 private:
@@ -428,6 +447,7 @@ private:
     string instance_name_;
     QueryLog::Metric metric_;
     long cpu_usage_;
+    double cpu_utilization_;
     long power_usage_;
     float data_size_;
     string pod_uid_;

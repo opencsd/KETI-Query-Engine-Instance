@@ -65,6 +65,9 @@ inline string formatTable(sql::ResultSet* res) {
             max_col_width[column_names[i - 1]] = max(max_col_width[column_names[i - 1]], cell_value.length());
         }
         table_data.push_back(row_data);
+        if(table_data.size() > 100){
+            break;
+        }
     }
 
     ostringstream table;

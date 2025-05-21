@@ -799,6 +799,7 @@ private:
                 }
             }
         }
+        
     }
     //Where 논리연산자 - AND OR NOT 으로 나눔 
     void removeQuotesAndParentheses(std::string& str) {
@@ -824,9 +825,37 @@ private:
             std::string token = match.str();
             OperValue parsed_token;
             std::cout << "Token: " << token << std::endl;
-             
+            if (std::regex_match(token, std::regex(R"(^['"].*['"]$)"))) {
+                token = token.substr(1, token.size() - 2);  // 첫 번째와 마지막 문자를 제거
+
+            }
+
+            // 날짜 (DATE)
+            if (std::regex_match(token, std::regex(R"(\b(\d{4})-(\d{2})-(\d{2})\b)"))) {
+                smatch date_match;
+                std::regex date_regex(R"(\b(\d{4})-(\d{2})-(\d{2})\b)");
+                if (std::regex_match(token, date_match, date_regex)) {
+                    std::string year_str = date_match[1];
+                    std::string month_str = date_match[2];
+                    std::string day_str = date_match[3];
+
+                    int year = std::stoi(year_str);
+                    int month = std::stoi(month_str);
+                    int day = std::stoi(day_str);
+
+                    int result = (year * 32 * 16) + (month * 32) + (day * 1);
+
+                    parsed_token.value_type = static_cast<int>(ValueType::DATE);
+                    parsed_token.value = to_string(result);
+
+                }
+            }// TIMESTAMP
+            else if (std::regex_match(token, std::regex(R"(\b\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\b)"))) {
+                parsed_token.value_type = static_cast<int>(ValueType::TIMESTAMP);
+                parsed_token.value = token;
+            }
             // 정수 (INT8 ~ INT64)
-            if (std::regex_match(token, std::regex(R"(\d+)"))) {
+            else if (std::regex_match(token, std::regex(R"(\d+)"))) {
                 long long value = std::stoll(token);
                 if (value <= 127) {
                     parsed_token.value_type = static_cast<int>(ValueType::INT8);
@@ -847,22 +876,7 @@ private:
                     parsed_token.value_type = static_cast<int>(ValueType::FLOAT64);
                 }
                 parsed_token.value = token;
-            }
-            // 날짜 (DATE)
-            else if (std::regex_match(token, std::regex(R"(\b\d{4}-\d{2}-\d{2}\b)"))) {
-                parsed_token.value_type = static_cast<int>(ValueType::DATE);
-                parsed_token.value = token;
-            }
-            // TIMESTAMP
-            else if (std::regex_match(token, std::regex(R"(\b\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\b)"))) {
-                parsed_token.value_type = static_cast<int>(ValueType::TIMESTAMP);
-                parsed_token.value = token;
-            }
-            // 문자열 (STRING)
-            else if (std::regex_match(token, std::regex(R"('.*?')"))) {
-                parsed_token.value_type = static_cast<int>(ValueType::STRING);
-                parsed_token.value = token;
-            }
+            }   
             // DECIMAL
             else if (std::regex_match(token, std::regex(R"(\d+\.\d+)"))) {
                 parsed_token.value_type = static_cast<int>(ValueType::DECIMAL);
@@ -870,6 +884,7 @@ private:
             }
             // 연산자 (OPERATOR)
             else if (std::regex_match(token, std::regex(R"([\+\-\*/])"))) {
+                cout << "oper" << endl;
                 parsed_token.value_type = static_cast<int>(ValueType::OPERATOR);
                 parsed_token.value = token;
             }
@@ -884,6 +899,7 @@ private:
                     std::smatch value_match;
 
                     while (std::regex_search(content, value_match, value_regex)) {
+                        cout << "list2" << endl;
                         std::string inner_token = value_match.str();
                         OperValue parsed_value;
 
@@ -1005,10 +1021,10 @@ private:
         mergeBetweenConditions(parsed_custom_query_.total_where_clause);
 
         //디버깅용 출력
-        // for (const auto& condition : parsed_custom_query_.total_where_clause) {
-        //     std::cout << "WHERE Condition: " << condition << std::endl;
+        for (const auto& condition : parsed_custom_query_.total_where_clause) {
+            std::cout << "WHERE Condition: " << condition << std::endl;
 
-        // }
+        }
         //whereCondition, joinCondition 구별 및 생성
         std::string table_name;
         int and_count = 0, or_count = 0;
@@ -1023,14 +1039,26 @@ private:
 
         for (auto& condition : parsed_custom_query_.total_where_clause) {
             temp_right_values.clear();
-            //Between먼저 처리
-            std::regex between_regex(R"((\w+\.\w+)\s+(BETWEEN|between)\s+'([^']*)'\s+AND\s+'([^']*)')", std::regex::icase);
-            std::smatch between_match;
-            if (std::regex_search(condition, between_match, between_regex)) {
+            
+            if(toLowerCase(condition).find("between") != std::string::npos) {
                 OperValue l_value, inner_right_value, inner_left_value;
-                std::string column_name = between_match[1].str();  // 컬럼 이름
-                std::string start_value = between_match[3].str();  // 시작값
-                std::string end_value = between_match[4].str();    // 종료값
+                std::stringstream ss(condition);
+                std::string token;
+                std::string column_name ;  // 컬럼 이름
+                std::string start_value ;  // 시작값
+                std::string end_value ;    // 종료값
+                int between_index = 0;
+                while (ss >> token) {  // 띄어쓰기를 기준으로 분리
+                    if(between_index == 0){
+                        column_name = token;
+                    }else if(between_index == 2){
+                        start_value = token;
+                    }else if(between_index == 4){
+                        end_value = token;
+                    }
+                    between_index++;         
+                }
+                
                 size_t dot_pos = column_name.find('.');
                 if (dot_pos != std::string::npos) {
                     // `.`가 존재하면 별칭과 컬럼명으로 나눔
@@ -1059,8 +1087,14 @@ private:
                         parsed_custom_query_.is_parsing_custom_query = false;
                     }
                 }
-                //오른쪽 set
-                
+                //왼쪽 오른쪽 set
+                if (std::regex_match(start_value, std::regex(R"(^['"].*['"]$)"))) {
+                    start_value = start_value.substr(1, start_value.size() - 2);  // 첫 번째와 마지막 문자를 제거
+                    end_value = end_value.substr(1, end_value.size() - 2); 
+                    cout << "between start value " << start_value << endl;
+                    cout << "between end_value " << end_value << endl;
+
+                }
                 if (std::regex_match(start_value, std::regex(R"(\d+)"))) {
                     long long value = std::stoll(start_value);
                     if (value <= 127) {
@@ -1084,18 +1118,42 @@ private:
                     inner_left_value.value = start_value;
                 }
                 // 날짜 (DATE)
-                else if (std::regex_match(start_value, std::regex(R"(\b\d{4}-\d{2}-\d{2}\b)"))) {
-                    inner_left_value.value_type = static_cast<int>(ValueType::DATE);
-                    inner_left_value.value = start_value;
+                else if (std::regex_match(start_value, std::regex(R"(\b(\d{4})-(\d{2})-(\d{2})\b)"))) {
+                    smatch date_match;
+                    std::regex date_regex(R"(\b(\d{4})-(\d{2})-(\d{2})\b)");
+                    if (std::regex_match(start_value, date_match, date_regex)) {
+                        std::string year_str = date_match[1];
+                        std::string month_str = date_match[2];
+                        std::string day_str = date_match[3];
+
+                        int year = std::stoi(year_str);
+                        int month = std::stoi(month_str);
+                        int day = std::stoi(day_str);
+
+                        int result = (year * 32 * 16) + (month * 32) + (day * 1);
+
+                        inner_left_value.value_type = static_cast<int>(ValueType::DATE);
+                        inner_left_value.value = to_string(result);
+                    }
+                    if (std::regex_match(end_value, date_match, date_regex)) {
+                        std::string year_str = date_match[1];
+                        std::string month_str = date_match[2];
+                        std::string day_str = date_match[3];
+
+                        int year = std::stoi(year_str);
+                        int month = std::stoi(month_str);
+                        int day = std::stoi(day_str);
+
+                        int result = (year * 32 * 16) + (month * 32) + (day * 1);
+
+                        inner_right_value.value_type = static_cast<int>(ValueType::DATE);
+                        inner_right_value.value = to_string(result);
+                    }
+                    
                 }
                 // TIMESTAMP
                 else if (std::regex_match(start_value, std::regex(R"(\b\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\b)"))) {
                     inner_left_value.value_type = static_cast<int>(ValueType::TIMESTAMP);
-                    inner_left_value.value = start_value;
-                }
-                // 문자열 (STRING)
-                else if (std::regex_match(start_value, std::regex(R"('.*?')"))) {
-                    inner_left_value.value_type = static_cast<int>(ValueType::STRING);
                     inner_left_value.value = start_value;
                 }
                 // DECIMAL
@@ -1103,11 +1161,17 @@ private:
                     inner_left_value.value_type = static_cast<int>(ValueType::DECIMAL);
                     inner_left_value.value = start_value;
                 }
-                inner_right_value.value = end_value;
-                inner_right_value.value_type= inner_left_value.value_type;
+                // 문자열 (STRING)
+                else {
+                    start_value = std::regex_replace(start_value, std::regex("'(.*?)'"), R"("$1")");
+                    inner_left_value.value_type = static_cast<int>(ValueType::STRING);
+                    inner_left_value.value = start_value;
+                }
+                
                 WhereCondition where_condition;
                 where_condition.left_values.push_back(l_value); 
-                where_condition.op = static_cast<int>(OperType::BETWEEN); 
+                where_condition.op = "BETWEEN"; 
+                cout << "타입:: " << where_condition.op << endl;
                 where_condition.right_values.push_back(inner_left_value);
                 where_condition.right_values.push_back(inner_right_value);
 
@@ -1585,7 +1649,6 @@ private:
 
             while (std::getline(fields_stream, field, ',')) {
                 trim(field);
-                // cout << field << " ";
                 size_t dot_pos = field.find('.');
                 std::string column_name;
                 if (dot_pos != std::string::npos) {

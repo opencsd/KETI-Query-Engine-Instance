@@ -1,11 +1,11 @@
 {
     "type": 5,
-    "query_id": 12,
+    "query_id": 0,
     "work_id": 2,
     "query_info": {
         "table_name": [
-            "snippet12-0",
-            "snippet12-1"
+            "snippet-0",
+            "snippet-1"
         ],
         "filtering": [
             {
@@ -14,7 +14,7 @@
                         10
                     ],
                     "value": [
-                        "o_orderkey"
+                        "c_custkey"
                     ]
                 },
                 "operator": 4,
@@ -23,41 +23,34 @@
                         10
                     ],
                     "value": [
-                        "l_orderkey"
+                        "o_custkey"
                     ]
                 }
             }
         ],
         "projection": [
             {
-                "select_type": 0,
+                "select_type": 4,
                 "value": [
-                    "l_shipmode"
+                    "snippet23-2-c1"
                 ],
                 "value_type": [
                     10
                 ]
             }
-        ],
-        "group_by": [
-            "l_shipmode"
-        ],
-        "order_by": {
-            "ascending": [
-                0
-            ],
-            "column_name": [
-                "l_shipmode"
-            ]
-        }
+        ]
     },
     "schema_info": {},
-    "index_table_info": {},
-    "sst_info": [],
+    "wal_info": {
+        "deleted_key": [],
+        "inserted_key": [],
+        "inserted_value": []
+    },
     "result_info": {
-        "table_alias": "result12",
+        "table_alias": "snippet-2",
         "column_alias": [
-            "l_shipmode"
+            "count(*)"
         ]
-    }
+    },
+    "sst_info": []
 }

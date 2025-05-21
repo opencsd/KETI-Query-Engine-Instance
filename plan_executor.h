@@ -28,6 +28,7 @@ public:
     int GetQueryID(){
         std::lock_guard<std::mutex> lock(mutex);
         return queryID_++;
+        // return 52;
     }
 
     std::string ExecuteQuery(StorageEngineConnector &storageEngineInterface, ParsedQuery &parsed_query, const string &db_name, QueryLog &query_log);

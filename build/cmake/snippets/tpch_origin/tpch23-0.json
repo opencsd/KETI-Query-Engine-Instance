@@ -1,17 +1,55 @@
 {
     "type": 0,
-    "query_id": 12,
+    "query_id": 0,
     "work_id": 0,
     "query_info": {
         "table_name": [
-            "orders"
+            "customer"
         ],
-        "filtering": [],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "c_mktsegment"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        9
+                    ],
+                    "value": [
+                        "BUILDING"
+                    ]
+                }
+            }
+        ],
         "projection": [
             {
                 "select_type": 0,
                 "value": [
-                    "o_orderkey"
+                    "c_acctbal"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "c_custkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "c_mktsegment"
                 ],
                 "value_type": [
                     10
@@ -22,7 +60,7 @@
     "schema_info": {
         "column_list": [
             {
-                "name": "o_orderkey",
+                "name": "c_custkey",
                 "type": 3,
                 "length": 4,
                 "primary": false,
@@ -30,7 +68,23 @@
                 "nullable": false
             },
             {
-                "name": "o_custkey",
+                "name": "c_name",
+                "type": 15,
+                "length": 25,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "c_address",
+                "type": 15,
+                "length": 40,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "c_nationkey",
                 "type": 3,
                 "length": 4,
                 "primary": false,
@@ -38,15 +92,15 @@
                 "nullable": false
             },
             {
-                "name": "o_orderstatus",
+                "name": "c_phone",
                 "type": 254,
-                "length": 1,
+                "length": 15,
                 "primary": false,
                 "index": false,
                 "nullable": false
             },
             {
-                "name": "o_totalprice",
+                "name": "c_acctbal",
                 "type": 246,
                 "length": 7,
                 "primary": false,
@@ -54,47 +108,23 @@
                 "nullable": false
             },
             {
-                "name": "o_orderdate",
-                "type": 14,
-                "length": 3,
-                "primary": false,
-                "index": false,
-                "nullable": false
-            },
-            {
-                "name": "o_orderpriority",
+                "name": "c_mktsegment",
                 "type": 254,
-                "length": 15,
+                "length": 10,
                 "primary": false,
                 "index": false,
                 "nullable": false
             },
             {
-                "name": "o_clerk",
-                "type": 254,
-                "length": 15,
-                "primary": false,
-                "index": false,
-                "nullable": false
-            },
-            {
-                "name": "o_shippriority",
-                "type": 3,
-                "length": 4,
-                "primary": false,
-                "index": false,
-                "nullable": false
-            },
-            {
-                "name": "o_comment",
+                "name": "c_comment",
                 "type": 15,
-                "length": 79,
+                "length": 117,
                 "primary": false,
                 "index": false,
                 "nullable": false
             }
         ],
-        "table_index_number": 278
+        "table_index_number": 283
     },
     "wal_info": {
         "deleted_key": [],
@@ -102,92 +132,93 @@
         "inserted_value": []
     },
     "result_info": {
-        "table_alias": "snippet12-0",
+        "table_alias": "snippet-0",
         "column_alias": [
-            "o_orderkey"
+            "c_custkey",
+            "c_mktsegment"
         ],
-        "total_block_count": 43247
+        "total_block_count": 6494
     },
     "sst_info": [
         {
-            "sst_name": "000290.sst",
+            "sst_name": "000664.sst",
             "csd": [
                 {
                     "csd_id": "1",
                     "partition": "/dev/ngd-blk3"
                 }
             ],
-            "sst_block_count": 5406
+            "sst_block_count": 813
         },
         {
-            "sst_name": "000291.sst",
+            "sst_name": "000723.sst",
             "csd": [
                 {
                     "csd_id": "2",
                     "partition": "/dev/ngd-blk3"
                 }
             ],
-            "sst_block_count": 5408
+            "sst_block_count": 813
         },
         {
-            "sst_name": "000292.sst",
+            "sst_name": "000724.sst",
             "csd": [
                 {
                     "csd_id": "3",
                     "partition": "/dev/ngd-blk3"
                 }
             ],
-            "sst_block_count": 5410
+            "sst_block_count": 810
         },
         {
-            "sst_name": "000351.sst",
+            "sst_name": "000725.sst",
             "csd": [
                 {
                     "csd_id": "4",
                     "partition": "/dev/ngd-blk3"
                 }
             ],
-            "sst_block_count": 5405
+            "sst_block_count": 811
         },
         {
-            "sst_name": "000352.sst",
+            "sst_name": "000726.sst",
             "csd": [
                 {
                     "csd_id": "5",
                     "partition": "/dev/ngd-blk3"
                 }
             ],
-            "sst_block_count": 5404
+            "sst_block_count": 811
         },
         {
-            "sst_name": "000353.sst",
+            "sst_name": "000785.sst",
             "csd": [
                 {
                     "csd_id": "6",
                     "partition": "/dev/ngd-blk3"
                 }
             ],
-            "sst_block_count": 5405
+            "sst_block_count": 812
         },
         {
-            "sst_name": "000354.sst",
+            "sst_name": "000786.sst",
             "csd": [
                 {
                     "csd_id": "7",
                     "partition": "/dev/ngd-blk3"
                 }
             ],
-            "sst_block_count": 5405
+            "sst_block_count": 812
         },
         {
-            "sst_name": "000413.sst",
+            "sst_name": "000787.sst",
             "csd": [
                 {
                     "csd_id": "8",
                     "partition": "/dev/ngd-blk3"
                 }
             ],
-            "sst_block_count": 5404
+            "sst_block_count": 812
         }
     ]
 }

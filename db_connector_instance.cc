@@ -237,8 +237,8 @@ void DBConnectorInstance::handle_post(http_request message)
             execution = std::round(elapsed_seconds.count() * 100) / 100.0;
 
             query_log.AddResultInfo(result_str);
-            query_log.AddMetricInfo();
             query_log.AddTimeInfo(begin, end,execution);
+            query_log.AddMetricInfo();
 
             std::string response_body = query_log.QueryLog2JsonSsd();
 
@@ -335,8 +335,8 @@ void DBConnectorInstance::handle_post(http_request message)
             auto elapsed_seconds = std::chrono::duration_cast<std::chrono::duration<double>>(endTime - startTime);
             execution = std::round(elapsed_seconds.count() * 100) / 100.0;
 
-            query_log.AddMetricInfo();
             query_log.AddTimeInfo(begin, end,execution);
+            query_log.AddMetricInfo();
             query_log.InsertQueryLog();
 
             std::string response_body = query_log.QueryLog2Json();

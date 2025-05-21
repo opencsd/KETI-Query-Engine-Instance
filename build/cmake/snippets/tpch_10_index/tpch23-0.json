@@ -1,0 +1,184 @@
+{
+    "type": 0,
+    "query_id": 0,
+    "work_id": 0,
+    "query_info": {
+        "table_name": [
+            "customer"
+        ],
+        "filtering": [
+            {
+                "lv": {
+                    "type": [
+                        10
+                    ],
+                    "value": [
+                        "c_mktsegment"
+                    ]
+                },
+                "operator": 4,
+                "rv": {
+                    "type": [
+                        9
+                    ],
+                    "value": [
+                        "BUILDING"
+                    ]
+                }
+            }
+        ],
+        "projection": [
+            {
+                "select_type": 0,
+                "value": [
+                    "c_acctbal"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "c_custkey"
+                ],
+                "value_type": [
+                    10
+                ]
+            },
+            {
+                "select_type": 0,
+                "value": [
+                    "c_mktsegment"
+                ],
+                "value_type": [
+                    10
+                ]
+            }
+        ]
+    },
+    "schema_info": {
+        "column_list": [
+            {
+                "name": "c_custkey",
+                "type": 3,
+                "length": 4,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "c_name",
+                "type": 15,
+                "length": 25,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "c_address",
+                "type": 15,
+                "length": 40,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "c_nationkey",
+                "type": 3,
+                "length": 4,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "c_phone",
+                "type": 254,
+                "length": 15,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "c_acctbal",
+                "type": 246,
+                "length": 7,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "c_mktsegment",
+                "type": 254,
+                "length": 10,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            },
+            {
+                "name": "c_comment",
+                "type": 15,
+                "length": 117,
+                "primary": false,
+                "index": false,
+                "nullable": false
+            }
+        ],
+        "table_index_number": 283
+    },
+    "wal_info": {
+        "deleted_key": [],
+        "inserted_key": [],
+        "inserted_value": []
+    },
+    "result_info": {
+        "table_alias": "snippet23-0",
+        "column_alias": [
+            "c_custkey",
+            "c_mktsegment"
+        ],
+        "total_block_count": 66953
+    },
+    "sst_info": [
+        {
+            "sst_name": "025096.sst",
+            "csd": [
+                {
+                    "csd_id": "4",
+                    "partition": "/dev/ngd-blk3"
+                }
+            ],
+            "sst_block_count": 16684
+        },
+        {
+            "sst_name": "025093.sst",
+            "csd": [
+                {
+                    "csd_id": "1",
+                    "partition": "/dev/ngd-blk3"
+                }
+            ],
+            "sst_block_count": 16758
+        },
+        {
+            "sst_name": "025095.sst",
+            "csd": [
+                {
+                    "csd_id": "3",
+                    "partition": "/dev/ngd-blk3"
+                }
+            ],
+            "sst_block_count": 16755
+        },
+        {
+            "sst_name": "025094.sst",
+            "csd": [
+                {
+                    "csd_id": "2",
+                    "partition": "/dev/ngd-blk3"
+                }
+            ],
+            "sst_block_count": 16756
+        }
+    ]
+}
